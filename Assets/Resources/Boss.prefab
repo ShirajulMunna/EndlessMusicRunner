@@ -210,4 +210,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2ae2e3660f3192d49a36eb4aa76fd62d, type: 2}
   - {fileID: 11400000, guid: 933f9dbbd5471f240bd63f6f0b29cfa8, type: 2}
   My: {fileID: 5927427790796394015}
+  Delay: 1
   bossAnimation: {fileID: 5927427790796394015}

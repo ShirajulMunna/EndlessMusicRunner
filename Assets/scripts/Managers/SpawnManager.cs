@@ -69,6 +69,8 @@ public class SpawnManager : MonoBehaviour
         //몬스터 오브젝트풀링으로 추후 변경예정
         int counting = 0;
         bool isNewCreatBoss = false; // 보스생성했는가에 대한 변수
+        Boss boss = null;
+        var audio = AudioManager.instance;
         while (true)
         {
             var level = GameData.Data.LevelDesigin[StageInfo];
@@ -76,7 +78,16 @@ public class SpawnManager : MonoBehaviour
             for (int i = 0; i < level.Count; i++)
             {
                 var monsterInfo = GameData.Data.MonsterTable[level[idx].MonsterInfo];
+                if(isNewCreatBoss)
+                {
+                    
+                    audio.Audio_BackGround.PlayOneShot(audio.bossAttackClip);
 
+                    if(boss ==null)
+                        boss = GameObject.FindAnyObjectByType<Boss>();
+                }
+                if (boss != null)
+                    boss.PlayerAttack("Attack1", true);
                 if (level[idx].MonsterInfo / 1000 == 1)
                 {
                     for (int j = 0; j < level[idx].MonsterSpwanCount; ++j)
@@ -99,7 +110,6 @@ public class SpawnManager : MonoBehaviour
 
                         if (isBoss)
                             isNewCreatBoss = true;
-
                         yield return new WaitForSeconds(level[idx].CoolTime);
                     }
                 }

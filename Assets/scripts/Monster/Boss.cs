@@ -176,4 +176,16 @@ public class Boss : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void PlayerAttack(string animationName, bool loop)
+    {
+        My.skeleton.SetToSetupPose();
+        My.state.SetAnimation(0, animationName, loop);
+
+        if (loop == false)
+        {
+            var ani = "idle";
+            My.state.SetAnimation(0, ani, true); 
+        }
+    }
 }

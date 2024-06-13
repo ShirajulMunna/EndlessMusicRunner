@@ -2184,6 +2184,7 @@ MonoBehaviour:
   clap_2: {fileID: 8300000, guid: 8f45f6d2f3aedc545a567482f23b0f7a, type: 3}
   ouch_1: {fileID: 8300000, guid: f4684ca5a03e3b94684f0d8f69680689, type: 3}
   failGame: {fileID: 8300000, guid: 8b6bd52672dabdd47b271583bcf17225, type: 3}
+  bossAttackClip: {fileID: 8300000, guid: 8a61adc26a285e345bf71f08f7ed7717, type: 3}
   Audio_BackGround: {fileID: 108821246}
   BackSound:
   - {fileID: 8300000, guid: a2abdeff1338aa0419b0d09eaf30b841, type: 3}
@@ -2341,8 +2342,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7436808ca6c023d42bfbc716373e6a4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upHitEffect: {fileID: 0}
-  hitEffect: {fileID: 0}
+  upHitEffect: {fileID: 181478, guid: 13a6fe769bfe41f48be29d1efb86874c, type: 3}
+  hitEffect: {fileID: 181478, guid: 4f7e2db9e95811a4ead0ef5a15d02e2e, type: 3}
   destroyParticleEffects: []
   puffEffect: {fileID: 0}
   ScroeStateList:
