@@ -29,7 +29,6 @@ public class SpawnManager : MonoBehaviour
         new Vector3(20, -3.5f, 0),
         new Vector3(20, 0, 0),
         new Vector3(20, 3.5f, 0),
-        new Vector3(12, -2.5f, 0),
     };
     void Start()
     {

@@ -328,5 +328,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29e5a886bd3ce024b88f23740688a8f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Delay: 1
+  Delay: 0.3
   BossState: 3

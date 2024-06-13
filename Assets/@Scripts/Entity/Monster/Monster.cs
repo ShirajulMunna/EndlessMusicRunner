@@ -113,13 +113,14 @@ public class Monster : Entity, IMonsterMove
         //위치 맞는지 체크 후 공격
         var point = transform.position.y == -3.5f ? E_AttackPoint.Down : E_AttackPoint.Up;
         var checkhit = player.M_Move.CheckHitActive(point);
+        AudioManager.instance.PlayMusic();
+
         if (!checkhit)
         {
             return;
         }
 
         player.SetHp(-damageAmount);
-        AudioManager.instance.PlayMusic();
     }
 
     public override void SetHp(int value)
