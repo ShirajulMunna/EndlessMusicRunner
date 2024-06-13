@@ -9,27 +9,28 @@ public class Effect : MonoBehaviour
 {
     const string Name = "GameConditionEffect_{0}";
     public float fadeDuration = 1f;
-    public static async Task<Effect> Create(Vector3 spawnPosition)
+    public static async Task<Effect> Create(Vector3 spawnPosition,int number)
     {
-        var result = await Name.CreateOBJ<Effect>(default,spawnPosition,default);
+        var name = string.Format(Name, number);
+        var result = await name.CreateOBJ<Effect>(default,spawnPosition,default);
         return result;
     }
     void Start()
     {
-        StartCoroutine(OpacityChange(gameObject));
+        StartCoroutine(OpacityChange());
 
         MoveUPword();
     }
-    public IEnumerator OpacityChange(GameObject obj)
+    public IEnumerator OpacityChange()
     {
-        var color = obj.GetComponent<SpriteRenderer>();
-        Color currentColor = obj.GetComponent<SpriteRenderer>().color;
+        var color = GetComponent<SpriteRenderer>();
+        Color currentColor = GetComponent<SpriteRenderer>().color;
 
 
         for (float t = 0; t < fadeDuration; t += Time.deltaTime)
         {
 
-            if (obj == null || !obj.activeSelf)
+            if (!gameObject.activeSelf)
                 yield break;
 
             float normalizedTime = t / fadeDuration;
@@ -40,13 +41,11 @@ public class Effect : MonoBehaviour
             {
                 currentColor.a = 0;
                 color.color = currentColor;
-                Destroy(obj);
+                Destroy(this);
 
                 yield break;
             }
-
-            if (obj != null)
-                obj.GetComponent<SpriteRenderer>().color = currentColor;
+            GetComponent<SpriteRenderer>().color = currentColor;
 
 
             yield return null;

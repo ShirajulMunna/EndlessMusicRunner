@@ -29,9 +29,15 @@ public class HitCollisionDetection : MonoBehaviour
     public Transform upHitPoint;
     public float effectUpPositionY;
 
-    private enum EffectType
+    //이펙트 위치 
+    private enum EffectPosition
     {
         None,Up,Down,Middle
+    }
+    //판정 조건 오브젝트 생성
+    private enum ConditionEffect
+    {
+        None = 0,Perfect,Great,Opps
     }
     const string AddresEffectName = "PlayerEffect_{0}";
     private void Start()
@@ -81,21 +87,35 @@ public class HitCollisionDetection : MonoBehaviour
 
         if (hitPoint.y > 0)
         {
-            var name = string.Format(AddresEffectName, (int)EffectType.Up);
+            var name = string.Format(AddresEffectName, (int)EffectPosition.Up);
             var result = await name.CreateOBJ<GameObject>(default, hitPoint, Quaternion.identity);
         }
         else if(obj.GetComponent<Monster>().uniqMonster == UniqMonster.SendBack)
         {
-            var name = string.Format(AddresEffectName, (int)EffectType.Middle);
+            var name = string.Format(AddresEffectName, (int)EffectPosition.Middle);
             var result = await name.CreateOBJ<GameObject>(default, hitPoint, Quaternion.identity);
         }
         else
         {
-            var name = string.Format(AddresEffectName, (int)EffectType.Down);
+            var name = string.Format(AddresEffectName, (int)EffectPosition.Down);
             var result = await name.CreateOBJ<GameObject>(default,hitPoint,Quaternion.identity);
         }
 
-
+        switch(perfect)
+        {
+            case ScoreManager.E_ScoreState.Perfect:
+                var result1 = await Effect.Create(downHitPoint.position, (int)ConditionEffect.Perfect);
+                result1.fadeDuration = fadeDuration;
+                break;
+            case ScoreManager.E_ScoreState.Great:
+                var result2 = await Effect.Create(downHitPoint.position, (int)ConditionEffect.Great);
+                result2.fadeDuration = fadeDuration;
+                break;
+            case ScoreManager.E_ScoreState.Miss:
+                var result3 = await Effect.Create(downHitPoint.position, (int)ConditionEffect.Opps);
+                result3.fadeDuration = fadeDuration;
+                break;
+        }
         //var txteffects = ScroeStateList[(int)perfect];
         //����Ʈ ��ġ���� �ڵ�� ���� 
         //var txteffects = Addressables.InstantiateAsync(ScoreStateListName[(int)perfect]);
