@@ -353,12 +353,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6999f0b967a573468f50aec485f76b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 100
-  fillAmount: {fileID: 0}
-  M_SkeletonAnimation: {fileID: 1236657713761570640}
-  AttackPoint: 0
-  MovePoint: 0
+  maxHp: 100
+  curHp: 100
+  _skeletonAnimation: {fileID: 1236657713761570640}
+  M_Move: {fileID: 0}
 --- !u!1 &7546043932877010485
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,7 +402,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 475894, guid: 5424767cf5fd7b5439906bdd5a6dd834, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4
+      value: -1.9
       objectReference: {fileID: 0}
     - target: {fileID: 475894, guid: 5424767cf5fd7b5439906bdd5a6dd834, type: 3}
       propertyPath: m_LocalPosition.y

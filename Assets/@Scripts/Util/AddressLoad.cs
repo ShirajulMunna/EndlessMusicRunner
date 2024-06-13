@@ -28,8 +28,14 @@ public static class AddressLoad
             return null;
         }
 
+        if (typeof(T) == typeof(GameObject))
+        {
+            return go as T;
+        }
+
         return go.GetComponent<T>();
     }
+
 
     /// <summary>
     /// 로드 함수

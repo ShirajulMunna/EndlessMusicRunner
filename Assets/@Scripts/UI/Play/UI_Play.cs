@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UI_Play : MonoBehaviour
 {
@@ -16,7 +17,10 @@ public class UI_Play : MonoBehaviour
     [SerializeField] TextMeshProUGUI scoreTxt;
     [SerializeField] TextMeshProUGUI comboTxt;
 
-    float DelayTime = 7;
+    [Header("HP")]
+    [SerializeField] Image Img_Hp;
+
+    float DelayTime = 3;
 
     private void Awake()
     {
@@ -34,7 +38,7 @@ public class UI_Play : MonoBehaviour
     {
         yield return new WaitForSeconds(DelayTime);
         Key_Explain.SetActive(false);
-        SpawnManager.instance.StartSpawningObjects(true);
+        SpawnManager.instance.StartSpawningObjects();
     }
 
     //스코어 셋팅    
@@ -55,6 +59,12 @@ public class UI_Play : MonoBehaviour
         comboTxt.text = score.ToString();
         combo.SetActive(true);
     }
+
+    public void SetHp(float max, float cur)
+    {
+        Img_Hp.fillAmount = cur / max;
+    }
+
     public async void Btn_Pause()
     {
         var name = "UI_Pause";

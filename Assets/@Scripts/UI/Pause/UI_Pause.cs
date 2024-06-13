@@ -2,6 +2,12 @@ using UnityEngine;
 
 public class UI_Pause : MonoBehaviour
 {
+    const string Name = "UI_Pause";
+    public static async void Create()
+    {
+        var result = await Name.CreateOBJ<UI_Pause>();
+    }
+
     private void Start()
     {
         Time.timeScale = 0;

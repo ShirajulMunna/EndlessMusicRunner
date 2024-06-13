@@ -13,10 +13,9 @@ GameObject:
   - component: {fileID: 5927427790796394014}
   - component: {fileID: 5927427790796394015}
   - component: {fileID: 5927427790796393987}
-  - component: {fileID: 5927427790796393985}
   - component: {fileID: 5927427790796393986}
-  - component: {fileID: -7034009947147531928}
   - component: {fileID: 5983066574386384427}
+  - component: {fileID: -1104286101081207828}
   m_Layer: 8
   m_Name: Zombie
   m_TagString: Monster
@@ -67,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c1a8dfac9ee575b4caff047c06a1ab95, type: 2}
+  - {fileID: 2100000, guid: 01f66d48fbb3fab4db86c6f9c987d57f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -101,8 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: a40c14661effb484ba75e8019da198cd, type: 2}
-  initialSkinName: skin0
+  skeletonDataAsset: {fileID: 11400000, guid: d742b1b996e0bb14c86112e4df4b8fa0, type: 2}
+  initialSkinName: skin7
   fixPrefabOverrideViaMeshFilter: 2
   initialFlipX: 0
   initialFlipY: 0
@@ -161,25 +160,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.29, y: 5.49}
+  m_Offset: {x: -1.29, y: 0}
   serializedVersion: 2
   m_Radius: 4.08
---- !u!114 &5927427790796393985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5927427790796394008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76197c701dba3554588f057ef2c81496, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 20
-  monsterNumber: 17
-  DestoryX: 0
-  uniqMonster: 0
 --- !u!114 &5927427790796393986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,30 +175,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf14aa19107eee946b6e8380e33102ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
-  currentHealth: 0
-  fillAmount: {fileID: 0}
-  isOnGround: 1
+  maxHp: 0
+  curHp: 0
+  _skeletonAnimation: {fileID: 0}
   damageAmount: 10
   damageFx: {fileID: 6630400188505773858, guid: dd80aa9b27baa334ea57eb66d90b8392, type: 3}
-  Change: 1
+  Change: 0
   Sk:
   - {fileID: 11400000, guid: 077fcd47029a1ed418ef4d87bdad0dc5, type: 2}
   - {fileID: 11400000, guid: 6fd0c7d80f0075240ae8a896fb98ecb5, type: 2}
-  My: {fileID: 5927427790796394015}
---- !u!114 &-7034009947147531928
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5927427790796394008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6895d7b20e027314489d15257b93cbc6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioNumber: 2
+  uniqMonster: 0
 --- !u!50 &5983066574386384427
 Rigidbody2D:
   serializedVersion: 4
@@ -243,3 +212,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &-1104286101081207828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5927427790796394008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 012f8caf96117b642b39ab58708b5eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skin_Names:
+  - skin0
+  - skin1
+  - skin2
+  - skin3
+  - skin4
+  - skin5
+  - skin6
+  - skin7

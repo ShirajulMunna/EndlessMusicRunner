@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 8655841565898487348}
   - component: {fileID: 8655841565898487349}
   - component: {fileID: 8655841565898487346}
-  - component: {fileID: 8655841565898487347}
   - component: {fileID: 8655841565898487344}
   - component: {fileID: 8655841565898487345}
   - component: {fileID: 8655841565898487342}
+  - component: {fileID: -1502069706955874578}
   m_Layer: 8
   m_Name: Pencil2
   m_TagString: Monster
@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 94b91ddff40ac5a4ba6d2a8ae5501208, type: 2}
+  - {fileID: 2100000, guid: eba7cdc9af291d94796d984d06587004, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -128,22 +128,6 @@ MonoBehaviour:
   _animationName: 
   loop: 1
   timeScale: 0.2
---- !u!114 &8655841565898487347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8655841565898487343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76197c701dba3554588f057ef2c81496, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 20
-  monsterNumber: 13
-  DestoryX: 0
-  uniqMonster: 0
 --- !u!114 &8655841565898487344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,17 +140,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf14aa19107eee946b6e8380e33102ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
-  currentHealth: 0
-  fillAmount: {fileID: 0}
-  isOnGround: 1
+  maxHp: 0
+  curHp: 0
+  _skeletonAnimation: {fileID: 0}
   damageAmount: 5
   damageFx: {fileID: 6630400188505773858, guid: dd80aa9b27baa334ea57eb66d90b8392, type: 3}
-  Change: 1
+  Change: 0
   Sk:
   - {fileID: 11400000, guid: 3ba75661849d13d45864032068153521, type: 2}
   - {fileID: 11400000, guid: 443f66e482119ea42a780f748e65c685, type: 2}
-  My: {fileID: 8655841565898487346}
+  uniqMonster: 0
 --- !u!70 &8655841565898487345
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -229,3 +212,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &-1502069706955874578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8655841565898487343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 012f8caf96117b642b39ab58708b5eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skin_Names:
+  - skin0
+  - skin1
+  - skin2
+  - skin3
+  - skin4
+  - skin5
+  - skin6
+  - skin7
