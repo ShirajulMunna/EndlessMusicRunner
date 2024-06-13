@@ -41,8 +41,7 @@ public class Effect : MonoBehaviour
             {
                 currentColor.a = 0;
                 color.color = currentColor;
-                Destroy(this);
-
+                Destroy(gameObject);
                 yield break;
             }
             GetComponent<SpriteRenderer>().color = currentColor;

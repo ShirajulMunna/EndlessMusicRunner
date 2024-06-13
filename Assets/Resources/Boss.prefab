@@ -201,13 +201,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2d2c6ccbcb582a459dd4ad36467d6da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
-  Damage: 5
-  monsterMaxHp: 10
-  G_Pattern: []
-  Change: 1
+  maxHp: 0
+  curHp: 0
+  _skeletonAnimation: {fileID: 0}
+  damageAmount: 0
+  damageFx: {fileID: 0}
+  Change: 0
   Sk:
   - {fileID: 11400000, guid: 2ae2e3660f3192d49a36eb4aa76fd62d, type: 2}
   - {fileID: 11400000, guid: 933f9dbbd5471f240bd63f6f0b29cfa8, type: 2}
-  My: {fileID: 5927427790796394015}
-  bossAnimation: {fileID: 5927427790796394015}
+  uniqMonster: 0
+  L_Ani:
+  - idle
+  - Attack1
+  - Attack2
+  - Attack3
+  - Hit
+  - retire
