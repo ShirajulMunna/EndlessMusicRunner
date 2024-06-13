@@ -5,8 +5,6 @@ Medium_Monster_white bird.png
 	scale: 0.5
 skin0/D_mouth
 	bounds: 458, 31, 78, 43
-skin1/D_mouth
-	bounds: 458, 31, 78, 43
 skin3/D_mouth
 	bounds: 458, 31, 78, 43
 skin0/L_foot
@@ -85,15 +83,20 @@ skin5/eye_1
 	bounds: 1403, 1381, 140, 75
 	rotate: 90
 skin0/eye_2
-	bounds: 959, 71, 64, 55
+	bounds: 1408, 149, 64, 55
+	rotate: 90
 skin1/eye_2
-	bounds: 959, 71, 64, 55
+	bounds: 1408, 149, 64, 55
+	rotate: 90
 skin2/eye_2
-	bounds: 959, 71, 64, 55
+	bounds: 1408, 149, 64, 55
+	rotate: 90
 skin3/eye_2
-	bounds: 959, 71, 64, 55
+	bounds: 1408, 149, 64, 55
+	rotate: 90
 skin5/eye_2
-	bounds: 959, 71, 64, 55
+	bounds: 1408, 149, 64, 55
+	rotate: 90
 skin0/eye_3
 	bounds: 170, 2, 72, 70
 	rotate: 90
@@ -109,6 +112,8 @@ skin3/eye_3
 skin5/eye_3
 	bounds: 170, 2, 72, 70
 	rotate: 90
+skin1/D_mouth
+	bounds: 639, 83, 78, 43
 skin1/L_wing
 	bounds: 1190, 1304, 211, 217
 	offsets: 0, 28, 211, 273
@@ -120,7 +125,7 @@ skin1/bady
 	bounds: 2, 757, 394, 381
 	offsets: 0, 0, 394, 383
 skin2/D_mouth
-	bounds: 639, 83, 78, 43
+	bounds: 719, 83, 78, 43
 skin2/L_wing
 	bounds: 794, 538, 211, 217
 	offsets: 0, 28, 211, 273
@@ -140,9 +145,9 @@ skin3/bady
 	bounds: 2, 374, 394, 381
 	offsets: 0, 0, 394, 383
 skin4/D_mouth
-	bounds: 719, 83, 78, 43
+	bounds: 799, 83, 78, 43
 skin7/D_mouth
-	bounds: 719, 83, 78, 43
+	bounds: 799, 83, 78, 43
 skin4/L_foot
 	bounds: 228, 76, 107, 77
 	offsets: 14, 18, 128, 109
@@ -164,13 +169,13 @@ skin4/eye
 skin4/eye_1
 	bounds: 2, 78, 140, 75
 skin4/eye_2
-	bounds: 1408, 149, 64, 55
+	bounds: 1408, 83, 64, 55
 	rotate: 90
 skin4/eye_3
 	bounds: 242, 2, 72, 70
 	rotate: 90
 skin5/D_mouth
-	bounds: 799, 83, 78, 43
+	bounds: 879, 83, 78, 43
 skin5/L_wing
 	bounds: 428, 155, 211, 217
 	offsets: 0, 28, 211, 273
@@ -182,7 +187,7 @@ skin5/bady
 	bounds: 794, 1140, 394, 381
 	offsets: 0, 0, 394, 383
 skin6/D_mouth
-	bounds: 879, 83, 78, 43
+	bounds: 959, 83, 78, 43
 skin6/L_foot
 	bounds: 337, 76, 107, 77
 	offsets: 14, 18, 128, 109
@@ -206,7 +211,7 @@ skin6/eye
 skin6/eye_1
 	bounds: 1075, 256, 140, 75
 skin6/eye_2
-	bounds: 1408, 83, 64, 55
+	bounds: 1408, 17, 64, 55
 	rotate: 90
 skin6/eye_3
 	bounds: 314, 2, 72, 70
@@ -235,7 +240,7 @@ skin7/eye_1
 	bounds: 1403, 1239, 140, 75
 	rotate: 90
 skin7/eye_2
-	bounds: 1408, 17, 64, 55
+	bounds: 1425, 832, 64, 55
 	rotate: 90
 skin7/eye_3
 	bounds: 386, 2, 72, 70

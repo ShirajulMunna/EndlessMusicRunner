@@ -1,9 +1,9 @@
 {
-"skeleton": { "hash": "WGdCj1h9EYE", "spine": "4.1.24", "x": -468.53, "y": -87.48, "width": 855.75, "height": 995.86 },
+"skeleton": { "hash": "QSDscw96cFw", "spine": "4.1.24", "x": -384.65, "y": -423, "width": 855.75, "height": 995.86 },
 "bones": [
 	{ "name": "root" },
 	{ "name": "bone", "parent": "root" },
-	{ "name": "bady", "parent": "bone", "y": 356.57 },
+	{ "name": "bady", "parent": "bone", "x": 83.88, "y": 21.05 },
 	{ "name": "R_hand", "parent": "bady", "length": 33.01, "rotation": -22.54, "x": 82, "y": -27.34 },
 	{ "name": "R_foot", "parent": "bady", "length": 160.64, "rotation": -177.04, "x": 43.57, "y": -290.94 },
 	{ "name": "L_hand", "parent": "bady", "length": 38.13, "rotation": -168.29, "x": -177.37, "y": -51.38 },

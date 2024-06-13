@@ -1,7 +1,7 @@
 {
-"skeleton": { "hash": "Yt7fkBZMC4U", "spine": "4.1.24", "x": -285.65, "y": -122.34, "width": 572.29, "height": 245.68 },
+"skeleton": { "hash": "EdsLPsuVj0w", "spine": "4.1.24", "x": -285.5, "y": -122, "width": 572, "height": 245 },
 "bones": [
-	{ "name": "root", "rotation": 0.07 },
+	{ "name": "root" },
 	{ "name": "bone2", "parent": "root", "x": -1272.01 },
 	{ "name": "bone", "parent": "bone2", "x": 1272.01 }
 ],

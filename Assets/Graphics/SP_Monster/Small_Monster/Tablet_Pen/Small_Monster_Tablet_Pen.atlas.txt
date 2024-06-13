@@ -1,25 +1,22 @@
 Small_Monster_Tablet_Pen.png
-	size: 1136, 1136
+	size: 578, 578
 	filter: Linear, Linear
 	pma: true
+	scale: 0.5
 skin0/pencil
-	bounds: 576, 70, 558, 243
-	offsets: 8, 1, 572, 245
+	bounds: 290, 78, 279, 123
+	offsets: 4, 0, 286, 123
 skin1/pencil
-	bounds: 2, 889, 572, 245
+	bounds: 2, 453, 286, 123
 skin2/pencil
-	bounds: 576, 562, 572, 245
-	rotate: 90
+	bounds: 2, 328, 286, 123
 skin3/pencil
-	bounds: 2, 315, 572, 245
-	rotate: 90
+	bounds: 290, 453, 286, 123
 skin4/pencil
-	bounds: 249, 315, 572, 245
-	rotate: 90
+	bounds: 2, 203, 286, 123
 skin5/pencil
-	bounds: 496, 315, 572, 245
+	bounds: 290, 328, 286, 123
 skin6/pencil
-	bounds: 823, 562, 572, 245
-	rotate: 90
+	bounds: 2, 78, 286, 123
 skin7/pencil
-	bounds: 2, 68, 572, 245
+	bounds: 290, 203, 286, 123
