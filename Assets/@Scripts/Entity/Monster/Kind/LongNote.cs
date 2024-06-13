@@ -35,7 +35,7 @@ public class LongNote : MonoBehaviour
         var load = Resources.Load<GameObject>(path);
         var note = Instantiate<GameObject>(load);
         note.transform.position = CreatePos;
-        note.GetComponent<MoveLeft>().speed = speed;
+        //note.GetComponent<Monster>().Speed = speed;
     }
     private void Start()
     {
@@ -49,7 +49,7 @@ public class LongNote : MonoBehaviour
                 int spriteIndex = (int)UI_Lobby.playerSkinType % idx;
                 if (type == 1)
                     spriteIndex += (int)PlayerSkinType.Count;
-                
+
                 myNoteSprite[i].sprite = noteSprites[spriteIndex];
                 //����� 1�γ��ͼ� 0.5�� �������� ����
                 myNoteSprite[i].gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
@@ -71,7 +71,7 @@ public class LongNote : MonoBehaviour
             var targetPosition = GameManager.instance.player.transform.position;
             if (transform.position.x <= targetPosition.x)
             {
-                GameManager.instance.player.SetHP(-5);
+                GameManager.instance.player.SetHp(-5);
                 ScoreManager.instance.SetBestCombo_Reset();
                 Destroy(gameObject);
             }
@@ -79,7 +79,7 @@ public class LongNote : MonoBehaviour
         }
 
         var player = GameManager.instance.player;
-        if (player.GetAttackState(E_AttackState.Hold))
+        if (player.M_Attack.GetAttackState(E_AttackState.Hold))
         {
             //딜레이 시간
             if (GetScoreTime + 0.1f <= Time.time)

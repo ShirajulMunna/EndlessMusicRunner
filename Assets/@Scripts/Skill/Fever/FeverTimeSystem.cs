@@ -9,7 +9,9 @@ public class FerverTimeSystem : Skill
     public static async void Create(SkillData st_Skill)
     {
         _skillClass = SkillClass.CreateClass(_skillClass);
+        //이름 만들기
         var name = string.Format(Name, st_Skill.Objnum);
+
         var result = await Skill.Create<FerverTimeSystem>(st_Skill, name, _skillClass);
         if (result == null)
         {

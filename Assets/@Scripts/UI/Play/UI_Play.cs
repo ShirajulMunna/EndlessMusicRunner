@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UI_Play : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class UI_Play : MonoBehaviour
     [Header("콤보 및 스코어 텍스트")]
     [SerializeField] TextMeshProUGUI scoreTxt;
     [SerializeField] TextMeshProUGUI comboTxt;
+
+    [Header("HP")]
+    [SerializeField] Image Img_Hp;
 
     float DelayTime = 7;
 
@@ -55,6 +59,12 @@ public class UI_Play : MonoBehaviour
         comboTxt.text = score.ToString();
         combo.SetActive(true);
     }
+
+    public void SetHp(float max, float cur)
+    {
+        Img_Hp.fillAmount = cur / max;
+    }
+
     public async void Btn_Pause()
     {
         var name = "UI_Pause";

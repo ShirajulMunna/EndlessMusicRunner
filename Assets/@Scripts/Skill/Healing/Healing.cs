@@ -19,7 +19,7 @@ public class Healing : Skill
 
     public void SetHealing(int healing)
     {
-        GameManager.instance.player.SetHP(healing);
+        GameManager.instance.player.SetHp(healing);
     }
 }
 

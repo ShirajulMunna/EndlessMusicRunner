@@ -84,7 +84,7 @@ public class HitCollisionDetection : MonoBehaviour
             var name = string.Format(AddresEffectName, (int)EffectType.Up);
             var result = await name.CreateOBJ<GameObject>(default, hitPoint, Quaternion.identity);
         }
-        else if(obj.GetComponent<MoveLeft>().uniqMonster == UniqMonster.SendBack)
+        else if(obj.GetComponent<Monster>().uniqMonster == UniqMonster.SendBack)
         {
             var name = string.Format(AddresEffectName, (int)EffectType.Middle);
             var result = await name.CreateOBJ<GameObject>(default, hitPoint, Quaternion.identity);
@@ -172,7 +172,7 @@ public class HitCollisionDetection : MonoBehaviour
 
     private void CreatEffect(GameObject monster, Vector3 hitPoint, GameObject txteffects, float effectUpPositionY)
     {
-        var monsterType = monster.GetComponent<MoveLeft>().uniqMonster;
+        var monsterType = monster.GetComponent<Monster>().uniqMonster;
         var effectPosition = Vector3.zero;
         if (hitPoint.y > 0 && monsterType == UniqMonster.Normal)
         {

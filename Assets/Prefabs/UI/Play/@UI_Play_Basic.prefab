@@ -88,7 +88,6 @@ GameObject:
   - component: {fileID: 1588982977786676155}
   - component: {fileID: 4025478942883758416}
   - component: {fileID: 3929568927818087599}
-  - component: {fileID: 7132646266209509043}
   m_Layer: 5
   m_Name: img_R_speaker
   m_TagString: Untagged
@@ -155,23 +154,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7132646266209509043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 52291137052656947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edea78beb8b878947b72818e0e551e37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scaleUpFactor: 2
-  duration: 0.5
-  shakeDuration: 2
-  shakeStrength: 3
-  vibrato: 10
 --- !u!1 &1352719878968201347
 GameObject:
   m_ObjectHideFlags: 0
@@ -1864,6 +1846,7 @@ MonoBehaviour:
   combo: {fileID: 3057752624113839}
   scoreTxt: {fileID: 3759502843663463978}
   comboTxt: {fileID: 8295100676557159550}
+  Img_Hp: {fileID: 5299545424577074140}
 --- !u!1 &7112212536706347668
 GameObject:
   m_ObjectHideFlags: 0
@@ -2808,7 +2791,6 @@ GameObject:
   - component: {fileID: 7149238735439879670}
   - component: {fileID: 5413823457989317678}
   - component: {fileID: 61586501130818968}
-  - component: {fileID: 8585690202909365550}
   m_Layer: 5
   m_Name: img_R_speaker (1)
   m_TagString: Untagged
@@ -2875,23 +2857,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8585690202909365550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8379776653822113685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edea78beb8b878947b72818e0e551e37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scaleUpFactor: 2
-  duration: 0.5
-  shakeDuration: 2
-  shakeStrength: 3
-  vibrato: 10
 --- !u!1 &9107276350651311775
 GameObject:
   m_ObjectHideFlags: 0

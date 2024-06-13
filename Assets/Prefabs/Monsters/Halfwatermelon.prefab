@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4017503350375869812}
   - component: {fileID: 4017503350375869813}
   - component: {fileID: 4017503350375869810}
-  - component: {fileID: 4017503350375869811}
   - component: {fileID: 4017503350375869808}
   - component: {fileID: 4017503350375869809}
   - component: {fileID: 4017503350375869806}
@@ -128,23 +127,6 @@ MonoBehaviour:
   _animationName: 
   loop: 1
   timeScale: 0.2
---- !u!114 &4017503350375869811
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4017503350375869807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76197c701dba3554588f057ef2c81496, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 20
-  monsterNumber: 7
-  SendBack: 0
-  OffSetX: 0
-  DestoryX: 0
 --- !u!114 &4017503350375869808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,17 +139,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf14aa19107eee946b6e8380e33102ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
-  currentHealth: 0
-  fillAmount: {fileID: 0}
-  isOnGround: 1
+  maxHp: 0
+  curHp: 0
+  _skeletonAnimation: {fileID: 0}
   damageAmount: 5
   damageFx: {fileID: 6630400188505773858, guid: dd80aa9b27baa334ea57eb66d90b8392, type: 3}
   Change: 1
   Sk:
   - {fileID: 11400000, guid: 3ba75661849d13d45864032068153521, type: 2}
   - {fileID: 11400000, guid: 443f66e482119ea42a780f748e65c685, type: 2}
-  My: {fileID: 4017503350375869810}
+  uniqMonster: 0
 --- !u!70 &4017503350375869809
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

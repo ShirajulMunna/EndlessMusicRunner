@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Monster_SendBack : MonoBehaviour
 {
-    [SerializeField] MoveLeft M_MoveLeft;
     [SerializeField] Monster monster;
 
     bool EndTimes;
@@ -36,10 +35,8 @@ public class Monster_SendBack : MonoBehaviour
         {
             return;
         }
-
-        monster.SetNoneAttack();
         SetZoomOut();
-        M_MoveLeft.speed = 20;
+        monster.Speed = 20;
         return;
     }
 
@@ -48,15 +45,15 @@ public class Monster_SendBack : MonoBehaviour
     void SetZoomIn()
     {
         EndTimes = true;
-        M_MoveLeft.speed = 0;
-        GameManager.instance.player.SetDirectMoveIdx(E_AttackPoint.Middle);
+        monster.Speed = 0;
+        GameManager.instance.player.M_Attack.SetDirectMoveIdx(E_AttackPoint.Middle);
         CameraSystem.cameraSystem.SetZoomIn();
     }
 
     //줌아웃 단계
     void SetZoomOut()
     {
-        GameManager.instance.player.SetDirectMoveIdx(E_AttackPoint.Down);
+        GameManager.instance.player.M_Attack.SetDirectMoveIdx(E_AttackPoint.Down);
         CameraSystem.cameraSystem.ReSetZoom();
     }
 }

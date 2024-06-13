@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 24179194683735107}
   - component: {fileID: 24179194683735106}
   - component: {fileID: 24179194683735102}
-  - component: {fileID: 24179194683735100}
   - component: {fileID: 24179194683735103}
   - component: {fileID: -2310300173406396827}
   m_Layer: 8
@@ -163,23 +162,6 @@ CircleCollider2D:
   m_Offset: {x: 0.84, y: 4.74}
   serializedVersion: 2
   m_Radius: 4.12
---- !u!114 &24179194683735100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 24179194683735109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76197c701dba3554588f057ef2c81496, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 20
-  monsterNumber: 8
-  SendBack: 0
-  OffSetX: 0
-  DestoryX: 0
 --- !u!114 &24179194683735103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,17 +174,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf14aa19107eee946b6e8380e33102ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
-  currentHealth: 0
-  fillAmount: {fileID: 0}
-  isOnGround: 1
+  maxHp: 0
+  curHp: 0
+  _skeletonAnimation: {fileID: 0}
   damageAmount: 5
   damageFx: {fileID: 6630400188505773858, guid: dd80aa9b27baa334ea57eb66d90b8392, type: 3}
   Change: 1
   Sk:
   - {fileID: 11400000, guid: 12ffdf30a054bf748bfabe06aba1d78a, type: 2}
   - {fileID: 11400000, guid: f9bf91cc5f5ca21459897a882cd70f39, type: 2}
-  My: {fileID: 24179194683735106}
+  uniqMonster: 0
 --- !u!50 &-2310300173406396827
 Rigidbody2D:
   serializedVersion: 4

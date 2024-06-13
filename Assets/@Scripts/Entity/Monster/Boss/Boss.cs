@@ -2,7 +2,8 @@ using Spine.Unity;
 using System.Collections;
 using UnityEngine;
 
-public class Boss : MonoBehaviour
+
+public class Boss : MonoBehaviour 
 {
     int AttackIdx = 0;
     public int speed;
@@ -29,7 +30,7 @@ public class Boss : MonoBehaviour
 
 
     public SkeletonAnimation bossAnimation;
-    public static void Create(Vector3 pos )
+    public static void Create(Vector3 pos)
     {
         var load = Resources.Load<GameObject>("Boss");
         var boss = Instantiate<GameObject>(load);
@@ -106,7 +107,7 @@ public class Boss : MonoBehaviour
     }
 
     //맞았을때
-    public void SetHit(ScoreManager.E_ScoreState  perfact)
+    public void SetHit(ScoreManager.E_ScoreState perfact)
     {
         BossDamaged(1);
         e_State = E_State.Hit;
@@ -132,7 +133,7 @@ public class Boss : MonoBehaviour
         if (dis <= 1f)
         {
             //유저 공격 받는 코드 추가
-            GameManager.instance.player.SetHP(-Damage);
+            GameManager.instance.player.SetHp(-Damage);
             e_State = E_State.Hit;
         }
     }
@@ -171,7 +172,7 @@ public class Boss : MonoBehaviour
     public void BossDamaged(int damage)
     {
         monsterMaxHp -= damage;
-        if(monsterMaxHp<=0)
+        if (monsterMaxHp <= 0)
         {
             Destroy(gameObject);
         }

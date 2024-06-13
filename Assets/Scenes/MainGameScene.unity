@@ -1896,17 +1896,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &605063367 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5299545424577074140, guid: d97a277ca46f5f64880e74e60037fede, type: 3}
-  m_PrefabInstance: {fileID: 2277379502515520649}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &652855368
 GameObject:
   m_ObjectHideFlags: 0
@@ -2340,17 +2329,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7436808ca6c023d42bfbc716373e6a4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upHitEffect: {fileID: 181478, guid: 13a6fe769bfe41f48be29d1efb86874c, type: 3}
-  hitEffect: {fileID: 181478, guid: 4f7e2db9e95811a4ead0ef5a15d02e2e, type: 3}
-  destroyParticleEffects:
-  - {fileID: 1563634094512642, guid: a11f5f52bd76689408d6bf7a6c2fcdd2, type: 3}
-  - {fileID: 181478, guid: 01f13413141286047b76117d176a0098, type: 3}
-  - {fileID: 1142193931700624, guid: 4e5996f6f077ad44d82d1749f27b436c, type: 3}
-  - {fileID: 1377947171569574, guid: 93ab8c8fa5f009a48ba64c5f4f136fef, type: 3}
-  - {fileID: 1563634094512642, guid: 3c694dde03f10854381d567f80195215, type: 3}
-  - {fileID: 1142193931700624, guid: c5251d511df730c4eb4877ca02b0beca, type: 3}
-  - {fileID: 1142193931700624, guid: f26c13dc7e2f44749ad7ead993a862f0, type: 3}
-  puffEffect: {fileID: 6937266754178720687, guid: be603513333205c4999f4a991dec2546, type: 3}
   ScroeStateList:
   - {fileID: 4197860271363767521, guid: 457c5d2d30a38f2468be6f1d324e304e, type: 3}
   - {fileID: 8220573634043099456, guid: a1ed6f22b3d10c0499a06d458a4021ab, type: 3}
@@ -5250,22 +5228,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2634369252569677922, guid: ebf406e66866c174fb3254da9cfb93ea, type: 3}
-      propertyPath: fillAmount
-      value: 
-      objectReference: {fileID: 605063367}
-    - target: {fileID: 2634369252569677922, guid: ebf406e66866c174fb3254da9cfb93ea, type: 3}
-      propertyPath: Tr_AttackVector.Array.data[0].x
-      value: -7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2634369252569677922, guid: ebf406e66866c174fb3254da9cfb93ea, type: 3}
-      propertyPath: Tr_AttackVector.Array.data[1].x
-      value: -7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2634369252569677922, guid: ebf406e66866c174fb3254da9cfb93ea, type: 3}
-      propertyPath: Tr_AttackVector.Array.data[2].x
-      value: -7
-      objectReference: {fileID: 0}
     - target: {fileID: 4823724451177025718, guid: ebf406e66866c174fb3254da9cfb93ea, type: 3}
       propertyPath: m_Mesh
       value: 
