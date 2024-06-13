@@ -24,7 +24,7 @@ public class IPlayer_Attack
     };
 
     //공격 상태
-    E_AttackState AttackState = E_AttackState.None;
+    E_AttackState AttackState = E_AttackState.Attack_Re;
 
     //현재 공격 위치
     [SerializeField] E_AttackPoint AttackPoint = E_AttackPoint.Down;
@@ -115,7 +115,7 @@ public class IPlayer_Attack
     //공격 가능 상태 체크
     bool CheckAttackState()
     {
-        return AttackState == E_AttackState.Hold || AttackState == E_AttackState.Attack_Re; ;
+        return AttackState == E_AttackState.Hold || AttackState == E_AttackState.Attack_Re;
     }
 
     //공격 상태 변경
