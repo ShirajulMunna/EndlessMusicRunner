@@ -88,13 +88,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: fa830e898fd836b49b93c48c5d05b47a, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7983996246859701685, guid: aadad9fd2c648c648984fa1ae2bdca51, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1768767069754803484, guid: aadad9fd2c648c648984fa1ae2bdca51, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: -7943162398162415668}
     - targetCorrespondingSourceObject: {fileID: 1768767069754803484, guid: aadad9fd2c648c648984fa1ae2bdca51, type: 3}
       insertIndex: -1
       addedObject: {fileID: -6108609346268621740}
@@ -104,27 +102,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1768767069754803484, guid: aadad9fd2c648c648984fa1ae2bdca51, type: 3}
   m_PrefabInstance: {fileID: 7124778855372165781}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &-7943162398162415668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8821321151596255113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 012f8caf96117b642b39ab58708b5eae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skin_Names:
-  - skin0
-  - skin1
-  - skin2
-  - skin3
-  - skin4
-  - skin5
-  - skin6
-  - skin7
 --- !u!114 &-6108609346268621740
 MonoBehaviour:
   m_ObjectHideFlags: 0

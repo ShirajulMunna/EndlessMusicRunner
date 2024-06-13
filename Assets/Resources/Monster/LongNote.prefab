@@ -95,7 +95,6 @@ GameObject:
   - component: {fileID: 5927427790796394012}
   - component: {fileID: 5927427790796394013}
   - component: {fileID: 5927427790796394014}
-  - component: {fileID: 5927427790796393985}
   - component: {fileID: 5983066574386384427}
   - component: {fileID: 8307413242323148367}
   - component: {fileID: 5426800999059403691}
@@ -174,22 +173,6 @@ MeshRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5927427790796393985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5927427790796394008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76197c701dba3554588f057ef2c81496, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 20
-  monsterNumber: 17
-  DestoryX: -300
-  uniqMonster: 0
 --- !u!50 &5983066574386384427
 Rigidbody2D:
   serializedVersion: 4

@@ -2,7 +2,7 @@ using Spine.Unity;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
-public class LongNote : MonoBehaviour
+public class LongNote : MonoBehaviour, IMonsterMove
 {
     [SerializeField] Transform Tr;
     [SerializeField] GameObject G_Effect;
@@ -28,6 +28,10 @@ public class LongNote : MonoBehaviour
     private float GetScoreTime = 0f;
 
     public int AttackHold = 0;
+
+    public float Speed {get ; set ;}
+    public float DestoryX { get; set; }
+
     //�ճ�Ʈ �����
     public static void Create(string folderName, string name, Vector3 CreatePos, int speed)
     {
@@ -35,7 +39,8 @@ public class LongNote : MonoBehaviour
         var load = Resources.Load<GameObject>(path);
         var note = Instantiate<GameObject>(load);
         note.transform.position = CreatePos;
-        //note.GetComponent<Monster>().Speed = speed;
+        var noteValue = note.GetComponent<LongNote>();
+        noteValue.Speed = (float)speed;
     }
     private void Start()
     {
@@ -56,10 +61,12 @@ public class LongNote : MonoBehaviour
             }
             myLongSprrite.sprite = longSprites[type];
         }
+        DestoryX = -50;
     }
 
     private void Update()
     {
+        SetMove();
         SetCheck();
     }
 
@@ -129,14 +136,14 @@ public class LongNote : MonoBehaviour
             Effect = Instantiate(G_Effect, createposr, default, null);
         }
 
-        var scale = Tr.localScale;
-        scale.x -= Scale_X;
+        //var scale = Tr.localScale;
+        //scale.x -= Scale_X;
 
-        var pos = myNoteSprite[1].transform.position;
-        pos.x += Star_X;
-        myNoteSprite[1].transform.position = pos;
+        //var pos = myNoteSprite[1].transform.position;
+        //pos.x += Star_X;
+        //myNoteSprite[1].transform.position = pos;
 
-        Tr.localScale = scale;
+        //Tr.localScale = scale;
 
         Dealy -= Time.deltaTime;
 
@@ -163,5 +170,15 @@ public class LongNote : MonoBehaviour
         var end = Instantiate(G_End, createpos, default, null);
         Destroy(end, 1f);
 
+    }
+
+    public void SetMove()
+    {
+        transform.Translate(Vector2.left * Speed * Time.deltaTime);
+        var values = DestoryX;
+        if (transform.position.x < values)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
