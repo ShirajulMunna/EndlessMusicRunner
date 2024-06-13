@@ -32,6 +32,8 @@ public class LongNote : MonoBehaviour, IMonsterMove
     public float Speed {get ; set ;}
     public float DestoryX { get; set; }
 
+    private Vector3 prevPosition; //충돌지점에서 포지션고정
+
     //�ճ�Ʈ �����
     public static void Create(string folderName, string name, Vector3 CreatePos, int speed)
     {
@@ -96,13 +98,13 @@ public class LongNote : MonoBehaviour, IMonsterMove
                 Debug.Log(score);
                 ScoreManager.instance.SetCurrentScore(score);
             }
-
+            transform.position = prevPosition;
             //스케일 줄이기
             var scale = Tr.localScale;
             scale.x -= Scale_X;
 
             var pos = myNoteSprite[1].transform.position;
-            pos.x += Star_X;
+            pos.x -= Star_X;
             myNoteSprite[1].transform.position = pos;
 
             Tr.localScale = scale;
@@ -121,6 +123,7 @@ public class LongNote : MonoBehaviour, IMonsterMove
         if (AttackHold == 0)
         {
             AttackHold = 1;
+            prevPosition = transform.position;
             ScoreManager.instance.SetCombo_Add(); // �޺��߰�
             return;
         }
