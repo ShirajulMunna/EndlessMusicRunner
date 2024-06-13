@@ -1,6 +1,5 @@
-using Spine.Unity;
-using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
+using System.Threading.Tasks;
 
 public class LongNote : MonoBehaviour, IMonsterMove
 {
@@ -22,7 +21,7 @@ public class LongNote : MonoBehaviour, IMonsterMove
     [SerializeField] float Star_X;
     [SerializeField] float Scale_X;
 
-    GameObject Effect;
+    GameObject effect;
     float Dealy = 0f;
 
     private float GetScoreTime = 0f;
@@ -33,6 +32,7 @@ public class LongNote : MonoBehaviour, IMonsterMove
     public float DestoryX { get; set; }
 
     private Vector3 prevPosition; //충돌지점에서 포지션고정
+    private bool isAttacking = false;
 
     //�ճ�Ʈ �����
     public static void Create(string folderName, string name, Vector3 CreatePos, int speed)
@@ -72,7 +72,7 @@ public class LongNote : MonoBehaviour, IMonsterMove
         SetCheck();
     }
 
-    void SetCheck()
+    async void SetCheck()
     {
         if (AttackHold == 0 || AttackHold == 2)
         {
@@ -82,6 +82,7 @@ public class LongNote : MonoBehaviour, IMonsterMove
             {
                 GameManager.instance.player.SetHp(-5);
                 ScoreManager.instance.SetBestCombo_Reset();
+                isAttacking=true;
                 Destroy(gameObject);
             }
             return;
@@ -112,9 +113,13 @@ public class LongNote : MonoBehaviour, IMonsterMove
             return;
         }
         AttackHold = 2;
-        if (Effect)
+        if (effect)
         {
-            Destroy(Effect);
+            GameManager.instance.player.SetHp(-5);
+            ScoreManager.instance.SetBestCombo_Reset();
+            isAttacking = true;
+            Destroy(effect);
+            Destroy(gameObject);
         }
     }
 
@@ -133,20 +138,11 @@ public class LongNote : MonoBehaviour, IMonsterMove
             return;
         }
 
-        if (Effect == null)
+        if (effect == null)
         {
             var createposr = GameManager.instance.lowerAttackPoint.transform.position;
-            Effect = Instantiate(G_Effect, createposr, default, null);
+            effect = Instantiate(G_Effect, createposr, default, null);
         }
-
-        //var scale = Tr.localScale;
-        //scale.x -= Scale_X;
-
-        //var pos = myNoteSprite[1].transform.position;
-        //pos.x += Star_X;
-        //myNoteSprite[1].transform.position = pos;
-
-        //Tr.localScale = scale;
 
         Dealy -= Time.deltaTime;
 
@@ -166,7 +162,7 @@ public class LongNote : MonoBehaviour, IMonsterMove
 
         ScoreManager.instance.SetCombo_Add(); // �޺��߰�
         Destroy(this.gameObject);
-        Destroy(Effect);
+        Destroy(effect);
         var createpos = GameManager.instance.skeleton.transform.position;
         createpos.x += 1;
         createpos.y = 0;
@@ -181,7 +177,22 @@ public class LongNote : MonoBehaviour, IMonsterMove
         var values = DestoryX;
         if (transform.position.x < values)
         {
+            GameManager.instance.player.SetHp(-5);
+            ScoreManager.instance.SetBestCombo_Reset();
+            isAttacking=true;
             Destroy(this.gameObject);
         }
+    }
+    private async void OnDestroy()
+    {
+        if(isAttacking)
+        {
+            await HandleDestroyAsync();
+        }
+    }
+    private async Task HandleDestroyAsync()
+    {
+        var effects = await Effect.Create(transform.position, (int)HitCollisionDetection.ConditionEffect.Opps);
+        effects.fadeDuration = HitCollisionDetection.Instance.fadeDuration;
     }
 }

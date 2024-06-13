@@ -26,7 +26,7 @@ public class HitCollisionDetection : MonoBehaviour
         None,Up,Down,Middle
     }
     //판정 조건 오브젝트 생성
-    private enum ConditionEffect
+    public enum ConditionEffect
     {
         None = 0,Perfect,Great,Opps
     }

@@ -61,7 +61,6 @@ public class PlayerSystem : Entity
             {
                 return;
             }
-
         }
         base.SetHp(value);
         UI_Play.Instance.SetHp(MaxHp, CurHp);
