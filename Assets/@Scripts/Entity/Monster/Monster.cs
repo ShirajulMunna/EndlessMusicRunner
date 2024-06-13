@@ -26,8 +26,8 @@ public class Monster : Entity, IMonsterMove
     [SerializeField] GameObject damageFx;
 
     [Header("스파인 변경용")]
-    [SerializeField] bool Change;
-    [SerializeField] SkeletonDataAsset[] Sk;
+    [SerializeField] protected bool Change;
+    [SerializeField] protected SkeletonDataAsset[] Sk;
 
     //죽었을때 날아가기
     private Vector3 randomDirection;
