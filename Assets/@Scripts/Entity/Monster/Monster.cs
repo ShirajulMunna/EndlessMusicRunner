@@ -96,12 +96,24 @@ public class Monster : Entity, IMonsterMove
         //더이상 공격 못하게 변경
         e_MonsterState = E_MonsterState.NoneAttack;
 
-        player.SetHp(-damageAmount);
+        //콤보 리셋 및 MISS추가
+        ScoreManager.instance.SetScoreState(ScoreManager.E_ScoreState.Miss);
+        ScoreManager.instance.SetBestCombo_Reset();
 
         //파티클 생성
         GameObject opsFx = Instantiate(damageFx, transform.position, Quaternion.identity);
         Destroy(opsFx, 0.2f);
 
+
+        //위치 맞는지 체크 후 공격
+        var point = transform.position.y == -3.5f ? E_AttackPoint.Down : E_AttackPoint.Up;
+        var checkhit = player.M_Move.CheckHitActive(point);
+        if (!checkhit)
+        {
+            return;
+        }
+
+        player.SetHp(-damageAmount);
     }
 
     public void SetHit(ScoreManager.E_ScoreState perfect)

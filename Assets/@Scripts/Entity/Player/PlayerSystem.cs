@@ -71,10 +71,6 @@ public class PlayerSystem : Entity
     {
         base.SetMinusHp(value);
 
-        //콤보 리셋 및 MISS추가
-        ScoreManager.instance.SetScoreState(ScoreManager.E_ScoreState.Miss);
-        ScoreManager.instance.SetBestCombo_Reset();
-
         //공격 사운드 및 애니메이션 처리
         SetAni(GetAniName(E_AniType.Hit));
         AudioManager.instance.PlayerHItSound();
