@@ -2188,11 +2188,6 @@ MonoBehaviour:
   Audio_BackGround: {fileID: 108821246}
   BackSound:
   - {fileID: 8300000, guid: a2abdeff1338aa0419b0d09eaf30b841, type: 3}
---- !u!1 &753292737 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8379776653822113685, guid: d97a277ca46f5f64880e74e60037fede, type: 3}
-  m_PrefabInstance: {fileID: 2277379502515520649}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &824211104
 GameObject:
   m_ObjectHideFlags: 0
@@ -2311,7 +2306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skeleton: {fileID: 1878545307}
   speaker_1: {fileID: 1881881561}
-  speaker_2: {fileID: 753292737}
+  speaker_2: {fileID: 0}
   player: {fileID: 1608568235}
   bossWaitPosition: {fileID: 0}
   lowerAttackPoint: {fileID: 304495756}
