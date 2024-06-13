@@ -79,7 +79,12 @@ public class HitCollisionDetection : MonoBehaviour
         }
         else
         {
-            MakeEffectParticle(PlayerDownEffectName, hitPoint, Quaternion.identity);
+            const string Name = "PlayerEffect_{0}";
+
+            var name = string.Format(Name, 1);
+            var result = await name.CreateOBJ<GameObject>();
+
+            //MakeEffectParticle(PlayerDownEffectName, hitPoint, Quaternion.identity);
         }
 
 
