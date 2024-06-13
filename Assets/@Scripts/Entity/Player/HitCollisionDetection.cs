@@ -92,17 +92,17 @@ public class HitCollisionDetection : MonoBehaviour
         }
         var monsterType = obj.GetComponent<Monster>().uniqMonster;
         var effectPosition = Vector3.zero;
-        if (hitPoint.y > 0 && monsterType == UniqMonster.Normal)
+        if (hitPoint.y >= 0 && monsterType == UniqMonster.Normal)
         {
             effectPosition = upHitPoint.position;
             effectPosition.y += effectUpPositionY;
         }
-        else if (hitPoint.y > 0 && monsterType == UniqMonster.SendBack)
+        else if (hitPoint.y >= 0 && monsterType == UniqMonster.SendBack)
         {
             effectPosition = upHitPoint.position;
-            effectPosition.y += effectUpPositionY;
+            effectPosition.y -= effectUpPositionY *3;
         }
-        else if (hitPoint.y < 0)
+        else if (hitPoint.y <= 0)
         {
             effectPosition = downHitPoint.position;
             effectPosition.y += effectUpPositionY;
