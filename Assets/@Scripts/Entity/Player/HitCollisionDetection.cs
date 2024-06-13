@@ -28,6 +28,12 @@ public class HitCollisionDetection : MonoBehaviour
     public Transform downHitPoint;
     public Transform upHitPoint;
     public float effectUpPositionY;
+
+    private enum EffectType
+    {
+        None,Up,Down,Middle
+    }
+    const string AddresEffectName = "PlayerEffect_{0}";
     private void Start()
     {
         if (Instance != null)
@@ -75,36 +81,38 @@ public class HitCollisionDetection : MonoBehaviour
 
         if (hitPoint.y > 0)
         {
-            MakeEffectParticle(PlayerUpEffectName, hitPoint, Quaternion.identity);
+            var name = string.Format(AddresEffectName, (int)EffectType.Up);
+            var result = await name.CreateOBJ<GameObject>(default, hitPoint, Quaternion.identity);
+        }
+        else if(obj.GetComponent<MoveLeft>().uniqMonster == UniqMonster.SendBack)
+        {
+            var name = string.Format(AddresEffectName, (int)EffectType.Middle);
+            var result = await name.CreateOBJ<GameObject>(default, hitPoint, Quaternion.identity);
         }
         else
         {
-            const string Name = "PlayerEffect_{0}";
-
-            var name = string.Format(Name, 1);
-            var result = await name.CreateOBJ<GameObject>();
-
-            //MakeEffectParticle(PlayerDownEffectName, hitPoint, Quaternion.identity);
+            var name = string.Format(AddresEffectName, (int)EffectType.Down);
+            var result = await name.CreateOBJ<GameObject>(default,hitPoint,Quaternion.identity);
         }
 
 
         //var txteffects = ScroeStateList[(int)perfect];
         //����Ʈ ��ġ���� �ڵ�� ���� 
-        var txteffects = Addressables.InstantiateAsync(ScoreStateListName[(int)perfect]);
+        //var txteffects = Addressables.InstantiateAsync(ScoreStateListName[(int)perfect]);
 
-        txteffects.Completed += (AsyncOperationHandle<GameObject> objects) =>
-        {
-            if (objects.Status == AsyncOperationStatus.Succeeded)
-            {
-                GameObject txteffects = objects.Result;
+        //txteffects.Completed += (AsyncOperationHandle<GameObject> objects) =>
+        //{
+        //    if (objects.Status == AsyncOperationStatus.Succeeded)
+        //    {
+        //        GameObject txteffects = objects.Result;
 
-                CreatEffect(obj, hitPoint, txteffects, effectUpPositionY);
-            }
-            else
-            {
-                Debug.Log("Addressable 객체 생성 실패");
-            }
-        };
+        //        CreatEffect(obj, hitPoint, txteffects, effectUpPositionY);
+        //    }
+        //    else
+        //    {
+        //        Debug.Log("Addressable 객체 생성 실패");
+        //    }
+        //};
 
         //CreatEffect(obj, hitPoint, txteffects, effectUpPositionY);
     }
