@@ -83,7 +83,7 @@ public class Entity : MonoBehaviour, IEntity_Hp, IEntity_Spin
     //애니메이션 처리
     public virtual void SetAni((string, bool) data)
     {
-        skeletonAnimation.SetAni(data.Item1, data.Item2);
+        skeletonAnimation.SetAni_Player(data.Item1, data.Item2);
     }
     #endregion
 }
