@@ -53,6 +53,5 @@ public class Skill : MonoBehaviour
     private void OnDestroy()
     {
         skillClass.ActiveChecker.SetActive(false);
-        print("오프");
     }
 }

@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class IPlayer_Move : MonoBehaviour
@@ -6,7 +7,8 @@ public class IPlayer_Move : MonoBehaviour
     //현재 공격 위치
     [SerializeField] E_AttackPoint MovePoint = E_AttackPoint.Down;
     //내려가기 딜레이
-    float DownDelay = 0.5f;
+    float CurDownDelay = 0.5f;
+    const float MaxDownDelay = 0.5f;
     //움직임 속도
     const float MiddleMoveSpeed = 100;
 
@@ -26,7 +28,7 @@ public class IPlayer_Move : MonoBehaviour
 
     public void SetMove(E_AttackPoint point)
     {
-        DownDelay -= Time.deltaTime;
+        CurDownDelay -= Time.deltaTime;
         SetMovePoint(point);
         Move();
     }
@@ -38,16 +40,16 @@ public class IPlayer_Move : MonoBehaviour
             return;
         }
         MovePoint = point;
-        DownDelay = 1;
+        CurDownDelay = 1;
     }
 
     //움직임 함수
     void Move()
     {
-        if (DownDelay <= 0)
+        if (CurDownDelay <= 0)
         {
-            DownDelay = 1;
-            P_Attack.SetDirectMoveIdx(E_AttackPoint.Down);
+            CurDownDelay = MaxDownDelay;
+            MovePoint = E_AttackPoint.Down;
             player.SetAni(player.GetAniName(E_AniType.Running));
         }
 
@@ -70,6 +72,17 @@ public class IPlayer_Move : MonoBehaviour
         {
             Tr.position = new Vector3(currentPosition.x, targetY, targetZ);
         }
+    }
+
+    //공격 가능 상태인지 및 위치 체크하여 공격 가능한 상태인지 체크
+    public bool CheckHitActive(E_AttackPoint point)
+    {
+        if (MovePoint == E_AttackPoint.Middle)
+        {
+            return true;
+        }
+
+        return MovePoint == point;
     }
 
 }
