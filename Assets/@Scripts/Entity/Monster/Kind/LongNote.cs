@@ -32,7 +32,7 @@ public class LongNote : MonoBehaviour, IMonsterMove
     public float DestoryX { get; set; }
 
     private Vector3 prevPosition; //충돌지점에서 포지션고정
-    private bool isAttacking = false;
+    private bool isAttackPlayer = false;
 
     //�ճ�Ʈ �����
     public static void Create(string folderName, string name, Vector3 CreatePos, int speed)
@@ -80,9 +80,7 @@ public class LongNote : MonoBehaviour, IMonsterMove
             var targetPosition = GameManager.instance.player.transform.position;
             if (transform.position.x <= targetPosition.x)
             {
-                GameManager.instance.player.SetHp(-5);
-                ScoreManager.instance.SetBestCombo_Reset();
-                isAttacking=true;
+                isAttackPlayer=true;
                 Destroy(gameObject);
             }
             return;
@@ -115,9 +113,8 @@ public class LongNote : MonoBehaviour, IMonsterMove
         AttackHold = 2;
         if (effect)
         {
-            GameManager.instance.player.SetHp(-5);
-            ScoreManager.instance.SetBestCombo_Reset();
-            isAttacking = true;
+            //중간홀드하다가 끊길때
+            isAttackPlayer = true;
             Destroy(effect);
             Destroy(gameObject);
         }
@@ -177,21 +174,23 @@ public class LongNote : MonoBehaviour, IMonsterMove
         var values = DestoryX;
         if (transform.position.x < values)
         {
-            GameManager.instance.player.SetHp(-5);
-            ScoreManager.instance.SetBestCombo_Reset();
-            isAttacking=true;
+            isAttackPlayer=true;
             Destroy(this.gameObject);
         }
     }
     private async void OnDestroy()
     {
-        if(isAttacking)
+        if(isAttackPlayer)
         {
+            // 파괴되면서 플레이어 데미지 및 이펙트 출력
             await HandleDestroyAsync();
         }
     }
     private async Task HandleDestroyAsync()
     {
+        GameManager.instance.player.SetHp(-5);
+        ScoreManager.instance.SetBestCombo_Reset();
+
         var effects = await Effect.Create(transform.position, (int)HitCollisionDetection.ConditionEffect.Opps);
         effects.fadeDuration = HitCollisionDetection.Instance.fadeDuration;
     }
