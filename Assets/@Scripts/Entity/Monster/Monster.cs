@@ -3,21 +3,17 @@ using Spine.Unity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.ResourceManagement.ResourceProviders.Simulation;
 
 
 public class Monster : Entity, IMonsterMove
 {
-    public static void Create(string folderName, string name, Vector3 CreatePos, int hp, int speed, UniqMonster Uniq_MonsterType)
+    const string Name = "Monster_{0}";
+
+    public static async void Create(C_MonsterTable data, Vector3 cratepos)
     {
-        string path = $"{folderName}/{name}";
-        var load = Resources.Load<GameObject>(path);
-        var monster = Instantiate<GameObject>(load);
-        var monsterValue = monster.GetComponent<Monster>();
-        monsterValue.CurHp = hp;
-        monsterValue.uniqMonster = Uniq_MonsterType;
-        monsterValue.Speed = speed;
-        monsterValue.transform.position = CreatePos;
+        var name = string.Format(Name, data.PrefabName);
+        var result = await name.CreateOBJ<Monster>();
+        result.SetUp(data, cratepos);
     }
 
     [Header("공격력")]
@@ -55,8 +51,6 @@ public class Monster : Entity, IMonsterMove
             skeletonAnimation.skeletonDataAsset = Sk[UI_Lobby.Type == false ? 0 : 1];
             skeletonAnimation.Initialize(true);
         }
-        Speed = 20;
-        DestoryX = -100;
     }
 
     protected virtual void Update()
@@ -66,6 +60,17 @@ public class Monster : Entity, IMonsterMove
         SetDieFly();
         SetMove();
     }
+
+    //초기화
+    public void SetUp(C_MonsterTable data, Vector3 cratepos)
+    {
+        CurHp = data.MaxHp;
+        uniqMonster = data.Uniq_MonsterType;
+        Speed = data.Speed;
+        transform.position = cratepos;
+        DestoryX = -100;
+    }
+
 
     //공격 확인 함수
     protected virtual bool CheckAttack()
@@ -114,6 +119,13 @@ public class Monster : Entity, IMonsterMove
         }
 
         player.SetHp(-damageAmount);
+        AudioManager.instance.PlayMusic();
+    }
+
+    public override void SetHp(int value)
+    {
+        base.SetHp(value);
+        AudioManager.instance.PlayMusic();
     }
 
     public void SetHit(ScoreManager.E_ScoreState perfect)

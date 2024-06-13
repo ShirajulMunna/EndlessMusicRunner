@@ -7,6 +7,11 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public static SpawnManager instance;
+    //비트 펄 미닛트 -> 120bpm이면 1분에 비트가 120번
+    [SerializeField] int Bpm = 0;
+    double curTime = 0d;
+
+    const double BpmDelay = 12d;
 
     bool isCompletedSpawn = false;
     float gameOverTime = 0f;
@@ -19,7 +24,7 @@ public class SpawnManager : MonoBehaviour
         BossPoint,
     }
 
-   List<Vector3> L_SpawnPoint = new List<Vector3>()
+    List<Vector3> L_SpawnPoint = new List<Vector3>()
     {
         new Vector3(20, -3.5f, 0),
         new Vector3(20, 0, 0),
@@ -45,6 +50,12 @@ public class SpawnManager : MonoBehaviour
 
     private void Update()
     {
+        GameEnd();
+        SetCreate();
+    }
+
+    void GameEnd()
+    {
         if (isCompletedSpawn)
         {
             gameOverTime += Time.deltaTime;
@@ -58,95 +69,140 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    public void StartSpawningObjects(bool isSpawn)
+    bool CheckStart;
+    int idx = 0;
+    int Crateidx = 0;
+
+    int CoolTime = 0;
+
+    void SetCreate()
     {
-        if (isSpawn)
-            StartCoroutine(SpawnMonstersAtRandomPos());
-    }
-   
-    IEnumerator SpawnMonstersAtRandomPos()
-    {
-        //몬스터 오브젝트풀링으로 추후 변경예정
-        int counting = 0;
-        bool isNewCreatBoss = false; // 보스생성했는가에 대한 변수
-        while (true)
+        if (!CheckStart)
         {
-            var level = GameData.Data.LevelDesigin[StageInfo];
-            int idx = 0;
-            for (int i = 0; i < level.Count; i++)
-            {
-                var monsterInfo = GameData.Data.MonsterTable[level[idx].MonsterInfo];
-
-                if (level[idx].MonsterInfo / 1000 == 1)
-                {
-                    for (int j = 0; j < level[idx].MonsterSpwanCount; ++j)
-                    {
-                        LongNoteSpawn(monsterInfo, (MonsterSpwanPosition)level[idx].Spwan_Position);
-
-                        yield return new WaitForSeconds(level[idx].CoolTime);
-                    }
-                }
-                else
-                {
-                    for (int j = 0; j < level[idx].MonsterSpwanCount; ++j)
-                    {
-                        //보스 한번 생성했는지검사
-                        bool isBoss = monsterInfo.monsterType == Monster_Type.Boss;
-                        //보스 한번생성한적이 있다면 보스생성하지않고 돌아오는형태
-                        if (isBoss && isNewCreatBoss) continue;
-
-                        MonsterSpawn(monsterInfo, (MonsterSpwanPosition)level[idx].Spwan_Position);
-
-                        if (isBoss)
-                            isNewCreatBoss = true;
-
-                        yield return new WaitForSeconds(level[idx].CoolTime);
-                    }
-                }
-                idx++;
-            }
-            //보스 포지션은 테스트후 재설정 할예정
-            var bossPosition = Vector3.zero;
-            bossPosition.x = -40;
-
-            counting++;
-            if (counting == 2)
-            {
-                isCompletedSpawn = true;
-                yield break;
-            }
-        }
-
-    }
-    
-    public void MonsterSpawn(C_MonsterTable t, MonsterSpwanPosition spwanPosition, bool CreatBoss = false)
-    {
-        string prefab = string.Empty;
-        bool isMonster = t.monsterType == Monster_Type.Normal;
-        if (t.monsterType == Monster_Type.Normal)
-            prefab = monsterOBjects[t.PrefabName].name;
-        else if (t.monsterType == Monster_Type.Boss)
-            prefab = bossObjects[t.PrefabName].name;
-
-        if (t.Uniq_MonsterType == UniqMonster.SendBack)
-        {
-            Monster.Create("Monster", prefab, L_SpawnPoint[(int)E_SpawnPoint.Middle], t.MaxHp, t.Speed, t.Uniq_MonsterType);
             return;
         }
+
+        curTime += Time.deltaTime;
+
+        //24 /120 = 1비트당 0.2초 : 60s / BPM = 1 Beat시간
+        if (curTime < BpmDelay / Bpm)
+        {
+            return;
+        }
+        //0.5가 안되고 오차범위가 있기 때문에 0으로 초기화 하지 않음
+        curTime -= BpmDelay / Bpm;
+
+        var level = GameData.Data.LevelDesigin[StageInfo];
+        var idxs = GetIDX();
+
+        if (idxs == -1)
+        {
+            return;
+        }
+
+        var monsterInfo = GameData.Data.MonsterTable[level[idxs].MonsterInfo];
+        MonsterSpawn(monsterInfo, (MonsterSpwanPosition)level[idxs].Spwan_Position);
+        Crateidx++;
+    }
+
+    int GetIDX()
+    {
+        var level = GameData.Data.LevelDesigin[StageInfo];
+        //갯수 넘어갔나 체크
+        if (idx >= level.Count)
+        {
+            //초기화
+            idx = 0;
+            Crateidx = 0;
+            CoolTime = 0;
+            return idx;
+        }
+
+        //생성 갯수 확인
+        var cratecount = level[idx].MonsterSpwanCount;
+
+        //생성 갯수가 넘었는지 체크
+        if (Crateidx >= cratecount)
+        {
+            //쿨타임 체크
+            var cooltime = level[idx].CoolTime;
+
+            //쿨타임 있는지 체크
+            if (cooltime > 0)
+            {
+                if (cooltime > CoolTime)
+                {
+                    CoolTime++;
+                    return -1;
+                }
+            }
+            CoolTime = 0;
+            Crateidx = 0;
+            idx++;
+            return GetIDX();
+        }
+
+        //보스 한번 생성했는지검사
+        var monsterInfo = GameData.Data.MonsterTable[level[idx].MonsterInfo];
+        bool isBoss = monsterInfo.monsterType == Monster_Type.Boss;
+
+        if (isBoss)
+        {
+            isNewCreatBoss = true;
+        }
+
+        //보스 한번생성한적이 있다면 보스생성하지않고 돌아오는형태
+        if (isBoss && isNewCreatBoss)
+        {
+            CoolTime = 0;
+            Crateidx = 0;
+            idx++;
+            return GetIDX();
+        }
+
+        return idx;
+    }
+
+
+    public void StartSpawningObjects(bool isSpawn)
+    {
+        CheckStart = true;
+    }
+    bool isNewCreatBoss = false; // 보스생성했는가에 대한 변수
+    WaitForSeconds wait = new WaitForSeconds(0.1f);
+
+    public void MonsterSpawn(C_MonsterTable data, MonsterSpwanPosition spwanPosition, bool CreatBoss = false)
+    {
+        if (data.Uniq_MonsterType == UniqMonster.SendBack)
+        {
+            Monster.Create(data, L_SpawnPoint[(int)E_SpawnPoint.Middle]);
+            return;
+        }
+
+        //위치 지정
         var MySpwanPoint = L_SpawnPoint[(int)E_SpawnPoint.Hight];
         switch (spwanPosition)
         {
             case MonsterSpwanPosition.Down:
                 MySpwanPoint = L_SpawnPoint[(int)E_SpawnPoint.Low];
                 break;
+
             case MonsterSpwanPosition.Random:
                 int random = Random.Range(0, 2);
                 if (random == 1)
+                {
                     MySpwanPoint = L_SpawnPoint[(int)E_SpawnPoint.Low];
+                }
                 break;
         }
+
+        //보스인지 판단
+        bool isMonster = data.monsterType == Monster_Type.Normal;
+
         if (isMonster)
-            Monster.Create("Monster", prefab, MySpwanPoint, t.MaxHp, t.Speed, t.Uniq_MonsterType);
+        {
+            Monster.Create(data, MySpwanPoint);
+        }
         else if (!isMonster)
         {
             Boss.Create(L_SpawnPoint[(int)E_SpawnPoint.BossPoint]);

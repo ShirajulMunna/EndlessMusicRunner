@@ -9,10 +9,10 @@ public class Effect : MonoBehaviour
 {
     const string Name = "GameConditionEffect_{0}";
     public float fadeDuration = 1f;
-    public static async Task<Effect> Create(Vector3 spawnPosition,int number)
+    public static async Task<Effect> Create(Vector3 spawnPosition, int number)
     {
         var name = string.Format(Name, number);
-        var result = await name.CreateOBJ<Effect>(default,spawnPosition,default);
+        var result = await name.CreateOBJ<Effect>(default, spawnPosition, default);
         return result;
     }
     void Start()

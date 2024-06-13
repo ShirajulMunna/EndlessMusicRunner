@@ -67,11 +67,6 @@ public class HitCollisionDetection : MonoBehaviour
         ScoreManager.instance.SetCombo_Add();
         ScoreManager.instance.SetCurrentScore(score);
 
-        if (perfect == ScoreManager.E_ScoreState.Late || perfect == ScoreManager.E_ScoreState.Early)
-        {
-            return;
-        }
-
         var hitPoint = obj.transform.position;
         
         //아래들 이펙트 생성및 파티클 생성
@@ -107,19 +102,17 @@ public class HitCollisionDetection : MonoBehaviour
             effectPosition = downHitPoint.position;
             effectPosition.y += effectUpPositionY;
         }
-        var effect = ConditionEffect.None;
+        var effect = ConditionEffect.Great;
         switch (perfect)
         {
             case ScoreManager.E_ScoreState.Perfect:
                 effect = ConditionEffect.Perfect;
                 break;
-            case ScoreManager.E_ScoreState.Great:
-                effect = ConditionEffect.Great;
-                break;
             case ScoreManager.E_ScoreState.Miss:
                 effect = ConditionEffect.Opps;
                 break;
         }
+
         var effects = await Effect.Create(effectPosition, (int)effect);
         effects.fadeDuration = fadeDuration;
     }

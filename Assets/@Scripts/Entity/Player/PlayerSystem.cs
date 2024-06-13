@@ -9,9 +9,9 @@ public class PlayerSystem : Entity
     public static PlayerSystem playerSystem;
 
     //공격 클래스
-    public IPlayer_Attack M_Attack;
+    [HideInInspector] public IPlayer_Attack M_Attack;
     //이동 클래스
-    public IPlayer_Move M_Move;
+    [HideInInspector] public IPlayer_Move M_Move;
 
     //애니메이션 리스트
     List<string> L_AniStr = new List<string>()

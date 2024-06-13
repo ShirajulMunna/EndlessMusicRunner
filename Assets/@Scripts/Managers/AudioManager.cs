@@ -29,8 +29,8 @@ public class AudioManager : MonoBehaviour
 
     void SetBG()
     {
-        //Audio_BackGround.clip = BackSound[DiskRotator.ChoseBG];
         Audio_BackGround.clip = BackSound[0];
+        Audio_BackGround.Pause();
     }
 
     public void PlaySound()
@@ -45,20 +45,22 @@ public class AudioManager : MonoBehaviour
 
         audioSource.PlayOneShot(ouch_1, 0.1f);
     }
-    private void Update()
-    {
-       
-    }
-    private void DisplayBackgroundMusicTime()
-    {
-        float currentTime = Audio_BackGround.time;
-        int minutes = Mathf.FloorToInt(currentTime / 60);
-        int seconds = Mathf.FloorToInt(currentTime % 60);
-        Debug.Log($"Background music playing for {minutes}:{seconds:00}");
-    }
 
     public void StopMusic()
     {
-       Audio_BackGround.Stop();
+        Audio_BackGround.Stop();
+    }
+
+    bool CheckMusic;
+
+    public void PlayMusic()
+    {
+        if (CheckMusic)
+        {
+            return;
+        }
+
+        CheckMusic = true;
+        Audio_BackGround.Play();
     }
 }

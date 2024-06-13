@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 5927427790796394015}
   - component: {fileID: 5927427790796393986}
   - component: {fileID: 5983066574386384427}
-  - component: {fileID: -801326969565561563}
   - component: {fileID: 8021584260136955554}
   - component: {fileID: 4113643433495560643}
   - component: {fileID: 7196835087666699754}
@@ -142,16 +141,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf14aa19107eee946b6e8380e33102ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
-  currentHealth: 5
-  fillAmount: {fileID: 0}
+  maxHp: 0
+  curHp: 0
+  _skeletonAnimation: {fileID: 0}
   damageAmount: 10
   damageFx: {fileID: 6630400188505773858, guid: dd80aa9b27baa334ea57eb66d90b8392, type: 3}
   Change: 0
   Sk:
   - {fileID: 0}
   - {fileID: 0}
-  My: {fileID: 5927427790796394015}
+  uniqMonster: 0
 --- !u!50 &5983066574386384427
 Rigidbody2D:
   serializedVersion: 4
@@ -179,22 +178,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &-801326969565561563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5927427790796394008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76197c701dba3554588f057ef2c81496, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 20
-  monsterNumber: 17
-  DestoryX: 0
-  uniqMonster: 0
 --- !u!114 &8021584260136955554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,9 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a52f293ea4ab06459dfdf2ab9db6919, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  M_MoveLeft: {fileID: -801326969565561563}
   monster: {fileID: 5927427790796393986}
-  OffSetX: 3
 --- !u!114 &4113643433495560643
 MonoBehaviour:
   m_ObjectHideFlags: 0

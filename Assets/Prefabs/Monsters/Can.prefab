@@ -145,7 +145,7 @@ MonoBehaviour:
   _skeletonAnimation: {fileID: 0}
   damageAmount: 2
   damageFx: {fileID: 6630400188505773858, guid: dd80aa9b27baa334ea57eb66d90b8392, type: 3}
-  Change: 1
+  Change: 0
   Sk:
   - {fileID: 11400000, guid: cbd81e36774e1344aa41414036206d96, type: 2}
   - {fileID: 11400000, guid: 0ed707407aa0980479d0f5811245833d, type: 2}
