@@ -101,42 +101,58 @@ public class HitCollisionDetection : MonoBehaviour
             var result = await name.CreateOBJ<GameObject>(default,hitPoint,Quaternion.identity);
         }
 
-        switch(perfect)
+        //switch(perfect)
+        //{
+        //    case ScoreManager.E_ScoreState.Perfect:
+        //        var result1 = await Effect.Create(downHitPoint.position, (int)ConditionEffect.Perfect);
+        //        result1.fadeDuration = fadeDuration;
+        //        break;
+        //    case ScoreManager.E_ScoreState.Great:
+        //        var result2 = await Effect.Create(downHitPoint.position, (int)ConditionEffect.Great);
+        //        result2.fadeDuration = fadeDuration;
+        //        break;
+        //    case ScoreManager.E_ScoreState.Miss:
+        //        var result3 = await Effect.Create(downHitPoint.position, (int)ConditionEffect.Opps);
+        //        result3.fadeDuration = fadeDuration;
+        //        break;
+        //}
+
+        //var txteffects = ScroeStateList[(int)perfect];
+        //CreatEffect(obj, hitPoint, (int)perfect, effectUpPositionY);
+
+        var monsterType = obj.GetComponent<Monster>().uniqMonster;
+        var effectPosition = Vector3.zero;
+        if (hitPoint.y > 0 && monsterType == UniqMonster.Normal)
+        {
+            effectPosition = upHitPoint.position;
+            effectPosition.y += effectUpPositionY;
+        }
+        else if (hitPoint.y > 0 && monsterType == UniqMonster.SendBack)
+        {
+            effectPosition = upHitPoint.position;
+            effectPosition.y += effectUpPositionY;
+        }
+        else if (hitPoint.y < 0)
+        {
+            effectPosition = downHitPoint.position;
+            effectPosition.y += effectUpPositionY;
+        }
+        var effect = ConditionEffect.None;
+        switch (perfect)
         {
             case ScoreManager.E_ScoreState.Perfect:
-                var result1 = await Effect.Create(downHitPoint.position, (int)ConditionEffect.Perfect);
-                result1.fadeDuration = fadeDuration;
+                effect = ConditionEffect.Perfect;
                 break;
             case ScoreManager.E_ScoreState.Great:
-                var result2 = await Effect.Create(downHitPoint.position, (int)ConditionEffect.Great);
-                result2.fadeDuration = fadeDuration;
+                effect = ConditionEffect.Great;
                 break;
             case ScoreManager.E_ScoreState.Miss:
-                var result3 = await Effect.Create(downHitPoint.position, (int)ConditionEffect.Opps);
-                result3.fadeDuration = fadeDuration;
+                effect = ConditionEffect.Opps;
                 break;
         }
-        //var txteffects = ScroeStateList[(int)perfect];
-        //����Ʈ ��ġ���� �ڵ�� ���� 
-        //var txteffects = Addressables.InstantiateAsync(ScoreStateListName[(int)perfect]);
-
-        //txteffects.Completed += (AsyncOperationHandle<GameObject> objects) =>
-        //{
-        //    if (objects.Status == AsyncOperationStatus.Succeeded)
-        //    {
-        //        GameObject txteffects = objects.Result;
-
-        //        CreatEffect(obj, hitPoint, txteffects, effectUpPositionY);
-        //    }
-        //    else
-        //    {
-        //        Debug.Log("Addressable 객체 생성 실패");
-        //    }
-        //};
-
-        //CreatEffect(obj, hitPoint, txteffects, effectUpPositionY);
+        var effects = await Effect.Create(effectPosition, (int)effect);
+        effects.fadeDuration = fadeDuration;
     }
-
     public void SetHit(GameObject obj, ScoreManager.E_ScoreState state)
     {
         var tag = obj.tag;
@@ -190,7 +206,7 @@ public class HitCollisionDetection : MonoBehaviour
         }
     }
 
-    private void CreatEffect(GameObject monster, Vector3 hitPoint, GameObject txteffects, float effectUpPositionY)
+    private void CreatEffect(GameObject monster, Vector3 hitPoint, int txteffects, float effectUpPositionY)
     {
         var monsterType = monster.GetComponent<Monster>().uniqMonster;
         var effectPosition = Vector3.zero;
@@ -209,10 +225,10 @@ public class HitCollisionDetection : MonoBehaviour
             effectPosition = downHitPoint.position;
             effectPosition.y += effectUpPositionY;
         }
-        GameObject txtobject = Instantiate(txteffects, effectPosition, Quaternion.identity);
-        StartCoroutine(OpacityChange(txtobject));
+        //GameObject txtobject = Instantiate(txteffects, effectPosition, Quaternion.identity);
+        //StartCoroutine(OpacityChange(txtobject));
 
-        MoveUPword(txtobject, effectPosition);
+        //MoveUPword(txtobject, effectPosition);
     }
 
     private void MakeEffectParticle(string name, Vector3 pos, Quaternion quaternion)
