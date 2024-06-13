@@ -6,14 +6,7 @@ using UnityEngine;
 
 public class Boss : Monster
 {
-    public static Boss boss;
-
-    public static void Create(Vector3 pos)
-    {
-        var load = Resources.Load<GameObject>("Boss");
-        var boss = Instantiate<GameObject>(load);
-        boss.transform.position = pos;
-    }
+    public static Boss instance;
 
     public List<string> L_Ani = new List<string>()
     {
@@ -25,10 +18,32 @@ public class Boss : Monster
         "retire",
     };
 
+    Vector3 StartPos = new Vector3(10, 0, 0);
+
+    bool hasReachedStartPos = false;
 
     private void Awake()
     {
-        boss = this;
+        instance = this;
+    }
+
+
+    public override void SetMove()
+    {
+        if (hasReachedStartPos)
+        {
+            return;
+        }
+
+        base.SetMove();
+
+        // StartPos에 도달했는지 체크
+        if (transform.position.x <= StartPos.x)
+        {
+            // 위치를 고정하고 SetMove를 더 이상 호출하지 않도록 설정
+            transform.position = StartPos;
+            hasReachedStartPos = true;
+        }
     }
 
     //애니셋팅

@@ -1,18 +1,14 @@
 using UnityEngine;
 using System.Threading.Tasks;
+using UnityEngine.UIElements;
 
-public class LongNote : MonoBehaviour, IMonsterMove
+public class LongNote : Monster
 {
     [SerializeField] Transform Tr;
     [SerializeField] GameObject G_Effect;
     [SerializeField] GameObject G_End;
-    [SerializeField] Transform start_1;
-    [SerializeField] Transform start_2;
-    [SerializeField] GameObject lowecollision;
-
     public SpriteRenderer[] myNoteSprite;
     public SpriteRenderer myLongSprrite;
-    [SerializeField] bool Change;
     [SerializeField] Sprite[] noteSprites;
     [SerializeField] Sprite[] longSprites;
     [SerializeField] Vector3 BoxSize;
@@ -28,28 +24,14 @@ public class LongNote : MonoBehaviour, IMonsterMove
 
     public int AttackHold = 0;
 
-    public float Speed {get ; set ;}
-    public float DestoryX { get; set; }
-
     private Vector3 prevPosition; //충돌지점에서 포지션고정
     private bool isAttackPlayer = false;
 
-    //�ճ�Ʈ �����
-    public static void Create(string folderName, string name, Vector3 CreatePos, int speed)
-    {
-        string path = $"{folderName}/{name}";
-        var load = Resources.Load<GameObject>(path);
-        var note = Instantiate<GameObject>(load);
-        note.transform.position = CreatePos;
-        var noteValue = note.GetComponent<LongNote>();
-        noteValue.Speed = (float)speed;
-    }
-    private void Start()
+    protected override void Start()
     {
         if (Change)
         {
             var type = UI_Lobby.Type == false ? 0 : 1;
-            // �̹��� ���� �߰�
             for (int i = 0; i < myNoteSprite.Length; ++i)
             {
                 var idx = (int)PlayerSkinType.Count;
@@ -66,21 +48,20 @@ public class LongNote : MonoBehaviour, IMonsterMove
         DestoryX = -50;
     }
 
-    private void Update()
+    protected override void Update()
     {
         SetMove();
         SetCheck();
     }
 
-    async void SetCheck()
+    void SetCheck()
     {
         if (AttackHold == 0 || AttackHold == 2)
         {
-            // ���� ���߿� ���߰ų� ���������� 
             var targetPosition = GameManager.instance.player.transform.position;
             if (transform.position.x <= targetPosition.x)
             {
-                isAttackPlayer=true;
+                isAttackPlayer = true;
                 Destroy(gameObject);
             }
             return;
@@ -94,10 +75,11 @@ public class LongNote : MonoBehaviour, IMonsterMove
             {
                 GetScoreTime = Time.time;
                 var score = 1;
-                Debug.Log(score);
                 ScoreManager.instance.SetCurrentScore(score);
             }
+
             transform.position = prevPosition;
+
             //스케일 줄이기
             var scale = Tr.localScale;
             scale.x -= Scale_X;
@@ -107,7 +89,6 @@ public class LongNote : MonoBehaviour, IMonsterMove
             myNoteSprite[1].transform.position = pos;
 
             Tr.localScale = scale;
-            //
             return;
         }
         AttackHold = 2;
@@ -150,8 +131,6 @@ public class LongNote : MonoBehaviour, IMonsterMove
             AttackHold = 1;
         }
 
-
-
         if (Tr.localScale.x > 0)
         {
             return;
@@ -168,19 +147,19 @@ public class LongNote : MonoBehaviour, IMonsterMove
 
     }
 
-    public void SetMove()
+    public override void SetMove()
     {
         transform.Translate(Vector2.left * Speed * Time.deltaTime);
         var values = DestoryX;
         if (transform.position.x < values)
         {
-            isAttackPlayer=true;
+            isAttackPlayer = true;
             Destroy(this.gameObject);
         }
     }
     private async void OnDestroy()
     {
-        if(isAttackPlayer)
+        if (isAttackPlayer)
         {
             // 파괴되면서 플레이어 데미지 및 이펙트 출력
             await HandleDestroyAsync();

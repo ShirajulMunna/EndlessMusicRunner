@@ -54,7 +54,6 @@ public class HitCollisionDetection : MonoBehaviour
 
     async void SetEffect(GameObject obj, ScoreManager.E_ScoreState perfect)
     {
-        AudioManager.instance.PlaySound();
         var score = 0;
         if (perfect == ScoreManager.E_ScoreState.Perfect)
         {

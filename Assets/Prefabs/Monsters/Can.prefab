@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 345578015453725092}
   - component: {fileID: 98197925962513228}
   - component: {fileID: -6925637741920482263}
+  - component: {fileID: -5654904031221229964}
   m_Layer: 8
   m_Name: Can
   m_TagString: Monster
@@ -66,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 48e4a94290364b44ca5f3bc88e2eb55a, type: 2}
+  - {fileID: 2100000, guid: 1ae3c4759043e2141b48b8a58d7c2d89, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -100,8 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: cbd81e36774e1344aa41414036206d96, type: 2}
-  initialSkinName: 
+  skeletonDataAsset: {fileID: 11400000, guid: a37bf4c25982f3943a2cb8a74a00a989, type: 2}
+  initialSkinName: skin5
   fixPrefabOverrideViaMeshFilter: 2
   initialFlipX: 0
   initialFlipY: 0
@@ -125,7 +126,7 @@ MonoBehaviour:
   disableRenderingOnOverride: 1
   updateTiming: 1
   unscaledTime: 0
-  _animationName: idle
+  _animationName: Idle
   loop: 1
   timeScale: 1
 --- !u!114 &345578015453725092
@@ -212,6 +213,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &-5654904031221229964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450675091563296711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 012f8caf96117b642b39ab58708b5eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skin_Names:
+  - skin0
+  - skin1
+  - skin2
+  - skin3
+  - skin4
+  - skin5
+  - skin6
+  - skin7
 --- !u!1 &8896488139967747448
 GameObject:
   m_ObjectHideFlags: 0

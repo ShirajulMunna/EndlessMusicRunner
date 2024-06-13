@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1586732273323951856}
   - component: {fileID: 2249227629863875094}
   - component: {fileID: 625802925541443427}
+  - component: {fileID: 4325460651036434254}
   m_Layer: 8
   m_Name: tablet
   m_TagString: Monster
@@ -65,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6c27bbdaf23a1aa4eaed653d46c44ce6, type: 2}
+  - {fileID: 2100000, guid: 1eace37d14aafb042967767476026822, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -99,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: fc0f78b7149c1424cb4cf4894240c580, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: a6ac314bbdef2ce4ba00b9d92871e90d, type: 2}
   initialSkinName: skin0
   fixPrefabOverrideViaMeshFilter: 2
   initialFlipX: 0
@@ -144,7 +145,7 @@ MonoBehaviour:
   _skeletonAnimation: {fileID: 0}
   damageAmount: 1
   damageFx: {fileID: 6630400188505773858, guid: dd80aa9b27baa334ea57eb66d90b8392, type: 3}
-  Change: 1
+  Change: 0
   Sk:
   - {fileID: 11400000, guid: 3371ecad1dbd1de4a99dca8813c4bdad, type: 2}
   - {fileID: 11400000, guid: 9c77fcd226f1521478cec4d77d698718, type: 2}
@@ -181,7 +182,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.36688948, y: 0.62}
+  m_Offset: {x: -0.36688948, y: 0.6}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -221,3 +222,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &4325460651036434254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027002376000927764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 012f8caf96117b642b39ab58708b5eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skin_Names:
+  - skin0
+  - skin1
+  - skin2
+  - skin3
+  - skin4
+  - skin5
+  - skin6
+  - skin7

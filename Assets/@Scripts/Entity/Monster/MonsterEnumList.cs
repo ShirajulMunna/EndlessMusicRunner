@@ -8,7 +8,7 @@ public enum E_MonsterState
 
 public enum UniqMonster
 {
-    Normal, SendBack,
+    Normal, SendBack, LongNote
 }
 public enum Monster_Type
 {

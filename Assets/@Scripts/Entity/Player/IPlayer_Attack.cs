@@ -51,10 +51,14 @@ public class IPlayer_Attack
         if (Input.GetKey(KeyCode.F) && CheckAttackState())
         {
             point = UpAttack();
+            AudioManager.instance.PlaySound();
+
         }
         if (Input.GetKey(KeyCode.J) && CheckAttackState())
         {
             point = DownAttack();
+            AudioManager.instance.PlaySound();
+
         }
 
         if (AttackState == E_AttackState.Hold)

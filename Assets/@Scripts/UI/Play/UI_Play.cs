@@ -20,7 +20,7 @@ public class UI_Play : MonoBehaviour
     [Header("HP")]
     [SerializeField] Image Img_Hp;
 
-    float DelayTime = 7;
+    float DelayTime = 3;
 
     private void Awake()
     {
@@ -38,7 +38,7 @@ public class UI_Play : MonoBehaviour
     {
         yield return new WaitForSeconds(DelayTime);
         Key_Explain.SetActive(false);
-        SpawnManager.instance.StartSpawningObjects(true);
+        SpawnManager.instance.StartSpawningObjects();
     }
 
     //스코어 셋팅    

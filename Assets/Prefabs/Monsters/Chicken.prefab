@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3909550831714088349}
   - component: {fileID: 3909550831714088348}
   - component: {fileID: 519227151299903132}
-  - component: {fileID: -4690950548443168719}
+  - component: {fileID: -8874536469906424779}
   m_Layer: 8
   m_Name: Chicken
   m_TagString: Monster
@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 70c307374d4efb24fb893dd42d184495, type: 2}
+  - {fileID: 2100000, guid: 61b3382538acfe642a8bee715b75b70a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: 46834918750682f4d9403ebe477a0602, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: 17405190b108afe4f9f00405907909cc, type: 2}
   initialSkinName: skin0
   fixPrefabOverrideViaMeshFilter: 2
   initialFlipX: 0
@@ -180,10 +180,10 @@ MonoBehaviour:
   _skeletonAnimation: {fileID: 0}
   damageAmount: 3
   damageFx: {fileID: 6630400188505773858, guid: dd80aa9b27baa334ea57eb66d90b8392, type: 3}
-  Change: 1
+  Change: 0
   Sk:
   - {fileID: 11400000, guid: 46834918750682f4d9403ebe477a0602, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 2332f83bd416d184aa98c072c1df07b2, type: 2}
   uniqMonster: 0
 --- !u!50 &519227151299903132
 Rigidbody2D:
@@ -212,7 +212,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &-4690950548443168719
+--- !u!114 &-8874536469906424779
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

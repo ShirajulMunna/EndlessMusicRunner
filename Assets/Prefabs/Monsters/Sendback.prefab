@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 5927427790796393986}
   - component: {fileID: 5983066574386384427}
   - component: {fileID: 8021584260136955554}
-  - component: {fileID: -6422760285960998682}
-  - component: {fileID: 309871263213497938}
+  - component: {fileID: 4113643433495560643}
+  - component: {fileID: 7196835087666699754}
   m_Layer: 8
   m_Name: Sendback
   m_TagString: Monster
@@ -34,7 +34,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.1980805}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -85,8 +85,8 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1427589545
-  m_SortingLayer: 3
+  m_SortingLayerID: -1367373941
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &5927427790796394015
@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monster: {fileID: 5927427790796393986}
---- !u!114 &-6422760285960998682
+--- !u!114 &4113643433495560643
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -204,7 +204,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skin_Names:
-  - default
   - skin0
   - skin1
   - skin2
@@ -213,7 +212,7 @@ MonoBehaviour:
   - skin5
   - skin6
   - skin7
---- !u!61 &309871263213497938
+--- !u!61 &7196835087666699754
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
