@@ -17,16 +17,6 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 21bb450428c9c4245a72bebd19ef7d9f
   m_SerializeEntries:
-  - m_GUID: 053161a8487a77c48952b9c3ef9e4f63
-    m_Address: Monster_2000
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 0eadad63813328445b1dab927b7c1d6a
-    m_Address: Monster_21
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 49040afcb01587b4eb35205eb6c8a003
     m_Address: Monster_2
     m_ReadOnly: 0
@@ -102,18 +92,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ecd51a4f4472c454bb247e6ca7d4b81a
-    m_Address: Monster_20
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8249f2eee7aea7f4cabef9475a173571
     m_Address: Monster_17
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 09b21e11486d1de4ebe16a74154064be
-    m_Address: Monster_19
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -127,23 +107,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a3c9bd0d8592605438be22d33e2222a6
-    m_Address: Monster_9
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c457964665b6f994496a2e5b317fa8e3
     m_Address: Monster_1
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: bee43a373644a7243aa7d96efddcb14a
-    m_Address: Monster_3000
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6c66d11dc6c8b1a46893f26f332f2246
-    m_Address: Monster_3001
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -4,16 +4,12 @@ using UnityEngine.UI;
 
 public class UI_GameOver : MonoBehaviour
 {
-    const string Name = "GameOver/@UI_GameOver";
-    public static void Create()
+    const string Name = "UI_GameOver";
+    public static async void Create()
     {
-        var obj = Resources.Load<GameObject>(Name);
-        Instantiate<GameObject>(obj);
+        var obj = await Name.CreateOBJ<UI_GameOver>();
         var audio = AudioManager.instance;
-        if (audio != null)
-        {
-            audio.Audio_BackGround.PlayOneShot(audio.failGame);
-        }
+        audio.Audio_BackGround.PlayOneShot(audio.failGame);
     }
 
     [SerializeField] TextMeshProUGUI[] T_TextList;
