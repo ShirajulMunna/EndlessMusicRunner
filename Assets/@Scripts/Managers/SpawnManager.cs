@@ -14,7 +14,7 @@ public class SpawnManager : MonoBehaviour
     int CoolTime = 0;
 
     //게임 종료 확인
-    bool isCompltedGame = false;
+    public bool isCompltedGame = false;
     float gameOverTime = 0f;
     public int StageInfo = 0; //추후 데이터 어디에서 데이터 받아오는 형태로 만들예정
     //생성 위치
@@ -72,7 +72,7 @@ public class SpawnManager : MonoBehaviour
         {
             AudioManager.instance.StopMusic();
             UI_GameOver.Create();
-            CheckStart = true;
+            CheckStart = false;
             isCompltedGame = false;
         }
     }
