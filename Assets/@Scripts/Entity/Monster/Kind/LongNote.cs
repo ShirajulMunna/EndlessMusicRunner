@@ -166,10 +166,15 @@ public class LongNote : Monster
     }
     private async Task HandleDestroyAsync()
     {
-        GameManager.instance.player.SetHp(-5);
-        ScoreManager.instance.SetBestCombo_Reset();
+        var playerPos = GameManager.instance.player.transform.position;
+        if (playerPos.y + 0.5f >= transform.position.y && playerPos.y - 0.5f <= transform.position.y || uniqMonster == UniqMonster.SendBack)
+        {
+            GameManager.instance.player.SetHp(-5);
+            ScoreManager.instance.SetBestCombo_Reset();
 
-        var effects = await Effect.Create(transform.position, (int)HitCollisionDetection.ConditionEffect.Opps);
-        effects.fadeDuration = HitCollisionDetection.Instance.fadeDuration;
+            var effects = await Effect.Create(transform.position, (int)HitCollisionDetection.ConditionEffect.Opps);
+            effects.fadeDuration = HitCollisionDetection.Instance.fadeDuration;
+        }
+       
     }
 }

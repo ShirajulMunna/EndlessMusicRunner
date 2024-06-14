@@ -2,6 +2,7 @@ using DG.Tweening;
 using Spine.Unity;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -106,8 +107,14 @@ public class Monster : Entity, IMonsterMove
         ScoreManager.instance.SetBestCombo_Reset();
 
         //파티클 생성
-        GameObject opsFx = Instantiate(damageFx, transform.position, Quaternion.identity);
-        Destroy(opsFx, 0.2f);
+        // 플레이어의 y포지션이 근처라면 데미지 파티클생성하게만듬
+        var playerPos = player.transform.position;
+        if (playerPos.y+0.5f >= transform.position.y && playerPos.y -0.5f <=transform.position.y ||uniqMonster == UniqMonster.SendBack)
+        {
+            GameObject opsFx = Instantiate(damageFx, transform.position, Quaternion.identity);
+            Destroy(opsFx, 0.2f);
+        }
+
 
 
         //위치 맞는지 체크 후 공격
