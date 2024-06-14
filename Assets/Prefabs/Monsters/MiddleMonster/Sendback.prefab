@@ -126,7 +126,7 @@ MonoBehaviour:
   disableRenderingOnOverride: 1
   updateTiming: 1
   unscaledTime: 0
-  _animationName: Idle
+  _animationName: idle
   loop: 1
   timeScale: 1
 --- !u!114 &5927427790796393986
@@ -143,13 +143,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 0
   curHp: 0
-  _skeletonAnimation: {fileID: 0}
+  _skeletonAnimation: {fileID: 5927427790796394015}
   damageAmount: 10
   damageFx: {fileID: 6630400188505773858, guid: dd80aa9b27baa334ea57eb66d90b8392, type: 3}
   Change: 0
-  Sk:
-  - {fileID: 0}
-  - {fileID: 0}
+  Sk: []
   uniqMonster: 0
 --- !u!50 &5983066574386384427
 Rigidbody2D:

@@ -369,6 +369,12 @@ MonoBehaviour:
   - SkillType: 2
     G_Particle:
     - {fileID: 7546043932877010485}
+  M_Attack:
+    Tr_AttackVector:
+    - {x: -7, y: -3.5, z: 0}
+    - {x: -7, y: 0, z: 0}
+    - {x: -7, y: 3.5, z: 0}
+    AttackPoint: 0
   M_Move: {fileID: 0}
 --- !u!1 &7546043932877010485
 GameObject:

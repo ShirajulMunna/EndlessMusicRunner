@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6347022832362483638, guid: aadad9fd2c648c648984fa1ae2bdca51, type: 3}
       propertyPath: initialSkinName
-      value: skin6
+      value: skin0
       objectReference: {fileID: 0}
     - target: {fileID: 6347022832362483638, guid: aadad9fd2c648c648984fa1ae2bdca51, type: 3}
       propertyPath: skeletonDataAsset

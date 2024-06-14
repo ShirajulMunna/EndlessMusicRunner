@@ -21,6 +21,7 @@ public class UI_Play : MonoBehaviour
     [SerializeField] Image Img_Hp;
 
     float DelayTime = 3;
+    public bool GameOver;
 
     private void Awake()
     {
