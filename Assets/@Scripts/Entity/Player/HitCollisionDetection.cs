@@ -18,17 +18,17 @@ public class HitCollisionDetection : MonoBehaviour
 
     public Transform downHitPoint;
     public Transform upHitPoint;
-    public float effectUpPositionY =1f;
+    public float effectUpPositionY = 1f;
 
     //이펙트 위치 
     private enum EffectPosition
     {
-        None,Up,Down,Middle
+        None, Up, Down, Middle
     }
     //판정 조건 오브젝트 생성
     public enum ConditionEffect
     {
-        None = 0,Perfect,Great,Opps
+        None = 0, Perfect, Great, Opps
     }
     const string AddresEffectName = "PlayerEffect_{0}";
     private void Start()
@@ -59,7 +59,7 @@ public class HitCollisionDetection : MonoBehaviour
         {
             score = 3;
         }
-        else if (perfect == ScoreManager.E_ScoreState.Great)
+        else if (perfect == ScoreManager.E_ScoreState.Great || perfect == ScoreManager.E_ScoreState.Pass)
         {
             score = 1;
         }
@@ -67,14 +67,14 @@ public class HitCollisionDetection : MonoBehaviour
         ScoreManager.instance.SetCurrentScore(score);
 
         var hitPoint = obj.transform.position;
-        
+
         //아래들 이펙트 생성및 파티클 생성
         if (hitPoint.y > 0)
         {
             var name = string.Format(AddresEffectName, (int)EffectPosition.Up);
             await name.CreateOBJ<GameObject>(default, hitPoint, Quaternion.identity);
         }
-        else if(obj.GetComponent<Monster>().uniqMonster == UniqMonster.SendBack)
+        else if (obj.GetComponent<Monster>().uniqMonster == UniqMonster.SendBack)
         {
             var name = string.Format(AddresEffectName, (int)EffectPosition.Middle);
             await name.CreateOBJ<GameObject>(default, hitPoint, Quaternion.identity);
@@ -82,7 +82,7 @@ public class HitCollisionDetection : MonoBehaviour
         else
         {
             var name = string.Format(AddresEffectName, (int)EffectPosition.Down);
-            await name.CreateOBJ<GameObject>(default,hitPoint,Quaternion.identity);
+            await name.CreateOBJ<GameObject>(default, hitPoint, Quaternion.identity);
         }
         var monsterType = obj.GetComponent<Monster>().uniqMonster;
         var effectPosition = Vector3.zero;
@@ -94,7 +94,7 @@ public class HitCollisionDetection : MonoBehaviour
         else if (hitPoint.y >= 0 && monsterType == UniqMonster.SendBack)
         {
             effectPosition = upHitPoint.position;
-            effectPosition.y -= effectUpPositionY *3;
+            effectPosition.y -= effectUpPositionY * 3;
         }
         else if (hitPoint.y <= 0)
         {

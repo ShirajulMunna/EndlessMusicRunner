@@ -10,10 +10,10 @@ public class Monster : Entity, IMonsterMove
 {
     const string Name = "Monster_{0}";
 
-    public static async void Create(C_MonsterTable data, Vector3 cratepos)
+    public static async void Create(C_MonsterTable data, Vector3 cratepos, Transform Tr_Parent)
     {
         var name = string.Format(Name, data.PrefabName);
-        var result = await name.CreateOBJ<Monster>();
+        var result = await name.CreateOBJ<Monster>(Tr_Parent);
         result.SetUp(data, cratepos);
     }
 
@@ -39,7 +39,7 @@ public class Monster : Entity, IMonsterMove
     public float Speed { get; set; }
     public float DestoryX { get; set; }
 
-    PlayerSystem player
+    protected PlayerSystem player
     {
         get => GameManager.instance.player;
     }
@@ -109,7 +109,7 @@ public class Monster : Entity, IMonsterMove
         //파티클 생성
         // 플레이어의 y포지션이 근처라면 데미지 파티클생성하게만듬
         var playerPos = player.transform.position;
-        if (playerPos.y+0.5f >= transform.position.y && playerPos.y -0.5f <=transform.position.y ||uniqMonster == UniqMonster.SendBack)
+        if (playerPos.y + 0.5f >= transform.position.y && playerPos.y - 0.5f <= transform.position.y || uniqMonster == UniqMonster.SendBack)
         {
             GameObject opsFx = Instantiate(damageFx, transform.position, Quaternion.identity);
             Destroy(opsFx, 0.2f);
@@ -134,12 +134,13 @@ public class Monster : Entity, IMonsterMove
         base.SetHp(value);
     }
 
-    public void SetHit(ScoreManager.E_ScoreState perfect)
+    public virtual void SetHit(ScoreManager.E_ScoreState perfect)
     {
         Ac_Hit?.Invoke();
         e_MonsterState = E_MonsterState.NoneAttack;
         SetHp(-1);
         HitCollisionDetection.Instance.SetHit(this.gameObject, perfect);
+        AudioManager.instance.PlaySound();
     }
 
     public override void SetDie()

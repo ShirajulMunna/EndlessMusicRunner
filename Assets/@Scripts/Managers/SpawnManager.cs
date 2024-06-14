@@ -1,3 +1,7 @@
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,19 +9,17 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public static SpawnManager instance;
-    //비트 펄 미닛트 -> 120bpm이면 1분에 비트가 120번
     [SerializeField] int Bpm = 0;
+    [SerializeField] Transform Tr_parent;
 
     bool CheckStart;
     int idx = 0;
     int Crateidx = 0;
     int CoolTime = 0;
 
-    //게임 종료 확인
     public bool isCompltedGame = false;
     float gameOverTime = 0f;
-    public int StageInfo = 0; //추후 데이터 어디에서 데이터 받아오는 형태로 만들예정
-    //생성 위치
+    public int StageInfo = 0;
     List<Vector3> L_SpawnPoint = new List<Vector3>()
     {
         new Vector3(20, -3.5f, 0),
@@ -49,16 +51,48 @@ public class SpawnManager : MonoBehaviour
         GameEnd();
     }
 
-    //게임 실행
     public void StartSpawningObjects()
     {
         CheckStart = true;
         isCompltedGame = false;
-        nextSpawnTime = AudioSettings.dspTime; // 게임 시작 시 초기화
+        nextSpawnTime = AudioSettings.dspTime;
         AudioManager.instance.PlayMusic();
     }
 
-    //게임 종료
+    public void StartSpawningObjectsEditor()
+    {
+#if UNITY_EDITOR
+        CheckStart = true;
+        isCompltedGame = false;
+        nextSpawnTime = EditorApplication.timeSinceStartup;
+        SetCreateEditor();
+#endif
+    }
+
+    public void ResetSpawning()
+    {
+#if UNITY_EDITOR
+        idx = 0;
+        Crateidx = 0;
+        CoolTime = 0;
+        CheckStart = false;
+        isCompltedGame = false;
+        nextSpawnTime = 0d;
+        XValue = 0;
+        var children = new List<GameObject>();
+        foreach (Transform child in Tr_parent)
+        {
+            children.Add(child.gameObject);
+        }
+
+        foreach (var child in children)
+        {
+            DestroyImmediate(child); // 즉시 삭제
+        }
+        Debug.Log("Spawning reset.");
+#endif
+    }
+
     void GameEnd()
     {
         if (!isCompltedGame)
@@ -77,8 +111,6 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-
-    //생성 함수
     void SetCreate()
     {
         if (isCompltedGame)
@@ -91,7 +123,6 @@ public class SpawnManager : MonoBehaviour
             return;
         }
 
-        // 60초 / BPM = 1 비트당 시간 (초)
         double beatInterval = 60.0 / Bpm;
         double currentDspTime = AudioSettings.dspTime;
 
@@ -113,13 +144,12 @@ public class SpawnManager : MonoBehaviour
             }
 
             var monsterInfo = GameData.Data.MonsterTable[level[idxs].MonsterInfo];
-            int spawnCount = level[idxs].MonsterSpwanCount; // 비트당 생성해야 할 몬스터 수
+            int spawnCount = level[idxs].MonsterSpwanCount;
 
             for (int i = 0; i < spawnCount; i++)
             {
-                // 위치 생성
                 var createpoint = GetSpawnPoint((MonsterSpwanPosition)level[idxs].Spwan_Position);
-                createpoint.x += 3f * i; // 몬스터 간 간격 조절
+                createpoint.x += 2f * i;
                 MonsterSpawn(monsterInfo, createpoint);
             }
 
@@ -127,28 +157,66 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    //IDX 가져오기
+    float XValue;
+
+    void SetCreateEditor()
+    {
+#if UNITY_EDITOR
+
+
+        var level = GameData.Data.LevelDesigin[StageInfo];
+
+        while (true)
+        {
+            if (isCompltedGame)
+            {
+                return;
+            }
+
+            if (!CheckStart)
+            {
+                return;
+            }
+
+            var idxs = GetIDX();
+
+            if (idxs == -1)
+            {
+                XValue += 10.7f;
+                continue;
+            }
+            var monsterInfo = GameData.Data.MonsterTable[level[idxs].MonsterInfo];
+            int spawnCount = level[idxs].MonsterSpwanCount;
+
+            for (int i = 0; i < spawnCount; i++)
+            {
+                var createpoint = GetSpawnPoint((MonsterSpwanPosition)level[idxs].Spwan_Position);
+                createpoint.x += 2f * i + XValue; // x 값 조정
+                MonsterSpawn(monsterInfo, createpoint);
+                Debug.Log($"Spawned monster at {createpoint}. Monster index: {Crateidx + 1} / Xvalue{XValue}");
+            }
+            XValue += 10.7f;
+            Crateidx += spawnCount;
+        }
+#endif
+    }
+
     int GetIDX()
     {
         var level = GameData.Data.LevelDesigin[StageInfo];
-        // 갯수 넘어갔나 체크
+
         if (idx >= level.Count)
         {
-            // 게임 종료
             isCompltedGame = true;
             return -1;
         }
 
-        // 생성 갯수 확인
         var cratecount = level[idx].MonsterSpwanCount;
 
-        // 생성 갯수가 넘었는지 체크
         if (Crateidx >= cratecount)
         {
-            // 쿨타임 체크
             var cooltime = level[idx].CoolTime;
 
-            // 쿨타임 있는지 체크
             if (cooltime > 0)
             {
                 if (cooltime > CoolTime)
@@ -166,16 +234,13 @@ public class SpawnManager : MonoBehaviour
         return idx;
     }
 
-    // 몬스터 스폰
     public void MonsterSpawn(C_MonsterTable data, Vector3 createpoint)
     {
-        Monster.Create(data, createpoint);
+        Monster.Create(data, createpoint, Tr_parent);
     }
 
-    // 생성위치 가져오기
     Vector3 GetSpawnPoint(MonsterSpwanPosition spwanPosition)
     {
-        // 위치 지정
         var MySpwanPoint = GetPoint(E_SpawnPoint.Hight);
 
         switch (spwanPosition)
@@ -187,7 +252,7 @@ public class SpawnManager : MonoBehaviour
                 MySpwanPoint = GetPoint(E_SpawnPoint.Middle);
                 break;
             case MonsterSpwanPosition.Random:
-                int random = Random.Range(0, 2); // 0에서 2까지 랜덤 생성
+                int random = Random.Range(0, 2);
 
                 if (random == 1)
                 {
@@ -198,7 +263,6 @@ public class SpawnManager : MonoBehaviour
         return MySpwanPoint;
     }
 
-    // 스폰 위치 IDX
     public Vector3 GetPoint(E_SpawnPoint spawnPoint)
     {
         return L_SpawnPoint[(int)spawnPoint];
