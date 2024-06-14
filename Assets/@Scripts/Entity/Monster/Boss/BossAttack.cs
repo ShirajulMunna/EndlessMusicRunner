@@ -50,6 +50,7 @@ public class BossAttack : Monster
         SetSound();
     }
 
+
     //보스 공격 관련 사운드
     void SetSound()
     {
@@ -66,6 +67,7 @@ public class BossAttack : Monster
     {
         if (!CustomCreatePos)
         {
+            isDiagonalMoveComplete = true;
             return;
         }
         OriginPos = cratepos;
@@ -73,6 +75,7 @@ public class BossAttack : Monster
         var pos = Boss.instance.Tr_CustomCreate[CustomCreatePos_IDX].position;
         transform.position = pos;
     }
+
 
     public override void SetMove()
     {

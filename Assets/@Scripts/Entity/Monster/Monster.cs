@@ -132,7 +132,6 @@ public class Monster : Entity, IMonsterMove
     public override void SetHp(int value)
     {
         base.SetHp(value);
-        AudioManager.instance.PlayMusic();
     }
 
     public void SetHit(ScoreManager.E_ScoreState perfect)

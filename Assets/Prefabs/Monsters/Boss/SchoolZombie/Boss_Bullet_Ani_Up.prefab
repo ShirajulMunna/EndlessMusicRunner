@@ -241,8 +241,8 @@ MonoBehaviour:
   Change: 0
   Sk: []
   uniqMonster: 0
-  Delay: 0.3
-  BossState: 0
+  Delay: 0.5
+  BossState: 3
   PlaySound: 1
   CustomCreatePos: 0
   CustomCreatePos_IDX: 0

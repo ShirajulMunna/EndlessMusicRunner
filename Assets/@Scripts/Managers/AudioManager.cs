@@ -13,7 +13,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip bossAttackClip;
     [SerializeField] public AudioSource Audio_BackGround;
     [SerializeField] AudioClip[] BackSound;
-
+    bool CheckMusic;
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -52,17 +52,9 @@ public class AudioManager : MonoBehaviour
         Audio_BackGround.Stop();
     }
 
-    bool CheckMusic;
-
     public void PlayMusic()
     {
-        if (CheckMusic)
-        {
-            return;
-        }
-
-        CheckMusic = true;
-        Audio_BackGround.Play();
+        audioSource.Play();
     }
 
     //사운드 실행
