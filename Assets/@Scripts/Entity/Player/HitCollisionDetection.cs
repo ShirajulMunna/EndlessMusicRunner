@@ -47,11 +47,6 @@ public class HitCollisionDetection : MonoBehaviour
     }
 
 
-    void SetBoss(GameObject obj, ScoreManager.E_ScoreState perfect)
-    {
-        SetEffect(obj, perfect);
-    }
-
     void SetEffect(GameObject obj, ScoreManager.E_ScoreState perfect)
     {
         var score = 0;
@@ -66,8 +61,13 @@ public class HitCollisionDetection : MonoBehaviour
         ScoreManager.instance.SetCombo_Add();
         ScoreManager.instance.SetCurrentScore(score);
 
-        CreatHitpartice(obj);
         CreateStateEffect(obj, perfect);
+
+        if (perfect == ScoreManager.E_ScoreState.Pass)
+        {
+            return;
+        }
+        CreatHitpartice(obj);
     }
 
     async void CreateStateEffect(GameObject obj, ScoreManager.E_ScoreState perfect)
@@ -123,15 +123,7 @@ public class HitCollisionDetection : MonoBehaviour
 
     public void SetHit(GameObject obj, ScoreManager.E_ScoreState state)
     {
-        var tag = obj.tag;
         ScoreManager.instance.SetScoreState(state);
-        if (obj.tag == "Monster")
-        {
-            SetEffect(obj, state);
-        }
-        else if (obj.tag == "Boss")
-        {
-            SetBoss(obj, state);
-        }
+        SetEffect(obj, state);
     }
 }
