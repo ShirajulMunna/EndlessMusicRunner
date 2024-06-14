@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using Spine.Unity;
-using UnityEditor.Search;
 using UnityEngine;
 
 public class PlayerSystem : Entity
