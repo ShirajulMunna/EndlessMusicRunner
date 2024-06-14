@@ -54,6 +54,7 @@ public class LongNote : Monster
         SetCheck();
     }
 
+    public float SoundTime = 0f;
     void SetCheck()
     {
         if (AttackHold == 0 || AttackHold == 2)
@@ -76,7 +77,14 @@ public class LongNote : Monster
                 GetScoreTime = Time.time;
                 var score = 1;
                 ScoreManager.instance.SetCurrentScore(score);
+                
             }
+
+            //if (SoundTime + 0.3f <= Time.time)
+            //{
+            //    SoundTime = Time.time;
+            //    AudioManager.instance.PlaySound();
+            //}
 
             transform.position = prevPosition;
 
@@ -107,6 +115,7 @@ public class LongNote : Monster
         {
             AttackHold = 1;
             prevPosition = transform.position;
+            SpawnManager.instance.longNoteDestoryPosition = prevPosition;
             ScoreManager.instance.SetCombo_Add(); // �޺��߰�
             return;
         }
@@ -118,7 +127,7 @@ public class LongNote : Monster
 
         if (effect == null)
         {
-            var createposr = GameManager.instance.lowerAttackPoint.transform.position;
+            var createposr = /*GameManager.instance.lowerAttackPoint.*/transform.position;
             effect = Instantiate(G_Effect, createposr, default, null);
         }
 
@@ -126,8 +135,9 @@ public class LongNote : Monster
 
         if (Dealy > 0)
         {
-            AudioManager.instance.PlaySound();
-            Dealy = 0.1f;
+            
+            Dealy = 0.3f;
+            
             AttackHold = 1;
         }
 
@@ -137,14 +147,13 @@ public class LongNote : Monster
         }
 
         ScoreManager.instance.SetCombo_Add(); // �޺��߰�
-        Destroy(this.gameObject);
-        Destroy(effect);
-        var createpos = GameManager.instance.skeleton.transform.position;
+        var createpos = SpawnManager.instance.longNoteDestoryPosition;//GameManager.instance.skeleton.transform.position;
         createpos.x += 1;
         createpos.y = 0;
         var end = Instantiate(G_End, createpos, default, null);
         Destroy(end, 1f);
-
+        Destroy(this.gameObject);
+        Destroy(effect);
     }
 
     public override void SetMove()

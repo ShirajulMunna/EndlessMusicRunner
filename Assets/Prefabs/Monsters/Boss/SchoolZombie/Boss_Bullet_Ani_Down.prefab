@@ -138,7 +138,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skin_Names:
-  - skin0
   - skin1
   - skin2
   - skin3
@@ -146,6 +145,10 @@ MonoBehaviour:
   - skin5
   - skin6
   - skin7
+  - skin8
+  - skin9
+  - skin10
+  - skin11
 --- !u!1 &5927427790796394008
 GameObject:
   m_ObjectHideFlags: 0
