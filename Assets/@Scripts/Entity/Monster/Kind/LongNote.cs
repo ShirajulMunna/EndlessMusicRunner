@@ -76,11 +76,6 @@ public class LongNote : Monster
                 
             }
 
-            //if (SoundTime + 0.3f <= Time.time)
-            //{
-            //    SoundTime = Time.time;
-            //    AudioManager.instance.PlaySound();
-            //}
 
             transform.position = prevPosition;
 
@@ -142,7 +137,8 @@ public class LongNote : Monster
             return;
         }
 
-        ScoreManager.instance.SetCombo_Add(); // �޺��߰�
+        ScoreManager.instance.SetCombo_Add(); 
+        //게임매니저에서 처음 충돌위치가져온상태
         var createpos = GameManager.instance.longNoteDestoryPosition;
         var end = Instantiate(G_End, createpos, default, null);
         Destroy(end, 1f);
