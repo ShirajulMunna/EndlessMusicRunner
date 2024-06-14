@@ -221,8 +221,8 @@ MonoBehaviour:
   Sk: []
   uniqMonster: 0
   Tr: {fileID: 5262274270738024526}
-  G_Effect: {fileID: 5316997052277551762, guid: 7130a3286eb3b0147816749b40cd3b4d, type: 3}
-  G_End: {fileID: 8946561951230704596, guid: 251037608b1bd6d4e9d7b4536292b2d7, type: 3}
+  G_Effect: {fileID: 2797351143350440952, guid: 659caca1726477e44af926b4cc64529e, type: 3}
+  G_End: {fileID: 8946561951230704596, guid: e4ca46103f0d3974292a49be7c0d1889, type: 3}
   myNoteSprite:
   - {fileID: 6680587262851187798}
   - {fileID: 1142758815197647577}
