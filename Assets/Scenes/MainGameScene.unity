@@ -2283,7 +2283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ab19cd488cf5584f99c4754645af7c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 2
   Img_FlowingImage: {fileID: 0}
   Sp_Spite: {fileID: 1097276696}
 --- !u!1 &1107935387
@@ -3299,7 +3299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d2fb5759c1b65a48ae800813c45f2ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4.5
+  speed: 2
 --- !u!1 &1470521558
 GameObject:
   m_ObjectHideFlags: 0
