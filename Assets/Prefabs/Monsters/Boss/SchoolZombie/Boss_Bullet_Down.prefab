@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2376462067880542258}
   - component: {fileID: 2376462067880542253}
   m_Layer: 8
-  m_Name: Pencil
+  m_Name: Boss_Bullet_Down
   m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

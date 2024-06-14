@@ -25,3 +25,11 @@
         Middle,
         Up,
     }
+
+    public enum E_PlayerSkill
+    {
+        Fever,
+        Heal,
+        Shield,
+        ScoreBooster,
+    }

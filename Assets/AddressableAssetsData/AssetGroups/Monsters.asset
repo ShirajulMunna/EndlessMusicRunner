@@ -33,7 +33,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e276b0c0ce4ffb549834ea2707fa1b66
-    m_Address: Monster_13
+    m_Address: Monster_3003
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -103,7 +103,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ed5acba0fc71a674fbf93e980313d755
-    m_Address: Monster_12
+    m_Address: Monster_3002
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
