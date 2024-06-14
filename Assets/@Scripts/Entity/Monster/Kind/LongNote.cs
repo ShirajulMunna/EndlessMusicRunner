@@ -22,7 +22,7 @@ public class LongNote : Monster
 
     private float GetScoreTime = 0f;
 
-    public int AttackHold = 0;
+    private int AttackHold = 0;
 
     private Vector3 prevPosition; //충돌지점에서 포지션고정
     private bool isAttackPlayer = false;

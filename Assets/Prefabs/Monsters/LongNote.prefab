@@ -253,7 +253,7 @@ MonoBehaviour:
     m_Bits: 2176
   Star_X: 0.12
   Scale_X: 0.045
-  AttackHold: 1
+  AttackHold: 0
 --- !u!61 &5426800999059403691
 BoxCollider2D:
   m_ObjectHideFlags: 0
