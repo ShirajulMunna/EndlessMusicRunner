@@ -53,6 +53,7 @@ public class IPlayer_Move : MonoBehaviour
             CurDownDelay = MaxDownDelay;
             MovePoint = E_AttackPoint.Down;
             player.SetAni(player.GetAniName(E_AniType.Running));
+            player.SetParticle(E_PlayerSkill.Running, 0);
         }
 
         // 목표 위치 가져오기

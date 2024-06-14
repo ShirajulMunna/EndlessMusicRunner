@@ -94,7 +94,7 @@ public class IPlayer_Attack
             var state = AttackState == E_AttackState.None ? E_AniType.Fly : E_AniType.Fire_Attack;
             player.SetAni(player.GetAniName(state));
         }
-
+        player.SetParticle(E_PlayerSkill.Fly, 0);
         return idx.Item2;
     }
 
@@ -110,6 +110,7 @@ public class IPlayer_Attack
             var state = AttackState == E_AttackState.Hold ? E_AniType.Hold_Attack : type;
             player.SetAni(player.GetAniName(state));
         }
+        player.SetParticle(E_PlayerSkill.Running, 0);
         return idx.Item2;
     }
 

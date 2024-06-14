@@ -11,22 +11,20 @@ public class IPlayer_Particle
     float DelayTime;
     bool isActive;
 
-    Vector3 Pos;
-
     public void SetParticle(float activetime)
     {
-        foreach (var item in G_Particle)
-        {
-            item.SetActive(true);
-        }
-
+        SetDirectActive(true);
         DelayTime = activetime;
-        isActive = true;
     }
 
     public void SetActive()
     {
         if (!isActive)
+        {
+            return;
+        }
+
+        if (SetIdle())
         {
             return;
         }
@@ -37,10 +35,23 @@ public class IPlayer_Particle
         {
             return;
         }
+        SetDirectActive(false);
+    }
+
+    //꺼지지 않는 타입들
+    public bool SetIdle()
+    {
+        return SkillType == E_PlayerSkill.Running || SkillType == E_PlayerSkill.Fly;
+    }
+
+
+    //강제로 온오프
+    public void SetDirectActive(bool check)
+    {
         foreach (var item in G_Particle)
         {
-            item.SetActive(false);
+            item.SetActive(check);
         }
-        isActive = false;
+        isActive = check;
     }
 }

@@ -39,6 +39,7 @@ public class PlayerSystem : Entity
         var result = GetAniName(E_AniType.Running);
         SetAni(result);
         UI_Play.Instance.ActivatPanel(true);
+        SetParticle(E_PlayerSkill.Running, 0);
     }
 
     private void Update()
@@ -105,6 +106,18 @@ public class PlayerSystem : Entity
         foreach (var item in data)
         {
             item.SetParticle(activetime);
+        }
+
+        //Fly, Running체크해서 파티클 끄고 키기
+        var checkrunning = data[0].SetIdle();
+        if (checkrunning)
+        {
+            var type = skilltype == E_PlayerSkill.Fly ? E_PlayerSkill.Running : E_PlayerSkill.Fly;
+            data = L_Particle.FindAll(x => x.SkillType == type);
+            foreach (var item in data)
+            {
+                item.SetDirectActive(false);
+            }
         }
     }
 
