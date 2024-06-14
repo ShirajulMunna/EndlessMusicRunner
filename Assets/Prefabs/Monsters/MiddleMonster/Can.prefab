@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 345578015453725092}
   - component: {fileID: 98197925962513228}
   - component: {fileID: -6925637741920482263}
-  - component: {fileID: -5654904031221229964}
   m_Layer: 8
   m_Name: Can
   m_TagString: Monster
@@ -120,27 +119,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &-5654904031221229964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1450675091563296711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 012f8caf96117b642b39ab58708b5eae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skin_Names:
-  - skin0
-  - skin1
-  - skin2
-  - skin3
-  - skin4
-  - skin5
-  - skin6
-  - skin7
 --- !u!1 &8896488139967747448
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,6 +131,7 @@ GameObject:
   - component: {fileID: 7975724649422891569}
   - component: {fileID: 9053755253548066760}
   - component: {fileID: 7572026843236710443}
+  - component: {fileID: 4302595588941498590}
   m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
@@ -265,3 +244,24 @@ MonoBehaviour:
   _animationName: Idle
   loop: 1
   timeScale: 1
+--- !u!114 &4302595588941498590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8896488139967747448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 012f8caf96117b642b39ab58708b5eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skin_Names:
+  - skin0
+  - skin1
+  - skin2
+  - skin3
+  - skin4
+  - skin5
+  - skin6
+  - skin7

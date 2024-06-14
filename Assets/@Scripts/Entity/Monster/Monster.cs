@@ -63,7 +63,7 @@ public class Monster : Entity, IMonsterMove
     }
 
     //초기화
-    public void SetUp(C_MonsterTable data, Vector3 cratepos)
+    public virtual void SetUp(C_MonsterTable data, Vector3 cratepos)
     {
         CurHp = data.MaxHp;
         uniqMonster = data.Uniq_MonsterType;

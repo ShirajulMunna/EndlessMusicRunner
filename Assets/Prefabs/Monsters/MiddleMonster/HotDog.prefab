@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 24179194683735102}
   - component: {fileID: 24179194683735103}
   - component: {fileID: -2310300173406396827}
-  - component: {fileID: 161585606530487705}
   m_Layer: 8
   m_Name: HotDog
   m_TagString: Monster
@@ -120,27 +119,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &161585606530487705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 24179194683735109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 012f8caf96117b642b39ab58708b5eae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skin_Names:
-  - skin0
-  - skin1
-  - skin2
-  - skin3
-  - skin4
-  - skin5
-  - skin6
-  - skin7
 --- !u!1 &1306423501256047484
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,6 +131,7 @@ GameObject:
   - component: {fileID: 4047007983362628979}
   - component: {fileID: 6479383445793408486}
   - component: {fileID: 1360783704800381296}
+  - component: {fileID: 7092390129928616060}
   m_Layer: 0
   m_Name: New SkeletonAnimation
   m_TagString: Untagged
@@ -195,7 +174,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c1202905ee585b241bc20a66d5cf8829, type: 2}
+  - {fileID: 2100000, guid: 349c733056b37264c9119644a07aff8b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -265,3 +244,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1306423501256047484}
   m_Mesh: {fileID: 0}
+--- !u!114 &7092390129928616060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306423501256047484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 012f8caf96117b642b39ab58708b5eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skin_Names:
+  - skin0
+  - skin1
+  - skin2
+  - skin3
+  - skin4
+  - skin5
+  - skin6
+  - skin7

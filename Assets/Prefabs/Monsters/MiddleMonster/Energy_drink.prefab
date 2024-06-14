@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 335181709627402125}
   - component: {fileID: 2906826971245994306}
   - component: {fileID: 5901833681872958026}
+  - component: {fileID: 4913033248271936648}
   m_Layer: 0
   m_Name: New SkeletonAnimation
   m_TagString: Untagged
@@ -124,6 +125,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1728781678932389121}
   m_Mesh: {fileID: 0}
+--- !u!114 &4913033248271936648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728781678932389121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 012f8caf96117b642b39ab58708b5eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skin_Names:
+  - skin0
+  - skin1
+  - skin2
+  - skin3
+  - skin4
+  - skin5
+  - skin6
+  - skin7
 --- !u!1 &8821321151596255113
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,7 +158,6 @@ GameObject:
   - component: {fileID: 407158453927032574}
   - component: {fileID: 9155503691270116024}
   - component: {fileID: 4906823940072687455}
-  - component: {fileID: -7943162398162415668}
   m_Layer: 8
   m_Name: Energy_drink
   m_TagString: Monster
@@ -244,24 +265,3 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1
---- !u!114 &-7943162398162415668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8821321151596255113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 012f8caf96117b642b39ab58708b5eae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skin_Names:
-  - skin0
-  - skin1
-  - skin2
-  - skin3
-  - skin4
-  - skin5
-  - skin6
-  - skin7

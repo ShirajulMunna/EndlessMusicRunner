@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3671901979699400932}
   - component: {fileID: 5527791659078598482}
   - component: {fileID: 8002083818330521142}
+  - component: {fileID: 472074129803759442}
   m_Layer: 0
   m_Name: zombie
   m_TagString: Untagged
@@ -124,6 +125,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5252468450074137022}
   m_Mesh: {fileID: 0}
+--- !u!114 &472074129803759442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5252468450074137022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 012f8caf96117b642b39ab58708b5eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skin_Names:
+  - skin0
+  - skin1
+  - skin2
+  - skin3
+  - skin4
+  - skin5
+  - skin6
+  - skin7
 --- !u!1 &5927427790796394008
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,7 +158,6 @@ GameObject:
   - component: {fileID: 5927427790796393987}
   - component: {fileID: 5927427790796393986}
   - component: {fileID: 5983066574386384427}
-  - component: {fileID: -1104286101081207828}
   m_Layer: 8
   m_Name: Zombie
   m_TagString: Monster
@@ -244,24 +265,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &-1104286101081207828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5927427790796394008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 012f8caf96117b642b39ab58708b5eae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skin_Names:
-  - skin0
-  - skin1
-  - skin2
-  - skin3
-  - skin4
-  - skin5
-  - skin6
-  - skin7

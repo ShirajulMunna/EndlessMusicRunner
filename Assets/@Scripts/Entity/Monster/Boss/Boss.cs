@@ -8,6 +8,8 @@ public class Boss : Monster
 {
     public static Boss instance;
 
+    [Space(10f)]
+    [Header("보스 공격 관련ㅡㅡㅡㅡ")]
     public List<string> L_Ani = new List<string>()
     {
         "idle",
@@ -17,6 +19,10 @@ public class Boss : Monster
         "Hit",
         "retire",
     };
+
+    [Header("보스 커스텀 공격 위치")]
+    public Transform[] Tr_CustomCreate;
+
 
     Vector3 StartPos = new Vector3(10, 0, 0);
 

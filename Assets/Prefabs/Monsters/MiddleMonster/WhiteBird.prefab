@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5861010290645301921}
   - component: {fileID: 448157682470420222}
   - component: {fileID: 1746293879073178296}
+  - component: {fileID: 3466901611097411349}
   m_Layer: 0
   m_Name: New SkeletonAnimation
   m_TagString: Untagged
@@ -124,6 +125,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5004564947762953827}
   m_Mesh: {fileID: 0}
+--- !u!114 &3466901611097411349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5004564947762953827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 012f8caf96117b642b39ab58708b5eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skin_Names:
+  - skin0
+  - skin1
+  - skin2
+  - skin3
+  - skin4
+  - skin5
+  - skin6
+  - skin7
 --- !u!1 &5156434469478692734
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,7 +158,6 @@ GameObject:
   - component: {fileID: 5156434469478692725}
   - component: {fileID: 5156434469478692724}
   - component: {fileID: -8522847887510337102}
-  - component: {fileID: -1227458752821889186}
   m_Layer: 8
   m_Name: WhiteBird
   m_TagString: Monster
@@ -244,24 +265,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &-1227458752821889186
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5156434469478692734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 012f8caf96117b642b39ab58708b5eae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skin_Names:
-  - skin0
-  - skin1
-  - skin2
-  - skin3
-  - skin4
-  - skin5
-  - skin6
-  - skin7

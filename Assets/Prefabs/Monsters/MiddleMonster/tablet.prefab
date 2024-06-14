@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1586732273323951856}
   - component: {fileID: 2249227629863875094}
   - component: {fileID: 625802925541443427}
-  - component: {fileID: 4325460651036434254}
   m_Layer: 8
   m_Name: tablet
   m_TagString: Monster
@@ -128,27 +127,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &4325460651036434254
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2027002376000927764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 012f8caf96117b642b39ab58708b5eae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skin_Names:
-  - skin0
-  - skin1
-  - skin2
-  - skin3
-  - skin4
-  - skin5
-  - skin6
-  - skin7
 --- !u!1 &7048660977171368946
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,6 +139,7 @@ GameObject:
   - component: {fileID: 2611783714057375389}
   - component: {fileID: 1122078428297104665}
   - component: {fileID: 8248411937039505935}
+  - component: {fileID: 3543673393132436790}
   m_Layer: 0
   m_Name: New SkeletonAnimation
   m_TagString: Untagged
@@ -273,3 +252,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7048660977171368946}
   m_Mesh: {fileID: 0}
+--- !u!114 &3543673393132436790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7048660977171368946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 012f8caf96117b642b39ab58708b5eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skin_Names:
+  - skin0
+  - skin1
+  - skin2
+  - skin3
+  - skin4
+  - skin5
+  - skin6
+  - skin7

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5201511945195960600}
   - component: {fileID: 180291809882834327}
   - component: {fileID: 1205409361042342299}
-  - component: {fileID: -3953307658888797908}
   m_Layer: 8
   m_Name: Donut
   m_TagString: Monster
@@ -120,27 +119,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &-3953307658888797908
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5388534414444513884}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 012f8caf96117b642b39ab58708b5eae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skin_Names:
-  - skin0
-  - skin1
-  - skin2
-  - skin3
-  - skin4
-  - skin5
-  - skin6
-  - skin7
 --- !u!1 &9113764871146209410
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,6 +131,7 @@ GameObject:
   - component: {fileID: 5479689952194085737}
   - component: {fileID: 8619561847532111495}
   - component: {fileID: 1241900243993511014}
+  - component: {fileID: 2777596702074788030}
   m_Layer: 0
   m_Name: New SkeletonAnimation
   m_TagString: Untagged
@@ -265,3 +244,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9113764871146209410}
   m_Mesh: {fileID: 0}
+--- !u!114 &2777596702074788030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9113764871146209410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 012f8caf96117b642b39ab58708b5eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skin_Names:
+  - skin0
+  - skin1
+  - skin2
+  - skin3
+  - skin4
+  - skin5
+  - skin6
+  - skin7

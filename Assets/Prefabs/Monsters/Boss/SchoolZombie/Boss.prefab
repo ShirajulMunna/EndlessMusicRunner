@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4436806907924129070
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3381030844900745593}
+  m_Layer: 12
+  m_Name: Tr_CreatPoint_0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3381030844900745593
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4436806907924129070}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3, y: 3.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5927427790796394012}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5927427790796394008
 GameObject:
   m_ObjectHideFlags: 0
@@ -33,6 +64,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3298089175911778673}
+  - {fileID: 3381030844900745593}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &5927427790796393987
@@ -115,9 +147,7 @@ MonoBehaviour:
   damageAmount: 0
   damageFx: {fileID: 0}
   Change: 0
-  Sk:
-  - {fileID: 11400000, guid: 2ae2e3660f3192d49a36eb4aa76fd62d, type: 2}
-  - {fileID: 11400000, guid: 933f9dbbd5471f240bd63f6f0b29cfa8, type: 2}
+  Sk: []
   uniqMonster: 0
   L_Ani:
   - idle
@@ -126,6 +156,8 @@ MonoBehaviour:
   - Attack3
   - Hit
   - retire
+  Tr_CustomCreate:
+  - {fileID: 3381030844900745593}
 --- !u!1 &7109575829686589730
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,7 +240,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 10
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &9047021708755453407
 MonoBehaviour:
@@ -247,6 +279,6 @@ MonoBehaviour:
   disableRenderingOnOverride: 1
   updateTiming: 1
   unscaledTime: 0
-  _animationName: idle
+  _animationName: Attack1
   loop: 1
   timeScale: 1

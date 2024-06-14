@@ -74,7 +74,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 10
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &582701087284038641
 MonoBehaviour:
@@ -306,6 +306,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29e5a886bd3ce024b88f23740688a8f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHp: 0
+  curHp: 0
+  _skeletonAnimation: {fileID: 0}
+  damageAmount: 0
+  damageFx: {fileID: 6630400188505773858, guid: dd80aa9b27baa334ea57eb66d90b8392, type: 3}
+  Change: 0
+  Sk: []
+  uniqMonster: 0
   Delay: 0.3
   BossState: 2
   PlaySound: 1
+  CustomCreatePos: 1
+  CustomCreatePos_IDX: 0
