@@ -422,6 +422,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Heal_1
       objectReference: {fileID: 0}
+    - target: {fileID: 1592372973558972, guid: ab7d3670f320c47429b88a8a4eba74b4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4843259840985632, guid: ab7d3670f320c47429b88a8a4eba74b4, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -533,6 +537,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: shield_head
       objectReference: {fileID: 0}
+    - target: {fileID: 1841273441885634, guid: 4bdd46527d459d5438eaa45f86670b70, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4938853494822938, guid: 4bdd46527d459d5438eaa45f86670b70, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -611,6 +619,10 @@ PrefabInstance:
     - target: {fileID: 1841273441885634, guid: c5a506ba5758f7e4a817a6b7002be1fe, type: 3}
       propertyPath: m_Name
       value: Fire_head
+      objectReference: {fileID: 0}
+    - target: {fileID: 1841273441885634, guid: c5a506ba5758f7e4a817a6b7002be1fe, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4938853494822938, guid: c5a506ba5758f7e4a817a6b7002be1fe, type: 3}
       propertyPath: m_LocalScale.x
