@@ -313,7 +313,7 @@ public class IPlayer_Attack
         {
             return false;
         }
-        longnote.SetAttack();
+        longnote.SetAttack(perfect);
         return true;
     }
 

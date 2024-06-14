@@ -27,6 +27,9 @@ public class LongNote : Monster
     private Vector3 prevPosition; //충돌지점에서 포지션고정
     private bool isAttackPlayer = false;
 
+    public GameObject perfectEffect;
+    public GameObject greatEffect;
+
     protected override void Start()
     {
         if (Change)
@@ -100,7 +103,7 @@ public class LongNote : Monster
         }
     }
 
-    public void SetAttack()
+    public void SetAttack(ScoreManager.E_ScoreState perfect)
     {
         if (AttackHold == 0)
         {
@@ -108,6 +111,7 @@ public class LongNote : Monster
             prevPosition = transform.position;
             GameManager.instance.longNoteDestoryPosition = prevPosition;
             ScoreManager.instance.SetCombo_Add(); // �޺��߰�
+            SetConditionEffect(perfect,prevPosition);
             return;
         }
 
@@ -141,6 +145,7 @@ public class LongNote : Monster
         //게임매니저에서 처음 충돌위치가져온상태
         var createpos = GameManager.instance.longNoteDestoryPosition;
         var end = Instantiate(G_End, createpos, default, null);
+        SetConditionEffect(perfect, createpos);
         Destroy(end, 1f);
         Destroy(this.gameObject);
         Destroy(effect);
@@ -174,7 +179,22 @@ public class LongNote : Monster
 
             var effects = await Effect.Create(transform.position, (int)HitCollisionDetection.ConditionEffect.Opps);
             effects.fadeDuration = HitCollisionDetection.Instance.fadeDuration;
+        }  
+    }
+    //판정이펙트 출력
+    private void SetConditionEffect(ScoreManager.E_ScoreState perfect,Vector3 position)
+    {
+        GameObject effectObject = null;
+        switch (perfect)
+        {
+            case ScoreManager.E_ScoreState.Perfect:
+                effectObject = Instantiate(perfectEffect, position, default, null);
+                break;
+            case ScoreManager.E_ScoreState.Great:
+                effectObject = Instantiate(greatEffect, position, default, null);
+                break;
         }
-       
+        if(effectObject != null) 
+            effectObject.GetComponent<Effect>().fadeDuration = HitCollisionDetection.Instance.fadeDuration;
     }
 }
