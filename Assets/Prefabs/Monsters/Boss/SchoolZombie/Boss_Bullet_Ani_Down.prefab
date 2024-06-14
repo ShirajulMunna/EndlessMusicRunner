@@ -307,4 +307,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Delay: 0.3
-  BossState: 0
+  BossState: 1
+  PlaySound: 1

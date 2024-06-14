@@ -11,7 +11,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip ouch_1;
     public AudioClip failGame;
     public AudioClip bossAttackClip;
-    [SerializeField] public  AudioSource Audio_BackGround;
+    [SerializeField] public AudioSource Audio_BackGround;
     [SerializeField] AudioClip[] BackSound;
 
     void Start()
@@ -44,7 +44,6 @@ public class AudioManager : MonoBehaviour
 
     public void PlayerHItSound()
     {
-
         audioSource.PlayOneShot(ouch_1, 0.1f);
     }
 
@@ -64,5 +63,12 @@ public class AudioManager : MonoBehaviour
 
         CheckMusic = true;
         Audio_BackGround.Play();
+    }
+
+    //사운드 실행
+    public async void PlayEffectSound(string key)
+    {
+        var result = await AddressLoad.LoadAsync<AudioClip>(key);
+        audioSource.PlayOneShot(result, 1);
     }
 }

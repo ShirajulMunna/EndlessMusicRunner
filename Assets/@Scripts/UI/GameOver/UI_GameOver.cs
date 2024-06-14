@@ -60,7 +60,6 @@ public class UI_GameOver : MonoBehaviour
         G_LP.SetActive(true);
     }
 
-
     void SetAccuracy()
     {
         var maxcount = ScoreManager.instance.GetMaxState();
