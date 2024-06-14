@@ -52,7 +52,7 @@ public class HitCollisionDetection : MonoBehaviour
         SetEffect(obj, perfect);
     }
 
-    async void SetEffect(GameObject obj, ScoreManager.E_ScoreState perfect)
+    void SetEffect(GameObject obj, ScoreManager.E_ScoreState perfect)
     {
         var score = 0;
         if (perfect == ScoreManager.E_ScoreState.Perfect)
@@ -66,41 +66,23 @@ public class HitCollisionDetection : MonoBehaviour
         ScoreManager.instance.SetCombo_Add();
         ScoreManager.instance.SetCurrentScore(score);
 
+        CreatHitpartice(obj);
+        CreateStateEffect(obj, perfect);
+    }
+
+    async void CreateStateEffect(GameObject obj, ScoreManager.E_ScoreState perfect)
+    {
         var hitPoint = obj.transform.position;
 
-        //아래들 이펙트 생성및 파티클 생성
-        if (hitPoint.y > 0)
-        {
-            var name = string.Format(AddresEffectName, (int)EffectPosition.Up);
-            await name.CreateOBJ<GameObject>(default, hitPoint, Quaternion.identity);
-        }
-        else if (obj.GetComponent<Monster>().uniqMonster == UniqMonster.SendBack)
-        {
-            var name = string.Format(AddresEffectName, (int)EffectPosition.Middle);
-            await name.CreateOBJ<GameObject>(default, hitPoint, Quaternion.identity);
-        }
-        else
-        {
-            var name = string.Format(AddresEffectName, (int)EffectPosition.Down);
-            await name.CreateOBJ<GameObject>(default, hitPoint, Quaternion.identity);
-        }
-        var monsterType = obj.GetComponent<Monster>().uniqMonster;
-        var effectPosition = Vector3.zero;
-        if (hitPoint.y >= 0 && monsterType == UniqMonster.Normal)
-        {
-            effectPosition = upHitPoint.position;
-            effectPosition.y += effectUpPositionY;
-        }
-        else if (hitPoint.y >= 0 && monsterType == UniqMonster.SendBack)
-        {
-            effectPosition = upHitPoint.position;
-            effectPosition.y -= effectUpPositionY * 3;
-        }
-        else if (hitPoint.y <= 0)
+        var effectPosition = upHitPoint.position;
+        effectPosition.y += effectUpPositionY;
+
+        if (hitPoint.y >= 0 && hitPoint.y <= 1)
         {
             effectPosition = downHitPoint.position;
-            effectPosition.y += effectUpPositionY;
+            effectPosition.y -= effectUpPositionY * 3;
         }
+
         var effect = ConditionEffect.Great;
         switch (perfect)
         {
@@ -115,6 +97,30 @@ public class HitCollisionDetection : MonoBehaviour
         var effects = await Effect.Create(effectPosition, (int)effect);
         effects.fadeDuration = fadeDuration;
     }
+
+    //히트 파티클 생성
+    async void CreatHitpartice(GameObject obj)
+    {
+        string name = null;
+        var hitPoint = obj.transform.position;
+
+        //아래들 이펙트 생성및 파티클 생성
+        if (hitPoint.y > 0)
+        {
+            name = string.Format(AddresEffectName, (int)EffectPosition.Up);
+        }
+        else if (obj.GetComponent<Monster>().uniqMonster == UniqMonster.SendBack)
+        {
+            name = string.Format(AddresEffectName, (int)EffectPosition.Middle);
+        }
+        else
+        {
+            name = string.Format(AddresEffectName, (int)EffectPosition.Down);
+        }
+
+        await name.CreateOBJ<GameObject>(default, hitPoint, Quaternion.identity);
+    }
+
     public void SetHit(GameObject obj, ScoreManager.E_ScoreState state)
     {
         var tag = obj.tag;
