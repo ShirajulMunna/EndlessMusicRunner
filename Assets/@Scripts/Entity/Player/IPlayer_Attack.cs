@@ -170,9 +170,9 @@ public class IPlayer_Attack
 
         foreach (var item in col)
         {
-            //몬스터 일때 처리
-            var monster = item.GetComponent<Monster>();
-            var result = SetMonster(monster, perfect);
+            //보스일때 처리
+            var boss = item.GetComponent<Boss>();
+            var result = SetBoss(boss, perfect);
 
             if (result)
             {
@@ -188,9 +188,10 @@ public class IPlayer_Attack
                 return E_AttackState.Hold;
             }
 
-            //보스일때 처리
-            var boss = item.GetComponent<Boss>();
-            result = SetBoss(boss, perfect);
+
+            //몬스터 일때 처리
+            var monster = item.GetComponent<Monster>();
+            result = SetMonster(monster, perfect);
 
             if (result)
             {
