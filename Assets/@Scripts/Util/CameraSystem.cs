@@ -9,11 +9,11 @@ public class CameraSystem : MonoBehaviour
 
     //기존 위치
     Vector3 orginPos = new Vector3(0f, 0.3f, -10f);
-    float orginSize = 9;
+    float orginSize = 11;
 
     //줌인 사이즈 및 위치
     Vector3 ZoomInPos = new Vector3(-5, 0.3f, -10f);
-    float ZoomInSize = 7;
+    float ZoomInSize = 8;
     float Up_Down_Szie = 0.5f;
 
     //타겟

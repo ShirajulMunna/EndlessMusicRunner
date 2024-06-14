@@ -8,7 +8,7 @@ public class UI_GameOver : MonoBehaviour
     const string Name = "UI_GameOver";
     public static async void Create()
     {
-        if(UI_Play.Instance.GameOver)
+        if (UI_Play.Instance.GameOver)
         {
             return;
         }
@@ -24,12 +24,35 @@ public class UI_GameOver : MonoBehaviour
     [SerializeField] GameObject G_LP;
     private void Start()
     {
+        SetClear();
         SetName();
         SetScore();
         SetAccuracy();
         SetBestCombo();
         SetScoreState();
         SetRating();
+    }
+
+    //성공 실패 확인
+    bool CheckClear()
+    {
+        return GameManager.instance.player.CheckDie();
+    }
+
+    //게임 클리어
+    void SetClear()
+    {
+        var checkclear = CheckClear();
+
+        //사망 처리
+        if (checkclear)
+        {
+            AudioManager.instance.PlayEffectSound("Gameover_Over");
+            return;
+        }
+
+        //클리어처리
+        AudioManager.instance.PlayEffectSound("Gameover_Clear");
     }
 
     void SetName()
@@ -51,11 +74,12 @@ public class UI_GameOver : MonoBehaviour
         var wait = new WaitForSeconds(0.03f);
         var curscore = ScoreManager.instance.GetCurrentScore();
         var dleay = 1f;
+        AudioManager.instance.PlayEffectSound("Gameover_Score");
         for (int i = 0; i < curscore; i++)
         {
             dleay -= 0.03f;
 
-            if(dleay <= 0)
+            if (dleay <= 0)
             {
                 break;
             }
