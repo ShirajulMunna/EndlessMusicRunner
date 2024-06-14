@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public Transform bossWaitPosition;
 
     public Transform lowerAttackPoint;
+    [HideInInspector] public Vector3 longNoteDestoryPosition;
     void Awake()
     {
         if (instance != null)

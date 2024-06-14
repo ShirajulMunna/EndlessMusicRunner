@@ -741,6 +741,10 @@ PrefabInstance:
       propertyPath: playerUiGraphic
       value: 
       objectReference: {fileID: 411040157}
+    - target: {fileID: 9202340851511384372, guid: ed5b253ae97123140b94ca732eaceb00, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

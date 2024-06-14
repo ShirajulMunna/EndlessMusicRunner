@@ -31,19 +31,15 @@ public class LongNote : Monster
     {
         if (Change)
         {
-            var type = UI_Lobby.Type == false ? 0 : 1;
             for (int i = 0; i < myNoteSprite.Length; ++i)
             {
                 var idx = (int)PlayerSkinType.Count;
+                // 두가지 타입으로 나눠져서 됨. type필요없음
                 int spriteIndex = (int)UI_Lobby.playerSkinType % idx;
-                if (type == 1)
-                    spriteIndex += (int)PlayerSkinType.Count;
-
                 myNoteSprite[i].sprite = noteSprites[spriteIndex];
                 //����� 1�γ��ͼ� 0.5�� �������� ����
                 myNoteSprite[i].gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             }
-            myLongSprrite.sprite = longSprites[type];
         }
         DestoryX = -50;
     }
@@ -115,7 +111,7 @@ public class LongNote : Monster
         {
             AttackHold = 1;
             prevPosition = transform.position;
-            SpawnManager.instance.longNoteDestoryPosition = prevPosition;
+            GameManager.instance.longNoteDestoryPosition = prevPosition;
             ScoreManager.instance.SetCombo_Add(); // �޺��߰�
             return;
         }
@@ -147,9 +143,7 @@ public class LongNote : Monster
         }
 
         ScoreManager.instance.SetCombo_Add(); // �޺��߰�
-        var createpos = SpawnManager.instance.longNoteDestoryPosition;//GameManager.instance.skeleton.transform.position;
-        createpos.x += 1;
-        createpos.y = 0;
+        var createpos = GameManager.instance.longNoteDestoryPosition;
         var end = Instantiate(G_End, createpos, default, null);
         Destroy(end, 1f);
         Destroy(this.gameObject);
