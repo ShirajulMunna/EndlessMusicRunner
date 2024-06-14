@@ -17,6 +17,7 @@ public class FerverTimeSystem : Skill
         {
             return;
         }
+        GameManager.instance.player.SetParticle(E_PlayerSkill.Fever,st_Skill.Activetime);
     }
 
     //피버타임 발동 시 스코어 두배
@@ -30,6 +31,7 @@ public class FerverTimeSystem : Skill
         return _skillClass.ActiveChecker.CheckActive() ? currentScore * 2 : currentScore;
     }
 }
+
 
 public struct St_AddFever
 {

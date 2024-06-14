@@ -356,6 +356,19 @@ MonoBehaviour:
   maxHp: 100
   curHp: 100
   _skeletonAnimation: {fileID: 1236657713761570640}
+  L_Particle:
+  - SkillType: 0
+    G_Particle:
+    - {fileID: 6287367797854668996}
+  - SkillType: 1
+    G_Particle:
+    - {fileID: 3957618831164542698}
+  - SkillType: 3
+    G_Particle:
+    - {fileID: 6279018230795655936}
+  - SkillType: 2
+    G_Particle:
+    - {fileID: 7546043932877010485}
   M_Move: {fileID: 0}
 --- !u!1 &7546043932877010485
 GameObject:

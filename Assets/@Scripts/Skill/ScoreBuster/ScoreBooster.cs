@@ -15,6 +15,7 @@ public class ScoreBooster : Skill
             return;
         }
         result?.SetAddScore(st_Skill.st_AddScore.Addscore);
+        GameManager.instance.player.SetParticle(E_PlayerSkill.ScoreBooster, st_Skill.Activetime);
     }
 
     [SerializeField] TextMeshProUGUI T_AddScore;

@@ -2,11 +2,14 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using Spine.Unity;
+using UnityEditor.Search;
 using UnityEngine;
 
 public class PlayerSystem : Entity
 {
     public static PlayerSystem playerSystem;
+
+    [SerializeField] List<IPlayer_Particle> L_Particle = new List<IPlayer_Particle>();
 
     //공격 클래스
     [HideInInspector] public IPlayer_Attack M_Attack;
@@ -43,6 +46,7 @@ public class PlayerSystem : Entity
     {
         var point = M_Attack.Attack();
         M_Move.SetMove(point);
+        SetParticle_Active();
     }
 
     //애니메이션 이름 가져오기
@@ -83,5 +87,39 @@ public class PlayerSystem : Entity
         AudioManager.instance.StopMusic();
         SpawnManager.instance.StopAllCoroutines();
         UI_GameOver.Create();
+    }
+
+    //파티클 실행
+    public void SetParticle(E_PlayerSkill skilltype, float activetime)
+    {
+        if (L_Particle.Count <= 0)
+        {
+            return;
+        }
+
+        var data = L_Particle.FindAll(x => x.SkillType == skilltype);
+
+        if (data.Count <= 0)
+        {
+            return;
+        }
+
+        foreach (var item in data)
+        {
+            item.SetParticle(activetime);
+        }
+    }
+
+    //파티클 쿨타임 진행
+    void SetParticle_Active()
+    {
+        if (L_Particle.Count <= 0)
+        {
+            return;
+        }
+        foreach (var item in L_Particle)
+        {
+            item.SetActive();
+        }
     }
 }

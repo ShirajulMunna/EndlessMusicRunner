@@ -15,6 +15,7 @@ public class Healing : Skill
             return;
         }
         result?.SetHealing(healing);
+        GameManager.instance.player.SetParticle(E_PlayerSkill.Heal, st_Skill.Activetime);
     }
 
     public void SetHealing(int healing)
