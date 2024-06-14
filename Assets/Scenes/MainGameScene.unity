@@ -942,32 +942,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bpm: 105
   StageInfo: 0
-  monsterOBjects:
-  - {fileID: 1768767069754803484, guid: aadad9fd2c648c648984fa1ae2bdca51, type: 3}
-  - {fileID: 5629541656628589791, guid: c457964665b6f994496a2e5b317fa8e3, type: 3}
-  - {fileID: 5151318159573600705, guid: 49040afcb01587b4eb35205eb6c8a003, type: 3}
-  - {fileID: 1450675091563296711, guid: 4000a61b93cb6b74cbb38de8cb8fc21c, type: 3}
-  - {fileID: 3909550831714088322, guid: 8fed19218da0bb3489f380c5e7a4d209, type: 3}
-  - {fileID: 2819491545882889420, guid: e7d0a18bf94337c4ea4887941607426b, type: 3}
-  - {fileID: 158793283704363192, guid: d11ffb6f94289da45ba41df0bbbc73b2, type: 3}
-  - {fileID: 4017503350375869807, guid: 5f6ea976a3e6cd1488b10d12528c2940, type: 3}
-  - {fileID: 24179194683735109, guid: 975d28c018eb0e441bb21969b748787a, type: 3}
-  - {fileID: 5388534414444513884, guid: a3c9bd0d8592605438be22d33e2222a6, type: 3}
-  - {fileID: 5807613031276573903, guid: 92960cacd1ae5d54d8ac8d8d20db0c49, type: 3}
-  - {fileID: 1679112057939430794, guid: 9f8b02cbb4efe924782d4a19e2dc0ace, type: 3}
-  - {fileID: 2376462067880542252, guid: ed5acba0fc71a674fbf93e980313d755, type: 3}
-  - {fileID: 8655841565898487343, guid: e276b0c0ce4ffb549834ea2707fa1b66, type: 3}
-  - {fileID: 5927427790796394008, guid: 60d7e46dcd106d648998b5adc3e524f5, type: 3}
-  - {fileID: 2027002376000927764, guid: 34fbfca360e55184bb859625f2da823b, type: 3}
-  - {fileID: 8755797267905834417, guid: a887dc2f04cc4f4488ab3ada0476a70b, type: 3}
-  - {fileID: 5156434469478692734, guid: 8249f2eee7aea7f4cabef9475a173571, type: 3}
-  - {fileID: 5927427790796394008, guid: 70574aac563509242a337322ba25918a, type: 3}
-  - {fileID: 5927427790796394008, guid: 60eb9a5837519bd4db4d2d1e06e8742d, type: 3}
-  - {fileID: 8821321151596255113, guid: 09b21e11486d1de4ebe16a74154064be, type: 3}
-  - {fileID: 8821321151596255113, guid: ecd51a4f4472c454bb247e6ca7d4b81a, type: 3}
-  - {fileID: 8821321151596255113, guid: 0eadad63813328445b1dab927b7c1d6a, type: 3}
-  bossObjects:
-  - {fileID: 5927427790796394008, guid: 053161a8487a77c48952b9c3ef9e4f63, type: 3}
 --- !u!4 &342117586
 Transform:
   m_ObjectHideFlags: 0
@@ -2069,6 +2043,8 @@ MonoBehaviour:
   clap_1: {fileID: 8300000, guid: 2d84add459c89fd43927672f1486827b, type: 3}
   clap_2: {fileID: 8300000, guid: 8f45f6d2f3aedc545a567482f23b0f7a, type: 3}
   ouch_1: {fileID: 8300000, guid: f4684ca5a03e3b94684f0d8f69680689, type: 3}
+  failGame: {fileID: 0}
+  bossAttackClip: {fileID: 0}
   Audio_BackGround: {fileID: 743956113}
   BackSound:
   - {fileID: 8300000, guid: a2abdeff1338aa0419b0d09eaf30b841, type: 3}
@@ -2080,11 +2056,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 743956112}
   m_Enabled: 1
---- !u!1 &753292737 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8379776653822113685, guid: d97a277ca46f5f64880e74e60037fede, type: 3}
-  m_PrefabInstance: {fileID: 2277379502515520649}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &824211104
 GameObject:
   m_ObjectHideFlags: 0
@@ -2202,8 +2173,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skeleton: {fileID: 1878545307}
-  speaker_1: {fileID: 1881881561}
-  speaker_2: {fileID: 753292737}
+  speaker_1: {fileID: 0}
+  speaker_2: {fileID: 0}
   player: {fileID: 1608568235}
   bossWaitPosition: {fileID: 0}
   lowerAttackPoint: {fileID: 304495756}
@@ -4794,11 +4765,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1881881561 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 52291137052656947, guid: d97a277ca46f5f64880e74e60037fede, type: 3}
-  m_PrefabInstance: {fileID: 2277379502515520649}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1903210103
 GameObject:
   m_ObjectHideFlags: 0
