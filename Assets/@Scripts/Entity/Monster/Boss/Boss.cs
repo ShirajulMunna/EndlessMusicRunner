@@ -23,8 +23,8 @@ public class Boss : Monster
     [Header("보스 커스텀 공격 위치")]
     public Transform[] Tr_CustomCreate;
 
-
-    Vector3 StartPos = new Vector3(10, 0, 0);
+    //6.14 보스 바닥에서 나오게하는 코드 작업
+    Vector3 StartPos = new Vector3(10, -4.2f,0);
 
     bool hasReachedStartPos = false;
 
