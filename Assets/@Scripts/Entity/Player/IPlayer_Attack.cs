@@ -176,6 +176,8 @@ public class IPlayer_Attack
         {
             return E_AttackState.None;
         }
+        
+        AudioManager.instance.PlayMusic();
 
         foreach (var item in col)
         {

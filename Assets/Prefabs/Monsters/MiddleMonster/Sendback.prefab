@@ -75,7 +75,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -163562733
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &6635073356844260440
 MonoBehaviour:
@@ -114,8 +114,8 @@ MonoBehaviour:
   disableRenderingOnOverride: 1
   updateTiming: 1
   unscaledTime: 0
-  _animationName: 
-  loop: 0
+  _animationName: idle
+  loop: 1
   timeScale: 1
 --- !u!33 &3379061965844306183
 MeshFilter:
@@ -158,6 +158,7 @@ GameObject:
   - component: {fileID: 5927427790796393986}
   - component: {fileID: 5983066574386384427}
   - component: {fileID: 7196835087666699754}
+  - component: {fileID: 6622088468358652099}
   m_Layer: 8
   m_Name: Sendback
   m_TagString: Monster
@@ -195,7 +196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 0
   curHp: 0
-  _skeletonAnimation: {fileID: 0}
+  _skeletonAnimation: {fileID: 6635073356844260440}
   damageAmount: 10
   damageFx: {fileID: 6630400188505773858, guid: dd80aa9b27baa334ea57eb66d90b8392, type: 3}
   Change: 0
@@ -273,3 +274,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10, y: 30}
   m_EdgeRadius: 0
+--- !u!114 &6622088468358652099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5927427790796394008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a52f293ea4ab06459dfdf2ab9db6919, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monster: {fileID: 5927427790796393986}
