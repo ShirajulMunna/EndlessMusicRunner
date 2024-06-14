@@ -33,20 +33,19 @@ Shader "Custom/FlowingShader"
             sampler2D _MainTex;
             float4 _MainTex_ST;
             float _Speed;
-            float _Time;
 
             v2f vert (appdata_t v)
             {
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
-                o.uv = v.uv;
+                o.uv = TRANSFORM_TEX(v.uv, _MainTex);
                 return o;
             }
 
             fixed4 frag (v2f i) : SV_Target
             {
                 float2 uv = i.uv;
-                uv.x -= _Time * _Speed * 0.1;
+                uv.x = frac(uv.x + _Time.y * _Speed * 0.1); // frac 함수를 사용하여 UV 좌표를 래핑
                 return tex2D(_MainTex, uv);
             }
             ENDCG

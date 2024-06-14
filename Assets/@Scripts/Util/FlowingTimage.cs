@@ -9,10 +9,18 @@ public class FlowingImage : MonoBehaviour
 
     void Start()
     {
-        material = Img_FlowingImage.material;
-        if (material == null)
+        Image image = Img_FlowingImage;
+        if (image != null)
         {
-            Debug.LogError("Material is missing!");
+            material = image.material;
+            if (material == null)
+            {
+                Debug.LogError("Material is missing!");
+            }
+        }
+        else
+        {
+            Debug.LogError("Image component is missing!");
         }
     }
 
@@ -21,7 +29,6 @@ public class FlowingImage : MonoBehaviour
         if (material != null)
         {
             material.SetFloat("_Speed", speed);
-            material.SetFloat("_Time", Time.time);
         }
     }
 }
