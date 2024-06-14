@@ -31,8 +31,8 @@ Transform:
   m_GameObject: {fileID: 2376462067880542252}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -49.78, y: -1.33, z: 0}
-  m_LocalScale: {x: 0.27397662, y: 0.27397662, z: 0.27397662}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -141,10 +141,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 0
   curHp: 0
-  _skeletonAnimation: {fileID: 0}
+  _skeletonAnimation: {fileID: 2376462067880542257}
   damageAmount: 5
   damageFx: {fileID: 6630400188505773858, guid: dd80aa9b27baa334ea57eb66d90b8392, type: 3}
-  Change: 1
+  Change: 0
   Sk:
   - {fileID: 11400000, guid: 3ba75661849d13d45864032068153521, type: 2}
   - {fileID: 11400000, guid: 443f66e482119ea42a780f748e65c685, type: 2}

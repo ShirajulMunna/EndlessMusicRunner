@@ -146,9 +146,7 @@ MonoBehaviour:
   damageAmount: 1
   damageFx: {fileID: 6630400188505773858, guid: dd80aa9b27baa334ea57eb66d90b8392, type: 3}
   Change: 0
-  Sk:
-  - {fileID: 11400000, guid: 3371ecad1dbd1de4a99dca8813c4bdad, type: 2}
-  - {fileID: 11400000, guid: 9c77fcd226f1521478cec4d77d698718, type: 2}
+  Sk: []
   uniqMonster: 0
 --- !u!61 &2249227629863875094
 BoxCollider2D:

@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skeletonDataAsset: {fileID: 11400000, guid: 17405190b108afe4f9f00405907909cc, type: 2}
-  initialSkinName: skin0
+  initialSkinName: skin1
   fixPrefabOverrideViaMeshFilter: 2
   initialFlipX: 0
   initialFlipY: 0
@@ -181,9 +181,7 @@ MonoBehaviour:
   damageAmount: 3
   damageFx: {fileID: 6630400188505773858, guid: dd80aa9b27baa334ea57eb66d90b8392, type: 3}
   Change: 0
-  Sk:
-  - {fileID: 11400000, guid: 46834918750682f4d9403ebe477a0602, type: 2}
-  - {fileID: 11400000, guid: 2332f83bd416d184aa98c072c1df07b2, type: 2}
+  Sk: []
   uniqMonster: 0
 --- !u!50 &519227151299903132
 Rigidbody2D:

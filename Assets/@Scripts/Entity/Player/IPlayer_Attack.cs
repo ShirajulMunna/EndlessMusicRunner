@@ -1,6 +1,7 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-
+[Serializable]
 public class IPlayer_Attack
 {
     //X값 오프셋
@@ -51,19 +52,27 @@ public class IPlayer_Attack
         if (Input.GetKey(KeyCode.F) && CheckAttackState())
         {
             point = UpAttack();
-            AudioManager.instance.PlaySound();
 
+            if (HoldDelay <= 0)
+            {
+                AudioManager.instance.PlaySound();
+            }
         }
         if (Input.GetKey(KeyCode.J) && CheckAttackState())
         {
             point = DownAttack();
-            AudioManager.instance.PlaySound();
-
+            if (HoldDelay <= 0)
+            {
+                AudioManager.instance.PlaySound();
+            }
         }
 
         if (AttackState == E_AttackState.Hold)
         {
-            HoldDelay = 0.2f;
+            if (HoldDelay <= 0)
+            {
+                HoldDelay = 0.2f;
+            }
         }
 
         if (Input.GetKeyUp(KeyCode.F) || Input.GetKeyUp(KeyCode.J))

@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 8655841565898487344}
   - component: {fileID: 8655841565898487345}
   - component: {fileID: 8655841565898487342}
-  - component: {fileID: -1502069706955874578}
   m_Layer: 8
   m_Name: Boss_Bullet_Up
   m_TagString: Monster
@@ -32,8 +31,8 @@ Transform:
   m_GameObject: {fileID: 8655841565898487343}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -49.78, y: -1.33, z: 0}
-  m_LocalScale: {x: 0.2891729, y: 0.2891729, z: 0.2891729}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -142,7 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 0
   curHp: 0
-  _skeletonAnimation: {fileID: 0}
+  _skeletonAnimation: {fileID: 8655841565898487346}
   damageAmount: 5
   damageFx: {fileID: 6630400188505773858, guid: dd80aa9b27baa334ea57eb66d90b8392, type: 3}
   Change: 0
@@ -212,24 +211,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &-1502069706955874578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8655841565898487343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 012f8caf96117b642b39ab58708b5eae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skin_Names:
-  - skin0
-  - skin1
-  - skin2
-  - skin3
-  - skin4
-  - skin5
-  - skin6
-  - skin7

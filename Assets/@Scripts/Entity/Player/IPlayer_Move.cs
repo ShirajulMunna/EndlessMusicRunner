@@ -1,6 +1,8 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
+[Serializable]
 public class IPlayer_Move : MonoBehaviour
 {
 

@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,6 +8,12 @@ public class UI_GameOver : MonoBehaviour
     const string Name = "UI_GameOver";
     public static async void Create()
     {
+        if(UI_Play.Instance.GameOver)
+        {
+            return;
+        }
+
+        UI_Play.Instance.GameOver = true;
         var obj = await Name.CreateOBJ<UI_GameOver>();
         var audio = AudioManager.instance;
         audio.Audio_BackGround.PlayOneShot(audio.failGame);
@@ -14,6 +21,7 @@ public class UI_GameOver : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI[] T_TextList;
     [SerializeField] GameObject G_BestText;
+    [SerializeField] GameObject G_LP;
     private void Start()
     {
         SetName();
@@ -29,12 +37,27 @@ public class UI_GameOver : MonoBehaviour
         T_TextList[0].text = "엘라스타즈";
     }
 
+    //스코어 셋팅
     void SetScore()
     {
-        T_TextList[1].text = ScoreManager.instance.GetCurrentScore().ToString();
+        StartCoroutine(IE_Score());
         T_TextList[2].text = "BEST : " + ScoreManager.instance.GetBestScore().ToString();
         var best = ScoreManager.instance.SetBestScore();
         G_BestText.SetActive(best);
+    }
+
+    IEnumerator IE_Score()
+    {
+        var wait = new WaitForSeconds(0.03f);
+        var curscore = ScoreManager.instance.GetCurrentScore();
+        var max = curscore / 3;
+        for (int i = 0; i < max; i++)
+        {
+            yield return wait;
+            T_TextList[1].text = i.ToString();
+        }
+        T_TextList[1].text = curscore.ToString();
+        G_LP.SetActive(true);
     }
 
     void SetAccuracy()
