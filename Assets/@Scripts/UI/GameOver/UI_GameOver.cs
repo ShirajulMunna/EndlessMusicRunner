@@ -50,9 +50,16 @@ public class UI_GameOver : MonoBehaviour
     {
         var wait = new WaitForSeconds(0.03f);
         var curscore = ScoreManager.instance.GetCurrentScore();
-        var max = curscore / 3;
-        for (int i = 0; i < max; i++)
+        var dleay = 1f;
+        for (int i = 0; i < curscore; i++)
         {
+            dleay -= 0.03f;
+
+            if(dleay <= 0)
+            {
+                break;
+            }
+
             yield return wait;
             T_TextList[1].text = i.ToString();
         }

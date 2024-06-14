@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1545037055129664096
 Transform:
   m_ObjectHideFlags: 0
@@ -194,7 +194,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3256673381734333011
 Transform:
   m_ObjectHideFlags: 0
@@ -221,12 +221,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1996906564719525380}
   m_Layer: 0
-  m_Name: Fever
+  m_Name: Fever_NoneMove
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1996906564719525380
 Transform:
   m_ObjectHideFlags: 0
@@ -362,15 +362,19 @@ MonoBehaviour:
   - SkillType: 0
     G_Particle:
     - {fileID: 6287367797854668996}
+    floatY: 0
   - SkillType: 1
     G_Particle:
-    - {fileID: 76296226356505361}
+    - {fileID: 3957618831164542698}
+    floatY: 0
   - SkillType: 3
     G_Particle:
-    - {fileID: 7373367617131988013}
+    - {fileID: 6279018230795655936}
+    floatY: 0
   - SkillType: 2
     G_Particle:
-    - {fileID: 3326075758898426973}
+    - {fileID: 7546043932877010485}
+    floatY: 0
   M_Attack:
     Tr_AttackVector:
     - {x: -7, y: -3.5, z: 0}
@@ -393,7 +397,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5987077968536279970
 Transform:
   m_ObjectHideFlags: 0
@@ -424,7 +428,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1592372973558972, guid: ab7d3670f320c47429b88a8a4eba74b4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4843259840985632, guid: ab7d3670f320c47429b88a8a4eba74b4, type: 3}
       propertyPath: m_LocalScale.x
@@ -515,11 +519,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab7d3670f320c47429b88a8a4eba74b4, type: 3}
---- !u!1 &76296226356505361 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1592372973558972, guid: ab7d3670f320c47429b88a8a4eba74b4, type: 3}
-  m_PrefabInstance: {fileID: 75056246870177709}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &79819772648131981 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4843259840985632, guid: ab7d3670f320c47429b88a8a4eba74b4, type: 3}
@@ -598,11 +597,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bdd46527d459d5438eaa45f86670b70, type: 3}
---- !u!1 &3326075758898426973 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1841273441885634, guid: 4bdd46527d459d5438eaa45f86670b70, type: 3}
-  m_PrefabInstance: {fileID: 3327617958697347487}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3332550729443684741 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4938853494822938, guid: 4bdd46527d459d5438eaa45f86670b70, type: 3}
@@ -684,11 +678,6 @@ PrefabInstance:
 --- !u!4 &7369146507961647605 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4938853494822938, guid: c5a506ba5758f7e4a817a6b7002be1fe, type: 3}
-  m_PrefabInstance: {fileID: 7374077492001593839}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7373367617131988013 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1841273441885634, guid: c5a506ba5758f7e4a817a6b7002be1fe, type: 3}
   m_PrefabInstance: {fileID: 7374077492001593839}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9017663656380894218

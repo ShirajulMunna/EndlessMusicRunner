@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [Serializable]
@@ -9,6 +10,8 @@ public class IPlayer_Particle
     [SerializeField] GameObject[] G_Particle;
     float DelayTime;
     bool isActive;
+
+    Vector3 Pos;
 
     public void SetParticle(float activetime)
     {
@@ -27,6 +30,7 @@ public class IPlayer_Particle
         {
             return;
         }
+
         DelayTime -= Time.deltaTime;
 
         if (DelayTime > 0)

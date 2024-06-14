@@ -4,6 +4,8 @@ using UnityEngine;
 public class FerverTimeSystem : Skill
 {
     const string Name = "FeverTime_{0}";
+    const string SkyName = "FeverTime_Sky_{0}";
+    const string BackName = "FeverTime_Back_{0}";
     public static ISkillClass _skillClass;
 
     public static async void Create(SkillData st_Skill)
@@ -17,7 +19,7 @@ public class FerverTimeSystem : Skill
         {
             return;
         }
-        GameManager.instance.player.SetParticle(E_PlayerSkill.Fever,st_Skill.Activetime);
+        GameManager.instance.player.SetParticle(E_PlayerSkill.Fever, st_Skill.Activetime);
     }
 
     //피버타임 발동 시 스코어 두배

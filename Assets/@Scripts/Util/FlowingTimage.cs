@@ -6,21 +6,14 @@ public class FlowingImage : MonoBehaviour
     public float speed = 1.0f;
     private Material material;
     [SerializeField] Image Img_FlowingImage;
+    [SerializeField] SpriteRenderer Sp_Spite;
 
     void Start()
     {
-        Image image = Img_FlowingImage;
-        if (image != null)
+        material = Img_FlowingImage == null ? Sp_Spite.material : Img_FlowingImage.material;
+        if (material == null)
         {
-            material = image.material;
-            if (material == null)
-            {
-                Debug.LogError("Material is missing!");
-            }
-        }
-        else
-        {
-            Debug.LogError("Image component is missing!");
+            Debug.LogError("Material is missing!");
         }
     }
 

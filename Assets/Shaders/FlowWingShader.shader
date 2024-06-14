@@ -45,7 +45,7 @@ Shader "Custom/FlowingShader"
             fixed4 frag (v2f i) : SV_Target
             {
                 float2 uv = i.uv;
-                uv.x = frac(uv.x + _Time.y * _Speed * 0.1); // frac 함수를 사용하여 UV 좌표를 래핑
+                uv.x = frac(uv.x + _Time.y * _Speed * 0.1);
                 return tex2D(_MainTex, uv);
             }
             ENDCG
