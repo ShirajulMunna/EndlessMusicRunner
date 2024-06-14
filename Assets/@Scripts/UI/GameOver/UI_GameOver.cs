@@ -42,13 +42,21 @@ public class UI_GameOver : MonoBehaviour
     //게임 클리어
     void SetClear()
     {
+        StartCoroutine(IE_SetSound());
+    }
+
+    IEnumerator IE_SetSound()
+    {
         var checkclear = CheckClear();
+
+
+        yield return new WaitForSeconds(1f);
 
         //사망 처리
         if (checkclear)
         {
             AudioManager.instance.PlayEffectSound("Gameover_Over");
-            return;
+            yield break;
         }
 
         //클리어처리
