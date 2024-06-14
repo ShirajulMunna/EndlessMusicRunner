@@ -20,20 +20,20 @@ public class UI_Lobby : MonoBehaviour
     { 
         if (T_Type == null)
             return;
-        T_Type.text = Type ? "B" : "A";
+        T_Type.text = Type ? "Red" : "BLue";
     }
 
     public void Btn_A_And_B()
     {
         var text = T_Type.text;
-        if (text == "A")
+        if (text == "BLue")
         {
-            text = "B";
+            text = "Red";
             Type = true;
         }
         else
         {
-            text = "A";
+            text = "BLue";
             Type = false;
         }
         T_Type.text = text;
