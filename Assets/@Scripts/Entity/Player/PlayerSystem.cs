@@ -84,7 +84,7 @@ public class PlayerSystem : Entity
 
         //사망 후 처리
         AudioManager.instance.StopMusic();
-        SpawnManager.instance.isCompltedGame = true;
+        SpawnManager.instance.SetGameState(E_GameState.End);
     }
 
     //파티클 실행

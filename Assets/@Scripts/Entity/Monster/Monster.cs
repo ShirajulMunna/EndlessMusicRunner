@@ -2,6 +2,7 @@ using DG.Tweening;
 using Spine.Unity;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -10,11 +11,12 @@ public class Monster : Entity, IMonsterMove
 {
     const string Name = "Monster_{0}";
 
-    public static async void Create(C_MonsterTable data, Vector3 cratepos, Transform Tr_Parent)
+    public static async Task<GameObject> Create(C_MonsterTable data, Vector3 cratepos, Transform Tr_Parent)
     {
         var name = string.Format(Name, data.PrefabName);
         var result = await name.CreateOBJ<Monster>(Tr_Parent);
         result.SetUp(data, cratepos);
+        return result.gameObject;
     }
 
     [Header("공격력")]

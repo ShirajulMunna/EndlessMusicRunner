@@ -772,10 +772,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d89e2ad830cd3b4bbc7ff3fde4b65c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StageInfo: 0
   Bpm: 105
   Tr_parent: {fileID: 601479516}
-  isCompltedGame: 0
-  StageInfo: 0
+  StartMusic_Delay: 1.25
+  e_GameState: 0
 --- !u!4 &342117586
 Transform:
   m_ObjectHideFlags: 0
