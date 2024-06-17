@@ -1,0 +1,108 @@
+Floor Monster_Record.png
+	size: 1605, 1605
+	filter: Linear, Linear
+	pma: true
+skin0/Fragments1
+	bounds: 496, 156, 72, 50
+	rotate: 90
+skin1/Fragments1
+	bounds: 496, 156, 72, 50
+	rotate: 90
+skin2/Fragments1
+	bounds: 496, 156, 72, 50
+	rotate: 90
+skin3/Fragments1
+	bounds: 496, 156, 72, 50
+	rotate: 90
+skin4/Fragments1
+	bounds: 496, 156, 72, 50
+	rotate: 90
+skin5/Fragments1
+	bounds: 496, 156, 72, 50
+	rotate: 90
+skin7/Fragments1
+	bounds: 496, 156, 72, 50
+	rotate: 90
+skin0/Fragments2
+	bounds: 548, 354, 48, 33
+skin2/Fragments2
+	bounds: 548, 354, 48, 33
+skin3/Fragments2
+	bounds: 548, 354, 48, 33
+skin4/Fragments2
+	bounds: 548, 354, 48, 33
+skin5/Fragments2
+	bounds: 548, 354, 48, 33
+skin7/Fragments2
+	bounds: 548, 354, 48, 33
+skin0/Fragments3
+	bounds: 548, 457, 82, 66
+skin1/Fragments3
+	bounds: 548, 457, 82, 66
+skin2/Fragments3
+	bounds: 548, 457, 82, 66
+skin3/Fragments3
+	bounds: 548, 457, 82, 66
+skin4/Fragments3
+	bounds: 548, 457, 82, 66
+skin5/Fragments3
+	bounds: 548, 457, 82, 66
+skin7/Fragments3
+	bounds: 548, 457, 82, 66
+skin0/Fragments4
+	bounds: 496, 424, 95, 50
+	rotate: 90
+skin2/Fragments4
+	bounds: 496, 424, 95, 50
+	rotate: 90
+skin3/Fragments4
+	bounds: 496, 424, 95, 50
+	rotate: 90
+skin4/Fragments4
+	bounds: 496, 424, 95, 50
+	rotate: 90
+skin5/Fragments4
+	bounds: 496, 424, 95, 50
+	rotate: 90
+skin7/Fragments4
+	bounds: 496, 424, 95, 50
+	rotate: 90
+skin0/record
+	bounds: 2, 1063, 533, 540
+	offsets: 1, 1, 535, 542
+skin1/Fragments2
+	bounds: 496, 121, 48, 33
+skin1/Fragments4
+	bounds: 496, 327, 95, 50
+	rotate: 90
+skin1/record
+	bounds: 1072, 1070, 533, 531
+	offsets: 1, 1, 535, 542
+	rotate: 90
+skin2/record
+	bounds: 537, 525, 533, 536
+	offsets: 1, 1, 535, 542
+skin3/record
+	bounds: 1072, 533, 529, 535
+	offsets: 1, 7, 535, 542
+skin4/record
+	bounds: 1072, 4, 527, 527
+	offsets: 7, 5, 535, 542
+skin5/record
+	bounds: 2, 521, 533, 540
+	offsets: 1, 1, 535, 542
+skin6/Fragments1
+	bounds: 632, 473, 72, 50
+skin6/Fragments2
+	bounds: 632, 438, 48, 33
+skin6/Fragments3
+	bounds: 548, 389, 82, 66
+skin6/Fragments4
+	bounds: 496, 230, 95, 50
+	rotate: 90
+skin6/record
+	bounds: 537, 1063, 533, 540
+	offsets: 1, 1, 535, 542
+skin7/record
+	bounds: 2, 9, 492, 510
+	offsets: 20, 3, 535, 542
