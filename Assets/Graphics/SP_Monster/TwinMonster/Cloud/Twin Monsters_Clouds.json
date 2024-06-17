@@ -1,12 +1,12 @@
 {
-"skeleton": { "hash": "z+3Lfirx9Go", "spine": "4.1.24", "x": -280.01, "y": -640.74, "width": 555.68, "height": 1371.87 },
+"skeleton": { "hash": "ybtztxBgP/k", "spine": "4.1.24", "x": -216.63, "y": -574.77, "width": 449.93, "height": 1221.35 },
 "bones": [
 	{ "name": "root" },
-	{ "name": "cloud_A", "parent": "root", "x": 13.51, "y": 478.51 },
-	{ "name": "face_A", "parent": "cloud_A", "x": -54.78, "y": 55.92 },
-	{ "name": "cloud_B", "parent": "root", "x": 40.28, "y": -507.68 },
-	{ "name": "face_B", "parent": "cloud_B", "x": -85.61, "y": 63.66 },
-	{ "name": "Left lightning1", "parent": "cloud_A", "x": -102.73, "y": -404.8 },
+	{ "name": "cloud_A", "parent": "root", "x": 13.51, "y": 445.61, "scaleX": 0.8, "scaleY": 0.8 },
+	{ "name": "face_A", "parent": "cloud_A", "x": -54.78, "y": 55.92, "scaleX": 0.8, "scaleY": 0.8 },
+	{ "name": "cloud_B", "parent": "root", "x": 40.28, "y": -470.24, "scaleX": 0.8, "scaleY": 0.8 },
+	{ "name": "face_B", "parent": "cloud_B", "x": -85.61, "y": 63.66, "scaleX": 0.8, "scaleY": 0.8 },
+	{ "name": "Left lightning1", "parent": "cloud_A", "x": -102.73, "y": -404.8, "scaleX": 1.2, "scaleY": 1.2 },
 	{ "name": "right lightning1", "parent": "cloud_B", "x": 32.65, "y": 584.02 }
 ],
 "slots": [
@@ -190,7 +190,15 @@
 				"right lightning5": { "name": "skin3/right lightning5", "x": 5.22, "y": -34.48, "width": 321, "height": 913 },
 				"right lightning6": { "name": "skin3/right lightning6", "x": 5.22, "y": -34.48, "width": 327, "height": 978 },
 				"right lightning7": { "name": "skin3/right lightning7", "x": 22.02, "y": 205.5, "width": 327, "height": 461 },
-				"right lightning8": { "name": "skin3/right lightning8", "x": 12.42, "y": 277.49, "width": 327, "height": 461 }
+				"right lightning8": {
+					"name": "skin3/right lightning8",
+					"x": 12.42,
+					"y": 277.49,
+					"scaleX": 1.2,
+					"scaleY": 1.2,
+					"width": 327,
+					"height": 461
+				}
 			}
 		}
 	},
