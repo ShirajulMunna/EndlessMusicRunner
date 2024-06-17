@@ -52,7 +52,6 @@ public class IPlayer_State : MonoBehaviour
         return E_MovePoint.None;
     }
 
-
     //공격 위치 셋팅
     public void SetDirectMoveIdx(E_MovePoint idx)
     {

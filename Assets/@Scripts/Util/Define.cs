@@ -77,8 +77,6 @@ public static class Define
             skeletonAnimation.AnimationState.AddAnimation(0, ani, true, delay); // 찾은 딜레이 값을 AddAnimation에 적용
         }
     }
-
-
 }
 
 
