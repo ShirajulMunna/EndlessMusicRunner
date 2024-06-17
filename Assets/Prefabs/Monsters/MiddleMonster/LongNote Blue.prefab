@@ -244,8 +244,8 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 2176
-  Star_X: 0.12
-  Scale_X: 0.045
+  Star_X: 0.192
+  Scale_X: 0.072
   perfectEffect: {fileID: 4197860271363767521, guid: 457c5d2d30a38f2468be6f1d324e304e, type: 3}
   greatEffect: {fileID: 8220573634043099456, guid: a1ed6f22b3d10c0499a06d458a4021ab, type: 3}
   SoundTime: 0

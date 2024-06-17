@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public Vector3 longNoteDestoryPosition;
     void Awake()
     {
-        Application.targetFrameRate = 60;
+        Application.targetFrameRate = 120; //120으로ㅓ 고정프레임
         if (instance != null)
         {
             Destroy(this.gameObject);
