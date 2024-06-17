@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1360827245715586380}
   - component: {fileID: 5901821475690382484}
   - component: {fileID: 7899325905714343274}
+  - component: {fileID: 835354748177332750}
   m_Layer: 8
   m_Name: Clouds
   m_TagString: Monster
@@ -104,8 +105,28 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5, y: 10}
+  m_Size: {x: 3, y: 10}
   m_EdgeRadius: 0
+--- !u!114 &835354748177332750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5761064382725156241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47d2d6b5a50aca048bb52a9390d502be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 1
+  curHp: 1
+  _skeletonAnimation: {fileID: 1503502804172216974}
+  damageAmount: 5
+  damageFx: {fileID: 6630400188505773858, guid: dd80aa9b27baa334ea57eb66d90b8392, type: 3}
+  Change: 0
+  Sk: []
+  uniqMonster: 3
 --- !u!1 &7310268301564807895
 GameObject:
   m_ObjectHideFlags: 0

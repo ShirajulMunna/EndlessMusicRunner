@@ -30,6 +30,7 @@ public class IPlayer_Attack
     //현재 공격 위치
     [SerializeField] E_AttackPoint AttackPoint = E_AttackPoint.Down;
 
+    bool isTwinAttack = false;
     PlayerSystem player
     {
         get => GameManager.instance.player;
@@ -52,12 +53,21 @@ public class IPlayer_Attack
         if (Input.GetKey(KeyCode.F) && CheckAttackState())
         {
             point = UpAttack();
+            if (Input.GetKey(KeyCode.J))
+            {
+                isTwinAttack = true;
+                Debug.Log(" F And J");
+            }
         }
         if (Input.GetKey(KeyCode.J) && CheckAttackState())
         {
             point = DownAttack();
+            if (Input.GetKey(KeyCode.F))
+            {
+                isTwinAttack = true;
+                Debug.Log(" J And F");
+            }
         }
-
         if (AttackState == E_AttackState.Hold)
         {
             if (HoldDelay <= 0)
@@ -189,6 +199,13 @@ public class IPlayer_Attack
                 return E_AttackState.Hold;
             }
 
+            //2단 몬스터 일때 
+            var twinMonster = item.GetComponent<TwinMonster>();
+            result = SetTwinMonster(twinMonster, perfect);
+            if (result)
+            {
+                return E_AttackState.Attack;
+            }
 
             //몬스터 일때 처리
             var monster = item.GetComponent<Monster>();
@@ -279,6 +296,11 @@ public class IPlayer_Attack
     //몬스터 공격 세팅
     bool SetMonster(Monster monster, ScoreManager.E_ScoreState perfect)
     {
+        //2단몬스터가 몬스터를 상속받아서 판정이 결국 몬스터까지 오는 문제가 있음
+        if (monster.GetComponent<TwinMonster>() != null)
+        {
+            return false;
+        }
         if (monster == null)
         {
             return false;
@@ -308,5 +330,15 @@ public class IPlayer_Attack
         longnote.SetAttack(perfect);
         return true;
     }
-
+    //2단몬스터 검사
+    bool SetTwinMonster(TwinMonster twinMonster, ScoreManager.E_ScoreState perfect)
+    {
+        if (twinMonster == null || !isTwinAttack)
+        {
+            return false;
+        }
+        twinMonster.SetHit(perfect);
+        isTwinAttack = false;
+        return true;
+    }
 }

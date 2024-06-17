@@ -20,9 +20,9 @@ public class Monster : Entity, IMonsterMove
     }
 
     [Header("공격력")]
-    [SerializeField] int damageAmount;
+    [SerializeField] protected int damageAmount;
     [Header("데미지 파티클")]
-    [SerializeField] GameObject damageFx;
+    [SerializeField] protected GameObject damageFx; //접근제한자 추가
 
     [Header("스파인 변경용")]
     [SerializeField] protected bool Change;
@@ -72,6 +72,7 @@ public class Monster : Entity, IMonsterMove
         Speed = data.Speed;
         transform.position = cratepos;
         DestoryX = -100;
+        damageAmount = data.Damage; //데미지 세팅해주는게 없어서 추가 
     }
 
 

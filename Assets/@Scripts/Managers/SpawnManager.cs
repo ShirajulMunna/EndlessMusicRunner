@@ -125,6 +125,9 @@ public class SpawnManager : MonoBehaviour
 
                 //연속 생성일 시 처리
                 createpoint.x += MonsterOffSetX * j;
+                // 2단 몬스터일때 y포지션 0으로 고정
+                if (monsterInfo.Uniq_MonsterType == UniqMonster.TwinMonster)
+                    createpoint.y = 0;
 
                 var result = await MonsterSpawn(monsterInfo, createpoint);
                 L_CreateData.Add(result);
