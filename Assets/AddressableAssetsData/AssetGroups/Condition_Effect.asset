@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Condition
+  m_Name: Condition_Effect
   m_EditorClassIdentifier: 
-  m_GroupName: Condition
+  m_GroupName: Condition_Effect
   m_Data:
     m_SerializedData: []
   m_GUID: a857b980c5b293943a88ed85be7e53c2
@@ -29,6 +29,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dd80aa9b27baa334ea57eb66d90b8392
     m_Address: GameConditionEffect_3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 16b5f06db95c45e47910d39800b5704f
+    m_Address: GameConditionEffect_4
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

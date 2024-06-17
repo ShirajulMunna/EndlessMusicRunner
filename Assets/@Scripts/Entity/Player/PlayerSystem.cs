@@ -1,7 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
-using JetBrains.Annotations;
-using Spine.Unity;
 using UnityEngine;
 
 public class PlayerSystem : Entity
@@ -46,6 +43,7 @@ public class PlayerSystem : Entity
     {
         var point = M_Attack.Attack();
         M_Move.SetMove(point);
+
         SetParticle_Active();
     }
 
@@ -130,6 +128,21 @@ public class PlayerSystem : Entity
         foreach (var item in L_Particle)
         {
             item.SetActive();
+        }
+    }
+
+    //그림
+    private void OnDrawGizmos()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            M_Attack.DrawOverlapBox(i, ScoreManager.E_ScoreState.Perfect, Color.green);
+
+            M_Attack.DrawOverlapBox(i, ScoreManager.E_ScoreState.Early, Color.yellow);
+
+            M_Attack.DrawOverlapBox(i, ScoreManager.E_ScoreState.Late, Color.red);
+
+            M_Attack.DrawOverlapBox(i, ScoreManager.E_ScoreState.Great, Color.blue);
         }
     }
 }

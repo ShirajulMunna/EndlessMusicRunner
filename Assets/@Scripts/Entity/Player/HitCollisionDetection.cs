@@ -16,9 +16,7 @@ public class HitCollisionDetection : MonoBehaviour
     [Range(0.2f, 10f)]
     public float fadeDuration = 2.0f;
 
-    public Transform downHitPoint;
-    public Transform upHitPoint;
-    public float effectUpPositionY = 1f;
+    const float OffSetX_value = 2;
 
     //이펙트 위치 
     private enum EffectPosition
@@ -28,7 +26,7 @@ public class HitCollisionDetection : MonoBehaviour
     //판정 조건 오브젝트 생성
     public enum ConditionEffect
     {
-        None = 0, Perfect, Great, Opps
+        None = 0, Perfect, Great, Opps, PASS
     }
     const string AddresEffectName = "PlayerEffect_{0}";
     private void Start()
@@ -46,22 +44,28 @@ public class HitCollisionDetection : MonoBehaviour
 
     }
 
-
+    //점수 처리 및 파티클 생성
     void SetEffect(GameObject obj, ScoreManager.E_ScoreState perfect)
     {
         var score = 0;
-        if (perfect == ScoreManager.E_ScoreState.Perfect)
+
+        switch (perfect)
         {
-            score = 3;
+            case ScoreManager.E_ScoreState.Perfect:
+            case ScoreManager.E_ScoreState.Early:
+            case ScoreManager.E_ScoreState.Late:
+                score = 3;
+                break;
+            case ScoreManager.E_ScoreState.Pass:
+            case ScoreManager.E_ScoreState.Great:
+                score = 1;
+                break;
         }
-        else if (perfect == ScoreManager.E_ScoreState.Great || perfect == ScoreManager.E_ScoreState.Pass)
-        {
-            score = 1;
-        }
+
         ScoreManager.instance.SetCombo_Add();
         ScoreManager.instance.SetCurrentScore(score);
 
-        CreateStateEffect(obj, perfect);
+        CreateStateEffect(perfect);
 
         if (perfect == ScoreManager.E_ScoreState.Pass)
         {
@@ -70,31 +74,30 @@ public class HitCollisionDetection : MonoBehaviour
         CreatHitpartice(obj);
     }
 
-    async void CreateStateEffect(GameObject obj, ScoreManager.E_ScoreState perfect)
+    //상태별 파티클 생성
+    async void CreateStateEffect(ScoreManager.E_ScoreState perfect)
     {
-        var hitPoint = obj.transform.position;
+        var hitPoint = GameManager.instance.player.transform.position;
+        hitPoint.x += OffSetX_value;
 
-        var effectPosition = upHitPoint.position;
-        effectPosition.y += effectUpPositionY;
-
-        if (hitPoint.y >= 0 && hitPoint.y <= 1)
-        {
-            effectPosition = downHitPoint.position;
-            effectPosition.y -= effectUpPositionY * 3;
-        }
-
-        var effect = ConditionEffect.Great;
+        var effect = ConditionEffect.Opps;
         switch (perfect)
         {
             case ScoreManager.E_ScoreState.Perfect:
+            case ScoreManager.E_ScoreState.Early:
+            case ScoreManager.E_ScoreState.Late:
                 effect = ConditionEffect.Perfect;
                 break;
-            case ScoreManager.E_ScoreState.Miss:
-                effect = ConditionEffect.Opps;
+
+            case ScoreManager.E_ScoreState.Great:
+                effect = ConditionEffect.Great;
+                break;
+            case ScoreManager.E_ScoreState.Pass:
+                effect = ConditionEffect.PASS;
                 break;
         }
 
-        var effects = await Effect.Create(effectPosition, (int)effect);
+        var effects = await Effect.Create(hitPoint, (int)effect);
         effects.fadeDuration = fadeDuration;
     }
 

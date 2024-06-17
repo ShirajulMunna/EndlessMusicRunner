@@ -5,15 +5,15 @@ using UnityEngine;
 public class IPlayer_Attack
 {
     //X값 오프셋
-    const float OffSetX_value = 1.3f;
+    const float OffSetX_value = 0.5f;
 
     //피격박스 사이즈
     List<Vector3> BoxSize = new List<Vector3>()
     {
-        new Vector3(1, 1, 1),
         new Vector3(1.5f, 1.5f, 1),
-        new Vector3(1,1,1),
-        new Vector3(1,1,1)
+        new Vector3(3f, 1.5f, 1),
+        new Vector3(1f,1.5f,1),
+        new Vector3(1f,1.5f,1)
     };
 
     //위치
@@ -266,33 +266,22 @@ public class IPlayer_Attack
         return (null, ScoreManager.E_ScoreState.Miss);
     }
 
-    //그림
-    private void OnDrawGizmos()
+    public void DrawOverlapBox(int i, ScoreManager.E_ScoreState state, Color color)
     {
-        if (Tr_AttackVector == null || BoxSize == null) return;
+        var pos = Tr_AttackVector[i];
+        var boxsize = BoxSize[(int)state];
 
-        for (int i = 0; i < Tr_AttackVector.Count; i++)
+        if (state == ScoreManager.E_ScoreState.Early)
         {
-            if (Tr_AttackVector[i] == null)
-            {
-                return;
-            }
-            DrawOverlapBox(Tr_AttackVector[i], BoxSize[(int)ScoreManager.E_ScoreState.Perfect], Color.green);
-            DrawOverlapBox(Tr_AttackVector[i], BoxSize[(int)ScoreManager.E_ScoreState.Great], Color.blue);
-
-            var earlypos = Tr_AttackVector[i];
-            earlypos.x += OffSetX_value;
-            DrawOverlapBox(earlypos, BoxSize[(int)ScoreManager.E_ScoreState.Early], Color.yellow);
-
-            var latepos = Tr_AttackVector[i];
-            latepos.x += -OffSetX_value;
-            DrawOverlapBox(latepos, BoxSize[(int)ScoreManager.E_ScoreState.Late], Color.red);
+            pos.x += OffSetX_value;
         }
-    }
-    void DrawOverlapBox(Vector2 position, Vector2 size, Color color)
-    {
+        else if (state == ScoreManager.E_ScoreState.Late)
+        {
+            pos.x += -OffSetX_value;
+        }
+
         Gizmos.color = color;
-        Gizmos.DrawWireCube(position, size);
+        Gizmos.DrawWireCube(pos, boxsize);
     }
 
     //몬스터 공격 세팅

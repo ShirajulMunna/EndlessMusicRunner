@@ -109,17 +109,6 @@ public class Monster : Entity, IMonsterMove
         ScoreManager.instance.SetScoreState(ScoreManager.E_ScoreState.Miss);
         ScoreManager.instance.SetBestCombo_Reset();
 
-        //파티클 생성
-        // 플레이어의 y포지션이 근처라면 데미지 파티클생성하게만듬
-        var playerPos = player.transform.position;
-        if (playerPos.y + 0.5f >= transform.position.y && playerPos.y - 0.5f <= transform.position.y || uniqMonster == UniqMonster.SendBack)
-        {
-            GameObject opsFx = Instantiate(damageFx, transform.position, Quaternion.identity);
-            Destroy(opsFx, 0.2f);
-        }
-
-
-
         //위치 맞는지 체크 후 공격
         var point = transform.position.y == -3.5f ? E_AttackPoint.Down : E_AttackPoint.Up;
         var checkhit = player.M_Move.CheckHitActive(point);
@@ -128,7 +117,8 @@ public class Monster : Entity, IMonsterMove
         {
             return;
         }
-
+        GameObject opsFx = Instantiate(damageFx, transform.position, Quaternion.identity);
+        Destroy(opsFx, 0.2f);
         player.SetHp(-damageAmount);
     }
 
