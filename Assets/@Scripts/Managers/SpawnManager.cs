@@ -121,7 +121,11 @@ public class SpawnManager : MonoBehaviour
 
             for (int j = 0; j < spawnCount; j++)
             {
-                var createpoint = GetSpawnPoint((MonsterSpwanPosition)level[i].Spwan_Position);
+                var posstate = (MonsterSpwanPosition)level[i].Spwan_Position;
+                var offsetx = level[i].OffSetX;
+                var offsety = level[i].OffSetY;
+
+                var createpoint = GetSpawnPoint(posstate, offsetx, offsety);
 
                 //연속 생성일 시 처리
                 createpoint.x += MonsterOffSetX * j;
@@ -207,7 +211,7 @@ public class SpawnManager : MonoBehaviour
     }
 
     //설정
-    Vector3 GetSpawnPoint(MonsterSpwanPosition spwanPosition)
+    Vector3 GetSpawnPoint(MonsterSpwanPosition spwanPosition, float offsetx, float offsety)
     {
         var MySpwanPoint = GetPoint(E_SpawnPoint.Hight);
 
@@ -226,6 +230,9 @@ public class SpawnManager : MonoBehaviour
                 {
                     MySpwanPoint = GetPoint(E_SpawnPoint.Low);
                 }
+                break;
+            case MonsterSpwanPosition.Custom:
+                MySpwanPoint = new Vector3(offsetx, offsety, 0);
                 break;
         }
         return MySpwanPoint;

@@ -1,4 +1,4 @@
 public enum MonsterSpwanPosition
 {
-    Up,Down,Random, Middle,
+    Up,Down,Random, Middle,Player,Custom
 }

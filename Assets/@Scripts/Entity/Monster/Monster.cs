@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 
 public class Monster : Entity, IMonsterMove
@@ -141,7 +142,7 @@ public class Monster : Entity, IMonsterMove
         Ac_Die?.Invoke();
         Speed = 0;
         SetDieFlyDir();
-        Destroy(this.gameObject, 1f);
+        Destroy(this.gameObject, 0.3f);
     }
 
     //사망 시 위치 셋팅

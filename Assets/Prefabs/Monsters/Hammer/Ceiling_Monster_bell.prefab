@@ -96,7 +96,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7885863010797826075}
-  - component: {fileID: 5201511945195960600}
+  - component: {fileID: 1947946455916425951}
+  - component: {fileID: 5420852695981804478}
   m_Layer: 8
   m_Name: Ceiling_Monster_bell
   m_TagString: Monster
@@ -120,7 +121,7 @@ Transform:
   - {fileID: 9012745674149397636}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5201511945195960600
+--- !u!114 &1947946455916425951
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,17 +130,45 @@ MonoBehaviour:
   m_GameObject: {fileID: 5388534414444513884}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf14aa19107eee946b6e8380e33102ea, type: 3}
+  m_Script: {fileID: 11500000, guid: b2bf3eab09d7a5948b6a08c57ed1f7c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 0
   curHp: 0
-  _skeletonAnimation: {fileID: 0}
-  damageAmount: 5
+  _skeletonAnimation: {fileID: 8619561847532111495}
+  damageAmount: 0
   damageFx: {fileID: 6630400188505773858, guid: dd80aa9b27baa334ea57eb66d90b8392, type: 3}
   Change: 0
   Sk: []
   uniqMonster: 0
+  Delay_Ani: 0.5
+--- !u!50 &5420852695981804478
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5388534414444513884}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &6891013755863415432
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,10 +234,10 @@ GameObject:
   - component: {fileID: 2808037208348854082}
   - component: {fileID: 3908267456921833928}
   - component: {fileID: 5793983119749702331}
-  - component: {fileID: 4903846419531087298}
-  m_Layer: 0
+  - component: {fileID: 645547902503835116}
+  m_Layer: 8
   m_Name: hit
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 2800000, guid: d1de1604dfe4cb64c9d31246a8e43c78, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -284,33 +313,27 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 3, y: 3}
   m_Direction: 1
---- !u!50 &4903846419531087298
-Rigidbody2D:
-  serializedVersion: 4
+--- !u!114 &645547902503835116
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7798162512021244791}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2bf3eab09d7a5948b6a08c57ed1f7c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 0
+  curHp: 0
+  _skeletonAnimation: {fileID: 8619561847532111495}
+  damageAmount: 5
+  damageFx: {fileID: 6630400188505773858, guid: dd80aa9b27baa334ea57eb66d90b8392, type: 3}
+  Change: 0
+  Sk: []
+  uniqMonster: 0
+  Delay_Ani: 0.5
 --- !u!1 &8440918263765659611
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,7 +417,7 @@ Transform:
   m_GameObject: {fileID: 9113764871146209410}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.8, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:

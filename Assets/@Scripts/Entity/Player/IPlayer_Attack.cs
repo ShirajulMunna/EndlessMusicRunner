@@ -250,8 +250,7 @@ public class IPlayer_Attack
     //몬스터 공격 세팅
     bool SetMonster(Monster monster, ScoreManager.E_ScoreState perfect)
     {
-        //2단몬스터가 몬스터를 상속받아서 판정이 결국 몬스터까지 오는 문제가 있음
-        if (monster.GetComponent<TwinMonster>() != null)
+        if (monster == null)
         {
             return false;
         }
@@ -283,7 +282,6 @@ public class IPlayer_Attack
     //2단몬스터 검사
     bool SetTwinMonster(TwinMonster twinMonster, ScoreManager.E_ScoreState perfect)
     {
-        Debug.Log("터치터치");
         if (twinMonster == null || !State.CheckTwin())
         {
             return false;

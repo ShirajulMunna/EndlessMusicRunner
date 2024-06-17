@@ -20,10 +20,11 @@ public class PlayerSystem : Entity
         "fly",
         "Kick",
         "tail attack",
-        "fire attack",
-        "tail attack2",
+        "fly_attack",
+        "biting attack",
         "retire",
     };
+
 
     private void Awake()
     {
