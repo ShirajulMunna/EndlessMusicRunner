@@ -27,9 +27,6 @@ public class SpawnManager : MonoBehaviour
     //몬스터 모음
     List<GameObject> L_CreateData = new List<GameObject>();
 
-    //쿨타임 체크
-    int CoolTime = 0;
-
     //게임 오버 후 딜레이 시간
     float gameOverTime_Delay = 2.5f;
     //몬스터 생성 오프셋 위치값
@@ -38,7 +35,7 @@ public class SpawnManager : MonoBehaviour
     //다음 스폰 타임 계산
     float nextSpawnTime = 0f;
 
-    [SerializeField] float StartMusic_Delay = 2f;
+    [SerializeField] float StartMusic_Delay;
     bool CheckStartMusci_Delay;
 
     //게임 상태
