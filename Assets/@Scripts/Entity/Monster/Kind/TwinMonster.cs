@@ -6,36 +6,20 @@ public class TwinMonster : Monster
 {
     const string Name = "Monster_{0}";
 
-    private bool isAttacking = false;
 
 
     protected override void Update()
     {
-        SetMove();
+        base.Update();
     }
-    public override void SetMove()
-    {
-        transform.Translate(Vector2.left * Speed * Time.deltaTime);
-        var values = DestoryX;
 
-        if (transform.position.x < player.transform.position.x && !isAttacking)
-        {
-            player.SetHp(-damageAmount);
-            ScoreManager.instance.SetBestCombo_Reset();
-            isAttacking = true;
-            GameObject opsFx = Instantiate(damageFx, transform.position, Quaternion.identity);
-            Destroy(opsFx, 0.2f);
-        }
-        if(transform.position.x < DestoryX)
-        {
-            Destroy(this.gameObject);
-        }
-    }
-    public override void SetDie()
+    protected override void SetAttack(bool check)
     {
-        if(CurHp <=0)
+        if (!check)
         {
-            Destroy(gameObject);
+            return;
         }
+        e_MonsterState = E_MonsterState.NoneAttack;
+        CreatPlayerHitEffect();
     }
 }

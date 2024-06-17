@@ -105,9 +105,8 @@ public class Monster : Entity, IMonsterMove
         //더이상 공격 못하게 변경
         e_MonsterState = E_MonsterState.NoneAttack;
 
-        //콤보 리셋 및 MISS추가
-        ScoreManager.instance.SetScoreState(ScoreManager.E_ScoreState.Miss);
-        ScoreManager.instance.SetBestCombo_Reset();
+        //콤보 리셋 및 MISS추가 -함수화 함
+        SetComboReset();
 
         //위치 맞는지 체크 후 공격
         var point = transform.position.y == -3.5f ? E_AttackPoint.Down : E_AttackPoint.Up;
@@ -117,9 +116,8 @@ public class Monster : Entity, IMonsterMove
         {
             return;
         }
-        GameObject opsFx = Instantiate(damageFx, transform.position, Quaternion.identity);
-        Destroy(opsFx, 0.2f);
-        player.SetHp(-damageAmount);
+        //이펙트추가 함수화 함 
+        CreatPlayerHitEffect();
     }
 
     public override void SetHp(int value)
@@ -178,5 +176,18 @@ public class Monster : Entity, IMonsterMove
         {
             Destroy(this.gameObject);
         }
+    }
+
+    public void SetComboReset()
+    {
+        ScoreManager.instance.SetScoreState(ScoreManager.E_ScoreState.Miss);
+        ScoreManager.instance.SetBestCombo_Reset();
+    }
+    public void CreatPlayerHitEffect()
+    {
+        GameObject opsFx = Instantiate(damageFx, transform.position, Quaternion.identity);
+        Destroy(opsFx, 0.2f);
+        AudioManager.instance.PlayerHItSound();
+        player.SetHp(-damageAmount);
     }
 }
