@@ -11,6 +11,7 @@ public class PlayerSystem : Entity
     [HideInInspector] public IPlayer_Attack M_Attack;
     //이동 클래스
     [HideInInspector] public IPlayer_Move M_Move;
+    [HideInInspector] public IPlayer_State M_State;
 
     //애니메이션 리스트
     List<string> L_AniStr = new List<string>()
@@ -29,6 +30,7 @@ public class PlayerSystem : Entity
         playerSystem = this;
         M_Attack = new IPlayer_Attack();
         M_Move = new IPlayer_Move();
+        M_State = new IPlayer_State();
     }
 
     private void Start()
@@ -41,9 +43,9 @@ public class PlayerSystem : Entity
 
     private void Update()
     {
-        var point = M_Attack.Attack();
+        var point = M_State.SetPoint();
         M_Move.SetMove(point);
-
+        M_Attack.Attack(point);
         SetParticle_Active();
     }
 

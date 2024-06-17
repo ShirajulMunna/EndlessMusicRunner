@@ -30,7 +30,7 @@ public class Monster : Entity, IMonsterMove
 
     //죽었을때 날아가기
     private Vector3 randomDirection;
-    private float FlySpeed = 50f; // 속도 조정 가능
+    const float FlySpeed = 50f; // 속도 조정 가능
 
     //몬스터 상태
     protected E_MonsterState e_MonsterState = E_MonsterState.idle;
@@ -109,7 +109,7 @@ public class Monster : Entity, IMonsterMove
         SetComboReset();
 
         //위치 맞는지 체크 후 공격
-        var point = transform.position.y == -3.5f ? E_AttackPoint.Down : E_AttackPoint.Up;
+        var point = transform.position.y == -3.5f ? E_MovePoint.Down : E_MovePoint.Up;
         var checkhit = player.M_Move.CheckHitActive(point);
 
         if (!checkhit)

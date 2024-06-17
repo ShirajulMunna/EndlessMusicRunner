@@ -18,7 +18,7 @@ public enum E_AttackState
 }
 
 //enum 순서를 Middle , UP으로 변경 
-public enum E_AttackPoint
+public enum E_MovePoint
 {
     None = -1,
     Down,

@@ -41,19 +41,24 @@ public class Monster_SendBack : MonoBehaviour
     }
 
 
+    IPlayer_State PlayerState
+    {
+        get => GameManager.instance.player.M_State;
+    }
+
     //줌인 단계
     void SetZoomIn()
     {
         EndTimes = true;
         monster.Speed = 0;
-        GameManager.instance.player.M_Attack.SetDirectMoveIdx(E_AttackPoint.Middle);
+        PlayerState.SetDirectMoveIdx(E_MovePoint.Middle);
         CameraSystem.cameraSystem.SetZoomIn();
     }
 
     //줌아웃 단계
     void SetZoomOut()
     {
-        GameManager.instance.player.M_Attack.SetDirectMoveIdx(E_AttackPoint.Down);
+        PlayerState.SetDirectMoveIdx(E_MovePoint.Down);
         CameraSystem.cameraSystem.ReSetZoom();
     }
 }

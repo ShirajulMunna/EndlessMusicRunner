@@ -1,9 +1,20 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 [Serializable]
 public class IPlayer_Attack
 {
+    PlayerSystem Player
+    {
+        get => GameManager.instance.player;
+    }
+
+    IPlayer_State State
+    {
+        get => GameManager.instance.player.M_State;
+    }
+
     //X값 오프셋
     const float OffSetX_value = 0.5f;
 
@@ -23,21 +34,9 @@ public class IPlayer_Attack
         new Vector3(-7, 0, 0),
         new Vector3(-7, 3.5f, 0)
     };
-
     //공격 상태
     E_AttackState AttackState = E_AttackState.Attack_Re;
 
-    //현재 공격 위치
-    [SerializeField] E_AttackPoint AttackPoint = E_AttackPoint.Down;
-
-    bool isTwinAttack = false;
-    PlayerSystem player
-    {
-        get => GameManager.instance.player;
-    }
-
-    //공격 카운트 수정
-    float AttackDelay = 2f;
 
     //현재 공격 횟수
     int AttackCount = 0;
@@ -45,130 +44,57 @@ public class IPlayer_Attack
     //홀딩 딜레이
     float HoldDelay = 0.2f;
 
-    public E_AttackPoint Attack()
+    //공격 카운트 수정
+    float AttackDelay = 2f;
+
+    //공격 함수
+    public void Attack(E_MovePoint point)
     {
         AttackDelay -= Time.deltaTime;
         HoldDelay -= Time.deltaTime;
-        E_AttackPoint point = E_AttackPoint.None;
-        if (Input.GetKey(KeyCode.F) && CheckAttackState())
+
+        var check = CheckAttackState();
+
+        if (!check)
         {
-            point = UpAttack();
-            //동시 키 입력처리
-            if (Input.GetKey(KeyCode.J))
-            {
-                isTwinAttack = true;
-                Debug.Log(" F And J");
-            }
-        }
-        if (Input.GetKey(KeyCode.J) && CheckAttackState())
-        {
-            point = DownAttack();
-            //동시 키 입력처리
-            if (Input.GetKey(KeyCode.F))
-            {
-                isTwinAttack = true;
-                Debug.Log(" J And F");
-            }
-        }
-        if (AttackState == E_AttackState.Hold)
-        {
-            if (HoldDelay <= 0)
-            {
-                HoldDelay = 0.2f;
-            }
+            return;
         }
 
-        if (Input.GetKeyUp(KeyCode.F) || Input.GetKeyUp(KeyCode.J))
+        switch (point)
         {
-            Reset();
+            case E_MovePoint.Up:
+                UpAttack();
+                break;
+            case E_MovePoint.Down:
+                DownAttack();
+                break;
+            case E_MovePoint.Middle:
+                break;
+            case E_MovePoint.None:
+                return;
         }
-
-        return point;
+        AttackState = SetAttack(point);
+        SetAttackCount();
+        SetHold();
+        return;
     }
 
 
-    //상단 공격
-    E_AttackPoint UpAttack()
+    //홀드일 경우 처리
+    void SetHold()
     {
-        var idx = SetAttack_Idx(E_AttackPoint.Up, E_AttackPoint.Down);
-        AttackState = SetAttack(idx.Item1);
+        if (!CheckHoldPoint())
+        {
+            return;
+        }
         if (HoldDelay <= 0)
         {
-            var state = AttackState == E_AttackState.None ? E_AniType.Fly : E_AniType.Fire_Attack;
-            player.SetAni(player.GetAniName(state));
+            HoldDelay = 0.2f;
         }
-        player.SetParticle(E_PlayerSkill.Fly, 0);
-        return idx.Item2;
-    }
-
-
-    //하단공격
-    E_AttackPoint DownAttack()
-    {
-        var idx = SetAttack_Idx(E_AttackPoint.Down, E_AttackPoint.Up);
-        AttackState = SetAttack(idx.Item1);
-        if (HoldDelay <= 0)
-        {
-            var type = AttackCount > 1 ? E_AniType.Tail_Attack : E_AniType.Kick;
-            var state = AttackState == E_AttackState.Hold ? E_AniType.Hold_Attack : type;
-            player.SetAni(player.GetAniName(state));
-        }
-        player.SetParticle(E_PlayerSkill.Running, 0);
-        return idx.Item2;
-    }
-
-
-    //상태 비교 체크
-    public bool GetAttackState(E_AttackState state)
-    {
-        return AttackState == state;
-    }
-
-
-    //공격 가능 상태 체크
-    bool CheckAttackState()
-    {
-        return AttackState == E_AttackState.Hold || AttackState == E_AttackState.Attack_Re;
-    }
-
-    //공격 상태 변경
-    (E_AttackPoint, E_AttackPoint) SetAttack_Idx(E_AttackPoint nextpoint, E_AttackPoint checkpoint)
-    {
-        AttackCount++;
-        if (CheckAttackPoin(checkpoint) || AttackDelay <= 0)
-        {
-            AttackCount = 0;
-        }
-        AttackDelay = 2;
-        // 검사해야할 조건을추가하여 다음 위치로 가게 만듬 
-        if (CheckAttackPoin(E_AttackPoint.Middle))
-        {
-            return (nextpoint, E_AttackPoint.Middle);
-        }
-        SetDirectMoveIdx(nextpoint);
-        return (nextpoint, nextpoint);
-    }
-
-    //상태 비교 체크
-    public bool CheckAttackPoin(E_AttackPoint state)
-    {
-        return AttackPoint == state;
-    }
-
-    //공격 위치 셋팅
-    public void SetDirectMoveIdx(E_AttackPoint idx)
-    {
-        AttackPoint = idx;
-    }
-
-    //리셋
-    void Reset()
-    {
-        AttackState = E_AttackState.Attack_Re;
     }
 
     //공격 함수
-    E_AttackState SetAttack(E_AttackPoint attackidx)
+    E_AttackState SetAttack(E_MovePoint attackidx)
     {
         var result_hit = SetHit((int)attackidx);
 
@@ -178,7 +104,7 @@ public class IPlayer_Attack
         //허공에 공격   
         if (col == null)
         {
-            return E_AttackState.None;
+            return E_AttackState.Attack_Re;
         }
 
         foreach (var item in col)
@@ -218,10 +144,47 @@ public class IPlayer_Attack
                 return E_AttackState.Attack;
             }
 
-            return E_AttackState.None;
+            return E_AttackState.Attack_Re;
         }
 
-        return E_AttackState.None;
+        return E_AttackState.Attack_Re;
+    }
+
+    //상단 공격
+    void UpAttack()
+    {
+        if (HoldDelay <= 0)
+        {
+            var state = AttackState == E_AttackState.None ? E_AniType.Fly : E_AniType.Fire_Attack;
+            Player.SetAni(Player.GetAniName(state));
+        }
+        Player.SetParticle(E_PlayerSkill.Fly, 0);
+    }
+
+    //하단공격
+    void DownAttack()
+    {
+        if (HoldDelay <= 0)
+        {
+            var type = AttackCount > 1 ? E_AniType.Tail_Attack : E_AniType.Kick;
+            var state = AttackState == E_AttackState.Hold ? E_AniType.Hold_Attack : type;
+            Player.SetAni(Player.GetAniName(state));
+        }
+        Player.SetParticle(E_PlayerSkill.Running, 0);
+    }
+
+
+
+
+    //공격 횟수 수정
+    void SetAttackCount()
+    {
+        AttackCount++;
+        if (AttackDelay <= 0)
+        {
+            AttackCount = 0;
+        }
+        AttackDelay = 2;
     }
 
     //히트 판정
@@ -292,10 +255,6 @@ public class IPlayer_Attack
         {
             return false;
         }
-        if (monster == null)
-        {
-            return false;
-        }
         monster.SetHit(perfect);
         return true;
     }
@@ -324,12 +283,41 @@ public class IPlayer_Attack
     //2단몬스터 검사
     bool SetTwinMonster(TwinMonster twinMonster, ScoreManager.E_ScoreState perfect)
     {
-        if (twinMonster == null || !isTwinAttack)
+        Debug.Log("터치터치");
+        if (twinMonster == null || !State.CheckTwin())
         {
             return false;
         }
         twinMonster.SetHit(perfect);
-        isTwinAttack = false;
         return true;
     }
+
+    //리셋
+    public void Reset()
+    {
+        AttackState = E_AttackState.Attack_Re;
+        State.SetTwin(false);
+    }
+
+    //CheckHold
+    public bool CheckHoldPoint()
+    {
+        return AttackState == E_AttackState.Hold;
+    }
+
+
+    //상태 비교 체크
+    public bool GetAttackState(E_AttackState state)
+    {
+        return AttackState == state;
+    }
+
+
+    //공격 가능 상태 체크
+    bool CheckAttackState()
+    {
+        return AttackState == E_AttackState.Hold || AttackState == E_AttackState.Attack_Re;
+    }
+
+
 }
