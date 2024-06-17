@@ -7,11 +7,6 @@ public class TwinMonster : Monster
     const string Name = "Monster_{0}";
 
     private bool isAttacking = false;
-    protected override void Start()
-    {
-        DestoryX = -25;
-        //Speed = 20f;
-    }
 
 
     protected override void Update()
