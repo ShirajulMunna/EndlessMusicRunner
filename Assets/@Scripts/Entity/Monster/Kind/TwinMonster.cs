@@ -20,6 +20,7 @@ public class TwinMonster : Monster
             return;
         }
         e_MonsterState = E_MonsterState.NoneAttack;
+        SetComboReset();
         CreatPlayerHitEffect();
     }
 }
