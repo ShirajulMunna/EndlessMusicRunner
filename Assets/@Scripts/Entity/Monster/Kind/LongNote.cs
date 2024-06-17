@@ -84,10 +84,18 @@ public class LongNote : Monster
 
             //스케일 줄이기
             var scale = Tr.localScale;
-            scale.x -= Scale_X;
+
+#if UNITY_EDITOR
+            var scale_x = Scale_X;
+            var star_x = Star_X;
+#else
+    var scale_x = Scale_X * 3;
+    var star_x = Star_X * 3;
+#endif
+            scale.x -= scale_x;
 
             var pos = myNoteSprite[1].transform.position;
-            pos.x -= Star_X;
+            pos.x -= star_x;
             myNoteSprite[1].transform.position = pos;
 
             Tr.localScale = scale;
