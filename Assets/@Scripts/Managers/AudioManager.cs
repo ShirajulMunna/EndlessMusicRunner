@@ -39,12 +39,12 @@ public class AudioManager : MonoBehaviour
     {
         AudioClip clipToPlay = Random.value > 0.5 ? clap_1 : clap_2;
 
-        audioSource.PlayOneShot(clipToPlay, 0.1f);
+        audioSource.PlayOneShot(clipToPlay, 0.3f);
     }
 
     public void PlayerHItSound()
     {
-        audioSource.PlayOneShot(ouch_1, 0.1f);
+        audioSource.PlayOneShot(ouch_1, 0.3f);
     }
 
     public void StopMusic()
