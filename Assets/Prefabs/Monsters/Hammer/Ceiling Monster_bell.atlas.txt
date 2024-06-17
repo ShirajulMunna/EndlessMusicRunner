@@ -1,0 +1,55 @@
+Ceiling Monster_bell.png
+	size: 1371, 1371
+	filter: Linear, Linear
+	pma: true
+	scale: 0.5
+skin0/bell
+	bounds: 2, 456, 225, 913
+skin0/face
+	bounds: 917, 311, 130, 143
+skin1/face
+	bounds: 917, 311, 130, 143
+skin2/face
+	bounds: 917, 311, 130, 143
+skin3/face
+	bounds: 917, 311, 130, 143
+skin4/face
+	bounds: 917, 311, 130, 143
+skin5/face
+	bounds: 917, 311, 130, 143
+skin7/face
+	bounds: 917, 311, 130, 143
+skin0/face2
+	bounds: 917, 166, 130, 143
+skin1/face2
+	bounds: 917, 166, 130, 143
+skin2/face2
+	bounds: 917, 166, 130, 143
+skin3/face2
+	bounds: 917, 166, 130, 143
+skin4/face2
+	bounds: 917, 166, 130, 143
+skin5/face2
+	bounds: 917, 166, 130, 143
+skin7/face2
+	bounds: 917, 166, 130, 143
+skin1/bell
+	bounds: 229, 456, 225, 913
+skin2/bell
+	bounds: 456, 456, 225, 913
+skin3/bell
+	bounds: 683, 456, 225, 913
+skin4/bell
+	bounds: 910, 456, 225, 913
+skin5/bell
+	bounds: 2, 229, 225, 913
+	rotate: 90
+skin6/bell
+	bounds: 1137, 456, 225, 913
+skin6/face
+	bounds: 1049, 311, 130, 143
+skin6/face2
+	bounds: 917, 21, 130, 143
+skin7/bell
+	bounds: 2, 2, 225, 913
+	rotate: 90
