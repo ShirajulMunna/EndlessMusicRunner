@@ -238,11 +238,13 @@ public class SpawnManager : MonoBehaviour
         return MySpwanPoint;
     }
 
+
     //위치 가져오기
     public Vector3 GetPoint(E_SpawnPoint spawnPoint)
     {
         return L_SpawnPoint[(int)spawnPoint];
     }
+
 
     //게임 상태 수정
     public void SetGameState(E_GameState state)
