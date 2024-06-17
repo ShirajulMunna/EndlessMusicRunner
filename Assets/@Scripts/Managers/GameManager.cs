@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    
     public static GameManager instance;
     public SkeletonAnimation skeleton;
     public GameObject speaker_1;
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public Vector3 longNoteDestoryPosition;
     void Awake()
     {
+        Application.targetFrameRate = 60;
         if (instance != null)
         {
             Destroy(this.gameObject);
