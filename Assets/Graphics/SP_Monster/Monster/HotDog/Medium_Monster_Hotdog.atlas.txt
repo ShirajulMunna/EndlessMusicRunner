@@ -25,7 +25,7 @@ skin0/L_bread
 	bounds: 1403, 2756, 466, 653
 	offsets: 0, 0, 466, 656
 skin0/L_eye
-	bounds: 2570, 202, 149, 182
+	bounds: 2415, 202, 149, 182
 	offsets: 3, 0, 155, 182
 skin0/L_foot
 	bounds: 3275, 2841, 190, 122
@@ -142,7 +142,10 @@ skin1/L_bread
 	bounds: 1871, 2756, 466, 653
 	offsets: 0, 0, 466, 656
 skin1/L_eye
-	bounds: 2721, 202, 149, 182
+	bounds: 2566, 202, 149, 182
+	offsets: 3, 0, 155, 182
+skin3/L_eye
+	bounds: 2566, 202, 149, 182
 	offsets: 3, 0, 155, 182
 skin1/RD_vegetable
 	bounds: 1451, 847, 206, 295
@@ -153,6 +156,8 @@ skin1/R_bread
 skin1/R_eye
 	bounds: 2069, 256, 153, 184
 skin2/R_eye
+	bounds: 2069, 256, 153, 184
+skin3/R_eye
 	bounds: 2069, 256, 153, 184
 skin5/R_eye
 	bounds: 2069, 256, 153, 184
@@ -167,13 +172,11 @@ skin2/L_bread
 	bounds: 2339, 2756, 466, 653
 	offsets: 0, 0, 466, 656
 skin2/L_eye
-	bounds: 2872, 218, 149, 182
+	bounds: 2717, 202, 149, 182
 	offsets: 3, 0, 155, 182
-	rotate: 90
 skin5/L_eye
-	bounds: 2872, 218, 149, 182
+	bounds: 2717, 202, 149, 182
 	offsets: 3, 0, 155, 182
-	rotate: 90
 skin2/RD_vegetable
 	bounds: 3108, 1147, 206, 295
 	rotate: 90
@@ -191,10 +194,6 @@ skin3/LU_vegetable
 skin3/L_bread
 	bounds: 2807, 2756, 466, 653
 	offsets: 0, 0, 466, 656
-skin3/L_eye
-	bounds: 2225, 33, 149, 182
-	offsets: 3, 0, 155, 182
-	rotate: 90
 skin3/RD_vegetable
 	bounds: 2421, 888, 206, 295
 skin3/RU_vegetable
@@ -202,9 +201,6 @@ skin3/RU_vegetable
 	rotate: 90
 skin3/R_bread
 	bounds: 2, 1407, 465, 666
-skin3/R_eye
-	bounds: 2039, 101, 153, 184
-	rotate: 90
 skin3/sausage
 	bounds: 1840, 1442, 434, 655
 skin4/Group
@@ -222,11 +218,11 @@ skin4/L_bread
 	bounds: 936, 2088, 466, 653
 	offsets: 0, 0, 466, 656
 skin4/L_eye
-	bounds: 2872, 67, 149, 182
+	bounds: 2868, 218, 149, 182
 	offsets: 3, 0, 155, 182
 	rotate: 90
 skin7/L_eye
-	bounds: 2872, 67, 149, 182
+	bounds: 2868, 218, 149, 182
 	offsets: 3, 0, 155, 182
 	rotate: 90
 skin4/L_foot
@@ -245,9 +241,11 @@ skin4/RU_vegetable
 skin4/R_bread
 	bounds: 469, 2075, 465, 666
 skin4/R_eye
-	bounds: 1666, 64, 153, 184
+	bounds: 2039, 101, 153, 184
+	rotate: 90
 skin7/R_eye
-	bounds: 1666, 64, 153, 184
+	bounds: 2039, 101, 153, 184
+	rotate: 90
 skin4/R_foot
 	bounds: 1837, 139, 188, 200
 	rotate: 90
@@ -305,7 +303,7 @@ skin6/L_bread
 	bounds: 2, 84, 466, 653
 	offsets: 0, 0, 466, 656
 skin6/L_eye
-	bounds: 3056, 54, 149, 182
+	bounds: 2225, 33, 149, 182
 	offsets: 3, 0, 155, 182
 	rotate: 90
 skin6/L_foot
@@ -319,7 +317,7 @@ skin6/RU_vegetable
 skin6/R_bread
 	bounds: 2, 739, 465, 666
 skin6/R_eye
-	bounds: 2415, 200, 153, 184
+	bounds: 1666, 64, 153, 184
 skin6/R_foot
 	bounds: 2225, 184, 188, 200
 skin6/R_hand
