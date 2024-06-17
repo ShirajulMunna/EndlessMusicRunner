@@ -53,6 +53,7 @@ public class IPlayer_Attack
         if (Input.GetKey(KeyCode.F) && CheckAttackState())
         {
             point = UpAttack();
+            //동시 키 입력처리
             if (Input.GetKey(KeyCode.J))
             {
                 isTwinAttack = true;
@@ -62,6 +63,7 @@ public class IPlayer_Attack
         if (Input.GetKey(KeyCode.J) && CheckAttackState())
         {
             point = DownAttack();
+            //동시 키 입력처리
             if (Input.GetKey(KeyCode.F))
             {
                 isTwinAttack = true;
