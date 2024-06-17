@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "LgT95mNgS4c", "spine": "4.1.24", "x": -361.07, "y": -460.04, "width": 853.11, "height": 912.02 },
+"skeleton": { "hash": "NeM1EZh3bQQ", "spine": "4.1.24", "x": -361.07, "y": -460.04, "width": 853.11, "height": 912.02 },
 "bones": [
 	{ "name": "root" },
 	{ "name": "bone", "parent": "root" },
@@ -4432,7 +4432,7 @@
 			}
 		]
 	},
-	"idle": {
+	"Idle": {
 		"slots": {
 			"eye": {
 				"attachment": [
