@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 180291809882834327}
   - component: {fileID: 1205409361042342299}
   m_Layer: 8
-  m_Name: Donut
+  m_Name: Ceiling_Monster_bell
   m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
