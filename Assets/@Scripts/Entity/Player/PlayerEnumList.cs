@@ -7,7 +7,8 @@ public enum E_AniType
     Fire_Attack,
     Hold_Attack,
     Hit,
-    Fly_Attack
+    Fly_Attack,
+    Die,
 }
 
 public enum E_AttackState

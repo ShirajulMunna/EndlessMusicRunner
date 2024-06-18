@@ -13,6 +13,8 @@ public class PlayerSystem : Entity
     [HideInInspector] public IPlayer_Move M_Move;
     [HideInInspector] public IPlayer_State M_State;
 
+    E_AniType aniType = E_AniType.Running;
+
     //애니메이션 리스트
     List<string> L_AniStr = new List<string>()
     {
@@ -23,7 +25,8 @@ public class PlayerSystem : Entity
         "fire attack",
         "biting attack",
         "retire",
-        "fly_attack"
+        "fly_attack",
+        "retire"
     };
 
 
@@ -54,7 +57,7 @@ public class PlayerSystem : Entity
     //애니메이션 이름 가져오기
     public (string, bool) GetAniName(E_AniType state)
     {
-        return (L_AniStr[(int)state], state == E_AniType.Running || state == E_AniType.Fly);
+        return (L_AniStr[(int)state], state == E_AniType.Running || state == E_AniType.Fly || state == E_AniType.Die);
     }
 
     public override void SetHp(int value)
@@ -83,10 +86,21 @@ public class PlayerSystem : Entity
     public override void SetDie()
     {
         base.SetDie();
-
         //사망 후 처리
+        SetAni(GetAniName(E_AniType.Die));
         AudioManager.instance.StopMusic();
         SpawnManager.instance.SetGameState(E_GameState.End);
+        aniType = E_AniType.Die;
+    }
+
+    public override void SetAni((string, bool) data)
+    {
+        if (aniType == E_AniType.Die)
+        {
+            return;
+        }
+
+        base.SetAni(data);
     }
 
     //파티클 실행
