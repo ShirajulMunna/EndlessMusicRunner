@@ -1,0 +1,33 @@
+Small_Monster_donut.png
+	size: 760, 760
+	filter: Linear, Linear
+	pma: true
+	scale: 0.5
+skin0/small donut
+	bounds: 2, 274, 270, 215
+	offsets: 6, 0, 282, 215
+	rotate: 90
+skin1/small donut
+	bounds: 2, 57, 267, 215
+	offsets: 4, 0, 282, 215
+skin2/small donut
+	bounds: 495, 215, 270, 215
+	offsets: 6, 0, 282, 215
+	rotate: 90
+skin3/small donut
+	bounds: 497, 488, 270, 215
+	offsets: 6, 0, 282, 215
+	rotate: 90
+skin4/small donut
+	bounds: 2, 546, 276, 212
+	offsets: 0, 3, 282, 215
+skin5/small donut
+	bounds: 280, 487, 271, 215
+	offsets: 5, 0, 282, 215
+	rotate: 90
+skin6/small donut
+	bounds: 219, 274, 274, 211
+	offsets: 4, 2, 282, 215
+skin7/small donut
+	bounds: 271, 2, 274, 211
+	offsets: 4, 2, 282, 215

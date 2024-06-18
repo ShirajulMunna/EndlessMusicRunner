@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 1956470276450621731}
   - component: {fileID: 8603919616318575527}
   - component: {fileID: 6230185066923294789}
+  - component: {fileID: 8997352561436860028}
   m_Layer: 0
   m_Name: New SkeletonAnimation
   m_TagString: Untagged
@@ -207,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: 3ba75661849d13d45864032068153521, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: 75795d6e3e6783c49bd75f821a95ed04, type: 2}
   initialSkinName: skin5
   fixPrefabOverrideViaMeshFilter: 2
   initialFlipX: 0
@@ -243,3 +244,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5107317975474053852}
   m_Mesh: {fileID: 0}
+--- !u!114 &8997352561436860028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5107317975474053852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 012f8caf96117b642b39ab58708b5eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skin_Names:
+  - skin0
+  - skin1
+  - skin2
+  - skin3
+  - skin4
+  - skin5
+  - skin6
+  - skin7

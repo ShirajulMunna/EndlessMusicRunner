@@ -1,0 +1,26 @@
+Small_Monster_Can.png
+	size: 702, 702
+	filter: Linear, Linear
+	pma: true
+	scale: 0.5
+skin0/Can
+	bounds: 2, 512, 254, 188
+skin1/Can
+	bounds: 2, 322, 254, 188
+skin2/Can
+	bounds: 258, 512, 254, 188
+skin3/Can
+	bounds: 2, 132, 254, 188
+skin4/Can
+	bounds: 514, 448, 252, 186
+	offsets: 0, 0, 254, 188
+	rotate: 90
+skin5/Can
+	bounds: 258, 322, 254, 188
+skin6/Can
+	bounds: 258, 134, 252, 186
+	offsets: 1, 1, 254, 188
+skin7/Can
+	bounds: 514, 195, 251, 186
+	offsets: 0, 0, 254, 188
+	rotate: 90
