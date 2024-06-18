@@ -42,6 +42,7 @@ public class Monster : Entity, IMonsterMove
     public float Speed { get; set; }
     public float DestoryX { get; set; }
 
+    private string HitAnimationNames = "Hit_Fly_1";
     protected PlayerSystem player
     {
         get => GameManager.instance.player;
@@ -137,6 +138,12 @@ public class Monster : Entity, IMonsterMove
         SetHp(-1);
         HitCollisionDetection.Instance.SetHit(this.gameObject, perfect);
         AudioManager.instance.PlaySound();
+
+        bool isTrue = IsAnimationExists(HitAnimationNames);
+        if(isTrue)
+        {
+            skeletonAnimation.SetAni_Monster(HitAnimationNames,true);
+        }
     }
 
     public override void SetDie()
@@ -194,5 +201,20 @@ public class Monster : Entity, IMonsterMove
         Destroy(opsFx, 0.2f);
         AudioManager.instance.PlayerHItSound();
         player.SetHp(-damageAmount);
+    }
+
+    //몬스터중에서 애니메이션 있는지 검사
+    private bool IsAnimationExists(string names)
+    {
+        List<string> animationNames = new List<string>(); //몬스터가 가지고있는 애니메이션이름 가져올예정
+        if (skeletonAnimation != null && skeletonAnimation.SkeletonDataAsset != null)
+        {
+            var animationStateData = skeletonAnimation.SkeletonDataAsset.GetAnimationStateData();
+            foreach (var animation in animationStateData.SkeletonData.Animations)
+            {
+                animationNames.Add(animation.Name);
+            }
+        }
+        return animationNames.Contains(names);
     }
 }
