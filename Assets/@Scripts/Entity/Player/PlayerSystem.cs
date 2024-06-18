@@ -26,7 +26,8 @@ public class PlayerSystem : Entity
         "biting attack",
         "retire",
         "fly_attack",
-        "retire"
+        "retire",
+        "fly_biting"
     };
 
 

@@ -63,12 +63,12 @@ public class IPlayer_Attack
             return;
         }
 
-        var types = (E_PlayerSkill.Running, E_AniType.Kick, E_AniType.Tail_Attack);
+        var types = (E_PlayerSkill.Running, E_AniType.Kick, E_AniType.Tail_Attack, E_AniType.Hold_Attack);
 
         switch (point)
         {
             case E_MovePoint.Up:
-                types = (E_PlayerSkill.Fly, E_AniType.Fly_Attack, E_AniType.Fire_Attack);
+                types = (E_PlayerSkill.Fly, E_AniType.Fly_Attack, E_AniType.Fire_Attack, E_AniType.Hold_Fly_Attack);
                 break;
             case E_MovePoint.Down:
             case E_MovePoint.Middle:
@@ -154,27 +154,15 @@ public class IPlayer_Attack
     }
 
     //상단 공격
-    void SetAni_Particle((E_PlayerSkill skill, E_AniType zero, E_AniType one) data)
+    void SetAni_Particle((E_PlayerSkill skill, E_AniType zero, E_AniType one, E_AniType hold) data)
     {
         if (HoldDelay <= 0)
         {
             var type = AttackCount == 0 ? data.zero : data.one;
-            var state = AttackState == E_AttackState.Hold ? E_AniType.Hold_Attack : type;
+            var state = AttackState == E_AttackState.Hold ? data.hold : type;
             Player.SetAni(Player.GetAniName(state));
         }
         Player.SetParticle(data.skill, 0);
-    }
-
-    //하단공격
-    void DownAttack()
-    {
-        if (HoldDelay <= 0)
-        {
-            var type = AttackCount == 0 ? E_AniType.Kick : E_AniType.Tail_Attack;
-            var state = AttackState == E_AttackState.Hold ? E_AniType.Hold_Attack : type;
-            Player.SetAni(Player.GetAniName(state));
-        }
-        Player.SetParticle(E_PlayerSkill.Running, 0);
     }
 
     //공격 횟수 수정
