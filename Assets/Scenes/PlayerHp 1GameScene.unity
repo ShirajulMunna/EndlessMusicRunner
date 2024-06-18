@@ -1894,6 +1894,7 @@ MonoBehaviour:
   bossWaitPosition: {fileID: 0}
   lowerAttackPoint: {fileID: 304495756}
   longNoteDestoryPosition: {x: 0, y: 0, z: 0}
+  GameResultPosition: {x: 10, y: -2, z: 0}
 --- !u!4 &827244270
 Transform:
   m_ObjectHideFlags: 0
