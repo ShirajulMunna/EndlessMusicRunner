@@ -41,6 +41,9 @@ public class SpawnManager : MonoBehaviour
     //게임 상태
     [SerializeField] E_GameState e_GameState = E_GameState.Wait;
 
+    //플레이어 죽었을때 몬스터들 전부 껐는지 검사
+    bool isAllMonsterOff = false;
+
     void Start()
     {
         if (instance != null)
@@ -91,6 +94,10 @@ public class SpawnManager : MonoBehaviour
                 AudioManager.instance.PlayMusic();
                 break;
             case E_GameState.End:
+                if(GameManager.instance.player.CurHp <=0 )
+                {
+                    CheckAllMonster();
+                }
                 gameOverTime_Delay -= Time.deltaTime;
                 if (gameOverTime_Delay > 0)
                 {
@@ -247,5 +254,15 @@ public class SpawnManager : MonoBehaviour
     public void SetGameState(E_GameState state)
     {
         e_GameState = state;
+    }
+
+    //죽었을대 모든몬스터 가져오기
+    public void CheckAllMonster()
+    {
+        var mon = FindObjectsOfType<Monster>();
+        for(int i =0;i<mon.Length;++i)
+        {
+            mon[i].gameObject.SetActive(false);
+        }
     }
 }
