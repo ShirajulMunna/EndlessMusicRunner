@@ -17,6 +17,7 @@ public class IPlayer_State : MonoBehaviour
     [SerializeField] E_MovePoint MovePoint = E_MovePoint.None;
 
     bool isTwinAttack;
+    float isHoldTime;
 
     public E_MovePoint SetPoint()
     {
@@ -26,6 +27,17 @@ public class IPlayer_State : MonoBehaviour
         {
             return MovePoint;
         }
+
+        if (point != E_MovePoint.None && !Attack.CheckHoldPoint() && MovePoint == point)
+        {
+            isHoldTime += Time.deltaTime;
+        }
+
+        if (isHoldTime > 0.3f)
+        {
+            return E_MovePoint.None;
+        }
+
         MovePoint = point;
         return MovePoint;
     }
@@ -51,6 +63,7 @@ public class IPlayer_State : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.F) || Input.GetKeyUp(KeyCode.J))
         {
+            isHoldTime = 0;
             Attack.Reset();
         }
 
