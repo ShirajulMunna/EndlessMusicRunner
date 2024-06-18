@@ -107,6 +107,9 @@ public class SpawnManager : MonoBehaviour
                 if (makeClearOBjectTime + makeClearObjectTimeDelay < Time.time && !isMakeClearObject)
                 {
                     isMakeClearObject = true;
+                    //결과창 새로 나오는거 막기
+                    if (isAllMonsterOff)
+                        return;
                     if (ScoreManager.instance.IsPerfectState())
                         GameManager.instance.SetGameResult(GameResultType.Full_combo);
                     else
