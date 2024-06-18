@@ -91,8 +91,8 @@ public class Monster : Entity, IMonsterMove
         }
 
         var targetpos = player.transform.position;
-
-        if (targetpos.x < transform.position.x)
+        var offsetx = targetpos.x;
+        if (offsetx < transform.position.x)
         {
             return false;
         }
@@ -114,9 +114,7 @@ public class Monster : Entity, IMonsterMove
         //콤보 리셋 및 MISS추가 -함수화 함
         SetComboReset();
 
-        //위치 맞는지 체크 후 공격
-        var point = transform.position.y == -3.5f ? E_MovePoint.Down : E_MovePoint.Up;
-        var checkhit = player.M_Move.CheckHitActive(point);
+        var checkhit = CheckHitPoint();
 
         if (!checkhit)
         {
@@ -124,6 +122,14 @@ public class Monster : Entity, IMonsterMove
         }
         //이펙트추가 함수화 함 
         CreatPlayerHitEffect();
+    }
+
+    protected virtual bool CheckHitPoint()
+    {
+        //위치 맞는지 체크 후 공격
+        var point = transform.position.y == -3.5f ? E_MovePoint.Down : E_MovePoint.Up;
+        var checkhit = player.M_Move.CheckHitActive(point);
+        return checkhit;
     }
 
     public override void SetHp(int value)
