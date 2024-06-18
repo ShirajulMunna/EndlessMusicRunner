@@ -1,7 +1,23 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+
+public enum E_GameOverState
+{
+    Success,
+    Faild,
+    NewScore
+}
+
+[Serializable]
+public struct St_GameClear
+{
+    public GameObject[] G_List;
+    public E_GameOverState e_GameState;
+}
 
 public class UI_GameOver : MonoBehaviour
 {
@@ -18,6 +34,7 @@ public class UI_GameOver : MonoBehaviour
         var audio = AudioManager.instance;
         audio.Audio_BackGround.PlayOneShot(audio.failGame);
     }
+    [SerializeField] List<St_GameClear> L_GameState = new List<St_GameClear>();
 
     [SerializeField] TextMeshProUGUI[] T_TextList;
     [SerializeField] GameObject G_BestText;
@@ -25,6 +42,7 @@ public class UI_GameOver : MonoBehaviour
     private float rate = 0f;
     private void Start()
     {
+        SetUI();
         SetClear();
         SetName();
         SetScore();
@@ -35,9 +53,42 @@ public class UI_GameOver : MonoBehaviour
     }
 
     //성공 실패 확인
-    bool CheckClear()
+    E_GameOverState GetGameState()
     {
-        return GameManager.instance.player.CheckDie();
+        if (GameManager.instance.player.CheckDie())
+        {
+            return E_GameOverState.Faild;
+        }
+
+        if (ScoreManager.instance.GetBestCombo() < ScoreManager.instance.GetCurrentScore())
+        {
+            return E_GameOverState.NewScore;
+        }
+        return E_GameOverState.Success;
+    }
+
+    void SetUI()
+    {
+        var getgamestate = GetGameState();
+        var data = L_GameState.Find(x => x.e_GameState == getgamestate);
+
+        foreach (var item in L_GameState)
+        {
+            if (item.e_GameState == getgamestate)
+            {
+                foreach (var ites in item.G_List)
+                {
+                    ites.SetActive(true);
+                }
+            }
+            else
+            {
+                foreach (var ites in item.G_List)
+                {
+                    ites.SetActive(false);
+                }
+            }
+        }
     }
 
     //게임 클리어
@@ -48,20 +99,19 @@ public class UI_GameOver : MonoBehaviour
 
     IEnumerator IE_SetSound()
     {
-        var checkclear = CheckClear();
-
-
+        var gamestate = GetGameState();
         yield return new WaitForSeconds(1f);
 
-        //사망 처리
-        if (checkclear)
+        switch (gamestate)
         {
-            AudioManager.instance.PlayEffectSound("Gameover_Over");
-            yield break;
+            case E_GameOverState.Success:
+            case E_GameOverState.NewScore:
+                AudioManager.instance.PlayEffectSound("Gameover_Clear");
+                break;
+            case E_GameOverState.Faild:
+                AudioManager.instance.PlayEffectSound("Gameover_Over");
+                break;
         }
-
-        //클리어처리
-        AudioManager.instance.PlayEffectSound("Gameover_Clear");
     }
 
     void SetName()
