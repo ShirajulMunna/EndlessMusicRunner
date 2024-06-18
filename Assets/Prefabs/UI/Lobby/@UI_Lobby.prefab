@@ -671,7 +671,6 @@ GameObject:
   - component: {fileID: 7219897767238795257}
   - component: {fileID: 7046895168347988009}
   - component: {fileID: 4277723855968812811}
-  - component: {fileID: 9152497020494465389}
   - component: {fileID: 384865319894709054}
   m_Layer: 5
   m_Name: Canvas
@@ -764,14 +763,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!81 &9152497020494465389
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1003316036673970833}
-  m_Enabled: 1
 --- !u!82 &384865319894709054
 AudioSource:
   m_ObjectHideFlags: 0
