@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Sawtooth : Monster
+public class Monster_Sawtooth : Monster
 {
 
 

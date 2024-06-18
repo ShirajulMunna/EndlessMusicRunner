@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Threading.Tasks;
 using UnityEngine.UIElements;
 
-public class LongNote : Monster
+public class Monster_LongNote : Monster
 {
     [SerializeField] Transform Tr;
     [SerializeField] GameObject G_Effect;

@@ -10,7 +10,7 @@ public class IPlayer_Move : MonoBehaviour
     [SerializeField] E_MovePoint MovePoint = E_MovePoint.Down;
     //내려가기 딜레이
     float CurDownDelay;
-    const float MaxDownDelay = 0.325f;
+    const float MaxDownDelay = 0.2f;
     //움직임 속도
     const float MiddleMoveSpeed = 100;
 

@@ -20,7 +20,13 @@ public class IPlayer_State : MonoBehaviour
 
     public E_MovePoint SetPoint()
     {
-        MovePoint = SetKey();
+        var point = SetKey();
+
+        if (MovePoint == E_MovePoint.Middle)
+        {
+            return MovePoint;
+        }
+        MovePoint = point;
         return MovePoint;
     }
 
@@ -50,7 +56,6 @@ public class IPlayer_State : MonoBehaviour
 
         return E_MovePoint.None;
     }
-
 
     //공격 위치 셋팅
     public void SetDirectMoveIdx(E_MovePoint idx)

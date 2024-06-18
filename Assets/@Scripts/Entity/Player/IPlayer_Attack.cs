@@ -40,25 +40,22 @@ public class IPlayer_Attack
 
     //현재 공격 횟수
     int AttackCount = 0;
+    const int MaxAttackCount = 2;
 
     //홀딩 딜레이
     float HoldDelay;
     const float MaxHoldDelay = 0.3f;
 
-    //공격 카운트 수정
-    float AttackCountDelay;
-    const float MaxAttackCountDelay = 2f;
 
     //공격 함수
     public void Attack(E_MovePoint point)
     {
-        if (point != E_MovePoint.None)
-        {
-            Debug.Log(AttackState);
-        }
-
         HoldDelay -= Time.deltaTime;
-        AttackCountDelay -= Time.deltaTime;
+
+        if (point == E_MovePoint.None)
+        {
+            return;
+        }
 
         var check = CheckAttackState();
         if (!check)
@@ -66,20 +63,22 @@ public class IPlayer_Attack
             return;
         }
 
+
+
         switch (point)
         {
             case E_MovePoint.Up:
                 UpAttack();
                 break;
             case E_MovePoint.Down:
-                DownAttack();
-                break;
             case E_MovePoint.Middle:
+                SetAttackCount();
+                DownAttack();
                 break;
             case E_MovePoint.None:
                 return;
         }
-        SetAttackCount();
+
         SetHold();
         AttackState = SetAttack(point);
         return;
@@ -89,6 +88,11 @@ public class IPlayer_Attack
     //홀드일 경우 처리
     void SetHold()
     {
+        if (!CheckHoldPoint())
+        {
+            return;
+        }
+
         if (HoldDelay <= 0)
         {
             HoldDelay = MaxHoldDelay;
@@ -106,7 +110,7 @@ public class IPlayer_Attack
         //허공에 공격   
         if (col == null)
         {
-            return E_AttackState.Attack_Re;
+            return E_AttackState.None;
         }
 
         foreach (var item in col)
@@ -121,7 +125,7 @@ public class IPlayer_Attack
             }
 
             //롱 노트 일때 처리
-            var longnote = item.GetComponent<LongNote>();
+            var longnote = item.GetComponent<Monster_LongNote>();
             result = SetLongNote(longnote, perfect);
 
             if (result != E_AttackState.None)
@@ -130,7 +134,7 @@ public class IPlayer_Attack
             }
 
             //2단 몬스터 일때 
-            var twinMonster = item.GetComponent<TwinMonster>();
+            var twinMonster = item.GetComponent<Monster_Twin>();
             result = SetTwinMonster(twinMonster, perfect);
             if (result != E_AttackState.None)
             {
@@ -146,10 +150,10 @@ public class IPlayer_Attack
                 return result;
             }
 
-            return E_AttackState.Attack_Re;
+            return E_AttackState.None;
         }
 
-        return E_AttackState.Attack_Re;
+        return E_AttackState.None;
     }
 
     //상단 공격
@@ -168,7 +172,7 @@ public class IPlayer_Attack
     {
         if (HoldDelay <= 0)
         {
-            var type = AttackCount > 1 ? E_AniType.Tail_Attack : E_AniType.Kick;
+            var type = AttackCount == 0 ? E_AniType.Kick : E_AniType.Tail_Attack;
             var state = AttackState == E_AttackState.Hold ? E_AniType.Hold_Attack : type;
             Player.SetAni(Player.GetAniName(state));
         }
@@ -179,11 +183,10 @@ public class IPlayer_Attack
     void SetAttackCount()
     {
         AttackCount++;
-        if (AttackCountDelay <= 0)
+        if (AttackCount >= MaxAttackCount)
         {
             AttackCount = 0;
         }
-        AttackCountDelay = MaxAttackCountDelay;
     }
 
     //히트 판정
@@ -269,7 +272,7 @@ public class IPlayer_Attack
     }
 
     //롱노트 셋팅
-    E_AttackState SetLongNote(LongNote longnote, ScoreManager.E_ScoreState perfect)
+    E_AttackState SetLongNote(Monster_LongNote longnote, ScoreManager.E_ScoreState perfect)
     {
         if (longnote == null)
         {
@@ -279,7 +282,7 @@ public class IPlayer_Attack
         return E_AttackState.Hold;
     }
     //2단몬스터 검사
-    E_AttackState SetTwinMonster(TwinMonster twinMonster, ScoreManager.E_ScoreState perfect)
+    E_AttackState SetTwinMonster(Monster_Twin twinMonster, ScoreManager.E_ScoreState perfect)
     {
         if (twinMonster == null)
         {

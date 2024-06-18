@@ -14,7 +14,8 @@ public enum E_AttackState
     None,
     Attack,
     Hold,
-    Attack_Re//다시 공격 가능 상태
+    Attack_Re,//다시 공격 가능 상태
+
 }
 
 //enum 순서를 Middle , UP으로 변경 

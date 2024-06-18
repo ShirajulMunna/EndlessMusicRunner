@@ -1,10 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEngine;
-using UnityEngine.PlayerLoop;
 
-public class TwinMonster : Monster
+public class Monster_Twin : Monster
 {
     IPlayer_State player_State
     {
@@ -32,7 +28,11 @@ public class TwinMonster : Monster
     public override void SetMinusHp(int value)
     {
         base.SetMinusHp(value);
-        player_State.SetDirectMoveIdx(E_MovePoint.Middle);
+    }
+
+    public override void SetDie()
+    {
+        base.SetDie();
     }
 
     public override void SetHit(ScoreManager.E_ScoreState perfect)

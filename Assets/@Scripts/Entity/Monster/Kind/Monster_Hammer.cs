@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
-public class BellMonster : Monster
+public class Monster_Hammer : Monster
 {
     [SerializeField] float Delay_Ani;
 
