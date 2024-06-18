@@ -38,5 +38,6 @@ public class Monster_Twin : Monster
     public override void SetHit(ScoreManager.E_ScoreState perfect)
     {
         base.SetHit(perfect);
+        HitCollisionDetection.Instance.SetHit(this.gameObject, perfect);
     }
 }
