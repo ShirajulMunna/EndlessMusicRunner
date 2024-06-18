@@ -18,12 +18,12 @@ MonoBehaviour:
   m_GUID: 44c3725670d85e74baaa1c13cd249d22
   m_SerializeEntries:
   - m_GUID: 13a6fe769bfe41f48be29d1efb86874c
-    m_Address: PlayerEffect_2
+    m_Address: PlayerEffect_1
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4f7e2db9e95811a4ead0ef5a15d02e2e
-    m_Address: PlayerEffect_1
+    m_Address: PlayerEffect_2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

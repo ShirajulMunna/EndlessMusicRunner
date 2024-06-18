@@ -94,9 +94,10 @@ public class SpawnManager : MonoBehaviour
                 AudioManager.instance.PlayMusic();
                 break;
             case E_GameState.End:
-                if(GameManager.instance.player.CurHp <=0 )
+                if(GameManager.instance.player.CurHp <=0 &&!isAllMonsterOff)
                 {
                     CheckAllMonster();
+                    isAllMonsterOff = true;
                 }
                 gameOverTime_Delay -= Time.deltaTime;
                 if (gameOverTime_Delay > 0)
