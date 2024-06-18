@@ -2,8 +2,8 @@ public enum E_BossAttack
 {
     idle,
     HandSwing,
-    BackAttack,
-    MoveAttack,
+    HighAttack,
+    LowAttack,
     Hit,
     Die
 }

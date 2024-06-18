@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 5068139720691619870}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.96, z: 0}
   m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -55,7 +55,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fa47a62630e4e414bb4bd892e970def1, type: 2}
+  - {fileID: 2100000, guid: 3a7de84b12cb56f45af47a21a14c9a07, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: bb7244a2418b471449ff36c647b57716, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: 1617a93119839664c8e98a2ceedbeb3a, type: 2}
   initialSkinName: skin0
   fixPrefabOverrideViaMeshFilter: 2
   initialFlipX: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
   disableRenderingOnOverride: 1
   updateTiming: 1
   unscaledTime: 0
-  _animationName: 
+  _animationName: Idle
   loop: 1
   timeScale: 1
 --- !u!33 &4248751224868703692
@@ -263,8 +263,7 @@ MonoBehaviour:
   Change: 0
   Sk: []
   uniqMonster: 0
-  Delay: 0.5
-  BossState: 1
+  BossState: 3
   PlaySound: 1
-  CustomCreatePos: 0
-  CustomCreatePos_IDX: 0
+  CheckCustomMove: 1
+  CustomePos_IDX: 0

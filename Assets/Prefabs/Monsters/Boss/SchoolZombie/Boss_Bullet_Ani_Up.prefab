@@ -257,14 +257,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 0
   curHp: 0
-  _skeletonAnimation: {fileID: 0}
+  _skeletonAnimation: {fileID: 582701087284038641}
   damageAmount: 0
   damageFx: {fileID: 6630400188505773858, guid: dd80aa9b27baa334ea57eb66d90b8392, type: 3}
   Change: 0
   Sk: []
   uniqMonster: 0
-  Delay: 0.5
-  BossState: 3
+  BossState: 2
   PlaySound: 1
-  CustomCreatePos: 0
-  CustomCreatePos_IDX: 0
+  CheckCustomMove: 1
+  CustomePos_IDX: 0
