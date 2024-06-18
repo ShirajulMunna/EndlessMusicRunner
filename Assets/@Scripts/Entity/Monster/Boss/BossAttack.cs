@@ -7,21 +7,30 @@ public class BossAttack : Monster
     [Space(10f)]
     [Header("보스 공격 관련ㅡㅡㅡㅡ")]
 
-    [SerializeField] float Delay;
+    float Delay;
     [SerializeField] E_BossAttack BossState;
     [SerializeField] int PlaySound;
 
-    [Header("생성위치 보스 지정한 곳에 생성")]
-    [SerializeField] bool CustomCreatePos;
-    [SerializeField] int CustomCreatePos_IDX;
-    bool isCheckAniStart;
+    [Header("보스 근처에서 생성")]
+    [SerializeField] bool CheckCustomMove;
+    [SerializeField] int CustomePos_IDX;
     Vector3 OriginPos;
-    bool isDiagonalMoveComplete;
+
+    int isCount = 2;
 
     protected override void Update()
     {
         base.Update();
-        SetBossAni();
+
+        if (isCount > 0)
+        {
+            isCount--;
+            if (isCount <= 0)
+            {
+                Boss.instance.SetAni(BossState);
+                SetSound();
+            }
+        }
     }
 
     public override void SetUp(C_MonsterTable data, Vector3 cratepos)
@@ -30,26 +39,18 @@ public class BossAttack : Monster
         SetCustomPos(cratepos);
     }
 
-    //보스 공격 애니메이션 실행 
-    void SetBossAni()
+    //커스텀 이동 함수
+    void SetCustomPos(Vector3 cratepos)
     {
-        Delay -= Time.deltaTime;
-
-        if (Delay > 0)
+        OriginPos = cratepos;
+        if (CheckCustomMove)
         {
-            return;
+            var offsetx = OriginPos.x - 20;
+            var pos = Boss.instance.GetAttackPoint()[CustomePos_IDX].position;
+            pos.x += offsetx;
+            transform.position = pos;
         }
-
-        if (isCheckAniStart)
-        {
-            return;
-        }
-
-        isCheckAniStart = true;
-        Boss.instance.SetAni(BossState);
-        SetSound();
     }
-
 
     //보스 공격 관련 사운드
     void SetSound()
@@ -62,35 +63,33 @@ public class BossAttack : Monster
         AudioManager.instance.PlayEffectSound(string.Format(SoundName, PlaySound));
     }
 
-    //커스텀 위치로 생성
-    void SetCustomPos(Vector3 cratepos)
+    //이동
+    void SetCustomMove()
     {
-        if (!CustomCreatePos)
+        var targetpos = OriginPos;
+
+        if (transform.position.y >= targetpos.y)
         {
-            isDiagonalMoveComplete = true;
+            targetpos.x = transform.position.x;
+            transform.position = targetpos;
+            CheckCustomMove = false;
             return;
         }
-        OriginPos = cratepos;
-
-        var pos = Boss.instance.Tr_CustomCreate[CustomCreatePos_IDX].position;
-        transform.position = pos;
+        targetpos.x = player.transform.position.x;
+        targetpos.y = OriginPos.y * 3;
+        transform.position = Vector2.MoveTowards(transform.position, targetpos, Speed * Time.deltaTime);
     }
-
 
     public override void SetMove()
     {
-        if (isDiagonalMoveComplete)
+        if (CheckCustomMove)
         {
-            // y 값이 맞춰졌으면 x 방향으로만 이동
-            base.SetMove();
+            SetCustomMove();
         }
         else
         {
-            // y 값 맞추기 위해 대각선으로 이동
-            Vector3 targetPosition = new Vector3(transform.position.x, OriginPos.y, transform.position.z);
-            float step = Speed * Time.deltaTime; // 이동 속도 설정
-
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
+            // y 값이 맞춰졌으면 x 방향으로만 이동
+            base.SetMove();
         }
     }
 
