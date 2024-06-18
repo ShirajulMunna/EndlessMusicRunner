@@ -1,0 +1,54 @@
+Medium_Monster_Tablet_Pen.png
+	size: 1214, 1214
+	filter: Linear, Linear
+	pma: true
+	scale: 0.5
+skin0/face
+	bounds: 613, 320, 308, 244
+	offsets: 152, 2, 609, 257
+skin1/face
+	bounds: 613, 320, 308, 244
+	offsets: 152, 2, 609, 257
+skin2/face
+	bounds: 613, 320, 308, 244
+	offsets: 152, 2, 609, 257
+skin3/face
+	bounds: 613, 320, 308, 244
+	offsets: 152, 2, 609, 257
+skin4/face
+	bounds: 613, 320, 308, 244
+	offsets: 152, 2, 609, 257
+skin5/face
+	bounds: 613, 320, 308, 244
+	offsets: 152, 2, 609, 257
+skin7/face
+	bounds: 613, 320, 308, 244
+	offsets: 152, 2, 609, 257
+skin0/pencil
+	bounds: 2, 998, 603, 214
+	offsets: 6, 0, 609, 257
+skin1/pencil
+	bounds: 607, 998, 603, 214
+	offsets: 6, 0, 609, 257
+skin2/pencil
+	bounds: 2, 782, 604, 214
+	offsets: 5, 0, 609, 257
+skin3/pencil
+	bounds: 608, 782, 604, 214
+	offsets: 5, 0, 609, 257
+skin4/pencil
+	bounds: 2, 566, 603, 214
+	offsets: 6, 0, 609, 257
+skin5/pencil
+	bounds: 607, 566, 603, 214
+	offsets: 6, 0, 609, 257
+skin6/face
+	bounds: 923, 255, 309, 245
+	offsets: 151, 2, 609, 257
+	rotate: 90
+skin6/pencil
+	bounds: 2, 350, 609, 214
+	offsets: 0, 0, 609, 257
+skin7/pencil
+	bounds: 2, 134, 603, 214
+	offsets: 6, 0, 609, 257
