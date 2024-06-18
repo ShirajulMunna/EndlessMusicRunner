@@ -16,6 +16,11 @@ public class Repeatingground : MonoBehaviour
 
     void Update()
     {
+        // 게임이 끝난다면 움직임 종료 
+        if (SpawnManager.instance.GetGameState() == E_GameState.End && speed >=0.01f && SpawnManager.instance.isMakeClearObject)
+        {
+            speed = 0.0f;
+        }
         transform.Translate(Vector3.left * Time.deltaTime * speed);
 
         if (transform.position.x <= lastPosition)

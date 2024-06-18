@@ -777,6 +777,7 @@ MonoBehaviour:
   Tr_parent: {fileID: 601479516}
   StartMusic_Delay: 1.25
   e_GameState: 0
+  isMakeClearObject: 0
 --- !u!4 &342117586
 Transform:
   m_ObjectHideFlags: 0
@@ -1889,8 +1890,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skeleton: {fileID: 1878545307}
-  speaker_1: {fileID: 0}
-  speaker_2: {fileID: 0}
   player: {fileID: 1608568235}
   bossWaitPosition: {fileID: 0}
   lowerAttackPoint: {fileID: 304495756}
@@ -4489,11 +4488,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2634369252569677922, guid: ebf406e66866c174fb3254da9cfb93ea, type: 3}
       propertyPath: curHp
-      value: 100
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2634369252569677922, guid: ebf406e66866c174fb3254da9cfb93ea, type: 3}
       propertyPath: maxHp
-      value: 100
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4823724451177025718, guid: ebf406e66866c174fb3254da9cfb93ea, type: 3}
       propertyPath: m_Mesh

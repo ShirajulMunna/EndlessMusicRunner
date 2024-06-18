@@ -43,7 +43,7 @@ public class SpawnManager : MonoBehaviour
 
     //플레이어 죽었을때 몬스터들 전부 껐는지 검사
     bool isAllMonsterOff = false;
-    bool isMakeClearObject = false;
+    [HideInInspector]public bool isMakeClearObject = false;
     float makeClearOBjectTime = 0f;
     float makeClearObjectTimeDelay = 0.85f;
     void Start()
