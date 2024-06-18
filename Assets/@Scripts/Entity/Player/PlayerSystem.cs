@@ -24,7 +24,7 @@ public class PlayerSystem : Entity
         "tail attack",
         "fire attack",
         "biting attack",
-        "retire",
+        "Hit",
         "fly_attack",
         "retire",
         "fly_biting"
