@@ -76,7 +76,7 @@ public class Monster_LongNote : Monster
                 GetScoreTime = Time.time;
                 var score = 1;
                 ScoreManager.instance.SetCurrentScore(score);
-                
+                AudioManager.instance.LongNoteSound();
             }
 
 

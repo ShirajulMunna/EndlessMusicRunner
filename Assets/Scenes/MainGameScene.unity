@@ -1762,6 +1762,7 @@ MonoBehaviour:
   ouch_1: {fileID: 8300000, guid: f4684ca5a03e3b94684f0d8f69680689, type: 3}
   failGame: {fileID: 0}
   bossAttackClip: {fileID: 0}
+  longNoteClip: {fileID: 8300000, guid: 3dce9167bdeb2e844ab8deadaa02ff0a, type: 3}
   Audio_BackGround: {fileID: 743956113}
   BackSound:
   - {fileID: 8300000, guid: a2abdeff1338aa0419b0d09eaf30b841, type: 3}
@@ -1894,6 +1895,7 @@ MonoBehaviour:
   bossWaitPosition: {fileID: 0}
   lowerAttackPoint: {fileID: 304495756}
   longNoteDestoryPosition: {x: 0, y: 0, z: 0}
+  GameResultPosition: {x: 10, y: -2, z: 0}
 --- !u!4 &827244270
 Transform:
   m_ObjectHideFlags: 0

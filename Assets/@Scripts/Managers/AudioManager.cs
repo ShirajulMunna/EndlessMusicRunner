@@ -11,6 +11,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip ouch_1;
     public AudioClip failGame;
     public AudioClip bossAttackClip;
+    public AudioClip longNoteClip;
     [SerializeField] public AudioSource Audio_BackGround;
     [SerializeField] AudioClip[] BackSound;
     bool CheckMusic;
@@ -45,6 +46,12 @@ public class AudioManager : MonoBehaviour
     public void PlayerHItSound()
     {
         audioSource.PlayOneShot(ouch_1, 0.3f);
+    }
+    //롱노트사운드
+    public void LongNoteSound()
+    {
+        Debug.Log("Sound");
+        audioSource.PlayOneShot(longNoteClip, 0.5f);
     }
 
     public void StopMusic()
