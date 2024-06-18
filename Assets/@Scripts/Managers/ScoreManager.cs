@@ -172,6 +172,11 @@ public class ScoreManager : MonoBehaviour
 
         return count;
     }
+    //판정 모두 검사하는 형태로 작업
+    public bool IsPerfectState()
+    {
+        return (GetAccuracy()/ GetMaxState()) ==1 ;
+    }
 
     // 판정들 초기화
     public void ResetCount()

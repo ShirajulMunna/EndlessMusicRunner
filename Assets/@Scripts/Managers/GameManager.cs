@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
 
     public Transform lowerAttackPoint;
     [HideInInspector] public Vector3 longNoteDestoryPosition;
+
+    private Vector3 GameResultPosition = new Vector3(10, -2, 0);
     void Awake()
     {
         Application.targetFrameRate = 120; //120으로ㅓ 고정프레임
@@ -47,5 +49,10 @@ public class GameManager : MonoBehaviour
             Invoke("DeactivatSpeaker", 5f);
 
         }
+    }
+    //게임 결과 가져오기
+    public void SetGameResult(GameResultType type)
+    {
+        Spine_GameResult.Create(GameResultPosition, type);
     }
 }

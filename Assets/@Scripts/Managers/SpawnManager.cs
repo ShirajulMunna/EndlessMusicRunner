@@ -43,7 +43,9 @@ public class SpawnManager : MonoBehaviour
 
     //플레이어 죽었을때 몬스터들 전부 껐는지 검사
     bool isAllMonsterOff = false;
-
+    bool isMakeClearObject = false;
+    float makeClearOBjectTime = 0f;
+    float makeClearObjectTimeDelay = 0.85f;
     void Start()
     {
         if (instance != null)
@@ -94,10 +96,21 @@ public class SpawnManager : MonoBehaviour
                 AudioManager.instance.PlayMusic();
                 break;
             case E_GameState.End:
-                if(GameManager.instance.player.CurHp <=0 &&!isAllMonsterOff)
+                //플레이어 체력 다 잃었을 경우
+                if (!isAllMonsterOff && GameManager.instance.player.CurHp <= 0)
                 {
-                    CheckAllMonster();
                     isAllMonsterOff = true;
+                    CheckAllMonster();
+                    GameManager.instance.SetGameResult(GameResultType.Failed);
+                }
+                // 플레이어 클리어시 스파인 이펙트 생성 
+                if (makeClearOBjectTime + makeClearObjectTimeDelay < Time.time && !isMakeClearObject)
+                {
+                    isMakeClearObject = true;
+                    if (ScoreManager.instance.IsPerfectState())
+                        GameManager.instance.SetGameResult(GameResultType.Full_combo);
+                    else
+                        GameManager.instance.SetGameResult(GameResultType.Clear);
                 }
                 gameOverTime_Delay -= Time.deltaTime;
                 if (gameOverTime_Delay > 0)
@@ -177,6 +190,7 @@ public class SpawnManager : MonoBehaviour
         if (CreatIDX >= L_CreateData.Count)
         {
             SetGameState(E_GameState.End);
+            makeClearOBjectTime = Time.time;
             return;
         }
 
@@ -257,11 +271,17 @@ public class SpawnManager : MonoBehaviour
         e_GameState = state;
     }
 
+    //현재 게임상태 가져오기
+    public E_GameState GetGameState()
+    {
+        return e_GameState;
+    }
+
     //죽었을대 모든몬스터 가져오기
     public void CheckAllMonster()
     {
         var mon = FindObjectsOfType<Monster>();
-        for(int i =0;i<mon.Length;++i)
+        for (int i = 0; i < mon.Length; ++i)
         {
             mon[i].gameObject.SetActive(false);
         }

@@ -33,6 +33,15 @@ public class Boss : Monster
         instance = this;
     }
 
+    protected override void Update()
+    {
+        base.Update();
+        if(SpawnManager.instance.GetGameState() == E_GameState.End)
+        {
+            transform.Translate(Vector2.right*Speed  * Time.deltaTime);
+        }
+    }
+
 
     public override void SetMove()
     {
