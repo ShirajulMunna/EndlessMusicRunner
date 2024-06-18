@@ -103,10 +103,9 @@ public class UI_GameOver : MonoBehaviour
     {
         var maxcount = ScoreManager.instance.GetMaxState();
         var count = ScoreManager.instance.GetAccuracy();
-
-        var accuracy = (float)count + (float)maxcount;
-
-        T_TextList[3].text = "정확도 : " + accuracy + "%";
+        //정확도 나누는형태로 변경완료
+        var accuracy = ((float)(count) / (float)maxcount) * 100;
+        T_TextList[3].text = "정확도 : " + accuracy.ToString("F2") + "%";
     }
 
     void SetBestCombo()
