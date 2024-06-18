@@ -90,8 +90,8 @@ Material:
     - _TextureHeight: 1024
     - _TextureWidth: 1024
     - _UnderlayDilate: 0
-    - _UnderlayOffsetX: 0
-    - _UnderlayOffsetY: 0
+    - _UnderlayOffsetX: -1
+    - _UnderlayOffsetY: -0.7
     - _UnderlaySoftness: 0
     - _VertexOffsetX: 0
     - _VertexOffsetY: 0
@@ -107,7 +107,7 @@ Material:
     - _ReflectFaceColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectOutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
-    - _UnderlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+    - _UnderlayColor: {r: 0, g: 0, b: 0, a: 0.7058824}
   m_BuildTextureStacks: []
 --- !u!114 &11400000
 MonoBehaviour:
@@ -119,11 +119,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: ONE Mobile POP SDF
+  m_Name: ONE Mobile POP SDF S
   m_EditorClassIdentifier: 
-  hashCode: 1204763802
+  hashCode: 2022756201
   material: {fileID: -6111408611981994702}
-  materialHashCode: 1757887738
+  materialHashCode: 1051294505
   m_Version: 1.1.0
   m_SourceFontFileGUID: d9c0ac7dd8b10eb4eb346230efce5c98
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: d9c0ac7dd8b10eb4eb346230efce5c98, type: 3}
