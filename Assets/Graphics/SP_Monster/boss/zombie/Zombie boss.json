@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "GXGma//B5yk", "spine": "4.1.24", "x": -257.98, "y": -1.12, "width": 493.57, "height": 529.98 },
+"skeleton": { "hash": "eqxL/ZIrOhA", "spine": "4.1.24", "x": -257.98, "y": -1.12, "width": 493.57, "height": 529.98 },
 "bones": [
 	{ "name": "root" },
 	{ "name": "body", "parent": "root", "length": 48.99, "rotation": 133.53, "x": 108.51, "y": 231.83 },
@@ -99,7 +99,8 @@
 	{ "name": "String2_Attack2", "parent": "Bag2_Attack5", "length": 69.8, "rotation": -7.68, "x": 66.51, "y": -79.11 },
 	{ "name": "String2_Attack6", "parent": "String2_Attack2", "length": 78.02, "rotation": 4.19, "x": 69.8 },
 	{ "name": "String2_Attack7", "parent": "String2_Attack6", "length": 55.94, "rotation": 2.94, "x": 78.02 },
-	{ "name": "String2_Attack8", "parent": "String2_Attack7", "length": 44.86, "rotation": 5.96, "x": 56.61, "y": -0.67 }
+	{ "name": "String2_Attack8", "parent": "String2_Attack7", "length": 44.86, "rotation": 5.96, "x": 56.61, "y": -0.67 },
+	{ "name": "swing", "parent": "root", "x": -114.15, "y": 226.53, "scaleX": 2.5, "scaleY": 2.5 }
 ],
 "slots": [
 	{ "name": "Left leg", "bone": "Left leg", "attachment": "Left leg" },
@@ -134,7 +135,8 @@
 	{ "name": "Bag2_Attack3", "bone": "Bag2_Attack5" },
 	{ "name": "String_Attack3", "bone": "String_Attack6" },
 	{ "name": "Bag1_Attack2", "bone": "Bag1_Attack2" },
-	{ "name": "Bag1_Attack3", "bone": "Bag1_Attack5" }
+	{ "name": "Bag1_Attack3", "bone": "Bag1_Attack5" },
+	{ "name": "swing", "bone": "swing" }
 ],
 "ik": [
 	{
@@ -629,6 +631,9 @@
 					"hull": 26
 				}
 			},
+			"swing": {
+				"swing": { "width": 423, "height": 423 }
+			},
 			"Tongue": {
 				"Tongue": {
 					"name": "skin0/Tongue",
@@ -774,6 +779,9 @@
 			"String_Attack3": {
 				"String_Attack3": { "name": "skin1/String_Attack3", "type": "linkedmesh", "skin": "skin0", "parent": "String_Attack3" }
 			},
+			"swing": {
+				"swing": { "width": 423, "height": 423 }
+			},
 			"Tongue": {
 				"Tongue": { "name": "skin1/Tongue", "type": "linkedmesh", "skin": "skin0", "parent": "Tongue" },
 				"Tongue_Attack1": { "name": "skin1/Tongue_Attack1", "type": "linkedmesh", "skin": "skin0", "parent": "Tongue_Attack1" }
@@ -897,6 +905,9 @@
 			},
 			"String_Attack3": {
 				"String_Attack3": { "name": "skin2/String_Attack3", "type": "linkedmesh", "skin": "skin0", "parent": "String_Attack3" }
+			},
+			"swing": {
+				"swing": { "width": 423, "height": 423 }
 			},
 			"Tongue": {
 				"Tongue": { "name": "skin2/Tongue", "type": "linkedmesh", "skin": "skin0", "parent": "Tongue" },
@@ -1022,6 +1033,9 @@
 			"String_Attack3": {
 				"String_Attack3": { "name": "skin3/String_Attack3", "type": "linkedmesh", "skin": "skin0", "parent": "String_Attack3" }
 			},
+			"swing": {
+				"swing": { "width": 423, "height": 423 }
+			},
 			"Tongue": {
 				"Tongue": { "name": "skin3/Tongue", "type": "linkedmesh", "skin": "skin0", "parent": "Tongue" },
 				"Tongue_Attack1": { "name": "skin3/Tongue_Attack1", "type": "linkedmesh", "skin": "skin0", "parent": "Tongue_Attack1" }
@@ -1145,6 +1159,9 @@
 			},
 			"String_Attack3": {
 				"String_Attack3": { "name": "skin4/String_Attack3", "type": "linkedmesh", "skin": "skin0", "parent": "String_Attack3" }
+			},
+			"swing": {
+				"swing": { "width": 423, "height": 423 }
 			},
 			"Tongue": {
 				"Tongue": { "name": "skin4/Tongue", "type": "linkedmesh", "skin": "skin0", "parent": "Tongue" },
@@ -1270,6 +1287,9 @@
 			"String_Attack3": {
 				"String_Attack3": { "name": "skin5/String_Attack3", "type": "linkedmesh", "skin": "skin0", "parent": "String_Attack3" }
 			},
+			"swing": {
+				"swing": { "width": 423, "height": 423 }
+			},
 			"Tongue": {
 				"Tongue": { "name": "skin5/Tongue", "type": "linkedmesh", "skin": "skin0", "parent": "Tongue" },
 				"Tongue_Attack1": { "name": "skin5/Tongue_Attack1", "type": "linkedmesh", "skin": "skin0", "parent": "Tongue_Attack1" }
@@ -1394,6 +1414,9 @@
 			"String_Attack3": {
 				"String_Attack3": { "name": "skin6/String_Attack3", "type": "linkedmesh", "skin": "skin0", "parent": "String_Attack3" }
 			},
+			"swing": {
+				"swing": { "width": 423, "height": 423 }
+			},
 			"Tongue": {
 				"Tongue": { "name": "skin6/Tongue", "type": "linkedmesh", "skin": "skin0", "parent": "Tongue" },
 				"Tongue_Attack1": { "name": "skin6/Tongue_Attack1", "type": "linkedmesh", "skin": "skin0", "parent": "Tongue_Attack1" }
@@ -1517,6 +1540,9 @@
 			},
 			"String_Attack3": {
 				"String_Attack3": { "name": "skin7/String_Attack3", "type": "linkedmesh", "skin": "skin0", "parent": "String_Attack3" }
+			},
+			"swing": {
+				"swing": { "width": 423, "height": 423 }
 			},
 			"Tongue": {
 				"Tongue": { "name": "skin7/Tongue", "type": "linkedmesh", "skin": "skin0", "parent": "Tongue" },
@@ -4146,6 +4172,17 @@
 				"attachment": [
 					{ "name": "String_Attack2" },
 					{ "time": 0.5333 }
+				]
+			},
+			"swing": {
+				"rgba": [
+					{ "color": "ffffff00" },
+					{ "time": 0.0667, "color": "ffffffff", "curve": "stepped" },
+					{ "time": 0.1333, "color": "ffffffff" },
+					{ "time": 0.3, "color": "ffffff00" }
+				],
+				"attachment": [
+					{ "name": "swing" }
 				]
 			},
 			"Tongue": {
@@ -6798,6 +6835,25 @@
 					{ "time": 0.3667, "curve": "stepped" },
 					{ "time": 0.6667 }
 				]
+			},
+			"swing": {
+				"rotate": [
+					{ "value": -95.95 },
+					{ "time": 0.0667, "value": -9.19 },
+					{ "time": 0.1667, "value": 71.45 },
+					{ "time": 0.3, "value": 96.58 }
+				],
+				"translate": [
+					{ "x": -29.18, "y": 144.73 },
+					{ "time": 0.0667, "x": -33.98, "y": 49.97 },
+					{ "time": 0.1667, "x": 26.22, "y": -241.4 }
+				],
+				"scale": [
+					{}
+				],
+				"shear": [
+					{}
+				]
 			}
 		},
 		"attachments": {
@@ -6822,12 +6878,6 @@
 					{ "slot": "Zipper_Attack3", "offset": -4 },
 					{ "slot": "String2_Attack3", "offset": -22 },
 					{ "slot": "String_Attack2", "offset": -5 }
-				]
-			},
-			{
-				"time": 0.5333,
-				"offsets": [
-					{ "slot": "right arm", "offset": 2 }
 				]
 			}
 		]
@@ -7019,6 +7069,18 @@
 				"attachment": [
 					{ "name": "String_Attack3" },
 					{ "time": 0.4667 }
+				]
+			},
+			"swing": {
+				"rgba": [
+					{ "color": "ffffff00", "curve": "stepped" },
+					{ "time": 0.0333, "color": "ffffff00" },
+					{ "time": 0.1333, "color": "ffffffff", "curve": "stepped" },
+					{ "time": 0.1667, "color": "ffffffff" },
+					{ "time": 0.2333, "color": "ffffff00" }
+				],
+				"attachment": [
+					{ "name": "swing" }
 				]
 			},
 			"Tongue": {
@@ -9779,6 +9841,30 @@
 					{ "curve": "stepped" },
 					{ "time": 0.4333, "curve": "stepped" },
 					{ "time": 0.6667 }
+				]
+			},
+			"swing": {
+				"rotate": [
+					{ "value": 227.22 },
+					{ "time": 0.1333, "value": -41.85 },
+					{ "time": 0.1667, "value": -81.82 },
+					{ "time": 0.2, "value": -139.73 },
+					{ "time": 0.2333, "value": -133.99 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.1333, "x": -294.19, "y": -8.33 },
+					{ "time": 0.1667, "x": -110.09, "y": 197.98 },
+					{ "time": 0.2, "x": 165.6, "y": 187.8 },
+					{ "time": 0.2333, "x": 208.16, "y": -5.55 }
+				],
+				"scale": [
+					{ "x": 0.8, "y": -0.8 },
+					{ "time": 0.1333, "y": -1 },
+					{ "time": 0.2333, "x": 0.8, "y": -0.8 }
+				],
+				"shear": [
+					{}
 				]
 			}
 		},
