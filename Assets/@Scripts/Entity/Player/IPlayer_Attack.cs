@@ -42,19 +42,25 @@ public class IPlayer_Attack
     int AttackCount = 0;
 
     //홀딩 딜레이
-    float HoldDelay = 0.2f;
+    float HoldDelay;
+    const float MaxHoldDelay = 0.3f;
 
     //공격 카운트 수정
-    float AttackDelay = 2f;
+    float AttackCountDelay;
+    const float MaxAttackCountDelay = 2f;
 
     //공격 함수
     public void Attack(E_MovePoint point)
     {
-        AttackDelay -= Time.deltaTime;
+        if (point != E_MovePoint.None)
+        {
+            Debug.Log(AttackState);
+        }
+
         HoldDelay -= Time.deltaTime;
+        AttackCountDelay -= Time.deltaTime;
 
         var check = CheckAttackState();
-
         if (!check)
         {
             return;
@@ -73,9 +79,9 @@ public class IPlayer_Attack
             case E_MovePoint.None:
                 return;
         }
-        AttackState = SetAttack(point);
         SetAttackCount();
         SetHold();
+        AttackState = SetAttack(point);
         return;
     }
 
@@ -83,13 +89,9 @@ public class IPlayer_Attack
     //홀드일 경우 처리
     void SetHold()
     {
-        if (!CheckHoldPoint())
-        {
-            return;
-        }
         if (HoldDelay <= 0)
         {
-            HoldDelay = 0.2f;
+            HoldDelay = MaxHoldDelay;
         }
     }
 
@@ -113,35 +115,35 @@ public class IPlayer_Attack
             var boss = item.GetComponent<Boss>();
             var result = SetBoss(boss, perfect);
 
-            if (result)
+            if (result != E_AttackState.None)
             {
-                return E_AttackState.Attack;
+                return result;
             }
 
             //롱 노트 일때 처리
             var longnote = item.GetComponent<LongNote>();
             result = SetLongNote(longnote, perfect);
 
-            if (result)
+            if (result != E_AttackState.None)
             {
-                return E_AttackState.Hold;
+                return result;
             }
 
             //2단 몬스터 일때 
             var twinMonster = item.GetComponent<TwinMonster>();
             result = SetTwinMonster(twinMonster, perfect);
-            if (result)
+            if (result != E_AttackState.None)
             {
-                return E_AttackState.Attack;
+                return result;
             }
 
             //몬스터 일때 처리
             var monster = item.GetComponent<Monster>();
             result = SetMonster(monster, perfect);
 
-            if (result)
+            if (result != E_AttackState.None)
             {
-                return E_AttackState.Attack;
+                return result;
             }
 
             return E_AttackState.Attack_Re;
@@ -173,18 +175,15 @@ public class IPlayer_Attack
         Player.SetParticle(E_PlayerSkill.Running, 0);
     }
 
-
-
-
     //공격 횟수 수정
     void SetAttackCount()
     {
         AttackCount++;
-        if (AttackDelay <= 0)
+        if (AttackCountDelay <= 0)
         {
             AttackCount = 0;
         }
-        AttackDelay = 2;
+        AttackCountDelay = MaxAttackCountDelay;
     }
 
     //히트 판정
@@ -248,47 +247,52 @@ public class IPlayer_Attack
     }
 
     //몬스터 공격 세팅
-    bool SetMonster(Monster monster, ScoreManager.E_ScoreState perfect)
+    E_AttackState SetMonster(Monster monster, ScoreManager.E_ScoreState perfect)
     {
         if (monster == null)
         {
-            return false;
+            return E_AttackState.None;
         }
         monster.SetHit(perfect);
-        return true;
+        return E_AttackState.Attack;
     }
 
     //보스 공격 셋팅
-    bool SetBoss(Boss boss, ScoreManager.E_ScoreState perfect)
+    E_AttackState SetBoss(Boss boss, ScoreManager.E_ScoreState perfect)
     {
         if (boss == null)
         {
-            return false;
+            return E_AttackState.None;
         }
         boss.SetHit(perfect);
-        return true;
+        return E_AttackState.Attack;
     }
 
     //롱노트 셋팅
-    bool SetLongNote(LongNote longnote, ScoreManager.E_ScoreState perfect)
+    E_AttackState SetLongNote(LongNote longnote, ScoreManager.E_ScoreState perfect)
     {
         if (longnote == null)
         {
-            return false;
+            return E_AttackState.None;
         }
         longnote.SetAttack(perfect);
-        return true;
+        return E_AttackState.Hold;
     }
     //2단몬스터 검사
-    bool SetTwinMonster(TwinMonster twinMonster, ScoreManager.E_ScoreState perfect)
+    E_AttackState SetTwinMonster(TwinMonster twinMonster, ScoreManager.E_ScoreState perfect)
     {
-        if (twinMonster == null || !State.CheckTwin())
+        if (twinMonster == null)
         {
-            return false;
+            return E_AttackState.None;
+        }
+        if (!State.CheckTwin())
+        {
+            return E_AttackState.Attack_Re;
         }
         twinMonster.SetHit(perfect);
-        return true;
+        return E_AttackState.Attack;
     }
+
 
     //리셋
     public void Reset()

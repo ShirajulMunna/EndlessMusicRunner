@@ -24,7 +24,6 @@ public class IPlayer_State : MonoBehaviour
         return MovePoint;
     }
 
-    //키 선택
     E_MovePoint SetKey()
     {
         // 동시 키 입력 처리
@@ -33,6 +32,7 @@ public class IPlayer_State : MonoBehaviour
             SetTwin(true);
             return E_MovePoint.Up;
         }
+
         if (Input.GetKey(KeyCode.F))
         {
             return E_MovePoint.Up;
@@ -43,7 +43,6 @@ public class IPlayer_State : MonoBehaviour
             return E_MovePoint.Down;
         }
 
-
         if (Input.GetKeyUp(KeyCode.F) || Input.GetKeyUp(KeyCode.J))
         {
             Attack.Reset();
@@ -51,6 +50,7 @@ public class IPlayer_State : MonoBehaviour
 
         return E_MovePoint.None;
     }
+
 
     //공격 위치 셋팅
     public void SetDirectMoveIdx(E_MovePoint idx)

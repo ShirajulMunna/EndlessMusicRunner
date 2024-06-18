@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class TwinMonster : Monster
 {
@@ -31,5 +33,10 @@ public class TwinMonster : Monster
     {
         base.SetMinusHp(value);
         player_State.SetDirectMoveIdx(E_MovePoint.Middle);
+    }
+
+    public override void SetHit(ScoreManager.E_ScoreState perfect)
+    {
+        base.SetHit(perfect);
     }
 }
