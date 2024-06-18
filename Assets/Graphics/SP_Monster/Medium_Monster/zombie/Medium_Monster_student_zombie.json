@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "TZHQn3DzkT0", "spine": "4.1.24", "x": -515.39, "y": -483.83, "width": 844.02, "height": 984.51 },
+"skeleton": { "hash": "SJBU/ucKW6I", "spine": "4.1.24", "x": -515.39, "y": -483.83, "width": 844.02, "height": 984.51 },
 "bones": [
 	{ "name": "root" },
 	{ "name": "center", "parent": "root" },
@@ -4480,7 +4480,7 @@
 			}
 		}
 	},
-	"Hit_fly_1": {
+	"Hit_Fly_1": {
 		"slots": {
 			"bady": {
 				"rgba": [
