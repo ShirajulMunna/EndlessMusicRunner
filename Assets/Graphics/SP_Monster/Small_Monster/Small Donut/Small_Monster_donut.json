@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "4Aah8q7Er8A", "spine": "4.1.24", "x": -281.5, "y": -214, "width": 564, "height": 429 },
+"skeleton": { "hash": "y5OxfV/OeRE", "spine": "4.1.24", "x": -281.5, "y": -214, "width": 564, "height": 429 },
 "bones": [
 	{ "name": "root" },
 	{ "name": "bone2", "parent": "root", "x": -1272.01 },
@@ -75,7 +75,7 @@
 	}
 ],
 "animations": {
-	"Hit": {
+	"Hit_Fly_1": {
 		"slots": {
 			"pencil": {
 				"rgba": [

@@ -1,34 +1,29 @@
 Small_Monster_green pencil.png
-	size: 562, 562
+	size: 563, 563
 	filter: Linear, Linear
 	pma: true
 	scale: 0.5
 skin0/green pencil
-	bounds: 2, 437, 286, 123
+	bounds: 2, 438, 286, 123
 skin1/green pencil
-	bounds: 2, 321, 277, 114
+	bounds: 290, 284, 277, 114
 	offsets: 0, 3, 286, 123
+	rotate: 90
 skin2/green pencil
-	bounds: 118, 42, 277, 114
+	bounds: 406, 284, 277, 114
 	offsets: 0, 3, 286, 123
 	rotate: 90
 skin3/green pencil
-	bounds: 408, 284, 276, 116
-	offsets: 1, 3, 286, 123
-	rotate: 90
+	bounds: 2, 313, 286, 123
 skin4/green pencil
-	bounds: 290, 282, 278, 116
+	bounds: 2, 195, 278, 116
 	offsets: 1, 3, 286, 123
-	rotate: 90
 skin5/green pencil
-	bounds: 234, 3, 277, 114
+	bounds: 282, 168, 277, 114
 	offsets: 0, 3, 286, 123
-	rotate: 90
 skin6/green pencil
-	bounds: 2, 2, 278, 114
+	bounds: 2, 79, 278, 114
 	offsets: 1, 5, 286, 123
-	rotate: 90
 skin7/green pencil
-	bounds: 408, 3, 279, 114
+	bounds: 282, 52, 279, 114
 	offsets: 0, 5, 286, 123
-	rotate: 90
