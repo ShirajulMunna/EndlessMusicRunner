@@ -40,7 +40,16 @@ public class UI_Lobby : MonoBehaviour
     }
     public void SetSkin()
     {
-        playerSkinType = (PlayerSkinType)skinDropDown.value;
+        var value = skinDropDown.value;
+        // PD님 요청으로 그래픽타입 순서 변경 코드 -> UI에서는 1부터시작으로 -1해야함 
+        if (value == 3)
+            value = 2;
+        else if (value == 4)
+            value = 0;
+        else if (value == 6)
+            value = 1;
+
+        playerSkinType = (PlayerSkinType)value;
     }
     public void ChangePlayerUiGraphics()
     {
