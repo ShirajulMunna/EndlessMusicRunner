@@ -62,6 +62,7 @@ public class UI_GameOver : MonoBehaviour
 
         if (ScoreManager.instance.GetBestCombo() < ScoreManager.instance.GetCurrentScore())
         {
+            ScoreManager.instance.SetBestScore();
             return E_GameOverState.NewScore;
         }
         return E_GameOverState.Success;
