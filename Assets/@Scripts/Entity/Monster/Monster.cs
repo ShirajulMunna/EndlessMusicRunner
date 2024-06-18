@@ -137,6 +137,7 @@ public class Monster : Entity, IMonsterMove
         SetHp(-1);
         HitCollisionDetection.Instance.SetHit(this.gameObject, perfect);
         AudioManager.instance.PlaySound();
+        SetAni(("Hit_1",false));
     }
 
     public override void SetDie()

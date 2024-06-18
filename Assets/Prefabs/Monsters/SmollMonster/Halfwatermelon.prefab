@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 0
   curHp: 0
-  _skeletonAnimation: {fileID: 0}
+  _skeletonAnimation: {fileID: 8603919616318575527}
   damageAmount: 5
   damageFx: {fileID: 6630400188505773858, guid: dd80aa9b27baa334ea57eb66d90b8392, type: 3}
   Change: 1
@@ -174,7 +174,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d1daaaccfad661f4dbbd7dbd18667267, type: 2}
+  - {fileID: 2100000, guid: a95d58fcdfb13c642968d8aa6e78223d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

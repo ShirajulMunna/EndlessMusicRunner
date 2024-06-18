@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using Spine.Unity;
 using UnityEngine;
@@ -85,6 +86,22 @@ public class Entity : MonoBehaviour, IEntity_Hp, IEntity_Spin
     public virtual void SetAni((string, bool) data)
     {
         skeletonAnimation.SetAni_Player(data.Item1, data.Item2);
+    }
+
+    public List<string> GetSpineAnimationNames(SkeletonAnimation skeletonAnimation)
+    {
+        List<string> animationNames = new List<string>();
+
+        if (skeletonAnimation != null && skeletonAnimation.Skeleton != null)
+        {
+            var animationStateData = skeletonAnimation.SkeletonDataAsset.GetAnimationStateData();
+            foreach (var animation in animationStateData.SkeletonData.Animations)
+            {
+                animationNames.Add(animation.Name);
+            }
+        }
+
+        return animationNames;
     }
     #endregion
 }

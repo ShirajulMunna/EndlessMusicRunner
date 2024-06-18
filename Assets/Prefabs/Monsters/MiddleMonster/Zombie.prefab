@@ -230,7 +230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 0
   curHp: 0
-  _skeletonAnimation: {fileID: 0}
+  _skeletonAnimation: {fileID: 5527791659078598482}
   damageAmount: 10
   damageFx: {fileID: 6630400188505773858, guid: dd80aa9b27baa334ea57eb66d90b8392, type: 3}
   Change: 0
