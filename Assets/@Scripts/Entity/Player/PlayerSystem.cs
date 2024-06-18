@@ -20,9 +20,10 @@ public class PlayerSystem : Entity
         "fly",
         "Kick",
         "tail attack",
-        "fly_attack",
+        "fire attack",
         "biting attack",
         "retire",
+        "fly_attack"
     };
 
 
