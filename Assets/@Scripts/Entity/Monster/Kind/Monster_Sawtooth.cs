@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class Monster_Sawtooth : Monster
 {
-
-
     protected override void Update()
     {
         base.Update();

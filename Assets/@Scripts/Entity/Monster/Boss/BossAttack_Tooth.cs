@@ -1,13 +1,12 @@
 using UnityEngine;
 
-public class BossAttack : Monster
+public class BossAttack_Tooth : Monster
 {
     const string SoundName = "Boss_Attack_Sound_{0}";
 
     [Space(10f)]
     [Header("보스 공격 관련ㅡㅡㅡㅡ")]
 
-    float Delay;
     [SerializeField] E_BossAttack BossState;
     [SerializeField] int PlaySound;
 
@@ -21,7 +20,19 @@ public class BossAttack : Monster
     protected override void Update()
     {
         base.Update();
+        SetScore();
+        SetAni_Sound();
+    }
 
+    public override void SetUp(C_MonsterTable data, Vector3 cratepos)
+    {
+        base.SetUp(data, cratepos);
+        SetCustomPos(cratepos);
+    }
+
+    //애니메이션 및 사운드 
+    void SetAni_Sound()
+    {
         if (isCount > 0)
         {
             isCount--;
@@ -33,11 +44,6 @@ public class BossAttack : Monster
         }
     }
 
-    public override void SetUp(C_MonsterTable data, Vector3 cratepos)
-    {
-        base.SetUp(data, cratepos);
-        SetCustomPos(cratepos);
-    }
 
     //커스텀 이동 함수
     void SetCustomPos(Vector3 cratepos)
@@ -63,7 +69,21 @@ public class BossAttack : Monster
         AudioManager.instance.PlayEffectSound(string.Format(SoundName, PlaySound));
     }
 
-    //이동
+    public override void SetMove()
+    {
+        if (CheckCustomMove)
+        {
+            SetCustomMove();
+        }
+        else
+        {
+            // y 값이 맞춰졌으면 x 방향으로만 이동
+            base.SetMove();
+        }
+    }
+
+
+    //특정 이동
     void SetCustomMove()
     {
         var targetpos = OriginPos;
@@ -80,17 +100,36 @@ public class BossAttack : Monster
         transform.position = Vector2.MoveTowards(transform.position, targetpos, Speed * Time.deltaTime);
     }
 
-    public override void SetMove()
+    public override void SetHit(ScoreManager.E_ScoreState perfect)
     {
-        if (CheckCustomMove)
-        {
-            SetCustomMove();
-        }
-        else
-        {
-            // y 값이 맞춰졌으면 x 방향으로만 이동
-            base.SetMove();
-        }
+        SetAttack(true);
     }
 
+    //스코어 획득
+    void SetScore()
+    {
+        if (e_MonsterState == E_MonsterState.NoneAttack || e_MonsterState == E_MonsterState.Die)
+        {
+            return;
+        }
+
+        var targetpos = player.transform.position;
+
+        if (targetpos.x < transform.position.x)
+        {
+            return;
+        }
+        SetDie();
+        e_MonsterState = E_MonsterState.Die;
+    }
+    protected override bool CheckAttack()
+    {
+        return false;
+    }
+
+    public override void SetDie()
+    {
+        HitCollisionDetection.Instance.SetHit(this.gameObject, ScoreManager.E_ScoreState.Pass);
+        Destroy(this.gameObject, 2f);
+    }
 }
