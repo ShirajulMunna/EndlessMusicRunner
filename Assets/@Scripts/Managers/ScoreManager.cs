@@ -172,4 +172,10 @@ public class ScoreManager : MonoBehaviour
 
         return count;
     }
+
+    // 판정들 초기화
+    public void ResetCount()
+    {
+        D_SocreState.Clear();
+    }
 }

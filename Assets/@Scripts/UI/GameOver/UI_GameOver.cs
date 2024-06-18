@@ -144,11 +144,13 @@ public class UI_GameOver : MonoBehaviour
 
     public void Btn_Exit()
     {
+        ScoreManager.instance.ResetCount();
         SecenManager.LoadScene("Lobby");
     }
 
     public void Btn_RePlay()
     {
+        ScoreManager.instance.ResetCount();
         SecenManager.LoadScene("MainGameScene");
     }
 }
