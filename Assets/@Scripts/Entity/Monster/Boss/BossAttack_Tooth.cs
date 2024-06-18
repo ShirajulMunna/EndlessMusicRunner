@@ -15,12 +15,13 @@ public class BossAttack_Tooth : Monster
     [SerializeField] int CustomePos_IDX;
     Vector3 OriginPos;
 
+
+
     int isCount = 2;
 
     protected override void Update()
     {
         base.Update();
-        SetScore();
         SetAni_Sound();
     }
 
@@ -102,33 +103,35 @@ public class BossAttack_Tooth : Monster
 
     public override void SetHit(ScoreManager.E_ScoreState perfect)
     {
-        SetAttack(true);
+        base.SetAttack(true);
     }
 
-    //스코어 획득
-    void SetScore()
+    protected override void SetAttack(bool check)
     {
-        if (e_MonsterState == E_MonsterState.NoneAttack || e_MonsterState == E_MonsterState.Die)
+        if (!check)
         {
             return;
         }
 
-        var targetpos = player.transform.position;
-
-        if (targetpos.x < transform.position.x)
+        //플레이어 위치에 있다면 히트
+        var checkhit = CheckHitPoint();
+        if (checkhit)
         {
+            base.SetAttack(true);
             return;
         }
+
+        //아니라면 사망
         SetDie();
-        e_MonsterState = E_MonsterState.Die;
-    }
-    protected override bool CheckAttack()
-    {
-        return false;
     }
 
     public override void SetDie()
     {
+        if (e_MonsterState == E_MonsterState.Die)
+        {
+            return;
+        }
+        e_MonsterState = E_MonsterState.Die;
         HitCollisionDetection.Instance.SetHit(this.gameObject, ScoreManager.E_ScoreState.Pass);
         Destroy(this.gameObject, 2f);
     }
