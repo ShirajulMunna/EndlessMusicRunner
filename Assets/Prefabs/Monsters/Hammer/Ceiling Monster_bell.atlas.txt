@@ -1,54 +1,53 @@
 Ceiling Monster_bell.png
-	size: 2731, 2731
+	size: 3473, 3473
 	filter: Linear, Linear
 	pma: true
 skin0/bell
-	bounds: 2, 904, 449, 1825
+	bounds: 2, 453, 449, 3018
 skin0/face
-	bounds: 1829, 617, 260, 285
+	bounds: 3159, 3186, 260, 285
 skin1/face
-	bounds: 1829, 617, 260, 285
+	bounds: 3159, 3186, 260, 285
 skin2/face
-	bounds: 1829, 617, 260, 285
+	bounds: 3159, 3186, 260, 285
 skin3/face
-	bounds: 1829, 617, 260, 285
+	bounds: 3159, 3186, 260, 285
 skin4/face
-	bounds: 1829, 617, 260, 285
+	bounds: 3159, 3186, 260, 285
 skin5/face
-	bounds: 1829, 617, 260, 285
+	bounds: 3159, 3186, 260, 285
 skin7/face
-	bounds: 1829, 617, 260, 285
+	bounds: 3159, 3186, 260, 285
 skin0/face2
-	bounds: 1829, 330, 260, 285
+	bounds: 3159, 2899, 260, 285
 skin1/face2
-	bounds: 1829, 330, 260, 285
+	bounds: 3159, 2899, 260, 285
 skin2/face2
-	bounds: 1829, 330, 260, 285
+	bounds: 3159, 2899, 260, 285
 skin3/face2
-	bounds: 1829, 330, 260, 285
+	bounds: 3159, 2899, 260, 285
 skin4/face2
-	bounds: 1829, 330, 260, 285
+	bounds: 3159, 2899, 260, 285
 skin5/face2
-	bounds: 1829, 330, 260, 285
+	bounds: 3159, 2899, 260, 285
 skin7/face2
-	bounds: 1829, 330, 260, 285
+	bounds: 3159, 2899, 260, 285
 skin1/bell
-	bounds: 453, 904, 449, 1825
+	bounds: 453, 453, 449, 3018
 skin2/bell
-	bounds: 904, 904, 449, 1825
+	bounds: 904, 453, 449, 3018
 skin3/bell
-	bounds: 1355, 904, 449, 1825
+	bounds: 1355, 453, 449, 3018
 skin4/bell
-	bounds: 1806, 904, 449, 1825
+	bounds: 1806, 453, 449, 3018
 skin5/bell
-	bounds: 2, 453, 449, 1825
-	rotate: 90
+	bounds: 2257, 453, 449, 3018
 skin6/bell
-	bounds: 2257, 904, 449, 1825
+	bounds: 2708, 453, 449, 3018
 skin6/face
-	bounds: 2091, 617, 260, 285
+	bounds: 3159, 2612, 260, 285
 skin6/face2
-	bounds: 1829, 43, 260, 285
+	bounds: 3159, 2325, 260, 285
 skin7/bell
-	bounds: 2, 2, 449, 1825
+	bounds: 2, 2, 449, 3018
 	rotate: 90
