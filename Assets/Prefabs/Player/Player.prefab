@@ -419,8 +419,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6999f0b967a573468f50aec485f76b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 100
-  curHp: 100
+  maxHp: 1
+  curHp: 1
   _skeletonAnimation: {fileID: 1236657713761570640}
   L_Particle:
   - SkillType: 0
