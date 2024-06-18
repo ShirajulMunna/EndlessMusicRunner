@@ -170,6 +170,7 @@ GameObject:
   - component: {fileID: 1701958435451665653}
   - component: {fileID: 8865284756877708372}
   - component: {fileID: 9047021708755453407}
+  - component: {fileID: 874346086855987068}
   m_Layer: 0
   m_Name: Spine GameObject (Zombie boss)
   m_TagString: Untagged
@@ -282,3 +283,24 @@ MonoBehaviour:
   _animationName: idle
   loop: 1
   timeScale: 1
+--- !u!114 &874346086855987068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7109575829686589730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 012f8caf96117b642b39ab58708b5eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skin_Names:
+  - skin0
+  - skin1
+  - skin2
+  - skin3
+  - skin4
+  - skin5
+  - skin6
+  - skin7
