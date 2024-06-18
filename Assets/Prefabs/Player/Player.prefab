@@ -178,7 +178,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1367373941
   m_SortingLayer: 4
-  m_SortingOrder: 100
+  m_SortingOrder: 1
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &1236657713761570640
 MonoBehaviour:
@@ -446,8 +446,8 @@ MonoBehaviour:
     - {x: -7, y: -3.5, z: 0}
     - {x: -7, y: 0, z: 0}
     - {x: -7, y: 3.5, z: 0}
-    AttackPoint: 0
   M_Move: {fileID: 0}
+  M_State: {fileID: 0}
 --- !u!1 &7546043932877010485
 GameObject:
   m_ObjectHideFlags: 0
