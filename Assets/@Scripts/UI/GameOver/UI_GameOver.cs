@@ -22,6 +22,7 @@ public class UI_GameOver : MonoBehaviour
     [SerializeField] TextMeshProUGUI[] T_TextList;
     [SerializeField] GameObject G_BestText;
     [SerializeField] GameObject G_LP;
+    private float rate = 0f;
     private void Start()
     {
         SetClear();
@@ -105,6 +106,7 @@ public class UI_GameOver : MonoBehaviour
         var count = ScoreManager.instance.GetAccuracy();
         //정확도 나누는형태로 변경완료
         var accuracy = ((float)(count) / (float)maxcount) * 100;
+        rate = accuracy;
         T_TextList[3].text = "정확도 : " + accuracy.ToString("F2") + "%";
     }
 
@@ -125,7 +127,19 @@ public class UI_GameOver : MonoBehaviour
 
     void SetRating()
     {
-        T_TextList[11].text = "S";
+        //판정 결과 S~C 이후  F까지
+        string str = string.Empty;
+        if (rate >= 90.0f)
+            str = "S";
+        else if (rate < 90.0f && rate >= 80.0f)
+            str = "A";
+        else if (rate < 80.0f && rate >= 70.0f)
+            str = "B";
+        else if (rate < 70.0f && rate >= 60.0f)
+            str = "C";
+        else
+            str = "F";
+        T_TextList[11].text = str;
     }
 
     public void Btn_Exit()
