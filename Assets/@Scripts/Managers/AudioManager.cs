@@ -50,7 +50,6 @@ public class AudioManager : MonoBehaviour
     //롱노트사운드
     public void LongNoteSound()
     {
-        Debug.Log("Sound");
         audioSource.PlayOneShot(longNoteClip, 0.5f);
     }
 
