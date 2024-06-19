@@ -40,6 +40,7 @@ public class UI_GameOver : MonoBehaviour
     [SerializeField] GameObject G_BestText;
     [SerializeField] GameObject G_LP;
     [SerializeField] GameObject[] G_RankSprite;
+    [SerializeField] Image resultAmount;
     private void Start()
     {
         SetUI();
@@ -50,6 +51,7 @@ public class UI_GameOver : MonoBehaviour
         SetBestCombo();
         SetScoreState();
         SetRating();
+        SetImageAmount();
     }
 
     //성공 실패 확인
@@ -182,8 +184,22 @@ public class UI_GameOver : MonoBehaviour
     {
         //스코어 매니저에서 등급 받아서 랭크 이미지 출력
         var rank = ScoreManager.instance.GetScoreRank();
-
-        G_RankSprite[(int)rank].gameObject.SetActive(true);
+        if(GameManager.instance.player.CurHp<=0)
+        {
+            G_RankSprite[(int)ScoreManager.ScoreRank.F].gameObject.SetActive(true);
+        }
+        else
+            G_RankSprite[(int)rank].gameObject.SetActive(true);
+    }
+    //결과 이미지 게이지바 작동
+    void SetImageAmount()
+    {
+        if (GameManager.instance.player.CurHp <= 0)
+        {
+            resultAmount.fillAmount = 0f;
+        }
+        else
+            resultAmount.fillAmount = ScoreManager.instance.GetRestultPersent();
     }
 
     //재시작할때 혹시나 랭크 이미지 초기화해주기

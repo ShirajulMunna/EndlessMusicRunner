@@ -27,6 +27,7 @@ public class Boss : Monster
     Vector3 StartPos = new Vector3(13.5f, -4.2f, 0);
 
     bool hasReachedStartPos = false;
+    bool isDestorySetting = false;
 
     private void Awake()
     {
@@ -39,6 +40,11 @@ public class Boss : Monster
         if(SpawnManager.instance.GetGameState() == E_GameState.End)
         {
             transform.Translate(Vector2.right*Speed  * Time.deltaTime);
+            if(!isDestorySetting)
+            {
+                isDestorySetting = true;
+                Destroy(gameObject, 5f);
+            }
         }
     }
 

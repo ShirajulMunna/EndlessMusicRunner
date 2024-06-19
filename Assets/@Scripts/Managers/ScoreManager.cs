@@ -187,12 +187,17 @@ public class ScoreManager : MonoBehaviour
     {
         D_SocreState.Clear();
     }
+    //퍼센트 결과값 출력
 
+    public float GetRestultPersent()
+    {
+       return ((float)GetAccuracy() / (float)GetMaxState()) * 100;
+    }
     //랭크 출력
     public ScoreRank GetScoreRank()
     {
         ScoreRank rank = ScoreRank.F;
-        var accuracy = ((float)GetAccuracy() / (float)GetMaxState()) * 100;
+        var accuracy = GetRestultPersent();
 
         if (accuracy >= 90.0f)
             rank = ScoreRank.S;

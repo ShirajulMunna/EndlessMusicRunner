@@ -3602,6 +3602,7 @@ MonoBehaviour:
   - {fileID: 108675078856306601}
   - {fileID: 4094634534691056519}
   - {fileID: 3128284720072306201}
+  resultAmount: {fileID: 1298712100649587651}
 --- !u!1 &6920217539078960908
 GameObject:
   m_ObjectHideFlags: 0
