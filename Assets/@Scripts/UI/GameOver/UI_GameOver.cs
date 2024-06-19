@@ -124,6 +124,8 @@ public class UI_GameOver : MonoBehaviour
     {
         StartCoroutine(IE_Score());
         var best = ScoreManager.instance.SetBestScore();
+        if(best)
+            G_BestText.SetActive(true);
         T_TextList[2].text = "BEST : " + ScoreManager.instance.GetBestScore().ToString();
         G_BestText.SetActive(best);
     }
@@ -183,24 +185,25 @@ public class UI_GameOver : MonoBehaviour
     }
 
     //재시작할때 혹시나 랭크 이미지 초기화해주기
-    private void OffRankGameobject()
+    private void OFFGameobject()
     {
         for(int i=0;i< G_RankSprite.Length;++i)
         {
             G_RankSprite[i].gameObject.SetActive(false);
         }
+        G_BestText.SetActive(false);
     }
     public void Btn_Exit()
     {
         ScoreManager.instance.ResetCount();
-        OffRankGameobject();
+        OFFGameobject();
         SecenManager.LoadScene("Lobby");
     }
 
     public void Btn_RePlay()
     {
         ScoreManager.instance.ResetCount();
-        OffRankGameobject();
+        OFFGameobject();
         SecenManager.LoadScene("MainGameScene");
     }
 }
