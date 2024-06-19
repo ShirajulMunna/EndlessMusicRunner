@@ -1,6 +1,7 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 [Serializable]
 public class IPlayer_Move : MonoBehaviour
@@ -54,6 +55,16 @@ public class IPlayer_Move : MonoBehaviour
             MovePoint = E_MovePoint.Down;
             player.SetAni(player.GetAniName(E_AniType.Running));
             player.SetParticle(E_PlayerSkill.Running, 0);
+        }
+        if(SpawnManager.instance.GetGameState() == E_GameState.End  || SpawnManager.instance.GetGameState() == E_GameState.GameOver)
+        {
+            var monster = FindObjectsOfType<Monster>();
+            if(monster.Length <=0)
+            {
+                Tr.transform.Translate(Vector3.right * Time.deltaTime * 20f);
+                return;
+            }
+           
         }
 
         // 목표 위치 가져오기

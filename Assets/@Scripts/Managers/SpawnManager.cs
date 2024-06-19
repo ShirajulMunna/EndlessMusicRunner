@@ -118,10 +118,9 @@ public class SpawnManager : MonoBehaviour
                         // F랭크면 실패로 출력
                         if(ScoreManager.instance.GetScoreRank() == ScoreManager.ScoreRank.F)
                             GameManager.instance.SetGameResult(GameResultType.Failed);
-
-                        GameManager.instance.SetGameResult(GameResultType.Clear);
+                        else
+                            GameManager.instance.SetGameResult(GameResultType.Clear);
                     }
-                        
                 }
                 if (gameOverTime_Delay > 0)
                 {
