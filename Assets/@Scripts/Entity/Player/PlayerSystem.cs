@@ -58,7 +58,7 @@ public class PlayerSystem : Entity
 
     private void Update()
     {
-        if(GameOverPlayerAction.Count>0)
+        if (GameOverPlayerAction.Count > 0)
         {
             GameOverPlayerAction.Dequeue().Invoke();
         }
@@ -96,7 +96,6 @@ public class PlayerSystem : Entity
     public override void SetMinusHp(int value)
     {
         base.SetMinusHp(value);
-        Debug.Log("데미지 받음");
         //공격 사운드 및 애니메이션 처리
         SetAni(GetAniName(E_AniType.Hit));
     }
@@ -123,7 +122,7 @@ public class PlayerSystem : Entity
     }
 
     // 클리어할때 플레이어 애니메이션 세팅하는부분 -> 이동하는부분 디테일 개선 작업 필요
-    public void ClearGame( )
+    public void ClearGame()
     {
         aniType = E_AniType.Clear;
         SetAni(GetAniName(E_AniType.Clear));
@@ -193,9 +192,8 @@ public class PlayerSystem : Entity
             yield return StartCoroutine(LerpSpinAlpha());
 
             counting++;
-            
-            if(counting == 2)
-                yield break;
+
+            yield break;
         }
     }
     private IEnumerator LerpSpinAlpha()
@@ -222,7 +220,7 @@ public class PlayerSystem : Entity
     //클리어시 모든 파티클 강제 종료
     public void OffAllL_Particle()
     {
-        for(int i =0;i<L_Particle.Count;++i)
+        for (int i = 0; i < L_Particle.Count; ++i)
         {
             L_Particle[i].SetDirectActive(false);
         }
