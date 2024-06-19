@@ -28,7 +28,7 @@ public class SpawnManager : MonoBehaviour
     List<GameObject> L_CreateData = new List<GameObject>();
 
     //게임 오버 후 딜레이 시간
-    float gameOverTime_Delay = 2.5f;
+    float gameOverTime_Delay = 4.5f;
     //몬스터 생성 오프셋 위치값
     const float MonsterOffSetX = 2.5f;
 
@@ -44,8 +44,6 @@ public class SpawnManager : MonoBehaviour
     //플레이어 죽었을때 몬스터들 전부 껐는지 검사
     bool isAllMonsterOff = false;
     [HideInInspector] public bool isMakeClearObject = false;
-    float makeClearOBjectTime = 0f;
-    float makeClearObjectTimeDelay = 0.85f;
     void Start()
     {
         if (instance != null)
@@ -106,7 +104,7 @@ public class SpawnManager : MonoBehaviour
                 }
                 gameOverTime_Delay -= Time.deltaTime;
                 // 플레이어 클리어시 스파인 이펙트 생성 
-                if (gameOverTime_Delay < 1.0f && !isMakeClearObject)
+                if (gameOverTime_Delay < 3.0f && !isMakeClearObject)
                 {
                     isMakeClearObject = true;
                     //결과창 새로 나오는거 막기
@@ -194,7 +192,6 @@ public class SpawnManager : MonoBehaviour
         if (CreatIDX >= L_CreateData.Count)
         {
             SetGameState(E_GameState.End);
-            makeClearOBjectTime = Time.time;
             return;
         }
 

@@ -49,6 +49,13 @@ public class IPlayer_Move : MonoBehaviour
     //움직임 함수
     void Move()
     {
+
+        //클리어시 플레이어 이동하는코드
+        if (IsClearMove())
+        {
+            return;
+        }
+
         if (CurDownDelay <= 0)
         {
             CurDownDelay = MaxDownDelay;
@@ -57,11 +64,6 @@ public class IPlayer_Move : MonoBehaviour
             player.SetParticle(E_PlayerSkill.Running, 0);
         }
 
-        //클리어시 플레이어 이동하는코드
-        if(IsClearMove())
-        {
-            return;
-        }
 
 
         // 목표 위치 가져오기
@@ -122,7 +124,7 @@ public class IPlayer_Move : MonoBehaviour
                     isClearPlaying= true;
                     player.SetAni(player.GetAniName(E_AniType.Clear));
                 }
-                Tr.transform.Translate(Vector3.right * Time.deltaTime * 20f);
+                Tr.transform.Translate(Vector3.right * Time.deltaTime * 10f);
                 return true;
             }
         }
