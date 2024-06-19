@@ -1,48 +1,54 @@
 full_combo.png
-	size: 1158, 1158
+	size: 1201, 1201
 	filter: Linear, Linear
 	pma: true
 Clear/Clear
-	bounds: 2, 241, 600, 206
+	bounds: 809, 47, 600, 205
+	rotate: 90
 Clear/bg
-	bounds: 2, 685, 805, 234
+	bounds: 2, 649, 1052, 311
 Failed/BG
-	bounds: 2, 449, 805, 234
+	bounds: 2, 413, 805, 234
 Failed/Failed
-	bounds: 2, 107, 537, 132
+	bounds: 1016, 110, 537, 132
+	rotate: 90
 Full_Combo/!
-	bounds: 809, 714, 104, 205
+	bounds: 585, 206, 104, 205
 	offsets: 1, 1, 106, 207
 Full_Combo/B
-	bounds: 717, 327, 90, 120
-	offsets: 1, 1, 92, 122
-Full_Combo/BG
-	bounds: 2, 921, 1149, 235
-	offsets: 1, 1, 1151, 237
-Full_Combo/C
-	bounds: 2, 2, 103, 120
-	offsets: 1, 1, 105, 122
+	bounds: 1016, 17, 91, 120
+	offsets: 0, 1, 92, 122
 	rotate: 90
+Full_Combo/BG
+	bounds: 2, 962, 1149, 237
+	offsets: 1, 0, 1151, 237
+Full_Combo/C
+	bounds: 1056, 840, 103, 120
+	offsets: 1, 1, 105, 122
 Full_Combo/F
-	bounds: 809, 475, 77, 117
-	offsets: 1, 1, 79, 119
+	bounds: 691, 218, 78, 116
+	offsets: 0, 2, 79, 119
+	rotate: 90
+Full_Combo/G_LP
+	bounds: 2, 85, 581, 326
 Full_Combo/L
-	bounds: 604, 245, 80, 118
-	offsets: 1, 1, 82, 120
+	bounds: 2, 2, 81, 118
+	offsets: 0, 1, 82, 120
 	rotate: 90
 Full_Combo/L_2
-	bounds: 124, 25, 80, 118
-	offsets: 1, 1, 82, 120
+	bounds: 122, 2, 81, 118
+	offsets: 0, 1, 82, 120
 	rotate: 90
 Full_Combo/M
-	bounds: 1028, 803, 113, 116
+	bounds: 691, 298, 113, 116
 	offsets: 1, 1, 115, 118
+	rotate: 90
 Full_Combo/O
-	bounds: 604, 327, 111, 120
+	bounds: 585, 84, 111, 120
 	offsets: 1, 1, 113, 122
 Full_Combo/O_2
-	bounds: 915, 799, 111, 120
+	bounds: 1056, 718, 111, 120
 	offsets: 1, 1, 113, 122
 Full_Combo/U
-	bounds: 809, 594, 98, 118
+	bounds: 698, 98, 98, 118
 	offsets: 1, 1, 100, 120
