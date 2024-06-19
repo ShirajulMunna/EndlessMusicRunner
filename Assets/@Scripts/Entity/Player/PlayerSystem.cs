@@ -27,7 +27,8 @@ public class PlayerSystem : Entity
         "Hit",
         "fly_attack",
         "retire",
-        "fly_biting"
+        "fly_biting",
+        "Clear_2",// 클리어 애니메이션추가
     };
 
 

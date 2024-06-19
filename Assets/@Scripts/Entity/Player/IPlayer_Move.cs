@@ -56,16 +56,13 @@ public class IPlayer_Move : MonoBehaviour
             player.SetAni(player.GetAniName(E_AniType.Running));
             player.SetParticle(E_PlayerSkill.Running, 0);
         }
-        if(SpawnManager.instance.GetGameState() == E_GameState.End  || SpawnManager.instance.GetGameState() == E_GameState.GameOver)
+
+        //클리어시 플레이어 이동하는코드
+        if(IsClearMove())
         {
-            var monster = FindObjectsOfType<Monster>();
-            if(monster.Length <=0)
-            {
-                Tr.transform.Translate(Vector3.right * Time.deltaTime * 20f);
-                return;
-            }
-           
+            return;
         }
+
 
         // 목표 위치 가져오기
         var targetPos = P_Attack.Tr_AttackVector[GetMoveIDX(MovePoint)];
@@ -105,4 +102,30 @@ public class IPlayer_Move : MonoBehaviour
         return (int)point;
     }
 
+    //플레이어 클리어시 이동 하는 함수 , 만약 플레이어가 죽으면 인동못하게 할예정
+    bool isClearPlaying = false;
+    public bool IsClearMove()
+    {
+        var isPlayerDie = player.CurHp <= 0;
+        if (isPlayerDie) 
+            return false;
+        var isGameEnd = SpawnManager.instance.GetGameState() == E_GameState.End || 
+            SpawnManager.instance.GetGameState() == E_GameState.GameOver;
+
+        if (isGameEnd)
+        {
+            var monster = FindObjectsOfType<Monster>();
+            if (monster.Length <= 0)
+            {
+                if(!isClearPlaying)
+                {
+                    isClearPlaying= true;
+                    player.SetAni(player.GetAniName(E_AniType.Clear));
+                }
+                Tr.transform.Translate(Vector3.right * Time.deltaTime * 20f);
+                return true;
+            }
+        }
+        return false;
+    }
 }
