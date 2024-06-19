@@ -119,10 +119,6 @@ Hit/spotlight2
 Layer 1
 	bounds: 1178, 4133, 883, 898
 	rotate: 90
-Sweat
-	bounds: 3980, 4263, 129, 70
-	offsets: 142, 91, 434, 262
-	rotate: 90
 fire1
 	bounds: 1178, 3772, 643, 359
 	offsets: 1, 1, 645, 361
@@ -180,6 +176,10 @@ skin0/Left leg_Kick
 skin0/Left leg_Left
 	bounds: 1352, 1493, 121, 191
 	offsets: 3, 0, 133, 191
+skin0/Sweat
+	bounds: 3980, 4263, 129, 70
+	offsets: 142, 91, 434, 262
+	rotate: 90
 skin0/Tail
 	bounds: 948, 1494, 279, 189
 	offsets: 47, 10, 326, 200

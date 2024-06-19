@@ -1762,6 +1762,7 @@ MonoBehaviour:
   ouch_1: {fileID: 8300000, guid: f4684ca5a03e3b94684f0d8f69680689, type: 3}
   failGame: {fileID: 0}
   bossAttackClip: {fileID: 0}
+  longNoteClip: {fileID: 0}
   Audio_BackGround: {fileID: 743956113}
   BackSound:
   - {fileID: 8300000, guid: a2abdeff1338aa0419b0d09eaf30b841, type: 3}
