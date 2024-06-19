@@ -86,7 +86,7 @@ public class PlayerSystem : Entity
             }
         }
         //스파인 자체를 코드로 투명도 조절함 -> 맞을시 스파인 자체적으로 투명도 조절해줬다는데 그거 확인후 코드 제거필요
-        //StartCoroutine(DamageEffect());
+        StartCoroutine(DamageEffect());
 
         base.SetHp(value);
 
