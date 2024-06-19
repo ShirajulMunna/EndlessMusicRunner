@@ -2,11 +2,12 @@ using Spine;
 using Spine.Unity;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    
+
     public static GameManager instance;
     public SkeletonAnimation skeleton;
 
@@ -37,10 +38,34 @@ public class GameManager : MonoBehaviour
     // will change autometically .
     // Implement it here
 
+    private UI_Pause pasueObject;
 
     //게임 결과 가져오기
     public void SetGameResult(GameResultType type)
     {
         Spine_GameResult.Create(GameResultPosition, type);
+    }
+
+
+
+    public void Update()
+    {
+        //Esc로 정지 기능 추가
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (pasueObject != null)
+            {
+                pasueObject.Btn_ReStart();
+                pasueObject = null;
+
+            }
+            else
+                Btn_Pause();
+        }
+    }
+    public async void Btn_Pause()
+    {
+        var name = "UI_Pause";
+        pasueObject = await name.CreateOBJ<UI_Pause>();
     }
 }

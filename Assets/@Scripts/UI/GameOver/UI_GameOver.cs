@@ -199,7 +199,7 @@ public class UI_GameOver : MonoBehaviour
             resultAmount.fillAmount = 0f;
         }
         else
-            resultAmount.fillAmount = ScoreManager.instance.GetRestultPersent();
+            resultAmount.fillAmount = ScoreManager.instance.GetRestultPersent() /100f;
     }
 
     //재시작할때 혹시나 랭크 이미지 초기화해주기

@@ -43,6 +43,11 @@ public class Monster : Entity, IMonsterMove
     public float DestoryX { get; set; }
 
     private string HitAnimationNames = "Hit_Fly_1";
+    // 샌드백일때 애니메이션 여러개 설정
+    private List<string> HitRandAnimation = new List<string>()
+    {
+        "Hit_0","Hit_1","Hit_2","Hit_3","Hit_4"
+    };
     protected PlayerSystem player
     {
         get => GameManager.instance.player;
@@ -145,11 +150,13 @@ public class Monster : Entity, IMonsterMove
         HitCollisionDetection.Instance.SetHit(this.gameObject, perfect);
         AudioManager.instance.PlaySound();
 
-        bool isTrue = IsAnimationExists(HitAnimationNames);
-        if(isTrue)
+        // 샌드백일때 애니메이션 여러개 나오게하기
+        if (uniqMonster == UniqMonster.SendBack)
         {
-            skeletonAnimation.SetAni_Monster(HitAnimationNames,true);
+            int random = Random.Range(0, HitRandAnimation.Count - 1);
+            skeletonAnimation.SetAni_Monster(HitRandAnimation[random], true);
         }
+
     }
 
     public override void SetDie()
@@ -158,8 +165,13 @@ public class Monster : Entity, IMonsterMove
         e_MonsterState = E_MonsterState.Die;
         Ac_Die?.Invoke();
         Speed = 0;
+        bool isTrue = IsAnimationExists(HitAnimationNames);
+        if (isTrue)
+        {
+            skeletonAnimation.SetAni_Monster(HitAnimationNames, true);
+        }
         SetDieFlyDir();
-        Destroy(this.gameObject, 0.3f);
+        Destroy(this.gameObject, 0.5f);
     }
 
     //사망 시 위치 셋팅
@@ -222,5 +234,22 @@ public class Monster : Entity, IMonsterMove
             }
         }
         return animationNames.Contains(names);
+    }
+
+    public List<string> GetSpineAnimationNames(string name)
+    {
+        List<string> animationNames = new List<string>();
+
+        if (skeletonAnimation != null && skeletonAnimation.Skeleton != null)
+        {
+            var animationStateData = skeletonAnimation.SkeletonDataAsset.GetAnimationStateData();
+            foreach (var animation in animationStateData.SkeletonData.Animations)
+            {
+                if (animation.Name.Contains(name))
+                    animationNames.Add(animation.Name);
+            }
+        }
+
+        return animationNames;
     }
 }
