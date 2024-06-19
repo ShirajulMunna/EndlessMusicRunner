@@ -123,8 +123,8 @@ public class UI_GameOver : MonoBehaviour
     void SetScore()
     {
         StartCoroutine(IE_Score());
-        T_TextList[2].text = "BEST : " + ScoreManager.instance.GetBestScore().ToString();
         var best = ScoreManager.instance.SetBestScore();
+        T_TextList[2].text = "BEST : " + ScoreManager.instance.GetBestScore().ToString();
         G_BestText.SetActive(best);
     }
 
