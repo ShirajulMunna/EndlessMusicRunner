@@ -192,7 +192,7 @@ public class ScoreManager : MonoBehaviour
     public ScoreRank GetScoreRank()
     {
         ScoreRank rank = ScoreRank.F;
-        var accuracy = (float)(GetMaxState() /GetAccuracy()) * 100;
+        var accuracy = (float)(GetAccuracy() / GetMaxState()) * 100;
 
         if (accuracy >= 90.0f)
             rank = ScoreRank.S;
