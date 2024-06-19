@@ -1,3 +1,5 @@
+using Spine.Unity;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -73,10 +75,50 @@ public class PlayerSystem : Entity
                 return;
             }
         }
+        StartCoroutine(DamageEffect());
         base.SetHp(value);
+
         UI_Play.Instance.SetHp(MaxHp, CurHp);
     }
 
+    private float targetAlpha = 1f;
+    private float alphaChangeSpeed = 2f; 
+    private IEnumerator DamageEffect()
+    {
+        while (true)
+        {
+            targetAlpha = 0.5f;
+            yield return StartCoroutine(LerpAlpha());
+
+            // 투명도를 0.5에서 1로 변경
+            targetAlpha = 1f;
+            yield return StartCoroutine(LerpAlpha());
+
+            yield break;
+        }
+    }
+    private IEnumerator LerpAlpha()
+    {
+        float startAlpha = targetAlpha;
+        float elapsedTime = 0f;
+        float duration = 0.75f;
+
+        while (elapsedTime < duration)
+        {
+            // 실제 투명도 조절
+            if (skeletonAnimation != null)
+            {
+                foreach (var slot in skeletonAnimation.Skeleton.Slots)
+                {
+                    var color = slot.GetColor();
+                    color.a = Mathf.Lerp(startAlpha, targetAlpha, elapsedTime / duration);
+                    slot.SetColor(color);
+                }
+            }
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+    }
     public override void SetMinusHp(int value)
     {
         base.SetMinusHp(value);

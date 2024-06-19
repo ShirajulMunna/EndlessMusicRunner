@@ -115,8 +115,8 @@ public class IPlayer_Move : MonoBehaviour
 
         if (isGameEnd)
         {
-            var monster = FindObjectsOfType<Monster>();
-            if (monster.Length <= 0)
+            var results = FindObjectsOfType<Spine_GameResult>();
+            if (results.Length > 0)
             {
                 if(!isClearPlaying)
                 {
