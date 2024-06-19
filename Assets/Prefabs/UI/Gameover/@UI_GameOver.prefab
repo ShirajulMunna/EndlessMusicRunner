@@ -903,7 +903,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6027588864432371594
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3594,9 +3594,14 @@ MonoBehaviour:
   - {fileID: 7157777055954124014}
   - {fileID: 6238916532152772067}
   - {fileID: 1657111942234850974}
-  - {fileID: 6458129001064272499}
   G_BestText: {fileID: 2228570344171683108}
   G_LP: {fileID: 7568832432287201250}
+  G_RankSprite:
+  - {fileID: 2731449343763798547}
+  - {fileID: 7853714702516494287}
+  - {fileID: 108675078856306601}
+  - {fileID: 4094634534691056519}
+  - {fileID: 3128284720072306201}
 --- !u!1 &6920217539078960908
 GameObject:
   m_ObjectHideFlags: 0

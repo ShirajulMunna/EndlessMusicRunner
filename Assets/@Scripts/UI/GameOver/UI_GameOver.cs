@@ -39,6 +39,7 @@ public class UI_GameOver : MonoBehaviour
     [SerializeField] TextMeshProUGUI[] T_TextList;
     [SerializeField] GameObject G_BestText;
     [SerializeField] GameObject G_LP;
+    [SerializeField] GameObject[] G_RankSprite;
     private void Start()
     {
         SetUI();
@@ -175,19 +176,31 @@ public class UI_GameOver : MonoBehaviour
 
     void SetRating()
     {
-        //스코어 매니저에서 등급계산해서 받는형태
-        T_TextList[11].text = ScoreManager.instance.GetScoreRank().ToString();
+        //스코어 매니저에서 등급 받아서 랭크 이미지 출력
+        var rank = ScoreManager.instance.GetScoreRank();
+
+        G_RankSprite[(int)rank].gameObject.SetActive(true);
     }
 
+    //재시작할때 혹시나 랭크 이미지 초기화해주기
+    private void OffRankGameobject()
+    {
+        for(int i=0;i< G_RankSprite.Length;++i)
+        {
+            G_RankSprite[i].gameObject.SetActive(false);
+        }
+    }
     public void Btn_Exit()
     {
         ScoreManager.instance.ResetCount();
+        OffRankGameobject();
         SecenManager.LoadScene("Lobby");
     }
 
     public void Btn_RePlay()
     {
         ScoreManager.instance.ResetCount();
+        OffRankGameobject();
         SecenManager.LoadScene("MainGameScene");
     }
 }
