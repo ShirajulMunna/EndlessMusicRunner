@@ -43,7 +43,7 @@ public class SpawnManager : MonoBehaviour
 
     //플레이어 죽었을때 몬스터들 전부 껐는지 검사
     bool isAllMonsterOff = false;
-    [HideInInspector]public bool isMakeClearObject = false;
+    [HideInInspector] public bool isMakeClearObject = false;
     float makeClearOBjectTime = 0f;
     float makeClearObjectTimeDelay = 0.85f;
     void Start()
@@ -100,6 +100,7 @@ public class SpawnManager : MonoBehaviour
                 if (!isAllMonsterOff && GameManager.instance.player.CurHp <= 0)
                 {
                     isAllMonsterOff = true;
+                    isMakeClearObject = true;
                     CheckAllMonster();
                     GameManager.instance.SetGameResult(GameResultType.Failed);
                 }
@@ -114,13 +115,7 @@ public class SpawnManager : MonoBehaviour
                     if (ScoreManager.instance.IsPerfectState())
                         GameManager.instance.SetGameResult(GameResultType.Full_combo);
                     else
-                    {
-                        // F랭크면 실패로 출력
-                        if(ScoreManager.instance.GetScoreRank() == ScoreManager.ScoreRank.F)
-                            GameManager.instance.SetGameResult(GameResultType.Failed);
-                        else
-                            GameManager.instance.SetGameResult(GameResultType.Clear);
-                    }
+                        GameManager.instance.SetGameResult(GameResultType.Clear);
                 }
                 if (gameOverTime_Delay > 0)
                 {
