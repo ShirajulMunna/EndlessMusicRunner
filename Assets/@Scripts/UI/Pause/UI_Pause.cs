@@ -26,5 +26,8 @@ public class UI_Pause : MonoBehaviour
         Time.timeScale = 1;
         AudioListener.pause = false;
         SecenManager.LoadScene("Lobby");
+        //게임도중 나가고 다시 플레이할때 누적판정개수들 및 점수들 초기화
+        ScoreManager.instance.ResetCount();
+        ScoreManager.instance.ScoreReset();
     }
 }

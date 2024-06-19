@@ -1,14 +1,15 @@
 using Spine.Unity;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerSystem : Entity
 {
     public static PlayerSystem playerSystem;
 
     [SerializeField] List<IPlayer_Particle> L_Particle = new List<IPlayer_Particle>();
-    public GameObject TestParticle;
 
     //공격 클래스
     [HideInInspector] public IPlayer_Attack M_Attack;
@@ -17,6 +18,10 @@ public class PlayerSystem : Entity
     [HideInInspector] public IPlayer_State M_State;
 
     E_AniType aniType = E_AniType.Running;
+
+    private float playerMaterialAlpha = 1f; //Player 스파인 알파값
+
+    public Queue<Action> GameOverPlayerAction = new Queue<Action>(); //게임이 끝날때 플레이어 관련된거 추가 
 
     //애니메이션 리스트
     List<string> L_AniStr = new List<string>()
@@ -53,6 +58,10 @@ public class PlayerSystem : Entity
 
     private void Update()
     {
+        if(GameOverPlayerAction.Count>0)
+        {
+            GameOverPlayerAction.Dequeue();
+        }
         var point = M_State.SetPoint();
         M_Move.SetMove(point);
         M_Attack.Attack(point);
@@ -76,49 +85,14 @@ public class PlayerSystem : Entity
                 return;
             }
         }
+        //스파인 자체를 코드로 투명도 조절함 -> 맞을시 스파인 자체적으로 투명도 조절해줬다는데 그거 확인후 코드 제거필요
         StartCoroutine(DamageEffect());
+
         base.SetHp(value);
 
         UI_Play.Instance.SetHp(MaxHp, CurHp);
     }
 
-    private float targetAlpha = 1f;
-    private IEnumerator DamageEffect()
-    {
-        while (true)
-        {
-            targetAlpha = 0.5f;
-            yield return StartCoroutine(LerpAlpha());
-
-            // 투명도를 0.5에서 1로 변경
-            targetAlpha = 1f;
-            yield return StartCoroutine(LerpAlpha());
-
-            yield break;
-        }
-    }
-    private IEnumerator LerpAlpha()
-    {
-        float startAlpha = targetAlpha;
-        float elapsedTime = 0f;
-        float duration = 0.75f;
-
-        while (elapsedTime < duration)
-        {
-            // 실제 투명도 조절
-            if (skeletonAnimation != null)
-            {
-                foreach (var slot in skeletonAnimation.Skeleton.Slots)
-                {
-                    var color = slot.GetColor();
-                    color.a = Mathf.Lerp(startAlpha, targetAlpha, elapsedTime / duration);
-                    slot.SetColor(color);
-                }
-            }
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-    }
     public override void SetMinusHp(int value)
     {
         base.SetMinusHp(value);
@@ -190,6 +164,49 @@ public class PlayerSystem : Entity
         foreach (var item in L_Particle)
         {
             item.SetActive();
+        }
+    }
+    //스파인 자체를 코드로 투명도 조절함 6.19 14:40 스파인 새로 받은걸로 한번 테스트 해봐야함 -
+    private IEnumerator DamageEffect()
+    {
+        while (true)
+        {
+            playerMaterialAlpha = 0.5f;
+            yield return StartCoroutine(LerpSpinAlpha());
+
+            playerMaterialAlpha = 1f;
+            yield return StartCoroutine(LerpSpinAlpha());
+
+            yield break;
+        }
+    }
+    private IEnumerator LerpSpinAlpha()
+    {
+        float startAlpha = playerMaterialAlpha;
+        float elapsedTime = 0f;
+        float duration = 0.75f;
+
+        while (elapsedTime < duration)
+        {
+            if (skeletonAnimation != null)
+            {
+                foreach (var slot in skeletonAnimation.Skeleton.Slots)
+                {
+                    var color = slot.GetColor();
+                    color.a = Mathf.Lerp(startAlpha, playerMaterialAlpha, elapsedTime / duration);
+                    slot.SetColor(color);
+                }
+            }
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+    }
+    //클리어시 모든 파티클 강제 종료
+    public void OffAllL_Particle()
+    {
+        for(int i =0;i<L_Particle.Count;++i)
+        {
+            L_Particle[i].SetDirectActive(false);
         }
     }
 
