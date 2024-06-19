@@ -20,6 +20,7 @@ public class FerverTimeSystem : Skill
             return;
         }
         GameManager.instance.player.SetParticle(E_PlayerSkill.Fever, st_Skill.Activetime);
+        AudioManager.instance.PlayEffectSound("Fever_Time");
     }
 
     //피버타임 발동 시 스코어 두배
