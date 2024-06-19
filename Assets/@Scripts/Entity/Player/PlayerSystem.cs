@@ -96,7 +96,7 @@ public class PlayerSystem : Entity
     public override void SetMinusHp(int value)
     {
         base.SetMinusHp(value);
-
+        Debug.Log("데미지 받음");
         //공격 사운드 및 애니메이션 처리
         SetAni(GetAniName(E_AniType.Hit));
     }

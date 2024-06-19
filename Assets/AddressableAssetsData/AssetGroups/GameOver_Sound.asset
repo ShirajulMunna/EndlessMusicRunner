@@ -23,12 +23,17 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4386b96be394e4d4492e262236d6957c
-    m_Address: Gameover_Score
+    m_Address: Gameover_Score_Old
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4921eacc0723c4143b5ad1cbfe426b19
     m_Address: Gameover_Over
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4a7a22e7422d89d4083df13eaf7bbfca
+    m_Address: Gameover_Score
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
