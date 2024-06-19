@@ -84,14 +84,6 @@ public class Monster_LongNote : Monster
 
             //스케일 줄이기
             var scale = Tr.localScale;
-
-//#if UNITY_EDITOR
-//            var scale_x = Scale_X;
-//            var star_x = Star_X;
-//#else
-//    var scale_x = Scale_X * 3;
-//    var star_x = Star_X * 3;
-//#endif
             scale.x -= Scale_X;
 
             var pos = myNoteSprite[1].transform.position;
@@ -119,6 +111,7 @@ public class Monster_LongNote : Monster
             prevPosition = transform.position;
             GameManager.instance.longNoteDestoryPosition = prevPosition;
             ScoreManager.instance.SetCombo_Add(); // �޺��߰�
+            ScoreManager.instance.SetScoreState(perfect);
             SetConditionEffect(perfect,prevPosition);
             return;
         }
@@ -149,7 +142,8 @@ public class Monster_LongNote : Monster
             return;
         }
 
-        ScoreManager.instance.SetCombo_Add(); 
+        ScoreManager.instance.SetCombo_Add();
+        ScoreManager.instance.SetScoreState(perfect); //롱노트 이펙트는 추가되지만 정확한 내용이 들어가 있지 않음
         //게임매니저에서 처음 충돌위치가져온상태
         var createpos = GameManager.instance.longNoteDestoryPosition;
         var end = Instantiate(G_End, createpos, default, null);
@@ -184,6 +178,7 @@ public class Monster_LongNote : Monster
         {
             GameManager.instance.player.SetHp(-5);
             ScoreManager.instance.SetBestCombo_Reset();
+            ScoreManager.instance.SetScoreState(ScoreManager.E_ScoreState.Miss); // 롱노트 중간에 실패하면 Miss를 추가해주기
 
             var effects = await Effect.Create(transform.position, (int)HitCollisionDetection.ConditionEffect.Opps);
             effects.fadeDuration = HitCollisionDetection.Instance.fadeDuration;

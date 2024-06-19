@@ -126,6 +126,12 @@ public class HitCollisionDetection : MonoBehaviour
 
     public void SetHit(GameObject obj, ScoreManager.E_ScoreState state)
     {
+        if (ScoreManager.E_ScoreState.Late == state)
+        {
+            Debug.Log("느림");
+        }
+        else if (ScoreManager.E_ScoreState.Early == state)
+            Debug.Log("빠름");
         ScoreManager.instance.SetScoreState(state);
         SetEffect(obj, state);
     }
