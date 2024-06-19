@@ -31,9 +31,9 @@ public class IPlayer_Attack
     //위치
     public List<Vector3> Tr_AttackVector = new List<Vector3>()
     {
-        new Vector3(-7, -3.5f, 0),
-        new Vector3(-7, 0, 0),
-        new Vector3(-7, 3.5f, 0)
+        new Vector3(-11, -3.5f, 0),
+        new Vector3(-11, 0, 0),
+        new Vector3(-11, 3.5f, 0)
     };
     //공격 상태
     E_AttackState AttackState = E_AttackState.Attack_Re;
