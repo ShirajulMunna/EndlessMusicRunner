@@ -1,150 +1,127 @@
 punching bag.png
-	size: 4578, 4578
+	size: 3649, 3649
 	filter: Linear, Linear
 	pma: true
-skin0/Glove1
-	bounds: 3924, 4038, 590, 538
-skin0/Glove2
-	bounds: 2367, 1409, 599, 484
-	offsets: 322, 77, 921, 561
-skin0/face
-	bounds: 3924, 3657, 506, 379
-skin1/face
-	bounds: 3924, 3657, 506, 379
-skin2/face
-	bounds: 3924, 3657, 506, 379
-skin3/face
-	bounds: 3924, 3657, 506, 379
-skin4/face
-	bounds: 3924, 3657, 506, 379
-skin5/face
-	bounds: 3924, 3657, 506, 379
+skin0/Left hand
+	bounds: 2735, 2584, 306, 773
+	rotate: 90
+skin0/Right hand
+	bounds: 913, 952, 777, 755
+skin0/body
+	bounds: 2, 2679, 909, 968
+	offsets: 0, 0, 910, 969
+skin0/face1
+	bounds: 3065, 1290, 419, 517
+skin1/face1
+	bounds: 3065, 1290, 419, 517
+skin2/face1
+	bounds: 3065, 1290, 419, 517
+skin3/face1
+	bounds: 3065, 1290, 419, 517
+skin4/face1
+	bounds: 3065, 1290, 419, 517
+skin5/face1
+	bounds: 3065, 1290, 419, 517
+skin7/face1
+	bounds: 3065, 1290, 419, 517
 skin0/face2
-	bounds: 2151, 56, 506, 379
+	bounds: 2239, 559, 460, 604
 skin1/face2
-	bounds: 2151, 56, 506, 379
+	bounds: 2239, 559, 460, 604
 skin2/face2
-	bounds: 2151, 56, 506, 379
+	bounds: 2239, 559, 460, 604
 skin3/face2
-	bounds: 2151, 56, 506, 379
+	bounds: 2239, 559, 460, 604
 skin4/face2
-	bounds: 2151, 56, 506, 379
+	bounds: 2239, 559, 460, 604
 skin5/face2
-	bounds: 2151, 56, 506, 379
-skin0/face3
-	bounds: 4142, 3149, 506, 379
-	rotate: 90
-skin1/face3
-	bounds: 4142, 3149, 506, 379
-	rotate: 90
-skin2/face3
-	bounds: 4142, 3149, 506, 379
-	rotate: 90
-skin3/face3
-	bounds: 4142, 3149, 506, 379
-	rotate: 90
-skin4/face3
-	bounds: 4142, 3149, 506, 379
-	rotate: 90
-skin5/face3
-	bounds: 4142, 3149, 506, 379
-	rotate: 90
-skin0/punching
-	bounds: 2, 3509, 806, 1067
-	offsets: 0, 0, 974, 1106
-skin0/punching2
-	bounds: 1618, 2542, 747, 965
-	offsets: 0, 1, 747, 1029
-skin1/Glove1
-	bounds: 3116, 2104, 590, 538
-skin1/Glove2
-	bounds: 3708, 2043, 599, 484
-	offsets: 322, 77, 921, 561
-	rotate: 90
-skin1/punching
-	bounds: 2, 2440, 806, 1067
-	offsets: 0, 0, 974, 1106
-skin1/punching2
-	bounds: 2426, 3611, 747, 965
-	offsets: 0, 1, 747, 1029
-skin2/Glove1
-	bounds: 3116, 1564, 590, 538
-skin2/Glove2
-	bounds: 3708, 1557, 599, 484
-	offsets: 322, 77, 921, 561
-skin2/punching
-	bounds: 810, 3509, 806, 1067
-	offsets: 0, 0, 974, 1106
-skin2/punching2
-	bounds: 810, 404, 747, 965
-	offsets: 0, 1, 747, 1029
-skin3/Glove1
-	bounds: 1559, 549, 590, 538
-skin3/Glove2
-	bounds: 1618, 1089, 599, 484
-	offsets: 322, 77, 921, 561
-skin3/punching
-	bounds: 2, 1371, 806, 1067
-	offsets: 0, 0, 974, 1106
-skin3/punching2
-	bounds: 1618, 1575, 747, 965
-	offsets: 0, 1, 747, 1029
-skin4/Glove1
-	bounds: 1559, 9, 590, 538
-skin4/Glove2
-	bounds: 2219, 923, 599, 484
-	offsets: 322, 77, 921, 561
-skin4/punching
-	bounds: 810, 2440, 806, 1067
-	offsets: 0, 0, 974, 1106
-skin4/punching2
-	bounds: 3175, 3611, 747, 965
-	offsets: 0, 1, 747, 1029
-skin5/Glove1
-	bounds: 2820, 869, 590, 538
-skin5/Glove2
-	bounds: 2151, 437, 599, 484
-	offsets: 322, 77, 921, 561
-skin5/punching
-	bounds: 1618, 3509, 806, 1067
-	offsets: 0, 0, 974, 1106
-skin5/punching2
-	bounds: 2426, 2862, 747, 965
-	offsets: 0, 1, 747, 1029
-	rotate: 90
-skin6/Glove1
-	bounds: 3412, 1017, 590, 538
-skin6/Glove2
-	bounds: 2752, 383, 599, 484
-	offsets: 322, 77, 921, 561
-skin6/face
-	bounds: 2659, 2, 506, 379
-skin6/face2
-	bounds: 3412, 636, 506, 379
-skin6/face3
-	bounds: 3353, 255, 506, 379
-skin6/punching
-	bounds: 2, 302, 806, 1067
-	offsets: 0, 0, 974, 1106
-skin6/punching2
-	bounds: 2367, 1895, 747, 965
-	offsets: 0, 1, 747, 1029
-skin7/Glove1
-	bounds: 4004, 965, 590, 538
-	rotate: 90
-skin7/Glove2
-	bounds: 3920, 479, 599, 484
-	offsets: 322, 77, 921, 561
-skin7/face
-	bounds: 3861, 98, 506, 379
+	bounds: 2239, 559, 460, 604
 skin7/face2
-	bounds: 810, 23, 506, 379
+	bounds: 2239, 559, 460, 604
+skin0/face3
+	bounds: 2, 112, 545, 625
+skin1/face3
+	bounds: 2, 112, 545, 625
+skin2/face3
+	bounds: 2, 112, 545, 625
+skin3/face3
+	bounds: 2, 112, 545, 625
+skin4/face3
+	bounds: 2, 112, 545, 625
+skin5/face3
+	bounds: 2, 112, 545, 625
 skin7/face3
-	bounds: 4194, 2641, 506, 379
+	bounds: 2, 112, 545, 625
+skin0/face4
+	bounds: 2211, 51, 424, 485
+skin1/face4
+	bounds: 2211, 51, 424, 485
+skin2/face4
+	bounds: 2211, 51, 424, 485
+skin3/face4
+	bounds: 2211, 51, 424, 485
+skin4/face4
+	bounds: 2211, 51, 424, 485
+skin5/face4
+	bounds: 2211, 51, 424, 485
+skin7/face4
+	bounds: 2211, 51, 424, 485
+skin1/Left hand
+	bounds: 2603, 1809, 306, 773
+skin3/Left hand
+	bounds: 2603, 1809, 306, 773
+skin1/Right hand
+	bounds: 1824, 1922, 777, 755
+skin2/Right hand
+	bounds: 1824, 1922, 777, 755
+skin3/Right hand
+	bounds: 1824, 1922, 777, 755
+skin1/body
+	bounds: 2, 1709, 909, 968
+	offsets: 0, 0, 910, 969
+skin3/body
+	bounds: 2, 1709, 909, 968
+	offsets: 0, 0, 910, 969
+skin2/Left hand
+	bounds: 2911, 1809, 306, 773
+skin2/body
+	bounds: 913, 2679, 909, 968
+	offsets: 0, 0, 910, 969
+skin4/Left hand
+	bounds: 3219, 1809, 306, 773
+skin4/Right hand
+	bounds: 2735, 2892, 777, 755
+skin4/body
+	bounds: 2, 739, 909, 968
+	offsets: 0, 0, 910, 969
+skin5/Left hand
+	bounds: 2701, 428, 306, 773
+skin7/Left hand
+	bounds: 2701, 428, 306, 773
+skin5/Right hand
+	bounds: 913, 195, 777, 755
+skin7/Right hand
+	bounds: 913, 195, 777, 755
+skin5/body
+	bounds: 913, 1709, 909, 968
+	offsets: 0, 0, 910, 969
+skin7/body
+	bounds: 913, 1709, 909, 968
+	offsets: 0, 0, 910, 969
+skin6/Left hand
+	bounds: 3009, 428, 306, 773
+skin6/Right hand
+	bounds: 1824, 1165, 777, 755
+skin6/body
+	bounds: 1824, 2679, 909, 968
+	offsets: 0, 0, 910, 969
+skin6/face1
+	bounds: 1692, 117, 419, 517
 	rotate: 90
-skin7/punching
-	bounds: 810, 1371, 806, 1067
-	offsets: 0, 0, 974, 1106
-skin7/punching2
-	bounds: 3393, 2644, 747, 965
-	offsets: 0, 1, 747, 1029
+skin6/face2
+	bounds: 2603, 1203, 460, 604
+skin6/face3
+	bounds: 1692, 538, 545, 625
+skin6/face4
+	bounds: 2637, 2, 424, 485
+	rotate: 90
