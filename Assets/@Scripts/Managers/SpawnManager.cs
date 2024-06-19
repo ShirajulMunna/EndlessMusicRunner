@@ -103,8 +103,9 @@ public class SpawnManager : MonoBehaviour
                     CheckAllMonster();
                     GameManager.instance.SetGameResult(GameResultType.Failed);
                 }
+                gameOverTime_Delay -= Time.deltaTime;
                 // 플레이어 클리어시 스파인 이펙트 생성 
-                if (makeClearOBjectTime + makeClearObjectTimeDelay < Time.time && !isMakeClearObject)
+                if (gameOverTime_Delay < 1.0f && !isMakeClearObject)
                 {
                     isMakeClearObject = true;
                     //결과창 새로 나오는거 막기
@@ -113,9 +114,15 @@ public class SpawnManager : MonoBehaviour
                     if (ScoreManager.instance.IsPerfectState())
                         GameManager.instance.SetGameResult(GameResultType.Full_combo);
                     else
+                    {
+                        // F랭크면 실패로 출력
+                        if(ScoreManager.instance.GetScoreRank() == ScoreManager.ScoreRank.F)
+                            GameManager.instance.SetGameResult(GameResultType.Failed);
+
                         GameManager.instance.SetGameResult(GameResultType.Clear);
+                    }
+                        
                 }
-                gameOverTime_Delay -= Time.deltaTime;
                 if (gameOverTime_Delay > 0)
                 {
                     return;

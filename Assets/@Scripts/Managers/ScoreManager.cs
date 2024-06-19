@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
+    public enum ScoreRank
+    {
+        S,A,B,C,F,
+    }
     public static ScoreManager _instance;
     public static ScoreManager instance
     {
@@ -183,4 +187,23 @@ public class ScoreManager : MonoBehaviour
     {
         D_SocreState.Clear();
     }
+
+    //랭크 출력
+    public ScoreRank GetScoreRank()
+    {
+        ScoreRank rank = ScoreRank.F;
+        var accuracy = (float)(GetMaxState() /GetAccuracy()) * 100;
+
+        if (accuracy >= 90.0f)
+            rank = ScoreRank.S;
+        else if (accuracy < 90.0f && accuracy >= 80.0f)
+            rank = ScoreRank.A;
+        else if (accuracy < 80.0f && accuracy >= 70.0f)
+            rank = ScoreRank.B;
+        else if (accuracy < 70.0f && accuracy >= 60.0f)
+            rank = ScoreRank.C;
+
+        return rank;
+    }
+
 }

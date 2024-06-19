@@ -39,7 +39,6 @@ public class UI_GameOver : MonoBehaviour
     [SerializeField] TextMeshProUGUI[] T_TextList;
     [SerializeField] GameObject G_BestText;
     [SerializeField] GameObject G_LP;
-    private float rate = 0f;
     private void Start()
     {
         SetUI();
@@ -62,7 +61,6 @@ public class UI_GameOver : MonoBehaviour
 
         if (ScoreManager.instance.GetBestCombo() < ScoreManager.instance.GetCurrentScore())
         {
-            ScoreManager.instance.SetBestScore();
             return E_GameOverState.NewScore;
         }
         return E_GameOverState.Success;
@@ -153,11 +151,10 @@ public class UI_GameOver : MonoBehaviour
 
     void SetAccuracy()
     {
-        var maxcount = ScoreManager.instance.GetMaxState();
-        var count = ScoreManager.instance.GetAccuracy();
+        var maxcount = (float)ScoreManager.instance.GetMaxState();
+        var count = (float)ScoreManager.instance.GetAccuracy();
         //정확도 나누는형태로 변경완료
-        var accuracy = ((float)(count) / (float)maxcount) * 100;
-        rate = accuracy;
+        var accuracy = ((count) / maxcount) * 100;
         T_TextList[3].text = "정확도 : " + accuracy.ToString("F2") + "%";
     }
 
@@ -178,19 +175,8 @@ public class UI_GameOver : MonoBehaviour
 
     void SetRating()
     {
-        //판정 결과 S~C 이후  F까지
-        string str = string.Empty;
-        if (rate >= 90.0f)
-            str = "S";
-        else if (rate < 90.0f && rate >= 80.0f)
-            str = "A";
-        else if (rate < 80.0f && rate >= 70.0f)
-            str = "B";
-        else if (rate < 70.0f && rate >= 60.0f)
-            str = "C";
-        else
-            str = "F";
-        T_TextList[11].text = str;
+        //스코어 매니저에서 등급계산해서 받는형태
+        T_TextList[11].text = ScoreManager.instance.GetScoreRank().ToString();
     }
 
     public void Btn_Exit()
