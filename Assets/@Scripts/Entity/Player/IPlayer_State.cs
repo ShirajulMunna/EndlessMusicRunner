@@ -20,7 +20,7 @@ public class IPlayer_State : MonoBehaviour
     float isHoldTime;
 
     public E_MovePoint SetPoint()
-    {
+    { 
         var point = SetKey();
 
         if (MovePoint == E_MovePoint.Middle)

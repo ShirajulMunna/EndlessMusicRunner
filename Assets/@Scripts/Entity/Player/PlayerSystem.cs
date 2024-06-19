@@ -60,7 +60,7 @@ public class PlayerSystem : Entity
     {
         if(GameOverPlayerAction.Count>0)
         {
-            GameOverPlayerAction.Dequeue();
+            GameOverPlayerAction.Dequeue().Invoke();
         }
         var point = M_State.SetPoint();
         M_Move.SetMove(point);
@@ -109,6 +109,7 @@ public class PlayerSystem : Entity
         AudioManager.instance.StopMusic();
         SpawnManager.instance.SetGameState(E_GameState.End);
         aniType = E_AniType.Die;
+        OffAllL_Particle();
     }
 
     public override void SetAni((string, bool) data)
@@ -119,6 +120,18 @@ public class PlayerSystem : Entity
         }
 
         base.SetAni(data);
+    }
+
+    // 클리어할때 플레이어 애니메이션 세팅하는부분 -> 이동하는부분 디테일 개선 작업 필요
+    public void ClearGame( )
+    {
+        aniType = E_AniType.Clear;
+        SetAni(GetAniName(E_AniType.Clear));
+    }
+
+    public E_AniType GetAniType()
+    {
+        return aniType;
     }
 
     //파티클 실행
@@ -157,6 +170,7 @@ public class PlayerSystem : Entity
     //파티클 쿨타임 진행
     void SetParticle_Active()
     {
+
         if (L_Particle.Count <= 0)
         {
             return;
@@ -169,6 +183,7 @@ public class PlayerSystem : Entity
     //스파인 자체를 코드로 투명도 조절함 6.19 14:40 스파인 새로 받은걸로 한번 테스트 해봐야함 -
     private IEnumerator DamageEffect()
     {
+        int counting = 0;
         while (true)
         {
             playerMaterialAlpha = 0.5f;
@@ -177,14 +192,17 @@ public class PlayerSystem : Entity
             playerMaterialAlpha = 1f;
             yield return StartCoroutine(LerpSpinAlpha());
 
-            yield break;
+            counting++;
+            
+            if(counting == 2)
+                yield break;
         }
     }
     private IEnumerator LerpSpinAlpha()
     {
         float startAlpha = playerMaterialAlpha;
         float elapsedTime = 0f;
-        float duration = 0.75f;
+        float duration = 0.5f;
 
         while (elapsedTime < duration)
         {

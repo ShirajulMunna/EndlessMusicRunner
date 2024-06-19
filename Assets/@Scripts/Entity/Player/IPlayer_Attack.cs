@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEditor.Recorder.AOV;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 [Serializable]
@@ -50,8 +51,12 @@ public class IPlayer_Attack
     //공격 함수
     public void Attack(E_MovePoint point)
     {
+        // 클리어했을경우 키를 막는 코드
+        if (Player.GetAniType() == E_AniType.Clear ||Player.GetAniType() == E_AniType.Die)
+        {
+            return;
+        }
         HoldDelay -= Time.deltaTime;
-
         if (point == E_MovePoint.None)
         {
             return;

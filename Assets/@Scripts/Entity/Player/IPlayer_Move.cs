@@ -1,5 +1,6 @@
 using System;
 using Unity.VisualScripting;
+using UnityEditor.Recorder.AOV;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -31,6 +32,11 @@ public class IPlayer_Move : MonoBehaviour
 
     public void SetMove(E_MovePoint point)
     {
+        // 죽었을경우 파티클 세팅 못하게막기
+        if (player.GetAniType() == E_AniType.Die)
+        {
+            return;
+        }
         CurDownDelay -= Time.deltaTime;
         SetMovePoint(point);
         Move();
@@ -45,7 +51,6 @@ public class IPlayer_Move : MonoBehaviour
         MovePoint = point;
         CurDownDelay = MaxDownDelay;
     }
-
     //움직임 함수
     void Move()
     {
@@ -54,7 +59,7 @@ public class IPlayer_Move : MonoBehaviour
         {
             return;
         }
-
+        
         if (CurDownDelay <= 0)
         {
             CurDownDelay = MaxDownDelay;
@@ -120,8 +125,13 @@ public class IPlayer_Move : MonoBehaviour
             {
                 if(!isClearPlaying)
                 {
-                    isClearPlaying= true;
-                    player.SetAni(player.GetAniName(E_AniType.Clear));
+                    isClearPlaying = true;
+                    //플레이어 위치 밑으로 고정하게 만드는 코드 조금 부자연스러움이 있음
+                    MovePoint = E_MovePoint.Down;
+                    player.transform.position = P_Attack.Tr_AttackVector[GetMoveIDX(MovePoint)];
+                    
+                    // 플레이어 이동외의 애니메이션과 파티클관려은 플레이어 시스템에서 처리하게만듬
+                    player.GameOverPlayerAction.Enqueue(player.ClearGame);
                     player.GameOverPlayerAction.Enqueue(player.OffAllL_Particle);
                 }
                 Tr.transform.Translate(Vector3.right * Time.deltaTime * 15f);
