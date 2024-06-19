@@ -29,7 +29,6 @@ public static class Define
                 break;
             }
         }
-
         skeletonAnimation.skeleton.SetToSetupPose();
         skeletonAnimation.AnimationState.SetAnimation(0, animationString, loop);
 

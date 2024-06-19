@@ -49,7 +49,6 @@ public class IPlayer_Move : MonoBehaviour
     //움직임 함수
     void Move()
     {
-
         //클리어시 플레이어 이동하는코드
         if (IsClearMove())
         {
@@ -124,7 +123,7 @@ public class IPlayer_Move : MonoBehaviour
                     isClearPlaying= true;
                     player.SetAni(player.GetAniName(E_AniType.Clear));
                 }
-                Tr.transform.Translate(Vector3.right * Time.deltaTime * 10f);
+                Tr.transform.Translate(Vector3.right * Time.deltaTime * 15f);
                 return true;
             }
         }
