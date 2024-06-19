@@ -133,7 +133,11 @@ public class UI_GameOver : MonoBehaviour
         var wait = new WaitForSeconds(0.03f);
         var curscore = ScoreManager.instance.GetCurrentScore();
         var dleay = 1f;
-        AudioManager.instance.PlayEffectSound("Gameover_Score");
+        //실패할땐 실패 스코어 사운드 출력
+        if (GameManager.instance.player.CurHp <=0)
+            AudioManager.instance.PlayEffectSound("Gameover_Score_Fail");
+        else
+            AudioManager.instance.PlayEffectSound("Gameover_Score");
         for (int i = 0; i < curscore; i++)
         {
             dleay -= 0.03f;
