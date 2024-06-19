@@ -9,6 +9,7 @@ public class Effect : MonoBehaviour
 {
     const string Name = "GameConditionEffect_{0}";
     public float fadeDuration = 1f;
+    public SpriteRenderer spriteRenderer;
     public static async Task<Effect> Create(Vector3 spawnPosition, int number)
     {
         var name = string.Format(Name, number);
@@ -23,9 +24,10 @@ public class Effect : MonoBehaviour
     }
     public IEnumerator OpacityChange()
     {
-        var color = GetComponent<SpriteRenderer>();
-        Color currentColor = GetComponent<SpriteRenderer>().color;
-
+        //var color = GetComponent<SpriteRenderer>();
+        //Color currentColor = GetComponent<SpriteRenderer>().color;
+        var color = spriteRenderer;
+        Color currentColor = spriteRenderer.color;
 
         for (float t = 0; t < fadeDuration; t += Time.deltaTime)
         {
@@ -44,8 +46,8 @@ public class Effect : MonoBehaviour
                 Destroy(gameObject);
                 yield break;
             }
-            GetComponent<SpriteRenderer>().color = currentColor;
-
+            //GetComponent<SpriteRenderer>().color = currentColor;
+            spriteRenderer.color = currentColor;
 
             yield return null;
         }
