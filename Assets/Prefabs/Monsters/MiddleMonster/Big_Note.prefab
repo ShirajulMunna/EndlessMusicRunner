@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8672294577196938844}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.84, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -55,7 +55,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 54b6ba0f21d3aec49bda97db9ac38373, type: 2}
+  - {fileID: 2100000, guid: fa830e898fd836b49b93c48c5d05b47a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: caed22b3742701149802dedd6b3943fa, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: c2df01c2b477a304190a03a0fde52244, type: 2}
   initialSkinName: skin0
   fixPrefabOverrideViaMeshFilter: 2
   initialFlipX: 0
@@ -137,15 +137,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 012f8caf96117b642b39ab58708b5eae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skin_Names:
-  - skin0
-  - skin1
-  - skin2
-  - skin3
-  - skin4
-  - skin5
-  - skin6
-  - skin7
 --- !u!1 &8821321151596255113
 GameObject:
   m_ObjectHideFlags: 0
