@@ -30,6 +30,8 @@ public class Monster_LongNote : Monster
     public GameObject perfectEffect;
     public GameObject greatEffect;
 
+    float SoundTime = 0f;
+    public float SoundTimeDuration = 0.25f;
     protected override void Start()
     {
         if (Change)
@@ -53,7 +55,7 @@ public class Monster_LongNote : Monster
         SetCheck();
     }
 
-    public float SoundTime = 0f;
+
     void SetCheck()
     {
         if (AttackHold == 0 || AttackHold == 2)
@@ -76,9 +78,15 @@ public class Monster_LongNote : Monster
                 GetScoreTime = Time.time;
                 var score = 1;
                 ScoreManager.instance.SetCurrentScore(score);
+               
+            }
+            SoundTime += Time.deltaTime;
+
+            if(SoundTime >= SoundTimeDuration)
+            {
+                SoundTime = 0f;
                 AudioManager.instance.LongNoteSound();
             }
-
 
             transform.position = prevPosition;
 
