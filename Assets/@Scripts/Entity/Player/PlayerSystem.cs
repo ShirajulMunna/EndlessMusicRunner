@@ -8,6 +8,7 @@ public class PlayerSystem : Entity
     public static PlayerSystem playerSystem;
 
     [SerializeField] List<IPlayer_Particle> L_Particle = new List<IPlayer_Particle>();
+    public GameObject TestParticle;
 
     //공격 클래스
     [HideInInspector] public IPlayer_Attack M_Attack;
@@ -82,7 +83,6 @@ public class PlayerSystem : Entity
     }
 
     private float targetAlpha = 1f;
-    private float alphaChangeSpeed = 2f; 
     private IEnumerator DamageEffect()
     {
         while (true)

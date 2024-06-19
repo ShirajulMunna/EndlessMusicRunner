@@ -122,6 +122,10 @@ public class IPlayer_Move : MonoBehaviour
                 {
                     isClearPlaying= true;
                     player.SetAni(player.GetAniName(E_AniType.Clear));
+                    if(player.TestParticle.activeSelf)
+                    {
+                        player.TestParticle.SetActive(false);
+                    }
                 }
                 Tr.transform.Translate(Vector3.right * Time.deltaTime * 15f);
                 return true;
