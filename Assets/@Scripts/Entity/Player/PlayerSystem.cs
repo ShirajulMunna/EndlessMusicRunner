@@ -88,7 +88,7 @@ public class PlayerSystem : Entity
     {
         base.SetFly();
         var result = GetAniName(E_AniType.Fly);
-        SetAni(result);
+        SetAni(result,result.Item1);
         SetParticle(E_PlayerSkill.Fly, 0);
     }
 

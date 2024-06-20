@@ -55,8 +55,16 @@ public class IPlayer_Move : MonoBehaviour
         if (CurDownDelay <= 0)
         {
             CurDownDelay = MaxDownDelay;
-            MovePoint = E_MovePoint.Down;
-            player.SetState(E_Entity_State.Running);
+            if (player.transform.position.y > 0)
+            {
+                MovePoint = E_MovePoint.Up;
+                player.SetState(E_Entity_State.Fly);
+            }
+            else
+            {
+                MovePoint = E_MovePoint.Down;
+            }
+
         }
 
         // 목표 위치 가져오기

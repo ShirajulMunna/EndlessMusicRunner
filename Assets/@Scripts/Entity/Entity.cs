@@ -182,6 +182,7 @@ public class Entity : MonoBehaviour, IEntity_Hp, IEntity_Spin, IEntity_State
     {
         skeletonAnimation.SetAni_Player(data.Item1, data.Item2);
     }
+    // 기본값 Running 이라서 문자열 변경
     public virtual void SetAni((string,bool)data ,string name)
     {
         skeletonAnimation.SetAni_Player(data.Item1, data.Item2,name);
