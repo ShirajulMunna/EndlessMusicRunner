@@ -60,11 +60,7 @@ public class Monster : Entity, IMonsterMove
 
     protected virtual void Start()
     {
-        if (Change)
-        {
-            skeletonAnimation.skeletonDataAsset = Sk[UI_Lobby.Type == false ? 0 : 1];
-            skeletonAnimation.Initialize(true);
-        }
+
     }
 
     protected virtual void Update()

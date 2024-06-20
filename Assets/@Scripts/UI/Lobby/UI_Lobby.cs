@@ -21,7 +21,7 @@ public class UI_Lobby : MonoBehaviour
     {
         if (T_Type == null)
             return;
-        T_Type.text = Type ? "Red" : "BLue";
+        T_Type.text = !Type ? "움직임" : "고정";
         skinDropDown.value = ScrollValue;
         ChangePlayerUiGraphics();
     }
@@ -29,15 +29,15 @@ public class UI_Lobby : MonoBehaviour
     public void Btn_A_And_B()
     {
         var text = T_Type.text;
-        if (text == "BLue")
+        Type = !Type;
+
+        if (!Type)
         {
-            text = "Red";
-            Type = true;
+            text = "움직임";
         }
         else
         {
-            text = "BLue";
-            Type = false;
+            text = "고정";
         }
         T_Type.text = text;
     }
@@ -64,7 +64,8 @@ public class UI_Lobby : MonoBehaviour
 
     public void Btn_Play()
     {
-        SecenManager.LoadScene("MainGameScene");
+        var mode = !Type ? "MainGameScene" : "NotMoveBackGroundScene";
+        SecenManager.LoadScene(mode);
     }
 
 }
