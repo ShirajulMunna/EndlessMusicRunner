@@ -23,7 +23,6 @@ public class Monster_Twin : Monster
 
     private void SetPlayerMiddleAttack()
     {
-        Debug.Log($"플레이어 포지션 : {player.transform.position}");
         player_State.SetDirectMoveIdx(E_MovePoint.Middle);
     }
     private void PlayerAttackStateReset()
