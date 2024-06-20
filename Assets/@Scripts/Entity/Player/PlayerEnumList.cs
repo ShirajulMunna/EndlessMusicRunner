@@ -1,3 +1,5 @@
+using Unity.VisualScripting;
+
 public enum E_AniType
 {
     Running,
@@ -19,6 +21,7 @@ public enum E_AttackState
     Attack,
     Hold,
     Attack_Re,//다시 공격 가능 상태
+    Twin_Attack,
 
 }
 

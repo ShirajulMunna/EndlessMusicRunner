@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
-public class IPlayer_State : MonoBehaviour
+public class IPlayer_KeyPoint : MonoBehaviour
 {
     PlayerSystem Player
     {

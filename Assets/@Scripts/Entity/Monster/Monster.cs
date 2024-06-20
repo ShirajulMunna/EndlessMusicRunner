@@ -52,7 +52,7 @@ public class Monster : Entity, IMonsterMove
     {
         get => GameManager.instance.player;
     }
-    protected IPlayer_State Player_State
+    protected IPlayer_KeyPoint Player_State
     {
         get => GameManager.instance.player.M_State;
     }
