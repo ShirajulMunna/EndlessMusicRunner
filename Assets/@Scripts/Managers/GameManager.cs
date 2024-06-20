@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
         }
 
         skeleton = GameObject.Find("Player").transform.GetChild(0).GetComponent<SkeletonAnimation>();
-        Application.targetFrameRate = 120;
+        Application.targetFrameRate = 60;
     }
 
     // After playing some times background will
