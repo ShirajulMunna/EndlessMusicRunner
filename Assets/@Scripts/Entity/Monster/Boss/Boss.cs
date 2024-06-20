@@ -100,7 +100,6 @@ public class Boss : Monster
         if (SpawnManager.instance.GetStageInfo() >= 1000)
         {
             var str = L_Ani[(int)E_BossAttack.idle2];
-            Debug.Log(str); 
             skeletonAnimation.SetAni_Monster(str,true);
         }
     }
