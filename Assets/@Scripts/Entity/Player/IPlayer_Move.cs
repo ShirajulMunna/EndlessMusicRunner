@@ -118,4 +118,12 @@ public class IPlayer_Move : MonoBehaviour
         }
         Tr.transform.Translate(Vector3.right * Time.deltaTime * 15f);
     }
+
+
+    //바로 이동
+    public void DirectMove(E_MovePoint point)
+    {
+        var targetPos = P_Attack.Tr_AttackVector[GetMoveIDX(point)];
+        Tr.position = targetPos;
+    }
 }

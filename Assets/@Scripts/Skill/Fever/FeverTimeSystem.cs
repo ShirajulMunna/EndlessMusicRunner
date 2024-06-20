@@ -73,7 +73,7 @@ public class FerverTimeSystem : Skill
         var per = _skillClass.CoolTimeChecker.GetCoolTimePer();
         print(per);
         UI_Play.Instance.SetFeverCoolTime(per);
-        if (per > 0)
+        if (per < 1)
         {
             return;
         }

@@ -192,6 +192,7 @@ public class PlayerSystem : Entity
     //게임 종료 처리들
     void EndGame()
     {
+        M_Move.DirectMove(E_MovePoint.Down);
         OffAllL_Particle();
         AudioManager.instance.StopMusic();
         SpawnManager.instance.SetGameState(E_GameState.Result);
