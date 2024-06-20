@@ -59,11 +59,20 @@ public class PlayerSystem : Entity
     {
         UI_Play.Instance.ActivatPanel(true);
         SetState(E_Entity_State.Running);
+        SpawnManager.instance.Ac_EndGame += () =>
+        {
+            SetState(E_Entity_State.Clear);
+        };
     }
 
     private void Update()
     {
         UpdateState();
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            SpawnManager.instance.SetGameState(E_GameState.Result);
+        }
     }
 
 
@@ -151,6 +160,7 @@ public class PlayerSystem : Entity
         base.SetDie();
         EndGame();
         SetAni(GetAniName(E_AniType.Die));
+        SpawnManager.instance.Ac_EndGame = null;
     }
 
     //클리어 처리
@@ -166,7 +176,7 @@ public class PlayerSystem : Entity
     {
         OffAllL_Particle();
         AudioManager.instance.StopMusic();
-        SpawnManager.instance.SetGameState(E_GameState.End);
+        SpawnManager.instance.SetGameState(E_GameState.Result);
     }
     #endregion
 

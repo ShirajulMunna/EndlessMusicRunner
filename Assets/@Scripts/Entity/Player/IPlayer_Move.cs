@@ -15,6 +15,9 @@ public class IPlayer_Move : MonoBehaviour
     //움직임 속도
     const float MiddleMoveSpeed = 100;
 
+    //이동 딜레이
+    float ClearMoveDelay = 2f;
+
     PlayerSystem player
     {
         get => GameManager.instance.player;
@@ -95,10 +98,13 @@ public class IPlayer_Move : MonoBehaviour
     }
 
     //게임 종료 후 처리
-    public bool IsClearMove()
+    public void IsClearMove()
     {
-        player.OffAllL_Particle();
+        ClearMoveDelay -= Time.deltaTime;
+        if (ClearMoveDelay > 0)
+        {
+            return;
+        }
         Tr.transform.Translate(Vector3.right * Time.deltaTime * 15f);
-        return SpawnManager.instance.GetGameState() == E_GameState.GameOver;
     }
 }

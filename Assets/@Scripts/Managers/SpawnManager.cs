@@ -41,9 +41,8 @@ public class SpawnManager : MonoBehaviour
     //게임 상태
     [SerializeField] E_GameState e_GameState = E_GameState.Wait;
 
-    //플레이어 죽었을때 몬스터들 전부 껐는지 검사
-    bool isAllMonsterOff = false;
-    [HideInInspector] public bool isMakeClearObject = false;
+    public System.Action Ac_EndGame;
+
     void Start()
     {
         if (instance != null)
@@ -93,28 +92,29 @@ public class SpawnManager : MonoBehaviour
                 CheckStartMusci_Delay = true;
                 AudioManager.instance.PlayMusic();
                 break;
-            case E_GameState.End:
-                //플레이어 체력 다 잃었을 경우
-                if (!isAllMonsterOff && GameManager.instance.player.CurHp <= 0)
+            case E_GameState.Result:
+                Ac_EndGame?.Invoke();
+                e_GameState = E_GameState.End;
+
+                if (GameManager.instance.player.CurHp <= 0)
                 {
-                    isAllMonsterOff = true;
-                    isMakeClearObject = true;
                     CheckAllMonster();
                     GameManager.instance.SetGameResult(GameResultType.Failed);
+                    return;
                 }
-                gameOverTime_Delay -= Time.deltaTime;
-                // 플레이어 클리어시 스파인 이펙트 생성 
-                if (gameOverTime_Delay < 3.0f && !isMakeClearObject)
+
+                if (ScoreManager.instance.IsPerfectState())
                 {
-                    isMakeClearObject = true;
-                    //결과창 새로 나오는거 막기
-                    if (isAllMonsterOff)
-                        return;
-                    if (ScoreManager.instance.IsPerfectState())
-                        GameManager.instance.SetGameResult(GameResultType.Full_combo);
-                    else
-                        GameManager.instance.SetGameResult(GameResultType.Clear);
+                    GameManager.instance.SetGameResult(GameResultType.Full_combo);
+                    return;
                 }
+
+                GameManager.instance.SetGameResult(GameResultType.Clear);
+                break;
+            case E_GameState.End:
+
+                //플레이어 체력 다 잃었을 경우
+                gameOverTime_Delay -= Time.deltaTime;
                 if (gameOverTime_Delay > 0)
                 {
                     return;
@@ -191,7 +191,7 @@ public class SpawnManager : MonoBehaviour
         //모두 생성 완료 됐다면 게임 종료
         if (CreatIDX >= L_CreateData.Count)
         {
-            SetGameState(E_GameState.End);
+            SetGameState(E_GameState.Result);
             return;
         }
 

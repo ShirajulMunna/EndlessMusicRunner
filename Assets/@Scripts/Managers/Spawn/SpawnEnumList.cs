@@ -10,5 +10,6 @@ public enum E_GameState
     Wait,
     Start,
     End,
-    GameOver
+    GameOver,
+    Result
 }

@@ -20,7 +20,7 @@ public class FlowingImage : MonoBehaviour
     void Update()
     {
         // 게임이 끝난다면 움직임 종료 
-        if (SpawnManager.instance.GetGameState() == E_GameState.End && speed >= 0.01f && SpawnManager.instance.isMakeClearObject)
+        if (SpawnManager.instance.GetGameState() == E_GameState.End && speed >= 0.01f)
         {
             speed = 0.0f;
         }
