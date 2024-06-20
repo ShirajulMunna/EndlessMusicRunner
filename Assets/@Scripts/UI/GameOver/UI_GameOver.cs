@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public enum E_GameOverState
@@ -222,6 +223,8 @@ public class UI_GameOver : MonoBehaviour
     {
         ScoreManager.instance.ResetCount();
         OFFGameobject();
-        SecenManager.LoadScene("MainGameScene");
+        //SecenManager.LoadScene("MainGameScene");
+        var scene = SceneManager.GetActiveScene();
+        SecenManager.LoadScene(scene.name);
     }
 }
