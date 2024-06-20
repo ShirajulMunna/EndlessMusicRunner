@@ -19,7 +19,7 @@ public class UI_Play : MonoBehaviour
 
     [Header("HP")]
     [SerializeField] Image Img_Hp;
-
+    [SerializeField] GameObject G_HP_BackGorund;
     [Header("Fever")]
     public Image Img_Fever;
     float DelayTime = 3;
@@ -65,8 +65,16 @@ public class UI_Play : MonoBehaviour
 
     public void SetHp(float max, float cur)
     {
-        Img_Hp.fillAmount = cur / max;
+        var per = cur / max;
+        Img_Hp.fillAmount = per;
+        SetHP_BackGround(per);
     }
+
+    void SetHP_BackGround(float per)
+    {
+        G_HP_BackGorund.SetActive(per <= 0.25f);
+    }
+
 
     public async void Btn_Pause()
     {
