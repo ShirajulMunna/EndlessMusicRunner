@@ -21,7 +21,7 @@ public class UI_Lobby : MonoBehaviour
     {
         if (T_Type == null)
             return;
-        T_Type.text = !Type ? "움직임" : "고정";
+        T_Type.text = !Type ? "Run" : "Vs";
         skinDropDown.value = ScrollValue;
         ChangePlayerUiGraphics();
     }
@@ -33,11 +33,11 @@ public class UI_Lobby : MonoBehaviour
 
         if (!Type)
         {
-            text = "움직임";
+            text = "Run";
         }
         else
         {
-            text = "고정";
+            text = "Vs";
         }
         T_Type.text = text;
     }
