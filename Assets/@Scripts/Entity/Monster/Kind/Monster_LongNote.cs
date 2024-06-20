@@ -31,7 +31,7 @@ public class Monster_LongNote : Monster
     public GameObject greatEffect;
 
     float SoundTime = 0f;
-    public float SoundTimeDuration = 0.25f;
+    public float SoundTimeDuration = 0.15f;
     protected override void Start()
     {
         if (Change)
@@ -150,7 +150,7 @@ public class Monster_LongNote : Monster
         {
             return;
         }
-        AudioManager.instance.LongNoteSound();
+                        AudioManager.instance.LongNoteSound();
         ScoreManager.instance.SetCombo_Add();
         ScoreManager.instance.SetScoreState(perfect); //롱노트 이펙트는 추가되지만 정확한 내용이 들어가 있지 않음
         //게임매니저에서 처음 충돌위치가져온상태
