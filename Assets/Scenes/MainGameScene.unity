@@ -4491,14 +4491,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2634369252569677922, guid: ebf406e66866c174fb3254da9cfb93ea, type: 3}
-      propertyPath: curHp
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 2634369252569677922, guid: ebf406e66866c174fb3254da9cfb93ea, type: 3}
-      propertyPath: maxHp
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 4823724451177025718, guid: ebf406e66866c174fb3254da9cfb93ea, type: 3}
       propertyPath: m_Mesh
       value: 

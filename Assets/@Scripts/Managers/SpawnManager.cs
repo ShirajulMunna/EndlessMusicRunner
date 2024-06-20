@@ -29,6 +29,10 @@ public class SpawnManager : MonoBehaviour
 
     //게임 오버 후 딜레이 시간
     float gameOverTime_Delay = 4.5f;
+
+    //게임 오버 후 딜레이 시간
+    float gameOverTime_Result = 2f;
+
     //몬스터 생성 오프셋 위치값
     const float MonsterOffSetX = 2.5f;
 
@@ -93,6 +97,14 @@ public class SpawnManager : MonoBehaviour
                 AudioManager.instance.PlayMusic();
                 break;
             case E_GameState.Result:
+                gameOverTime_Result -= Time.deltaTime;
+
+                if (gameOverTime_Result > 0)
+                {
+                    return;
+                }
+
+
                 Ac_EndGame?.Invoke();
                 e_GameState = E_GameState.End;
 
