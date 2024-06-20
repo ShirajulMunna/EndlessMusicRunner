@@ -1,4 +1,6 @@
 using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.Playables;
 
 public class Monster_Twin : Monster
 {
@@ -9,11 +11,20 @@ public class Monster_Twin : Monster
 
     const string Name = "Monster_{0}";
 
+    Vector3 playerPrevPosition;
+    private void Start()
+    {
+        Ac_Hit += SetPlayerMiddleAttack;
+    }
     protected override void Update()
     {
         base.Update();
     }
 
+    private void SetPlayerMiddleAttack()
+    {
+        player_State.SetDirectMoveIdx(E_MovePoint.Middle);
+    }
     protected override void SetAttack(bool check)
     {
         if (!check)
@@ -34,7 +45,10 @@ public class Monster_Twin : Monster
     {
         base.SetDie();
     }
-
+    private void OnDestroy()
+    {
+        player_State.SetDirectMoveIdx(E_MovePoint.Down);
+    }
     public override void SetHit(ScoreManager.E_ScoreState perfect)
     {
         base.SetHit(perfect);

@@ -167,7 +167,7 @@ public class Monster : Entity, IMonsterMove
             skeletonAnimation.SetAni_Monster(HitAnimationNames, true);
         }
         SetDieFlyDir();
-        Destroy(this.gameObject, 0.5f);
+        Destroy(this.gameObject, 0.3f);
     }
 
     //사망 시 위치 셋팅
