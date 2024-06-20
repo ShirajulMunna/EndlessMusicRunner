@@ -21,7 +21,7 @@ public class UI_Lobby : MonoBehaviour
     {
         if (T_Type == null)
             return;
-        T_Type.text = !Type ? "Run" : "Vs";
+        T_Type.text = !Type ? "RunMode" : "VsMode";
         skinDropDown.value = ScrollValue;
         ChangePlayerUiGraphics();
     }
@@ -33,11 +33,11 @@ public class UI_Lobby : MonoBehaviour
 
         if (!Type)
         {
-            text = "Run";
+            text = "RunMode";
         }
         else
         {
-            text = "Vs";
+            text = "VsMode";
         }
         T_Type.text = text;
     }
