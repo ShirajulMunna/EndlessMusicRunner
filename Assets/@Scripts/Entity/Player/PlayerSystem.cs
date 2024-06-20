@@ -88,7 +88,7 @@ public class PlayerSystem : Entity
     {
         base.SetFly();
         var result = GetAniName(E_AniType.Fly);
-        SetAni(result,result.Item1);
+        SetAni(result, result.Item1);
         SetParticle(E_PlayerSkill.Fly, 0);
     }
 
@@ -102,10 +102,10 @@ public class PlayerSystem : Entity
     {
         base.SetRunning();
         var result = ("", false);
-        if(SpawnManager.instance.GetStageInfo() >=1000)
+        if (SpawnManager.instance.GetStageInfo() >= 1000)
         {
             result = GetAniName(E_AniType.idle);
-            SetAni(result,result.Item1);
+            SetAni(result, result.Item1);
         }
         else
         {
@@ -121,6 +121,8 @@ public class PlayerSystem : Entity
         UI_Play.Instance.SetHp(MaxHp, CurHp);
         //공격 사운드 및 애니메이션 처리
         SetAni(GetAniName(E_AniType.Hit));
+
+        StartCoroutine(DamageEffect());
     }
 
     public override void UpdateIdle()
@@ -261,8 +263,8 @@ public class PlayerSystem : Entity
     //애니메이션 이름 가져오기
     public (string, bool) GetAniName(E_AniType state)
     {
-        return (L_AniStr[(int)state], state == E_AniType.Running || state == E_AniType.Fly 
-            || state == E_AniType.Die || state==E_AniType.idle);
+        return (L_AniStr[(int)state], state == E_AniType.Running || state == E_AniType.Fly
+            || state == E_AniType.Die || state == E_AniType.idle);
     }
     #endregion
 
@@ -323,6 +325,44 @@ public class PlayerSystem : Entity
         }
     }
 
+    #endregion
+
+    #region 캐릭터 스파인 투명도 변경
+    private float playerMaterialAlpha = 1f;
+    private IEnumerator DamageEffect()
+    {
+        while (true)
+        {
+            playerMaterialAlpha = 0.5f;
+            yield return StartCoroutine(LerpSpinAlpha());
+
+            playerMaterialAlpha = 1f;
+            yield return StartCoroutine(LerpSpinAlpha());
+
+            yield break;
+        }
+    }
+    private IEnumerator LerpSpinAlpha()
+    {
+        float startAlpha = playerMaterialAlpha;
+        float elapsedTime = 0f;
+        float duration = 0.5f;
+
+        while (elapsedTime < duration)
+        {
+            if (skeletonAnimation != null)
+            {
+                foreach (var slot in skeletonAnimation.Skeleton.Slots)
+                {
+                    var color = slot.GetColor();
+                    color.a = Mathf.Lerp(startAlpha, playerMaterialAlpha, elapsedTime / duration);
+                    slot.SetColor(color);
+                }
+            }
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+    }
     #endregion
     //그림
     private void OnDrawGizmos()

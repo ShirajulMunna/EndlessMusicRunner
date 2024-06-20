@@ -20,7 +20,6 @@ public class GameManager : MonoBehaviour
     public Vector3 GameResultPosition = new Vector3(10, -2, 0);
     void Awake()
     {
-        Application.targetFrameRate = 120; //120으로ㅓ 고정프레임
         if (instance != null)
         {
             Destroy(this.gameObject);
