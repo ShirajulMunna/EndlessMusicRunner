@@ -7,6 +7,7 @@ public class FerverTimeSystem : Skill
     const string SkyName = "FeverTime_Sky_{0}";
     const string BackName = "FeverTime_Back_{0}";
     public static ISkillClass _skillClass;
+    public static SkillData skillData;
 
     public static async void Create(SkillData st_Skill)
     {
@@ -31,6 +32,24 @@ public class FerverTimeSystem : Skill
         }
 
         return _skillClass.ActiveChecker.CheckActive() ? currentScore * 2 : currentScore;
+    }
+
+    float ActiveTime;
+    float CurremtTime;
+
+    public override void Setup(SkillData data, ISkillClass skillclass)
+    {
+        base.Setup(data, skillclass);
+        ActiveTime = data.Activetime;
+        CurremtTime = ActiveTime;
+        UI_Play.Instance.Ac_Update += SetGage;
+    }
+
+
+    void SetGage()
+    {
+        CurremtTime -= Time.deltaTime;
+        UI_Play.Instance.SetMinusFever(ActiveTime, CurremtTime);
     }
 
     private void OnDestroy()

@@ -25,9 +25,16 @@ public class UI_Play : MonoBehaviour
     float DelayTime = 3;
     public bool GameOver;
 
+    public System.Action Ac_Update;
+
     private void Awake()
     {
         Instance = this;
+    }
+
+    private void Update()
+    {
+        Ac_Update?.Invoke();
     }
 
     public void ActivatPanel(bool activate)
@@ -80,5 +87,16 @@ public class UI_Play : MonoBehaviour
     {
         var name = "UI_Pause";
         await name.CreateOBJ<UI_Pause>();
+    }
+
+    public void SetFever(int combo)
+    {
+        Img_Fever.fillAmount = (float)ScoreManager.instance.GetCurrentScore() / (float)combo;
+    }
+
+    public void SetMinusFever(float max, float cur)
+    {
+        cur -= Time.deltaTime;
+        Img_Fever.fillAmount = (float)cur / (float)max;
     }
 }

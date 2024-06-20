@@ -8,6 +8,8 @@ public interface ICoolTimeChecker
 
     float GetCurrentCoolTime();
     float GetMaxCoolTime();
+
+    void SetCoolTimeData();
 }
 
 
@@ -40,5 +42,10 @@ public class CoolTimeChecker : ICoolTimeChecker
     public void UpdateCoolTime()
     {
         CoolTime -= Time.deltaTime;
+    }
+
+    public void SetCoolTimeData()
+    {
+        SkillSystem.instance.SetCoolTime(UpdateCoolTime);
     }
 }

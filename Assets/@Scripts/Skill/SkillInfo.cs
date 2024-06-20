@@ -8,7 +8,7 @@ public static class SkillInfo
     const string ICONName = "SkillICON_{0}";
     static Dictionary<int, SkillData> D_SkillData = new Dictionary<int, SkillData>()
     {
-        {4, new SkillData(4,0,10,10,30,0,default,default,new St_AddFever(true),default)},
+        {4, new SkillData(4,0,10,10,10,0,default,default,new St_AddFever(true),default)},
         {1, new SkillData(1,1,0,10,10,0,default,new st_AddShield(true),default,default)},
         {2, new SkillData(2,1,0,1,5,0,default,default,default,new St_AddHeling(true,100))},
         {3, new SkillData(3,1,0,1,5,0,new St_AddScore(true, 1000),default,default,default)},
