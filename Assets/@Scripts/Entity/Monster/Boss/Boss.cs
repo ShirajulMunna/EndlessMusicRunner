@@ -38,6 +38,8 @@ public class Boss : Monster
     protected override void Update()
     {
         base.Update();
+
+        //보스 뒤로가게만듬
         if(SpawnManager.instance.GetGameState() == E_GameState.End)
         {
             transform.Translate(Vector2.right*Speed  * Time.deltaTime);
@@ -73,6 +75,8 @@ public class Boss : Monster
     public void SetAni(E_BossAttack boss)
     {
         var str = GetBossAni(boss);
+
+        //대게임모드일때와 아닐때 애니메이션 세팅
         if (SpawnManager.instance.GetStageInfo() >= 1000)
         { 
             skeletonAnimation.SetAni_Monster(str,default, L_Ani[(int)E_BossAttack.idle2]);
