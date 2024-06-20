@@ -112,15 +112,17 @@ public class SpawnManager : MonoBehaviour
                 {
                     CheckAllMonster();
                     GameManager.instance.SetGameResult(GameResultType.Failed);
+                    AudioManager.instance.PlayEffectSound("GameFail");
                     return;
                 }
 
                 if (ScoreManager.instance.IsPerfectState())
                 {
                     GameManager.instance.SetGameResult(GameResultType.Full_combo);
+                    AudioManager.instance.PlayEffectSound("Gameover_Score");
                     return;
                 }
-
+                AudioManager.instance.PlayEffectSound("Gameover_Score");
                 GameManager.instance.SetGameResult(GameResultType.Clear);
                 break;
             case E_GameState.End:
