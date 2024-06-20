@@ -55,6 +55,8 @@ public class IPlayer_Move : MonoBehaviour
         if (CurDownDelay <= 0)
         {
             CurDownDelay = MaxDownDelay;
+
+            //플레이어의 위치에 따라서 하늘 또는 하단에 고정
             if (player.transform.position.y > 0)
             {
                 MovePoint = E_MovePoint.Up;
@@ -63,6 +65,7 @@ public class IPlayer_Move : MonoBehaviour
             else
             {
                 MovePoint = E_MovePoint.Down;
+                player.SetState(E_Entity_State.Running);
             }
 
         }
