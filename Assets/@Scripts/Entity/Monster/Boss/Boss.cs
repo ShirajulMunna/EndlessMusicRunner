@@ -10,9 +10,10 @@ public class Boss : Monster
 
     [Space(10f)]
     [Header("보스 공격 관련ㅡㅡㅡㅡ")]
-    public List<string> L_Ani = new List<string>()
+    [SerializeField] List<string> L_Ani = new List<string>()
     {
         "idle",
+        "idle2",
         "Attack1",
         "Attack2",
         "Attack3",
@@ -64,6 +65,7 @@ public class Boss : Monster
             // 위치를 고정하고 SetMove를 더 이상 호출하지 않도록 설정
             transform.position = StartPos;
             hasReachedStartPos = true;
+            DoNotMoveGame();
         }
     }
 
@@ -90,5 +92,16 @@ public class Boss : Monster
     public Transform[] GetAttackPoint()
     {
         return Tr_CustomCreate;
+    }
+
+    //백그라운드 멈춰있을때 스테이지 정보가 1000이상이면 백그라운드 멈춰있는것으로 간주
+    public void DoNotMoveGame()
+    {
+        if (SpawnManager.instance.GetStageInfo() >= 1000)
+        {
+            var str = L_Ani[(int)E_BossAttack.idle2];
+            Debug.Log(str); 
+            skeletonAnimation.SetAni_Monster(str,true);
+        }
     }
 }

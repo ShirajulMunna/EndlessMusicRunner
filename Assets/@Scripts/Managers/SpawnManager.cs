@@ -287,4 +287,9 @@ public class SpawnManager : MonoBehaviour
             mon[i].gameObject.SetActive(false);
         }
     }
+
+    public int GetStageInfo()
+    {
+        return StageInfo;
+    }
 }

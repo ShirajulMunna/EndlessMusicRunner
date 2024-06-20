@@ -151,6 +151,7 @@ MonoBehaviour:
   uniqMonster: 0
   L_Ani:
   - idle
+  - idle2
   - Attack1
   - Attack2
   - Attack3
