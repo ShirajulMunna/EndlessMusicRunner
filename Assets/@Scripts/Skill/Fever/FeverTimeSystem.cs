@@ -6,19 +6,28 @@ public class FerverTimeSystem : Skill
     const string Name = "FeverTime_{0}";
     const string SkyName = "FeverTime_Sky_{0}";
     const string BackName = "FeverTime_Back_{0}";
+
     public static ISkillClass _skillClass;
     public static SkillData skillData;
+    public static bool isActive;
 
     public static async void Create(SkillData st_Skill)
     {
         _skillClass = SkillClass.CreateClass(_skillClass);
         //이름 만들기
         var name = string.Format(Name, st_Skill.Objnum);
+
+        if (!isActive)
+        {
+            UI_Play.Instance.SetFever(st_Skill.Combo);
+        }
+
         var result = await Skill.Create<FerverTimeSystem>(st_Skill, name, _skillClass);
         if (result == null)
         {
             return;
         }
+        isActive = true;
         GameManager.instance.player.SetParticle(E_PlayerSkill.Fever, st_Skill.Activetime);
         AudioManager.instance.PlayEffectSound("Fever_Time");
     }
@@ -43,6 +52,7 @@ public class FerverTimeSystem : Skill
         ActiveTime = data.Activetime;
         CurremtTime = ActiveTime;
         UI_Play.Instance.Ac_Update += SetGage;
+        UI_Play.Instance.Ac_Update += SetCoolGage;
     }
 
 
@@ -52,11 +62,34 @@ public class FerverTimeSystem : Skill
         UI_Play.Instance.SetMinusFever(ActiveTime, CurremtTime);
     }
 
+    public void SetCoolGage()
+    {
+        if (isActive)
+        {
+            UI_Play.Instance.SetFeverCoolTime(0);
+            return;
+        }
+
+        var per = _skillClass.CoolTimeChecker.GetCoolTimePer();
+        print(per);
+        UI_Play.Instance.SetFeverCoolTime(per);
+        if (per > 0)
+        {
+            return;
+        }
+        UI_Play.Instance.Ac_Update -= SetCoolGage;
+        UI_Play.Instance.SetFeverCoolTime(0);
+    }
+
     private void OnDestroy()
     {
         if (UI_Play.Instance == null)
+        {
             return;
-        UI_Play.Instance.Img_Fever.fillAmount = 0f;
+        }
+
+        isActive = false;
+        UI_Play.Instance.Ac_Update -= SetGage;
     }
 }
 

@@ -21,7 +21,8 @@ public class UI_Play : MonoBehaviour
     [SerializeField] Image Img_Hp;
     [SerializeField] GameObject G_HP_BackGorund;
     [Header("Fever")]
-    public Image Img_Fever;
+    [SerializeField] Image Img_Fever;
+    [SerializeField] Image Img_Fever_CoolTime;
     float DelayTime = 3;
     public bool GameOver;
 
@@ -91,12 +92,17 @@ public class UI_Play : MonoBehaviour
 
     public void SetFever(int combo)
     {
-        Img_Fever.fillAmount = (float)ScoreManager.instance.GetCurrentScore() / (float)combo;
+        Img_Fever.fillAmount = (float)ScoreManager.instance.GetCurrentombo() / (float)combo;
     }
 
     public void SetMinusFever(float max, float cur)
     {
         cur -= Time.deltaTime;
         Img_Fever.fillAmount = (float)cur / (float)max;
+    }
+
+    public void SetFeverCoolTime(float per)
+    {
+        Img_Fever_CoolTime.fillAmount = per;
     }
 }

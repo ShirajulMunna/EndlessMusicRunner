@@ -64,6 +64,12 @@ public class ScoreManager : MonoBehaviour
         return BestCombo;
     }
 
+    //최고 콤보 가져오기
+    public int GetCurrentombo()
+    {
+        return CurrentCombo;
+    }
+
     //콤보 추가
     public void SetCombo_Add()
     {

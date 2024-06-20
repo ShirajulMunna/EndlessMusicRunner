@@ -7,6 +7,6 @@ public class ComboChecker : IComboChecker
 {
     public bool CheckComboCondition(int combo)
     {
-        return ScoreManager._instance.CurrentCombo >= combo;
+        return ScoreManager._instance.GetCurrentombo() >= combo;
     }
 }

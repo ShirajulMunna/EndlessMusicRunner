@@ -7,10 +7,6 @@ public class Skill : MonoBehaviour
     //생성 코드
     public static async Task<T> Create<T>(SkillData sk, string key, ISkillClass skillclass) where T : Object
     {
-        if (skillclass.CoolTimeChecker.CheckCoolTime())
-        {
-            UI_Play.Instance.SetFever(sk.Combo);
-        }
         if (!skillclass.ComboChecker.CheckComboCondition(sk.Combo) || !skillclass.CoolTimeChecker.CheckCoolTime())
         {
             return null;
@@ -40,7 +36,7 @@ public class Skill : MonoBehaviour
         _SkillData = data;
         skillClass = skillclass;
         _activeTime = data.Activetime;
-        skillClass.CoolTimeChecker.SetCoolTime(data.Combo);
+        skillClass.CoolTimeChecker.SetCoolTime(data.Cooltime);
         skillClass.ActiveChecker.SetActive(true);
     }
 
