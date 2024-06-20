@@ -1,0 +1,13 @@
+Speaker.png
+	size: 505, 505
+	filter: Linear, Linear
+	pma: true
+1
+	bounds: 319, 179, 79, 115
+	offsets: 1, 1, 81, 117
+2
+	bounds: 319, 296, 127, 207
+	offsets: 1, 1, 129, 209
+3
+	bounds: 2, 2, 315, 501
+	offsets: 1, 1, 317, 503
