@@ -7,6 +7,10 @@ public class Skill : MonoBehaviour
     public static async Task<T> Create<T>(SkillData sk, string key, ISkillClass skillclass) where T : Object
     {
         skillclass.SetClass();
+        if(skillclass.CoolTimeChecker.CheckCoolTime())
+        {
+            UI_Play.Instance.Img_Fever.fillAmount = (float)ScoreManager.instance.CurrentCombo / (float)sk.Combo;
+        }
         if (!skillclass.ComboChecker.CheckComboCondition(sk.Combo) || !skillclass.CoolTimeChecker.CheckCoolTime())
         {
             return null;

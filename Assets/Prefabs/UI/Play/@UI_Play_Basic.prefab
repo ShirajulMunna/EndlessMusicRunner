@@ -854,9 +854,9 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
-  m_FillOrigin: 1
+  m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!1 &5878138506580264049
@@ -1226,6 +1226,7 @@ MonoBehaviour:
   scoreTxt: {fileID: 3759502843663463978}
   comboTxt: {fileID: 8295100676557159550}
   Img_Hp: {fileID: 5299545424577074140}
+  Img_Fever: {fileID: 2357808197555076078}
   GameOver: 0
 --- !u!1 &7112212536706347668
 GameObject:

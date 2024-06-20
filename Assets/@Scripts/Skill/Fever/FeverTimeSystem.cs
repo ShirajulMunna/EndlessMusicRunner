@@ -13,7 +13,6 @@ public class FerverTimeSystem : Skill
         _skillClass = SkillClass.CreateClass(_skillClass);
         //이름 만들기
         var name = string.Format(Name, st_Skill.Objnum);
-
         var result = await Skill.Create<FerverTimeSystem>(st_Skill, name, _skillClass);
         if (result == null)
         {
@@ -32,6 +31,11 @@ public class FerverTimeSystem : Skill
         }
 
         return _skillClass.ActiveChecker.CheckActive() ? currentScore * 2 : currentScore;
+    }
+
+    private void OnDestroy()
+    {
+        UI_Play.Instance.Img_Fever.fillAmount = 0f;
     }
 }
 

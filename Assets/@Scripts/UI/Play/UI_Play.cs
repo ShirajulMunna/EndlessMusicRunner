@@ -20,6 +20,8 @@ public class UI_Play : MonoBehaviour
     [Header("HP")]
     [SerializeField] Image Img_Hp;
 
+    [Header("Fever")]
+    public Image Img_Fever;
     float DelayTime = 3;
     public bool GameOver;
 

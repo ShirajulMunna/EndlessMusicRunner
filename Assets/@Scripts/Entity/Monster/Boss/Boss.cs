@@ -73,7 +73,15 @@ public class Boss : Monster
     public void SetAni(E_BossAttack boss)
     {
         var str = GetBossAni(boss);
-        skeletonAnimation.SetAni_Monster(str);
+        if (SpawnManager.instance.GetStageInfo() >= 1000)
+        { 
+            skeletonAnimation.SetAni_Monster(str,default, L_Ani[(int)E_BossAttack.idle2]);
+        }
+        else
+        {
+            skeletonAnimation.SetAni_Monster(str);
+        }
+
     }
 
     //애니메이션 딜레이 확인
