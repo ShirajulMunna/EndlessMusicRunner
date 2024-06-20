@@ -35,6 +35,8 @@ public class FerverTimeSystem : Skill
 
     private void OnDestroy()
     {
+        if (UI_Play.Instance == null)
+            return;
         UI_Play.Instance.Img_Fever.fillAmount = 0f;
     }
 }
