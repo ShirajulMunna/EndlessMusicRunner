@@ -29,16 +29,12 @@ public class IPlayer_Move : MonoBehaviour
         get => player.transform;
     }
 
-    public void SetMove(E_MovePoint point)
+    public E_MovePoint SetMove(E_MovePoint point)
     {
-        // 죽었을경우 파티클 세팅 못하게막기
-        if (player.GetAniType() == E_AniType.Die)
-        {
-            return;
-        }
         CurDownDelay -= Time.deltaTime;
         SetMovePoint(point);
         Move();
+        return MovePoint;
     }
 
     void SetMovePoint(E_MovePoint point)
@@ -53,21 +49,12 @@ public class IPlayer_Move : MonoBehaviour
     //움직임 함수
     void Move()
     {
-        //클리어시 플레이어 이동하는코드
-        if (IsClearMove())
-        {
-            return;
-        }
-        
         if (CurDownDelay <= 0)
         {
             CurDownDelay = MaxDownDelay;
             MovePoint = E_MovePoint.Down;
-            player.SetAni(player.GetAniName(E_AniType.Running));
-            player.SetParticle(E_PlayerSkill.Running, 0);
+            player.SetState(E_Entity_State.Running);
         }
-
-
 
         // 목표 위치 가져오기
         var targetPos = P_Attack.Tr_AttackVector[GetMoveIDX(MovePoint)];
@@ -107,36 +94,11 @@ public class IPlayer_Move : MonoBehaviour
         return (int)point;
     }
 
-    //플레이어 클리어시 이동 하는 함수 , 만약 플레이어가 죽으면 인동못하게 할예정
-    bool isClearPlaying = false;
+    //게임 종료 후 처리
     public bool IsClearMove()
     {
-        var isPlayerDie = player.CurHp <= 0;
-        if (isPlayerDie) 
-            return false;
-        var isGameEnd = SpawnManager.instance.GetGameState() == E_GameState.End || 
-            SpawnManager.instance.GetGameState() == E_GameState.GameOver;
-
-        if (isGameEnd)
-        {
-            var results = FindObjectsOfType<Spine_GameResult>();
-            if (results.Length > 0)
-            {
-                if(!isClearPlaying)
-                {
-                    isClearPlaying = true;
-                    //플레이어 위치 밑으로 고정하게 만드는 코드 조금 부자연스러움이 있음
-                    MovePoint = E_MovePoint.Down;
-                    player.transform.position = P_Attack.Tr_AttackVector[GetMoveIDX(MovePoint)];
-                    
-                    // 플레이어 이동외의 애니메이션과 파티클관려은 플레이어 시스템에서 처리하게만듬
-                    player.GameOverPlayerAction.Enqueue(player.ClearGame);
-                    player.GameOverPlayerAction.Enqueue(player.OffAllL_Particle);
-                }
-                Tr.transform.Translate(Vector3.right * Time.deltaTime * 15f);
-                return true;
-            }
-        }
-        return false;
+        player.OffAllL_Particle();
+        Tr.transform.Translate(Vector3.right * Time.deltaTime * 15f);
+        return SpawnManager.instance.GetGameState() == E_GameState.GameOver;
     }
 }

@@ -41,7 +41,7 @@ public class Monster_SendBack : MonoBehaviour
     }
 
 
-    IPlayer_State PlayerState
+    IPlayer_KeyPoint PlayerState
     {
         get => GameManager.instance.player.M_State;
     }

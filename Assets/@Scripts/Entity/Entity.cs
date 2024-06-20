@@ -1,14 +1,104 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using JetBrains.Annotations;
 using Spine.Unity;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
-public class Entity : MonoBehaviour, IEntity_Hp, IEntity_Spin
+
+public class Entity : MonoBehaviour, IEntity_Hp, IEntity_Spin, IEntity_State
 {
+    #region IEntytity_State
+    public E_Entity_State e_Entity_State { get; set; }
+
+    public virtual E_Entity_State GetState()
+    {
+        return e_Entity_State;
+    }
+
+    public virtual void SetState(E_Entity_State state)
+    {
+        switch (state)
+        {
+            case E_Entity_State.None:
+                break;
+            case E_Entity_State.Hit:
+                SetHit();
+                if (!CheckDie())
+                {
+                    break;
+                }
+                SetState(E_Entity_State.Die);
+                return;
+            case E_Entity_State.Running:
+                SetRunning();
+                break;
+            case E_Entity_State.Die:
+                SetDie();
+                break;
+            case E_Entity_State.Clear:
+                SetClear();
+                break;
+            case E_Entity_State.Fly:
+                SetFly();
+                break;
+        }
+
+        e_Entity_State = state;
+    }
+
+    public virtual void SetRunning()
+    {
+
+    }
+
+    public virtual void SetHit()
+    {
+
+    }
+
+    public virtual void SetFly()
+    {
+
+    }
+
+    public virtual void UpdateState()
+    {
+        UpdateAll();
+        switch (e_Entity_State)
+        {
+            case E_Entity_State.None:
+                break;
+            case E_Entity_State.Hit:
+            case E_Entity_State.Running:
+            case E_Entity_State.Fly:
+                UpdateIdle();
+                break;
+            case E_Entity_State.Die:
+                UpdateDie();
+                break;
+            case E_Entity_State.Clear:
+                UpdateClear();
+                break;
+        }
+    }
+
+    public virtual void UpdateAll()
+    {
+
+    }
+
+    public virtual void UpdateDie()
+    {
+
+    }
+    public virtual void UpdateClear()
+    {
+
+    }
+    public virtual void UpdateIdle()
+    {
+
+    }
+    #endregion
+
     #region IEntytiy_Hp
 
     [SerializeField] private int maxHp;
@@ -30,13 +120,6 @@ public class Entity : MonoBehaviour, IEntity_Hp, IEntity_Spin
 
         SetAddHp(value);
         SetMinusHp(value);
-
-        if (!CheckDie())
-        {
-            return;
-        }
-
-        SetDie();
     }
     //HP획득
     public void SetAddHp(int value)
@@ -54,6 +137,7 @@ public class Entity : MonoBehaviour, IEntity_Hp, IEntity_Spin
         {
             return;
         }
+        SetState(E_Entity_State.Hit);
     }
 
     //사망 체크
@@ -71,8 +155,12 @@ public class Entity : MonoBehaviour, IEntity_Hp, IEntity_Spin
             return;
         }
     }
-    #endregion
 
+    public virtual void SetClear()
+    {
+
+    }
+    #endregion
 
     #region IEntity_Spin
     [SerializeField] SkeletonAnimation _skeletonAnimation;

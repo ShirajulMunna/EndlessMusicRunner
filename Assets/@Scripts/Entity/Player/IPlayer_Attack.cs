@@ -10,7 +10,7 @@ public class IPlayer_Attack
         get => GameManager.instance.player;
     }
 
-    IPlayer_State State
+    IPlayer_KeyPoint State
     {
         get => GameManager.instance.player.M_State;
     }
@@ -37,69 +37,22 @@ public class IPlayer_Attack
     //공격 상태
     E_AttackState AttackState = E_AttackState.Attack_Re;
 
-
-    //현재 공격 횟수
-    int AttackCount = 0;
-    const int MaxAttackCount = 2;
-
-    //홀딩 딜레이
-    float HoldDelay;
-    const float MaxHoldDelay = 0.3f;
-
-
     //공격 함수
-    public void Attack(E_MovePoint point)
+    public E_AttackState Attack(E_MovePoint point)
     {
-        // 클리어했을경우 키를 막는 코드
-        if (Player.GetAniType() == E_AniType.Clear ||Player.GetAniType() == E_AniType.Die)
-        {
-            return;
-        }
-        HoldDelay -= Time.deltaTime;
         if (point == E_MovePoint.None)
         {
-            return;
+            return E_AttackState.None;
         }
 
         var check = CheckAttackState();
         if (!check)
         {
-            return;
+            return E_AttackState.None;
         }
-
-        var types = (E_PlayerSkill.Running, E_AniType.Kick, E_AniType.Tail_Attack, E_AniType.Hold_Attack);
-
-        switch (point)
-        {
-            case E_MovePoint.Up:
-                types = (E_PlayerSkill.Fly, E_AniType.Fly_Attack, E_AniType.Fire_Attack, E_AniType.Hold_Fly_Attack);
-                break;
-            case E_MovePoint.Down:
-            case E_MovePoint.Middle:
-                break;
-        }
-        SetAttackCount();
-        SetAni_Particle(types);
-        SetHold();
         AttackState = SetAttack(point);
-        return;
+        return AttackState;
     }
-
-
-    //홀드일 경우 처리
-    void SetHold()
-    {
-        if (!CheckHoldPoint())
-        {
-            return;
-        }
-
-        if (HoldDelay <= 0)
-        {
-            HoldDelay = MaxHoldDelay;
-        }
-    }
-
     //공격 함수
     E_AttackState SetAttack(E_MovePoint attackidx)
     {
@@ -155,28 +108,6 @@ public class IPlayer_Attack
         }
 
         return E_AttackState.None;
-    }
-
-    //상단 공격
-    void SetAni_Particle((E_PlayerSkill skill, E_AniType zero, E_AniType one, E_AniType hold) data)
-    {
-        if (HoldDelay <= 0)
-        {
-            var type = AttackCount == 0 ? data.zero : data.one;
-            var state = AttackState == E_AttackState.Hold ? data.hold : type;
-            Player.SetAni(Player.GetAniName(state));
-        }
-        Player.SetParticle(data.skill, 0);
-    }
-
-    //공격 횟수 수정
-    void SetAttackCount()
-    {
-        AttackCount++;
-        if (AttackCount >= MaxAttackCount)
-        {
-            AttackCount = 0;
-        }
     }
 
     //히트 판정
@@ -282,9 +213,8 @@ public class IPlayer_Attack
         {
             return E_AttackState.Attack_Re;
         }
-        Player.SetAni(("Twin_Attack", false));
         twinMonster.SetHit(perfect);
-        return E_AttackState.Attack;
+        return E_AttackState.Twin_Attack;
     }
 
 

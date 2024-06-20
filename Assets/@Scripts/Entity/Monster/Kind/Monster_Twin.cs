@@ -2,7 +2,7 @@ using Unity.VisualScripting;
 
 public class Monster_Twin : Monster
 {
-    IPlayer_State player_State
+    IPlayer_KeyPoint player_State
     {
         get => GameManager.instance.player.M_State;
     }
