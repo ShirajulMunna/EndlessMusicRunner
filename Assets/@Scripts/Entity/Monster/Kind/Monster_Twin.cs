@@ -11,10 +11,10 @@ public class Monster_Twin : Monster
 
     const string Name = "Monster_{0}";
 
-    Vector3 playerPrevPosition;
     private void Start()
     {
         Ac_Hit += SetPlayerMiddleAttack;
+        Ac_Die += PlayerAttackStateReset;
     }
     protected override void Update()
     {
@@ -23,7 +23,12 @@ public class Monster_Twin : Monster
 
     private void SetPlayerMiddleAttack()
     {
+        Debug.Log($"플레이어 포지션 : {player.transform.position}");
         player_State.SetDirectMoveIdx(E_MovePoint.Middle);
+    }
+    private void PlayerAttackStateReset()
+    {
+        player.M_Attack.Reset();
     }
     protected override void SetAttack(bool check)
     {
