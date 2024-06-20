@@ -13,6 +13,7 @@ public enum E_AniType
     Die,
     Hold_Fly_Attack,
     Clear, // 클리어 애니메이션추가
+    idle,
 }
 
 public enum E_AttackState

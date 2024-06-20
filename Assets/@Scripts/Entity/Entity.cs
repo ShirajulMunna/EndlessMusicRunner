@@ -39,6 +39,9 @@ public class Entity : MonoBehaviour, IEntity_Hp, IEntity_Spin, IEntity_State
             case E_Entity_State.Fly:
                 SetFly();
                 break;
+            case E_Entity_State.idle:
+                SetIdle();
+                break;
         }
 
         e_Entity_State = state;
@@ -55,6 +58,10 @@ public class Entity : MonoBehaviour, IEntity_Hp, IEntity_Spin, IEntity_State
     }
 
     public virtual void SetFly()
+    {
+
+    }
+    public virtual void SetIdle()
     {
 
     }
@@ -174,6 +181,10 @@ public class Entity : MonoBehaviour, IEntity_Hp, IEntity_Spin, IEntity_State
     public virtual void SetAni((string, bool) data)
     {
         skeletonAnimation.SetAni_Player(data.Item1, data.Item2);
+    }
+    public virtual void SetAni((string,bool)data ,string name)
+    {
+        skeletonAnimation.SetAni_Player(data.Item1, data.Item2,name);
     }
 
     public List<string> GetSpineAnimationNames(SkeletonAnimation skeletonAnimation)

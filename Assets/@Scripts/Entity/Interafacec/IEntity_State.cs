@@ -22,5 +22,6 @@ public enum E_Entity_State
     Running,
     Die,
     Clear,
-    Fly
+    Fly,
+    idle,
 }

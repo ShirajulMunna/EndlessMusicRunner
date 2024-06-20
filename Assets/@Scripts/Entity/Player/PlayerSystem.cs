@@ -45,6 +45,7 @@ public class PlayerSystem : Entity
         "retire",
         "fly_biting",
         "Clear_2",// 클리어 애니메이션추가
+        "idle",
     };
 
     private void Awake()
@@ -77,6 +78,12 @@ public class PlayerSystem : Entity
 
 
     #region 상태처리
+    public override void SetIdle()
+    {
+        base.SetIdle();
+        var result = GetAniName(E_AniType.idle);
+        SetAni(result);
+    }
     public override void SetFly()
     {
         base.SetFly();
@@ -94,9 +101,18 @@ public class PlayerSystem : Entity
     public override void SetRunning()
     {
         base.SetRunning();
-        var result = GetAniName(E_AniType.Running);
-        SetAni(result);
-        SetParticle(E_PlayerSkill.Running, 0);
+        var result = ("", false);
+        if(SpawnManager.instance.GetStageInfo() >=1000)
+        {
+            result = GetAniName(E_AniType.idle);
+            SetAni(result,result.Item1);
+        }
+        else
+        {
+            result = GetAniName(E_AniType.Running);
+            SetParticle(E_PlayerSkill.Running, 0);
+            SetAni(result);
+        }
     }
 
     public override void SetHit()
@@ -245,7 +261,8 @@ public class PlayerSystem : Entity
     //애니메이션 이름 가져오기
     public (string, bool) GetAniName(E_AniType state)
     {
-        return (L_AniStr[(int)state], state == E_AniType.Running || state == E_AniType.Fly || state == E_AniType.Die);
+        return (L_AniStr[(int)state], state == E_AniType.Running || state == E_AniType.Fly 
+            || state == E_AniType.Die || state==E_AniType.idle);
     }
     #endregion
 
