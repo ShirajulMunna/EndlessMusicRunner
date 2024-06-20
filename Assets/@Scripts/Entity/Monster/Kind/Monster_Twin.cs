@@ -11,7 +11,7 @@ public class Monster_Twin : Monster
 
     const string Name = "Monster_{0}";
 
-    private void Start()
+    protected override void Start()
     {
         Ac_Hit += SetPlayerMiddleAttack;
         Ac_Die += PlayerAttackStateReset;

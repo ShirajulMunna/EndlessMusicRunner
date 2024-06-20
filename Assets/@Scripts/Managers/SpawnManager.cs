@@ -97,7 +97,11 @@ public class SpawnManager : MonoBehaviour
                 AudioManager.instance.PlayMusic();
                 break;
             case E_GameState.Result:
-                gameOverTime_Result -= Time.deltaTime;
+                if (GameManager.instance.player.CurHp <= 0 && gameOverTime_Result >=2.0f)
+                { 
+                    CheckAllMonster(); 
+                }
+                 gameOverTime_Result -= Time.deltaTime;
 
                 if (gameOverTime_Result > 0)
                 {
@@ -110,7 +114,6 @@ public class SpawnManager : MonoBehaviour
 
                 if (GameManager.instance.player.CurHp <= 0)
                 {
-                    CheckAllMonster();
                     GameManager.instance.SetGameResult(GameResultType.Failed);
                     AudioManager.instance.PlayEffectSound("GameFail");
                     return;

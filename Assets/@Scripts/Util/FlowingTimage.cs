@@ -24,6 +24,8 @@ public class FlowingImage : MonoBehaviour
         {
             speed = 0.0f;
         }
+        else if (GameManager.instance.player.CurHp <= 0)
+            speed = 0.0f;
         if (material != null)
         {
             material.SetFloat("_Speed", speed);
