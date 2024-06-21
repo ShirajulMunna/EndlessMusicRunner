@@ -6,6 +6,7 @@ public enum E_AniType
     Fly,
     Kick,
     Tail_Attack,
+    Fist_attack,
     Fire_Attack,
     Hold_Attack,
     Hit,

@@ -25,7 +25,7 @@ public class PlayerSystem : Entity
 
     //현재 공격 횟수(애니메이션용)
     int AttackCount = 0;
-    const int MaxAttackCount = 2;
+    const int MaxAttackCount = 3;
 
     //애니메이션 변경 딜레이
     float noneChange;
@@ -38,6 +38,7 @@ public class PlayerSystem : Entity
         "fly",
         "Kick",
         "tail attack",
+        "fist attack",
         "fire attack",
         "biting attack",
         "Hit",
@@ -213,7 +214,7 @@ public class PlayerSystem : Entity
         switch (e_AttackState)
         {
             case E_AttackState.Attack:
-                var state = keypoint == E_MovePoint.Down ? GetAttackAniState(E_AniType.Kick, E_AniType.Tail_Attack) : GetAttackAniState(E_AniType.Fly_Attack, E_AniType.Fire_Attack);
+                var state = keypoint == E_MovePoint.Down ? GetAttackAniState(E_AniType.Kick, E_AniType.Tail_Attack,E_AniType.Fist_attack) : GetAttackAniState(E_AniType.Fly_Attack, E_AniType.Fire_Attack);
                 SetAni(GetAniName(state));
                 return;
             case E_AttackState.Hold:
@@ -250,6 +251,13 @@ public class PlayerSystem : Entity
     {
         var state = AttackCount == 0 ? zero : one;
         return state;
+    }
+    //하단 공격 모션 추가로 함수 오버로딩
+    E_AniType GetAttackAniState(E_AniType zero, E_AniType one , E_AniType two)
+    {
+        if(AttackCount == 1) return one;
+        if(AttackCount == 2) return two;
+        return zero;
     }
 
     //공격 횟수 수정
