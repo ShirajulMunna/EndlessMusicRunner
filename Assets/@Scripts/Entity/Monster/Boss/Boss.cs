@@ -43,20 +43,11 @@ public class Boss : Monster
         //보스 뒤로가게만듬
         if(SpawnManager.instance.GetGameState() == E_GameState.End)
         {
-            if (SpawnManager.instance.GetStageInfo() >= 1000 && !isBossDie)
+            if (!isBossDie)
             {
                 isBossDie = true;   
                 SetAni(E_BossAttack.Die);
                 Destroy(gameObject, 1f);
-            }
-            else if(SpawnManager.instance.GetStageInfo() < 1000)
-            {
-                transform.Translate(Vector2.right * Speed * Time.deltaTime);
-                if (!isDestorySetting)
-                {
-                    isDestorySetting = true;
-                    Destroy(gameObject, 5f);
-                }
             }
         }
     }
