@@ -30,6 +30,7 @@ public class Boss : Monster
     bool hasReachedStartPos = false;
     bool isDestorySetting = false;
 
+    bool isBossDie = false; 
     private void Awake()
     {
         instance = this;
@@ -42,11 +43,20 @@ public class Boss : Monster
         //보스 뒤로가게만듬
         if(SpawnManager.instance.GetGameState() == E_GameState.End)
         {
-            transform.Translate(Vector2.right*Speed  * Time.deltaTime);
-            if(!isDestorySetting)
+            if (SpawnManager.instance.GetStageInfo() >= 1000 && !isBossDie)
             {
-                isDestorySetting = true;
-                Destroy(gameObject, 5f);
+                isBossDie = true;   
+                SetAni(E_BossAttack.Die);
+                Destroy(gameObject, 1f);
+            }
+            else if(SpawnManager.instance.GetStageInfo() < 1000)
+            {
+                transform.Translate(Vector2.right * Speed * Time.deltaTime);
+                if (!isDestorySetting)
+                {
+                    isDestorySetting = true;
+                    Destroy(gameObject, 5f);
+                }
             }
         }
     }
@@ -85,9 +95,7 @@ public class Boss : Monster
         {
             skeletonAnimation.SetAni_Monster(str);
         }
-
     }
-
     //애니메이션 딜레이 확인
     public float GetAniDelay(E_BossAttack boss)
     {
