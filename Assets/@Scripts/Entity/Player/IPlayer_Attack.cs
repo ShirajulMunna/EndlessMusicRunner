@@ -64,6 +64,11 @@ public class IPlayer_Attack
         //허공에 공격   
         if (col == null)
         {
+            //바닥에선 공격가능하게 만듬
+            if(attackidx == E_MovePoint.Down) 
+            {
+                return E_AttackState.Attack;
+            }
             return E_AttackState.None;
         }
 

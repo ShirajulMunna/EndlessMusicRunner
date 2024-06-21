@@ -210,12 +210,11 @@ public class PlayerSystem : Entity
             noneChange = MaxnoneChange;
             SetAttackCount();
         }
-
         switch (e_AttackState)
         {
             case E_AttackState.Attack:
                 OffAllL_Particle();
-                var state = keypoint == E_MovePoint.Down ? GetAttackAniState(E_AniType.Kick, E_AniType.Tail_Attack) : GetAttackAniState(E_AniType.Fly_Attack, E_AniType.Fire_Attack);
+                var state = keypoint == E_MovePoint.Down ? GetAttackAniState(E_AniType.Kick, E_AniType.Tail_Attack,E_AniType.Fist_attack) : GetAttackAniState(E_AniType.Fly_Attack, E_AniType.Fire_Attack);
                 SetAni(GetAniName(state));
                 return;
             case E_AttackState.Hold:
