@@ -6,5 +6,6 @@ public enum E_BossAttack
     HighAttack,
     LowAttack,
     Hit,
-    Die
+    Die,
+    Start,
 }

@@ -10,7 +10,7 @@ public class Boss : Monster
 
     [Space(10f)]
     [Header("보스 공격 관련ㅡㅡㅡㅡ")]
-    [SerializeField] List<string> L_Ani = new List<string>()
+    List<string> L_Ani = new List<string>()
     {
         "idle",
         "idle2",
@@ -19,6 +19,7 @@ public class Boss : Monster
         "Attack3",
         "Hit",
         "retire",
+        "Start"
     };
 
     [Header("보스 커스텀 공격 위치")]
@@ -110,8 +111,8 @@ public class Boss : Monster
     {
         if (SpawnManager.instance.GetStageInfo() >= 1000)
         {
-            var str = L_Ani[(int)E_BossAttack.idle2];
-            skeletonAnimation.SetAni_Monster(str,true);
+            var str = L_Ani[(int)E_BossAttack.Start];
+            skeletonAnimation.SetAni_Monster(str,false, L_Ani[(int)E_BossAttack.idle2]);
         }
     }
 }
