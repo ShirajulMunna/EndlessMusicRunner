@@ -215,7 +215,12 @@ public class SpawnManager : MonoBehaviour
         while (currentTime >= nextSpawnTime)
         {
             nextSpawnTime += beatInterval;
-
+            //bpm에 맞춰서 생성이 스폰 카운트랑 매칭이안되는 경우 검사 추가
+            if (LevelIDX >= level.Count)
+            {
+                SetGameState(E_GameState.Result);
+                break;
+            }
             //생성 갯수확인
             var cratecount = level[LevelIDX].MonsterSpwanCount;
             for (int i = 0; i < cratecount; i++)
@@ -229,6 +234,7 @@ public class SpawnManager : MonoBehaviour
                 CreatIDX++;
             }
             LevelIDX++;
+
         }
     }
 
