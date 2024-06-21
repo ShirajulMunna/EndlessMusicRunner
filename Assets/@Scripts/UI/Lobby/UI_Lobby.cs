@@ -21,8 +21,8 @@ public class UI_Lobby : MonoBehaviour
     {
         if (T_Type == null)
             return;
-        T_Type.text = !Type ? "RunMode" : "VsMode";
-        skinDropDown.value = ScrollValue;
+        T_Type.text = !Type ? "VsMode" : "RunMode";
+        skinDropDown.value = ScrollValue; 
         ChangePlayerUiGraphics();
     }
 
@@ -33,11 +33,11 @@ public class UI_Lobby : MonoBehaviour
 
         if (!Type)
         {
-            text = "RunMode";
+            text = "VsMode"; 
         }
         else
         {
-            text = "VsMode";
+            text = "RunMode";
         }
         T_Type.text = text;
     }
@@ -64,7 +64,7 @@ public class UI_Lobby : MonoBehaviour
 
     public void Btn_Play()
     {
-        var mode = !Type ? "MainGameScene" : "NotMoveBackGroundScene";
+        var mode = !Type ? "NotMoveBackGroundScene" : "MainGameScene";
         SecenManager.LoadScene(mode);
     }
 
