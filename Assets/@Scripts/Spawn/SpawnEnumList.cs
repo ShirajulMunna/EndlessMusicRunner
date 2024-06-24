@@ -8,7 +8,7 @@ public enum E_SpawnPoint
 public enum E_GameState
 {
     Wait,
-    Start,
+    Play,
     End,
     GameOver,
     Result

@@ -31,7 +31,7 @@ public class Boss : Monster
     bool hasReachedStartPos = false;
     bool isDestorySetting = false;
 
-    bool isBossDie = false; 
+    bool isBossDie = false;
     private void Awake()
     {
         instance = this;
@@ -42,11 +42,11 @@ public class Boss : Monster
         base.Update();
 
         //보스 뒤로가게만듬
-        if(SpawnManager.instance.GetGameState() == E_GameState.End)
+        if (SpawnManager.instance.GetGameState() == E_GameState.Result)
         {
             if (!isBossDie)
             {
-                isBossDie = true;   
+                isBossDie = true;
                 SetAni(E_BossAttack.Die);
                 Destroy(gameObject, 1f);
             }
@@ -79,9 +79,9 @@ public class Boss : Monster
         var str = GetBossAni(boss);
 
         //대게임모드일때와 아닐때 애니메이션 세팅
-        if (SpawnManager.instance.GetStageInfo() >= 1000)
-        { 
-            skeletonAnimation.SetAni_Monster(str,default, L_Ani[(int)E_BossAttack.idle2]);
+        if (SpawnStage.instance.GetStageInfo() >= 1000)
+        {
+            skeletonAnimation.SetAni_Monster(str, default, L_Ani[(int)E_BossAttack.idle2]);
         }
         else
         {
@@ -109,10 +109,10 @@ public class Boss : Monster
     //백그라운드 멈춰있을때 스테이지 정보가 1000이상이면 백그라운드 멈춰있는것으로 간주
     public void DoNotMoveGame()
     {
-        if (SpawnManager.instance.GetStageInfo() >= 1000)
+        if (SpawnStage.instance.GetStageInfo() >= 1000)
         {
             var str = L_Ani[(int)E_BossAttack.Start];
-            skeletonAnimation.SetAni_Monster(str,false, L_Ani[(int)E_BossAttack.idle2]);
+            skeletonAnimation.SetAni_Monster(str, false, L_Ani[(int)E_BossAttack.idle2]);
         }
     }
 }

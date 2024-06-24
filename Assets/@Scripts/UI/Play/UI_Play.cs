@@ -49,7 +49,7 @@ public class UI_Play : MonoBehaviour
     {
         yield return new WaitForSeconds(DelayTime);
         Key_Explain.SetActive(false);
-        SpawnManager.instance.StartSpawningObjects();
+        SpawnManager.instance.PlayGame();
     }
 
     //스코어 셋팅    

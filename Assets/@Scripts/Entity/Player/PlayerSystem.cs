@@ -73,7 +73,7 @@ public class PlayerSystem : Entity
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            SpawnManager.instance.SetGameState(E_GameState.Result);
+            SpawnManager.instance.SetState(E_GameState.End);
         }
     }
 
@@ -103,7 +103,7 @@ public class PlayerSystem : Entity
     {
         base.SetRunning();
         var result = ("", false);
-        if (SpawnManager.instance.GetStageInfo() >= 1000)
+        if (SpawnStage.instance.GetStageInfo() >= 1000)
         {
             result = GetAniName(E_AniType.idle);
             SetAni(result, result.Item1);
@@ -196,7 +196,7 @@ public class PlayerSystem : Entity
         M_Move.DirectMove(E_MovePoint.Down);
         OffAllL_Particle();
         AudioManager.instance.StopMusic();
-        SpawnManager.instance.SetGameState(E_GameState.Result);
+        SpawnManager.instance.SetState(E_GameState.End);
     }
     #endregion
 
@@ -214,7 +214,7 @@ public class PlayerSystem : Entity
         {
             case E_AttackState.Attack:
                 OffAllL_Particle();
-                var state = keypoint == E_MovePoint.Down ? GetAttackAniState(E_AniType.Kick, E_AniType.Tail_Attack,E_AniType.Fist_attack) : GetAttackAniState(E_AniType.Fly_Attack, E_AniType.Fire_Attack);
+                var state = keypoint == E_MovePoint.Down ? GetAttackAniState(E_AniType.Kick, E_AniType.Tail_Attack, E_AniType.Fist_attack) : GetAttackAniState(E_AniType.Fly_Attack, E_AniType.Fire_Attack);
                 SetAni(GetAniName(state));
                 return;
             case E_AttackState.Hold:
@@ -253,10 +253,10 @@ public class PlayerSystem : Entity
         return state;
     }
     //하단 공격 모션 추가로 함수 오버로딩
-    E_AniType GetAttackAniState(E_AniType zero, E_AniType one , E_AniType two)
+    E_AniType GetAttackAniState(E_AniType zero, E_AniType one, E_AniType two)
     {
-        if(AttackCount == 1) return one;
-        if(AttackCount == 2) return two;
+        if (AttackCount == 1) return one;
+        if (AttackCount == 2) return two;
         return zero;
     }
 
