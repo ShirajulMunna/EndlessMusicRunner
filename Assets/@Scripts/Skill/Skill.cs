@@ -3,16 +3,16 @@ using UnityEngine;
 
 public class Skill : MonoBehaviour
 {
+
     //생성 코드
     public static async Task<T> Create<T>(SkillData sk, string key, ISkillClass skillclass) where T : Object
     {
-        skillclass.SetClass();
         if (!skillclass.ComboChecker.CheckComboCondition(sk.Combo) || !skillclass.CoolTimeChecker.CheckCoolTime())
         {
             return null;
         }
         var result = await key.CreateOBJ<Skill>();
-        result.Setup(sk.Activetime, sk.Cooltime, skillclass);
+        result.Setup(sk, skillclass);
         SkillSystem.instance.SetSkillICONCoolTime(sk.SkillID, skillclass);
         return result.GetComponent<T>();
     }
@@ -20,6 +20,7 @@ public class Skill : MonoBehaviour
     private float _activeTime;
 
     protected ISkillClass skillClass;
+    protected SkillData _SkillData;
 
     protected virtual void Update()
     {
@@ -30,11 +31,12 @@ public class Skill : MonoBehaviour
     }
 
     //셋팅 함수
-    public virtual void Setup(float activetime, float cooltime, ISkillClass skillclass)
+    public virtual void Setup(SkillData data, ISkillClass skillclass)
     {
+        _SkillData = data;
         skillClass = skillclass;
-        _activeTime = activetime;
-        skillClass.CoolTimeChecker.SetCoolTime(cooltime);
+        _activeTime = data.Activetime;
+        skillClass.CoolTimeChecker.SetCoolTime(data.Cooltime);
         skillClass.ActiveChecker.SetActive(true);
     }
 
@@ -53,6 +55,5 @@ public class Skill : MonoBehaviour
     private void OnDestroy()
     {
         skillClass.ActiveChecker.SetActive(false);
-        print("오프");
     }
 }

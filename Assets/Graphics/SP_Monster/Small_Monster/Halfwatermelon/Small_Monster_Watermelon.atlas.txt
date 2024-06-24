@@ -1,0 +1,23 @@
+Small_Monster_Watermelon.png
+	size: 598, 598
+	filter: Linear, Linear
+	pma: true
+	scale: 0.5
+skin0/Watermelon
+	bounds: 2, 449, 263, 147
+skin1/Watermelon
+	bounds: 2, 300, 263, 147
+skin2/Watermelon
+	bounds: 267, 449, 263, 147
+skin3/Watermelon
+	bounds: 2, 151, 263, 147
+skin4/Watermelon
+	bounds: 267, 151, 260, 147
+	offsets: 3, 0, 263, 147
+skin5/Watermelon
+	bounds: 267, 300, 263, 147
+skin6/Watermelon
+	bounds: 2, 2, 263, 147
+skin7/Watermelon
+	bounds: 267, 4, 260, 145
+	offsets: 3, 0, 263, 147

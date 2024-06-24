@@ -1,0 +1,348 @@
+Medium_Monster_Hotdog.png
+	size: 3411, 3411
+	filter: Linear, Linear
+	pma: true
+skin0/Group
+	bounds: 3275, 3033, 132, 376
+	offsets: 0, 1, 132, 384
+skin1/Group
+	bounds: 3275, 3033, 132, 376
+	offsets: 0, 1, 132, 384
+skin2/Group
+	bounds: 3275, 3033, 132, 376
+	offsets: 0, 1, 132, 384
+skin3/Group
+	bounds: 3275, 3033, 132, 376
+	offsets: 0, 1, 132, 384
+skin5/Group
+	bounds: 3275, 3033, 132, 376
+	offsets: 0, 1, 132, 384
+skin0/LD_vegetable
+	bounds: 937, 825, 255, 313
+skin0/LU_vegetable
+	bounds: 3148, 1355, 252, 287
+skin0/L_bread
+	bounds: 1403, 2756, 466, 653
+	offsets: 0, 0, 466, 656
+skin0/L_eye
+	bounds: 2415, 202, 149, 182
+	offsets: 3, 0, 155, 182
+skin0/L_foot
+	bounds: 3275, 2841, 190, 122
+	offsets: 1, 0, 191, 122
+	rotate: 90
+skin1/L_foot
+	bounds: 3275, 2841, 190, 122
+	offsets: 1, 0, 191, 122
+	rotate: 90
+skin2/L_foot
+	bounds: 3275, 2841, 190, 122
+	offsets: 1, 0, 191, 122
+	rotate: 90
+skin3/L_foot
+	bounds: 3275, 2841, 190, 122
+	offsets: 1, 0, 191, 122
+	rotate: 90
+skin5/L_foot
+	bounds: 3275, 2841, 190, 122
+	offsets: 1, 0, 191, 122
+	rotate: 90
+skin0/Layer 1
+	bounds: 1426, 250, 267, 258
+skin1/Layer 1
+	bounds: 1426, 250, 267, 258
+skin2/Layer 1
+	bounds: 1426, 250, 267, 258
+skin3/Layer 1
+	bounds: 1426, 250, 267, 258
+skin4/Layer 1
+	bounds: 1426, 250, 267, 258
+skin5/Layer 1
+	bounds: 1426, 250, 267, 258
+skin6/Layer 1
+	bounds: 1426, 250, 267, 258
+skin7/Layer 1
+	bounds: 1426, 250, 267, 258
+skin0/RD_vegetable
+	bounds: 1369, 42, 206, 295
+	rotate: 90
+skin0/RU_vegetable
+	bounds: 2000, 626, 230, 268
+skin0/R_bread
+	bounds: 2, 2743, 465, 666
+skin0/R_eye
+	bounds: 2069, 442, 155, 182
+skin0/R_foot
+	bounds: 864, 194, 188, 200
+skin1/R_foot
+	bounds: 864, 194, 188, 200
+skin2/R_foot
+	bounds: 864, 194, 188, 200
+skin3/R_foot
+	bounds: 864, 194, 188, 200
+skin5/R_foot
+	bounds: 864, 194, 188, 200
+skin0/R_hand
+	bounds: 3148, 1644, 354, 204
+	rotate: 90
+skin1/R_hand
+	bounds: 3148, 1644, 354, 204
+	rotate: 90
+skin2/R_hand
+	bounds: 3148, 1644, 354, 204
+	rotate: 90
+skin3/R_hand
+	bounds: 3148, 1644, 354, 204
+	rotate: 90
+skin5/R_hand
+	bounds: 3148, 1644, 354, 204
+	rotate: 90
+skin0/eye_x
+	bounds: 470, 459, 392, 291
+skin1/eye_x
+	bounds: 470, 459, 392, 291
+skin2/eye_x
+	bounds: 470, 459, 392, 291
+skin3/eye_x
+	bounds: 470, 459, 392, 291
+skin5/eye_x
+	bounds: 470, 459, 392, 291
+skin0/eye_xx
+	bounds: 2620, 386, 250, 230
+skin1/eye_xx
+	bounds: 2620, 386, 250, 230
+skin2/eye_xx
+	bounds: 2620, 386, 250, 230
+skin3/eye_xx
+	bounds: 2620, 386, 250, 230
+skin5/eye_xx
+	bounds: 2620, 386, 250, 230
+skin0/mouth
+	bounds: 470, 24, 140, 269
+	rotate: 90
+skin1/mouth
+	bounds: 470, 24, 140, 269
+	rotate: 90
+skin2/mouth
+	bounds: 470, 24, 140, 269
+	rotate: 90
+skin3/mouth
+	bounds: 470, 24, 140, 269
+	rotate: 90
+skin5/mouth
+	bounds: 470, 24, 140, 269
+	rotate: 90
+skin0/sausage
+	bounds: 1404, 2099, 434, 655
+skin1/LD_vegetable
+	bounds: 1194, 825, 255, 313
+skin1/LU_vegetable
+	bounds: 1331, 1144, 252, 287
+skin1/L_bread
+	bounds: 1871, 2756, 466, 653
+	offsets: 0, 0, 466, 656
+skin1/L_eye
+	bounds: 2566, 202, 149, 182
+	offsets: 3, 0, 155, 182
+skin3/L_eye
+	bounds: 2566, 202, 149, 182
+	offsets: 3, 0, 155, 182
+skin1/RD_vegetable
+	bounds: 1451, 847, 206, 295
+skin1/RU_vegetable
+	bounds: 2374, 618, 230, 268
+skin1/R_bread
+	bounds: 2, 2075, 465, 666
+skin1/R_eye
+	bounds: 2069, 256, 153, 184
+skin2/R_eye
+	bounds: 2069, 256, 153, 184
+skin3/R_eye
+	bounds: 2069, 256, 153, 184
+skin5/R_eye
+	bounds: 2069, 256, 153, 184
+skin1/sausage
+	bounds: 1404, 1442, 434, 655
+skin2/LD_vegetable
+	bounds: 1070, 510, 255, 313
+skin2/LU_vegetable
+	bounds: 2530, 1188, 252, 287
+	rotate: 90
+skin2/L_bread
+	bounds: 2339, 2756, 466, 653
+	offsets: 0, 0, 466, 656
+skin2/L_eye
+	bounds: 2717, 202, 149, 182
+	offsets: 3, 0, 155, 182
+skin5/L_eye
+	bounds: 2717, 202, 149, 182
+	offsets: 3, 0, 155, 182
+skin2/RD_vegetable
+	bounds: 3108, 1147, 206, 295
+	rotate: 90
+skin2/RU_vegetable
+	bounds: 1837, 329, 230, 268
+skin2/R_bread
+	bounds: 469, 2743, 465, 666
+skin2/sausage
+	bounds: 1840, 2099, 434, 655
+skin3/LD_vegetable
+	bounds: 1327, 510, 255, 313
+skin3/LU_vegetable
+	bounds: 2819, 1188, 252, 287
+	rotate: 90
+skin3/L_bread
+	bounds: 2807, 2756, 466, 653
+	offsets: 0, 0, 466, 656
+skin3/RD_vegetable
+	bounds: 2421, 888, 206, 295
+skin3/RU_vegetable
+	bounds: 3091, 707, 230, 268
+	rotate: 90
+skin3/R_bread
+	bounds: 2, 1407, 465, 666
+skin3/sausage
+	bounds: 1840, 1442, 434, 655
+skin4/Group
+	bounds: 3148, 2378, 132, 376
+	offsets: 0, 1, 132, 384
+skin7/Group
+	bounds: 3148, 2378, 132, 376
+	offsets: 0, 1, 132, 384
+skin4/LD_vegetable
+	bounds: 1054, 47, 255, 313
+	rotate: 90
+skin4/LU_vegetable
+	bounds: 1659, 896, 252, 287
+skin4/L_bread
+	bounds: 936, 2088, 466, 653
+	offsets: 0, 0, 466, 656
+skin4/L_eye
+	bounds: 2868, 218, 149, 182
+	offsets: 3, 0, 155, 182
+	rotate: 90
+skin7/L_eye
+	bounds: 2868, 218, 149, 182
+	offsets: 3, 0, 155, 182
+	rotate: 90
+skin4/L_foot
+	bounds: 2226, 433, 190, 122
+	offsets: 1, 0, 191, 122
+	rotate: 90
+skin7/L_foot
+	bounds: 2226, 433, 190, 122
+	offsets: 1, 0, 191, 122
+	rotate: 90
+skin4/RD_vegetable
+	bounds: 2883, 891, 206, 295
+skin4/RU_vegetable
+	bounds: 2350, 386, 230, 268
+	rotate: 90
+skin4/R_bread
+	bounds: 469, 2075, 465, 666
+skin4/R_eye
+	bounds: 2039, 101, 153, 184
+	rotate: 90
+skin7/R_eye
+	bounds: 2039, 101, 153, 184
+	rotate: 90
+skin4/R_foot
+	bounds: 1837, 139, 188, 200
+	rotate: 90
+skin7/R_foot
+	bounds: 1837, 139, 188, 200
+	rotate: 90
+skin4/R_hand
+	bounds: 864, 396, 354, 204
+	rotate: 90
+skin7/R_hand
+	bounds: 864, 396, 354, 204
+	rotate: 90
+skin4/eye_x
+	bounds: 470, 166, 392, 291
+skin7/eye_x
+	bounds: 470, 166, 392, 291
+skin4/eye_xx
+	bounds: 2872, 369, 250, 230
+	rotate: 90
+skin7/eye_xx
+	bounds: 2872, 369, 250, 230
+	rotate: 90
+skin4/mouth
+	bounds: 2232, 625, 140, 269
+skin7/mouth
+	bounds: 2232, 625, 140, 269
+skin4/sausage
+	bounds: 2276, 2099, 434, 655
+skin5/LD_vegetable
+	bounds: 1585, 1185, 255, 313
+	rotate: 90
+skin5/LU_vegetable
+	bounds: 1913, 896, 252, 287
+skin5/L_bread
+	bounds: 936, 1433, 466, 653
+	offsets: 0, 0, 466, 656
+skin5/RD_vegetable
+	bounds: 3091, 939, 206, 295
+	rotate: 90
+skin5/RU_vegetable
+	bounds: 2606, 618, 230, 268
+skin5/R_bread
+	bounds: 936, 2743, 465, 666
+skin5/sausage
+	bounds: 2276, 1442, 434, 655
+skin6/Group
+	bounds: 3148, 2000, 132, 376
+	offsets: 0, 1, 132, 384
+skin6/LD_vegetable
+	bounds: 1900, 1185, 255, 313
+	rotate: 90
+skin6/LU_vegetable
+	bounds: 2167, 896, 252, 287
+skin6/L_bread
+	bounds: 2, 84, 466, 653
+	offsets: 0, 0, 466, 656
+skin6/L_eye
+	bounds: 2225, 33, 149, 182
+	offsets: 3, 0, 155, 182
+	rotate: 90
+skin6/L_foot
+	bounds: 864, 2, 190, 122
+	offsets: 1, 0, 191, 122
+	rotate: 90
+skin6/RD_vegetable
+	bounds: 1584, 550, 206, 295
+skin6/RU_vegetable
+	bounds: 2838, 621, 230, 268
+skin6/R_bread
+	bounds: 2, 739, 465, 666
+skin6/R_eye
+	bounds: 1666, 64, 153, 184
+skin6/R_foot
+	bounds: 2225, 184, 188, 200
+skin6/R_hand
+	bounds: 1070, 304, 354, 204
+skin6/eye_x
+	bounds: 937, 1140, 392, 291
+skin6/eye_xx
+	bounds: 3104, 205, 250, 230
+skin6/mouth
+	bounds: 1695, 279, 140, 269
+skin6/sausage
+	bounds: 2712, 2099, 434, 655
+skin7/LD_vegetable
+	bounds: 2215, 1185, 255, 313
+	rotate: 90
+skin7/LU_vegetable
+	bounds: 2629, 899, 252, 287
+skin7/L_bread
+	bounds: 469, 752, 466, 653
+	offsets: 0, 0, 466, 656
+skin7/RD_vegetable
+	bounds: 1792, 599, 206, 295
+skin7/RU_vegetable
+	bounds: 3104, 437, 230, 268
+skin7/R_bread
+	bounds: 469, 1407, 465, 666
+skin7/sausage
+	bounds: 2712, 1442, 434, 655

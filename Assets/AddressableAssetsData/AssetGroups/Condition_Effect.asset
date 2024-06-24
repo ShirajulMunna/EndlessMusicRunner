@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Condition_Effect
+  m_EditorClassIdentifier: 
+  m_GroupName: Condition_Effect
+  m_Data:
+    m_SerializedData: []
+  m_GUID: a857b980c5b293943a88ed85be7e53c2
+  m_SerializeEntries:
+  - m_GUID: 457c5d2d30a38f2468be6f1d324e304e
+    m_Address: GameConditionEffect_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a1ed6f22b3d10c0499a06d458a4021ab
+    m_Address: GameConditionEffect_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dd80aa9b27baa334ea57eb66d90b8392
+    m_Address: GameConditionEffect_3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 16b5f06db95c45e47910d39800b5704f
+    m_Address: GameConditionEffect_4
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: b214fa91656b7524e8bf0480a7228281, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 96c36b6ba7deb594d96719ab3706d182, type: 2}
+    - {fileID: 11400000, guid: 5c4d7b83d2c6e854da020f0d6b5f88bd, type: 2}

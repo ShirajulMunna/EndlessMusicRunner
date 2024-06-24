@@ -1,0 +1,28 @@
+Small_Monster_ham.png
+	size: 759, 759
+	filter: Linear, Linear
+	pma: true
+	scale: 0.5
+skin0/ham
+	bounds: 2, 542, 273, 215
+skin1/ham
+	bounds: 2, 325, 273, 215
+skin2/ham
+	bounds: 552, 484, 273, 205
+	offsets: 0, 5, 273, 215
+	rotate: 90
+skin3/ham
+	bounds: 277, 542, 273, 215
+skin4/ham
+	bounds: 2, 108, 269, 215
+	offsets: 1, 0, 273, 215
+skin5/ham
+	bounds: 548, 209, 273, 205
+	offsets: 0, 5, 273, 215
+	rotate: 90
+skin6/ham
+	bounds: 277, 325, 269, 215
+	offsets: 2, 0, 273, 215
+skin7/ham
+	bounds: 273, 108, 269, 215
+	offsets: 2, 0, 273, 215

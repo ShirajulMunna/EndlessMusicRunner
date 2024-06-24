@@ -9,38 +9,45 @@ public class UI_Lobby : MonoBehaviour
     [SerializeField] TextMeshProUGUI T_Type;
     public static bool Type;
     public static PlayerSkinType playerSkinType = PlayerSkinType.Skin0;
-
-
+    static int ScrollValue;
     public SkeletonGraphic playerUiGraphic;
+
     private List<string> skin_Names = new()
     {
-        "skin0","skin1","skin2","skin3","skin4","skin5","skin6","skin7"
+        // "skin0","skin1","skin2","skin3","skin4","skin5","skin6","skin7"
+        "skin4","skin6","skin0","skin3","skin1","skin2","skin5","skin7" //그래픽 변경
     };
     private void Start()
-    { 
+    {
         if (T_Type == null)
             return;
-        T_Type.text = Type ? "B" : "A";
+        T_Type.text = !Type ? "VsMode" : "RunMode";
+        skinDropDown.value = ScrollValue; 
+        ChangePlayerUiGraphics();
     }
 
     public void Btn_A_And_B()
     {
         var text = T_Type.text;
-        if (text == "A")
+        Type = !Type;
+
+        if (!Type)
         {
-            text = "B";
-            Type = true;
+            text = "VsMode"; 
         }
         else
         {
-            text = "A";
-            Type = false;
+            text = "RunMode";
         }
         T_Type.text = text;
     }
+
     public void SetSkin()
     {
-        playerSkinType = (PlayerSkinType)skinDropDown.value;
+        var value = skinDropDown.value;
+        // PD님 요청으로 그래픽타입 순서 변경 코드 -> UI에서는 1부터시작으로 -1해야함 
+        ScrollValue = skinDropDown.value;
+        playerSkinType = (PlayerSkinType)value;
     }
     public void ChangePlayerUiGraphics()
     {
@@ -57,7 +64,8 @@ public class UI_Lobby : MonoBehaviour
 
     public void Btn_Play()
     {
-        SecenManager.LoadScene("MainGameScene");
+        var mode = !Type ? "NotMoveBackGroundScene" : "MainGameScene";
+        SecenManager.LoadScene(mode);
     }
 
 }

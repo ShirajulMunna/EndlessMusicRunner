@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 public interface ICoolTimeChecker
 {
@@ -8,6 +9,10 @@ public interface ICoolTimeChecker
 
     float GetCurrentCoolTime();
     float GetMaxCoolTime();
+
+    void SetCoolTimeData();
+
+    float GetCoolTimePer();
 }
 
 
@@ -40,5 +45,17 @@ public class CoolTimeChecker : ICoolTimeChecker
     public void UpdateCoolTime()
     {
         CoolTime -= Time.deltaTime;
+    }
+
+    public void SetCoolTimeData()
+    {
+        SkillSystem.instance.SetCoolTime(UpdateCoolTime);
+    }
+
+    public float GetCoolTimePer()
+    {
+        var per = (CoolTime / _MaxCoolTime) - 1;
+
+        return Mathf.Abs(per);
     }
 }

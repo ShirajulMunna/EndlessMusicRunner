@@ -10,7 +10,7 @@ public class DataSet :MonoBehaviour
 {
     static readonly string StreamingBinary_Path = Application.streamingAssetsPath + "/Binary{0}.bin";
     static readonly string StreamingText_Path = Application.streamingAssetsPath + "/DataText{0}.txt";
-    public T ReadData_Sync<T>(string filename)
+    public static T ReadData_Sync<T>(string filename)
     {
         try
         {

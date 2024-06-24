@@ -1,0 +1,209 @@
+{
+"skeleton": { "hash": "zQwuBdAo/FY", "spine": "4.1.24", "x": -226.38, "y": -195.12, "width": 461.46, "height": 3019.83 },
+"bones": [
+	{ "name": "root" },
+	{ "name": "bone", "parent": "root", "rotation": -0.24, "x": 0.01, "y": 7500.01 },
+	{ "name": "face", "parent": "bone", "x": -34.62, "y": -7467.04 },
+	{ "name": "hit", "parent": "bone", "rotation": 0.24, "x": 26.43, "y": -7480.62 }
+],
+"slots": [
+	{ "name": "bell", "bone": "bone", "attachment": "bell" },
+	{ "name": "face", "bone": "face", "attachment": "face" }
+],
+"skins": [
+	{
+		"name": "skin0",
+		"attachments": {
+			"bell": {
+				"bell": {
+					"name": "skin0/bell",
+					"type": "mesh",
+					"uvs": [ 1, 1, 0, 1, 0, 0, 1, 0 ],
+					"triangles": [ 0, 2, 3, 0, 1, 2 ],
+					"vertices": [ 254.37, -7694.15, -194.63, -7694.15, -194.63, -4676.15, 254.37, -4676.15 ],
+					"hull": 4
+				}
+			},
+			"face": {
+				"face": {
+					"name": "skin0/face",
+					"type": "mesh",
+					"uvs": [ 1, 1, 0, 1, 0, 0, 1, 0 ],
+					"triangles": [ 1, 2, 3, 1, 3, 0 ],
+					"vertices": [ 171.36, -165.06, -88.64, -165.06, -88.64, 119.94, 171.36, 119.94 ],
+					"hull": 4
+				},
+				"face2": {
+					"name": "skin0/face2",
+					"type": "mesh",
+					"uvs": [ 1, 1, 0, 1, 0, 0, 1, 0 ],
+					"triangles": [ 1, 2, 3, 1, 3, 0 ],
+					"vertices": [ 172.34, -134.8, -87.66, -134.8, -87.66, 150.2, 172.34, 150.2 ],
+					"hull": 4
+				}
+			}
+		}
+	},
+	{
+		"name": "skin1",
+		"attachments": {
+			"bell": {
+				"bell": { "name": "skin1/bell", "type": "linkedmesh", "skin": "skin0", "parent": "bell" }
+			},
+			"face": {
+				"face": { "name": "skin1/face", "type": "linkedmesh", "skin": "skin0", "parent": "face" },
+				"face2": { "name": "skin1/face2", "type": "linkedmesh", "skin": "skin0", "parent": "face2" }
+			}
+		}
+	},
+	{
+		"name": "skin2",
+		"attachments": {
+			"bell": {
+				"bell": { "name": "skin2/bell", "type": "linkedmesh", "skin": "skin0", "parent": "bell" }
+			},
+			"face": {
+				"face": { "name": "skin2/face", "type": "linkedmesh", "skin": "skin0", "parent": "face" },
+				"face2": { "name": "skin2/face2", "type": "linkedmesh", "skin": "skin0", "parent": "face2" }
+			}
+		}
+	},
+	{
+		"name": "skin3",
+		"attachments": {
+			"bell": {
+				"bell": { "name": "skin3/bell", "type": "linkedmesh", "skin": "skin0", "parent": "bell" }
+			},
+			"face": {
+				"face": { "name": "skin3/face", "type": "linkedmesh", "skin": "skin0", "parent": "face" },
+				"face2": { "name": "skin3/face2", "type": "linkedmesh", "skin": "skin0", "parent": "face2" }
+			}
+		}
+	},
+	{
+		"name": "skin4",
+		"attachments": {
+			"bell": {
+				"bell": { "name": "skin4/bell", "type": "linkedmesh", "skin": "skin0", "parent": "bell" }
+			},
+			"face": {
+				"face": { "name": "skin4/face", "type": "linkedmesh", "skin": "skin0", "parent": "face" },
+				"face2": { "name": "skin4/face2", "type": "linkedmesh", "skin": "skin0", "parent": "face2" }
+			}
+		}
+	},
+	{
+		"name": "skin5",
+		"attachments": {
+			"bell": {
+				"bell": { "name": "skin5/bell", "type": "linkedmesh", "skin": "skin0", "parent": "bell" }
+			},
+			"face": {
+				"face": { "name": "skin5/face", "type": "linkedmesh", "skin": "skin0", "parent": "face" },
+				"face2": { "name": "skin5/face2", "type": "linkedmesh", "skin": "skin0", "parent": "face2" }
+			}
+		}
+	},
+	{
+		"name": "skin6",
+		"attachments": {
+			"bell": {
+				"bell": { "name": "skin6/bell", "type": "linkedmesh", "skin": "skin0", "parent": "bell" }
+			},
+			"face": {
+				"face": { "name": "skin6/face", "type": "linkedmesh", "skin": "skin0", "parent": "face" },
+				"face2": { "name": "skin6/face2", "type": "linkedmesh", "skin": "skin0", "parent": "face2" }
+			}
+		}
+	},
+	{
+		"name": "skin7",
+		"attachments": {
+			"bell": {
+				"bell": { "name": "skin7/bell", "type": "linkedmesh", "skin": "skin0", "parent": "bell" }
+			},
+			"face": {
+				"face": { "name": "skin7/face", "type": "linkedmesh", "skin": "skin0", "parent": "face" },
+				"face2": { "name": "skin7/face2", "type": "linkedmesh", "skin": "skin0", "parent": "face2" }
+			}
+		}
+	}
+],
+"animations": {
+	"Hit": {
+		"slots": {
+			"face": {
+				"attachment": [
+					{ "name": "face2" }
+				]
+			}
+		},
+		"bones": {
+			"bone": {
+				"rotate": [
+					{ "value": 0.22 },
+					{ "time": 0.3333, "value": 108.34 },
+					{ "time": 0.6667, "value": 179.34 }
+				],
+				"translate": [
+					{ "time": 0.3333 }
+				],
+				"scale": [
+					{ "time": 0.3333 }
+				],
+				"shear": [
+					{ "time": 0.3333 }
+				]
+			}
+		}
+	},
+	"Idle": {
+		"bones": {
+			"root": {
+				"rotate": [
+					{}
+				],
+				"translate": [
+					{}
+				],
+				"scale": [
+					{}
+				],
+				"shear": [
+					{}
+				]
+			},
+			"bone": {
+				"rotate": [
+					{ "value": 112.39 },
+					{ "time": 2, "value": 0.22 },
+					{ "time": 4, "value": -111.61 }
+				],
+				"translate": [
+					{}
+				],
+				"scale": [
+					{}
+				],
+				"shear": [
+					{}
+				]
+			},
+			"face": {
+				"rotate": [
+					{}
+				],
+				"translate": [
+					{}
+				],
+				"scale": [
+					{}
+				],
+				"shear": [
+					{}
+				]
+			}
+		}
+	}
+}
+}

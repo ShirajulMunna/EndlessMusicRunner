@@ -1,0 +1,220 @@
+Medium_Monster_big donut.png
+	size: 2334, 2334
+	filter: Linear, Linear
+	pma: true
+skin0/Group
+	bounds: 1798, 659, 132, 381
+	offsets: 0, 2, 132, 384
+skin1/Group
+	bounds: 1798, 659, 132, 381
+	offsets: 0, 2, 132, 384
+skin2/Group
+	bounds: 1798, 659, 132, 381
+	offsets: 0, 2, 132, 384
+skin3/Group
+	bounds: 1798, 659, 132, 381
+	offsets: 0, 2, 132, 384
+skin0/L_eye
+	bounds: 2063, 2005, 220, 327
+	offsets: 0, 0, 221, 327
+skin0/L_foot
+	bounds: 1528, 235, 190, 122
+	offsets: 1, 0, 191, 122
+	rotate: 90
+skin1/L_foot
+	bounds: 1528, 235, 190, 122
+	offsets: 1, 0, 191, 122
+	rotate: 90
+skin2/L_foot
+	bounds: 1528, 235, 190, 122
+	offsets: 1, 0, 191, 122
+	rotate: 90
+skin3/L_foot
+	bounds: 1528, 235, 190, 122
+	offsets: 1, 0, 191, 122
+	rotate: 90
+skin0/R_eye
+	bounds: 2063, 1676, 219, 327
+	offsets: 1, 27, 220, 354
+skin0/R_foot
+	bounds: 1528, 33, 188, 200
+skin1/R_foot
+	bounds: 1528, 33, 188, 200
+skin2/R_foot
+	bounds: 1528, 33, 188, 200
+skin0/R_hand
+	bounds: 1932, 698, 132, 379
+	offsets: 0, 3, 132, 384
+	rotate: 90
+skin1/R_hand
+	bounds: 1932, 698, 132, 379
+	offsets: 0, 3, 132, 384
+	rotate: 90
+skin2/R_hand
+	bounds: 1932, 698, 132, 379
+	offsets: 0, 3, 132, 384
+	rotate: 90
+skin3/R_hand
+	bounds: 1932, 698, 132, 379
+	offsets: 0, 3, 132, 384
+	rotate: 90
+skin0/eye_x
+	bounds: 2, 21, 392, 291
+skin1/eye_x
+	bounds: 2, 21, 392, 291
+skin2/eye_x
+	bounds: 2, 21, 392, 291
+skin3/eye_x
+	bounds: 2, 21, 392, 291
+skin5/eye_x
+	bounds: 2, 21, 392, 291
+skin0/eye_xx
+	bounds: 1981, 832, 250, 230
+skin1/eye_xx
+	bounds: 1981, 832, 250, 230
+skin2/eye_xx
+	bounds: 1981, 832, 250, 230
+skin3/eye_xx
+	bounds: 1981, 832, 250, 230
+skin5/eye_xx
+	bounds: 1981, 832, 250, 230
+skin0/sausage
+	bounds: 2, 1688, 685, 644
+	offsets: 0, 43, 685, 704
+skin1/L_eye
+	bounds: 1184, 10, 208, 302
+	offsets: 0, 25, 221, 327
+skin2/L_eye
+	bounds: 1184, 10, 208, 302
+	offsets: 0, 25, 221, 327
+skin3/L_eye
+	bounds: 1184, 10, 208, 302
+	offsets: 0, 25, 221, 327
+skin4/L_eye
+	bounds: 1184, 10, 208, 302
+	offsets: 0, 25, 221, 327
+skin5/L_eye
+	bounds: 1184, 10, 208, 302
+	offsets: 0, 25, 221, 327
+skin7/L_eye
+	bounds: 1184, 10, 208, 302
+	offsets: 0, 25, 221, 327
+skin1/R_eye
+	bounds: 1981, 1265, 199, 312
+	offsets: 21, 42, 220, 354
+	rotate: 90
+skin2/R_eye
+	bounds: 1981, 1265, 199, 312
+	offsets: 21, 42, 220, 354
+	rotate: 90
+skin3/R_eye
+	bounds: 1981, 1265, 199, 312
+	offsets: 21, 42, 220, 354
+	rotate: 90
+skin4/R_eye
+	bounds: 1981, 1265, 199, 312
+	offsets: 21, 42, 220, 354
+	rotate: 90
+skin5/R_eye
+	bounds: 1981, 1265, 199, 312
+	offsets: 21, 42, 220, 354
+	rotate: 90
+skin7/R_eye
+	bounds: 1981, 1265, 199, 312
+	offsets: 21, 42, 220, 354
+	rotate: 90
+skin1/sausage
+	bounds: 689, 1688, 685, 644
+	offsets: 0, 43, 685, 704
+skin2/sausage
+	bounds: 1376, 1688, 685, 644
+	offsets: 0, 43, 685, 704
+skin3/R_foot
+	bounds: 1718, 76, 188, 200
+skin3/sausage
+	bounds: 2, 1001, 685, 644
+	offsets: 0, 43, 685, 704
+	rotate: 90
+skin4/Group
+	bounds: 1294, 427, 132, 381
+	offsets: 0, 2, 132, 384
+skin7/Group
+	bounds: 1294, 427, 132, 381
+	offsets: 0, 2, 132, 384
+skin4/L_foot
+	bounds: 1908, 36, 190, 122
+	offsets: 1, 0, 191, 122
+skin7/L_foot
+	bounds: 1908, 36, 190, 122
+	offsets: 1, 0, 191, 122
+skin4/R_foot
+	bounds: 1830, 362, 188, 200
+skin7/R_foot
+	bounds: 1830, 362, 188, 200
+skin4/R_hand
+	bounds: 1932, 564, 132, 379
+	offsets: 0, 3, 132, 384
+	rotate: 90
+skin7/R_hand
+	bounds: 1932, 564, 132, 379
+	offsets: 0, 3, 132, 384
+	rotate: 90
+skin4/eye_x
+	bounds: 396, 21, 392, 291
+skin7/eye_x
+	bounds: 396, 21, 392, 291
+skin4/eye_xx
+	bounds: 1294, 810, 250, 230
+skin7/eye_xx
+	bounds: 1294, 810, 250, 230
+skin4/sausage
+	bounds: 2, 314, 685, 644
+	offsets: 0, 43, 685, 704
+	rotate: 90
+skin5/Group
+	bounds: 1428, 427, 132, 381
+	offsets: 0, 2, 132, 384
+skin5/L_foot
+	bounds: 2098, 170, 190, 122
+	offsets: 1, 0, 191, 122
+	rotate: 90
+skin5/R_foot
+	bounds: 1908, 160, 188, 200
+skin5/R_hand
+	bounds: 1696, 278, 132, 379
+	offsets: 0, 3, 132, 384
+skin5/sausage
+	bounds: 648, 1001, 685, 644
+	offsets: 0, 43, 685, 704
+	rotate: 90
+skin6/Group
+	bounds: 1562, 427, 132, 381
+	offsets: 0, 2, 132, 384
+skin6/L_eye
+	bounds: 1981, 1466, 208, 302
+	offsets: 0, 25, 221, 327
+	rotate: 90
+skin6/L_foot
+	bounds: 2210, 372, 190, 122
+	offsets: 1, 0, 191, 122
+	rotate: 90
+skin6/R_eye
+	bounds: 1981, 1064, 199, 312
+	offsets: 21, 42, 220, 354
+	rotate: 90
+skin6/R_foot
+	bounds: 2020, 362, 188, 200
+skin6/R_hand
+	bounds: 1394, 46, 132, 379
+	offsets: 0, 3, 132, 384
+skin6/eye_x
+	bounds: 790, 21, 392, 291
+skin6/eye_xx
+	bounds: 1546, 810, 250, 230
+skin6/sausage
+	bounds: 648, 314, 685, 644
+	offsets: 0, 43, 685, 704
+	rotate: 90
+skin7/sausage
+	bounds: 1294, 1042, 685, 644
+	offsets: 0, 43, 685, 704

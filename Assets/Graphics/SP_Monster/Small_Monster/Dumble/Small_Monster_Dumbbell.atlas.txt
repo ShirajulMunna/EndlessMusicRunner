@@ -1,0 +1,33 @@
+Small_Monster_Dumbbell.png
+	size: 628, 628
+	filter: Linear, Linear
+	pma: true
+	scale: 0.5
+skin0/Dumbbell
+	bounds: 2, 183, 282, 155
+	offsets: 0, 27, 282, 215
+	rotate: 90
+skin1/Dumbbell
+	bounds: 473, 184, 281, 153
+	offsets: 0, 30, 282, 215
+	rotate: 90
+skin2/Dumbbell
+	bounds: 159, 183, 282, 155
+	offsets: 0, 27, 282, 215
+	rotate: 90
+skin3/Dumbbell
+	bounds: 2, 467, 282, 159
+	offsets: 0, 27, 282, 215
+skin4/Dumbbell
+	bounds: 286, 467, 282, 159
+	offsets: 0, 25, 282, 215
+skin5/Dumbbell
+	bounds: 316, 183, 282, 155
+	offsets: 0, 27, 282, 215
+	rotate: 90
+skin6/Dumbbell
+	bounds: 2, 22, 281, 159
+	offsets: 0, 25, 282, 215
+skin7/Dumbbell
+	bounds: 285, 22, 281, 159
+	offsets: 0, 25, 282, 215

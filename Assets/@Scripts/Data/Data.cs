@@ -7,25 +7,7 @@ namespace GameData
 {
     public class Data : MonoBehaviour
     {
-
-        #region Data / Dataset Scritpt
-        public static DataSet M_DataSet
-        {
-            get
-            {
-                if (_DataSet == null)
-                {
-                    _DataSet = GameManager.instance.GetComponent<DataSet>();
-                }
-
-                return _DataSet;
-            }
-        }
-        static DataSet _DataSet;
-        #endregion
-
-
-        #region ·¹º§µðÀÚÀÎ Å×ÀÌºí (LevelDesigin Table)
+        #region ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ (LevelDesigin Table)
         static Dictionary<int, List<C_LevelDesign>> _LevelDesign;
         public static Dictionary<int, List<C_LevelDesign>> LevelDesigin
         {
@@ -62,7 +44,7 @@ namespace GameData
 
         public static T ReadData_Sync<T>(string filename)
         {
-            var data = M_DataSet.ReadData_Sync<T>(filename);
+            var data = DataSet.ReadData_Sync<T>(filename);
             return data;
         }
 

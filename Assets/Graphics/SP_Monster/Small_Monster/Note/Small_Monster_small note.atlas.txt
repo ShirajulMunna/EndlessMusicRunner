@@ -1,0 +1,32 @@
+Small_Monster_small note.png
+	size: 730, 730
+	filter: Linear, Linear
+	pma: true
+	scale: 0.5
+skin0/small note
+	bounds: 2, 541, 280, 187
+	offsets: 1, 8, 282, 215
+skin1/small note
+	bounds: 2, 353, 270, 186
+	offsets: 4, 7, 282, 215
+skin2/small note
+	bounds: 284, 542, 270, 186
+	offsets: 4, 7, 282, 215
+skin3/small note
+	bounds: 2, 165, 270, 186
+	offsets: 4, 7, 282, 215
+skin4/small note
+	bounds: 462, 274, 266, 185
+	offsets: 8, 7, 282, 215
+	rotate: 90
+skin5/small note
+	bounds: 274, 269, 270, 186
+	offsets: 4, 7, 282, 215
+	rotate: 90
+skin6/small note
+	bounds: 274, 83, 266, 184
+	offsets: 8, 7, 282, 215
+skin7/small note
+	bounds: 542, 6, 266, 186
+	offsets: 8, 7, 282, 215
+	rotate: 90

@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: GameOver_Sound
+  m_EditorClassIdentifier: 
+  m_GroupName: GameOver_Sound
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 12525e8da5ae41a42b652b069b6683f7
+  m_SerializeEntries:
+  - m_GUID: 7560815220d5dbd4fbd053303c5c622b
+    m_Address: Gameover_Clear
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4a7a22e7422d89d4083df13eaf7bbfca
+    m_Address: Gameover_Score
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4921eacc0723c4143b5ad1cbfe426b19
+    m_Address: Gameover_Over
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 12777a2d6b865f54f8609d0d527606c6
+    m_Address: Gameover_Score_Fail
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8b6bd52672dabdd47b271583bcf17225
+    m_Address: GameFail
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: b214fa91656b7524e8bf0480a7228281, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 5c3a20a25612e50498e3f28f13bf7f1a, type: 2}
+    - {fileID: 11400000, guid: 74b1684003ca8624dbd6cd8da667d258, type: 2}

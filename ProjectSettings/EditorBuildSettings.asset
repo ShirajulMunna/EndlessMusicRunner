@@ -11,5 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainGameScene.unity
     guid: d0940fc35eeb7b14fa3f3947c7f56c9c
+  - enabled: 1
+    path: Assets/Scenes/NotMoveBackGroundScene.unity
+    guid: 336f2a7bd0870124aa1e2a9c165ee926
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: b29dce22db54c214fba99b835c08746e, type: 2}

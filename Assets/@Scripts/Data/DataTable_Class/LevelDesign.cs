@@ -4,11 +4,11 @@ using UnityEngine;
 
 public static class LevelDesignMonsterCount
 {
-    private static Dictionary<int,int> stage_MonsterCounting = new Dictionary<int,int>();
+    private static Dictionary<int, int> stage_MonsterCounting = new Dictionary<int, int>();
 
-    public static void Push(int id,int monsterCount)
+    public static void Push(int id, int monsterCount)
     {
-        if(stage_MonsterCounting.ContainsKey(id))
+        if (stage_MonsterCounting.ContainsKey(id))
         {
             stage_MonsterCounting[id] += monsterCount;
         }
@@ -16,7 +16,7 @@ public static class LevelDesignMonsterCount
     }
     public static int GetMonsterCount(int id)
     {
-        return stage_MonsterCounting[id];   
+        return stage_MonsterCounting[id];
     }
 }
 [System.Serializable]
@@ -27,16 +27,16 @@ public class LevelDesign
     public int[] MonsterSpwanCount;
     public float[] CoolTime;
     public int[] Spwan_Position;
+    public float[] OffSetX, OffSetY;
 
 
-    public Dictionary<int,List<C_LevelDesign>> Init()
+    public Dictionary<int, List<C_LevelDesign>> Init()
     {
         Dictionary<int, List<C_LevelDesign>> datas = new Dictionary<int, List<C_LevelDesign>>();
-        
-        for(int i =0;i< MID.Length;++i)
+
+        for (int i = 0; i < MID.Length; ++i)
         {
-            var levelDesign = new C_LevelDesign(MonsterInfo[i], MonsterSpwanCount[i],
-                CoolTime[i], Spwan_Position[i]);
+            var levelDesign = new C_LevelDesign(MonsterInfo[i], MonsterSpwanCount[i], CoolTime[i], Spwan_Position[i],OffSetX[i],OffSetY[i]);
 
             if (!datas.ContainsKey(MID[i]))
             {
@@ -61,12 +61,16 @@ public class C_LevelDesign
     public int MonsterSpwanCount;
     public float CoolTime;
     public int Spwan_Position;
+    public float OffSetX;
+    public float OffSetY;
 
-    public C_LevelDesign(int monsterInfo, int monsterSpwanCount, float coolTime, int spwan_Position)
+    public C_LevelDesign(int monsterInfo, int monsterSpwanCount, float coolTime, int spwan_Position, float OffSetX, float OffSetY)
     {
         MonsterInfo = monsterInfo;
         MonsterSpwanCount = monsterSpwanCount;
         CoolTime = coolTime;
         Spwan_Position = spwan_Position;
+        this.OffSetX = OffSetX;
+        this.OffSetY = OffSetY;
     }
 }
