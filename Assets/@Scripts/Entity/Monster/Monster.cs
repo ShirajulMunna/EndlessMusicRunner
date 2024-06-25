@@ -2,6 +2,7 @@ using DG.Tweening;
 using Spine.Unity;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO.Compression;
 using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -28,6 +29,18 @@ public class Monster : Entity, IMonsterMove
     [Header("스파인 변경용")]
     [SerializeField] protected bool Change;
     [SerializeField] protected SkeletonDataAsset[] Sk;
+
+    Rigidbody2D rg2;
+    protected Rigidbody2D rb{
+        get 
+        {
+            if(rg2 == null)
+            {
+                rg2 = GetComponent<Rigidbody2D>();
+            }
+            return rg2;
+            }
+    }
 
     //죽었을때 날아가기
     private Vector3 randomDirection;
@@ -58,9 +71,10 @@ public class Monster : Entity, IMonsterMove
     }
     public UniqMonster uniqMonster;
 
+Vector3 targetPosition;
     protected virtual void Start()
     {
-
+        targetPosition = transform.position; // 초기 위치 설정
     }
 
     protected virtual void Update()
@@ -68,7 +82,11 @@ public class Monster : Entity, IMonsterMove
         var checkattack = CheckAttack();
         SetAttack(checkattack);
         SetDieFly();
-        SetMove();
+            SetMove();
+    }
+
+    protected virtual void FixedUpdate() {
+    
     }
 
     //초기화
@@ -192,9 +210,12 @@ public class Monster : Entity, IMonsterMove
     //이동 함수
     public virtual void SetMove()
     {
-        // 오브젝트를 왼쪽으로 이동
-        transform.Translate(Vector2.left * Speed * Time.deltaTime);
-        // DestoryX 값이 0이면 -60, 아니면 DestoryX 사용
+// 타겟 위치를 왼쪽으로 갱신
+        targetPosition += Vector3.left * Speed * Time.deltaTime;
+        
+        // Lerp를 사용하여 부드럽게 이동
+        transform.position = Vector3.Lerp(transform.position, targetPosition, 0.1f);
+
         var values = DestoryX;
 
         // 오브젝트가 특정 위치를 벗어나면 파괴
