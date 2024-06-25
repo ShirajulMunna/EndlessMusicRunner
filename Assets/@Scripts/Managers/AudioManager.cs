@@ -63,6 +63,11 @@ public class AudioManager : MonoBehaviour
         audioSource.Play();
     }
 
+    public double GetAudioTime()
+    {
+        return audioSource.time;
+    }
+
     //사운드 실행
     public async void PlayEffectSound(string key)
     {

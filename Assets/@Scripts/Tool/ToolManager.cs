@@ -106,6 +106,7 @@ public class ToolManager : MonoBehaviour
 
         foreach (var item in toolTimePoint.GetPoint())
         {
+            item.Sync();
             list.Add(item.GetTimes());
         }
         toolDataManager.SetSave(Input_Name.text, int.Parse(Input_Bpm.text), list);
@@ -126,6 +127,7 @@ public class ToolManager : MonoBehaviour
         {
             toolTimePoint.AddPoint(item);
         }
+        print(data.L_TimePoint.Count);
     }
 
     //로드했는지 체크

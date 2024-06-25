@@ -17,6 +17,11 @@ public class UI_ToolInputTimeLine : MonoBehaviour, IPointerClickHandler // μΈν„
         tMP_InputField.text = Times.ToString();
     }
 
+    public void Sync()
+    {
+        Times = double.Parse(tMP_InputField.text);
+    }
+
     public double GetTimes()
     {
         return Times;
