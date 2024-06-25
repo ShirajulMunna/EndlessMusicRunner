@@ -78,6 +78,7 @@ public class SpawnManager : Singleton<SpawnManager>
     //게임 상태
     E_GameState e_GameState_;
     float DirDelayTime;
+    float OffSetTime;
 
     //게임 오버 후 딜레이 시간
     const float gameOverTime_Result = 2f;
@@ -85,6 +86,7 @@ public class SpawnManager : Singleton<SpawnManager>
     const float gameOverTime_Delay = 4.5f;
 
     public System.Action Ac_EndGame;
+    System.Action Ac_MusicPlay;
 
     private void FixedUpdate()
     {
@@ -103,10 +105,11 @@ public class SpawnManager : Singleton<SpawnManager>
         switch (State)
         {
             case E_GameState.Wait:
-                DirDelayTime = spawnDelay.GetStartDelayTime();
+                OffSetTime = spawnDelay.GetStartDelayTime();
                 break;
             case E_GameState.Play:
-                spawnDelay.SetDelay(DirDelayTime, () => AudioManager.instance.PlayMusic());
+                Ac_MusicPlay += () => AudioManager.instance.PlayMusic();
+                Ac_MusicPlay += () => Ac_MusicPlay = null;
                 break;
             case E_GameState.End:
                 System.Action action = () =>
@@ -114,7 +117,6 @@ public class SpawnManager : Singleton<SpawnManager>
                     spawnDelay.Reset();
                     SetState(E_GameState.Result);
                 };
-
                 spawnDelay.SetDelay(gameOverTime_Delay, action, true);
                 break;
             case E_GameState.GameOver:
@@ -153,7 +155,21 @@ public class SpawnManager : Singleton<SpawnManager>
     //플레이
     void UpdatePlay()
     {
-        var check = spawnTimePoint.CheckTime(AudioManager.instance.GetAudioTime());
+        DirDelayTime += Time.fixedDeltaTime;
+
+        if (DirDelayTime <= OffSetTime)
+        {
+            SetCreate(DirDelayTime);
+            return;
+        }
+        Ac_MusicPlay?.Invoke();
+        var totaltime = AudioManager.instance.GetAudioTime() + OffSetTime;
+        SetCreate(totaltime);
+    }
+
+    void SetCreate(double totaltime)
+    {
+        var check = spawnTimePoint.CheckTime(totaltime);
         if (!check)
         {
             return;
