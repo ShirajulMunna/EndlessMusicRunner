@@ -2,27 +2,22 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class SpawnCreate : MonoBehaviour, ISpawnCreate
+public class SpawnCreate : Singleton<SpawnCreate>, ISpawnCreate
 {
-    public static SpawnCreate instance;
     const float MonsterOffSetX = 3;
-    [SerializeField] Transform Tr_parent;
 
     SpawnStage spawnStage;
     SpawnPoint spawnPoint;
 
     public List<GameObject> L_CreateData { get; set; } = new List<GameObject>();
     public int CreateIDX { get; set; }
+    int CreateCount;
 
     //몬스터 생성 함수
     public async Task<GameObject> MonsterSpawn(C_MonsterTable data, Vector3 createpoint)
     {
-        var result = await Monster.Create(data, createpoint, Tr_parent);
+        var result = await Monster.Create(data, createpoint, this.transform);
         return result;
-    }
-    private void Awake()
-    {
-        instance = this;
     }
 
     private void Start()
@@ -37,7 +32,7 @@ public class SpawnCreate : MonoBehaviour, ISpawnCreate
         CreateIDX = 0;
         var level = spawnStage.GetLevelDesigns();
         var maxcount = level.Count;
-
+        L_CreateData.Clear();
         for (int i = 0; i < maxcount; i++)
         {
             var currentLevel = level[i];
@@ -55,11 +50,14 @@ public class SpawnCreate : MonoBehaviour, ISpawnCreate
                 createpoint.x += MonsterOffSetX * j;
                 // 2단 몬스터일때 y포지션 0으로 고정
                 if (monsterInfo.Uniq_MonsterType == UniqMonster.TwinMonster)
+                {
                     createpoint.y = 0;
+                }
 
                 var result = await MonsterSpawn(monsterInfo, createpoint);
                 L_CreateData.Add(result);
                 result.SetActive(false);
+                CreateCount++;
             }
         }
     }
@@ -67,7 +65,7 @@ public class SpawnCreate : MonoBehaviour, ISpawnCreate
     //생성한 몬스터 활성화
     public void SetActiveMonster()
     {
-        if (L_CreateData.Count <= CreateIDX)
+        if (CreateCount <= CreateIDX)
         {
             return;
         }
@@ -81,6 +79,10 @@ public class SpawnCreate : MonoBehaviour, ISpawnCreate
     {
         foreach (var item in L_CreateData)
         {
+            if (item == null)
+            {
+                continue;
+            }
             item.SetActive(false);
         }
     }

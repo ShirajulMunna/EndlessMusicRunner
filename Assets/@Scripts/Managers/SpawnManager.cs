@@ -3,15 +3,77 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class SpawnManager : MonoBehaviour
+public class SpawnManager : Singleton<SpawnManager>
 {
-    public static SpawnManager instance;
+    #region 클래스
+    SpawnPoint _spawnPoint;
+    SpawnPoint spawnPoint
+    {
+        get
+        {
+            if (_spawnPoint == null)
+            {
+                _spawnPoint = GetComponent<SpawnPoint>();
+            }
 
-    SpawnPoint spawnPoint;
-    SpawnCreate spawnCreate;
-    SpawnTimePoint spawnTimePoint;
-    SpawnDelay spawnDelay;
-    GameResult gameResult;
+            return _spawnPoint;
+        }
+    }
+
+    SpawnCreate _spawnCreate;
+    SpawnCreate spawnCreate
+    {
+        get
+        {
+            if (_spawnCreate == null)
+            {
+                _spawnCreate = GetComponent<SpawnCreate>();
+            }
+
+            return _spawnCreate;
+        }
+    }
+
+    SpawnTimePoint _spawnTimePoint;
+    SpawnTimePoint spawnTimePoint
+    {
+        get
+        {
+            if (_spawnTimePoint == null)
+            {
+                _spawnTimePoint = GetComponent<SpawnTimePoint>();
+            }
+
+            return _spawnTimePoint;
+        }
+    }
+
+    SpawnDelay _spawnDelay;
+    SpawnDelay spawnDelay
+    {
+        get
+        {
+            if (_spawnDelay == null)
+            {
+                _spawnDelay = GetComponent<SpawnDelay>();
+            }
+
+            return _spawnDelay;
+        }
+    }
+    GameResult _gameResult;
+    GameResult gameResult
+    {
+        get
+        {
+            if (_gameResult == null)
+            {
+                _gameResult = new GameResult();
+            }
+            return _gameResult;
+        }
+    }
+    #endregion
 
     //게임 상태
     E_GameState e_GameState_;
@@ -26,21 +88,6 @@ public class SpawnManager : MonoBehaviour
 
     public System.Action Ac_EndGame;
 
-    private void Awake()
-    {
-        instance = this;
-    }
-
-    private void Start()
-    {
-        gameResult = new GameResult();
-        spawnCreate = GetComponent<SpawnCreate>();
-        spawnPoint = GetComponent<SpawnPoint>();
-        spawnTimePoint = GetComponent<SpawnTimePoint>();
-        spawnDelay = GetComponent<SpawnDelay>();
-    }
-
-
     private void FixedUpdate()
     {
         spawnDelay?.GetDelayAction()?.Invoke();
@@ -48,6 +95,7 @@ public class SpawnManager : MonoBehaviour
         {
             case E_GameState.Play:
                 UpdatePlay();
+                UpdateEndCheck();
                 break;
         }
     }
@@ -60,11 +108,16 @@ public class SpawnManager : MonoBehaviour
                 DirDelayTime = spawnDelay.GetStartDelayTime();
                 break;
             case E_GameState.Play:
-                print(DirDelayTime);
                 spawnDelay.SetDelay(DirDelayTime, () => AudioManager.instance.PlayMusic());
                 break;
             case E_GameState.End:
-                spawnDelay.SetDelay(gameOverTime_Delay, () => SetState(E_GameState.Result));
+                System.Action action = () =>
+                {
+                    spawnDelay.Reset();
+                    SetState(E_GameState.Result);
+                };
+
+                spawnDelay.SetDelay(gameOverTime_Delay, action, true);
                 break;
             case E_GameState.GameOver:
                 GameEnd();
@@ -79,12 +132,11 @@ public class SpawnManager : MonoBehaviour
         e_GameState_ = State;
     }
 
-
     //게임 시작
     public void PlayGame()
     {
         SetState(E_GameState.Wait);
-        spawnTimePoint.SetUp("엘라스타즈");
+        spawnTimePoint.SetUp("test2");
         spawnCreate.SetStart();
         DelayStart();
     }
@@ -94,10 +146,10 @@ public class SpawnManager : MonoBehaviour
     {
         System.Action action = () =>
         {
+            spawnDelay.Reset();
             SetState(E_GameState.Play);
-
         };
-        spawnDelay.SetDelay(2, action);
+        spawnDelay.SetDelay(2, action, true);
     }
 
     //플레이
@@ -113,12 +165,22 @@ public class SpawnManager : MonoBehaviour
         spawnCreate?.SetActiveMonster();
     }
 
+    void UpdateEndCheck()
+    {
+        var check = spawnTimePoint.CheckEndTiems();
+        if (!check)
+        {
+            return;
+        }
+
+        SetState(E_GameState.End);
+    }
+
     //게임 종료 함수
     void GameEnd()
     {
         AudioManager.instance.StopMusic();
         UI_GameOver.Create();
-        SetState(E_GameState.GameOver);
     }
 
 

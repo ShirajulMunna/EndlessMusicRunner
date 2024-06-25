@@ -1,15 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnStage : MonoBehaviour, ISpawnState
+public class SpawnStage : Singleton<SpawnStage>, ISpawnState
 {
-    public static SpawnStage instance;
     public int StageInfo { get; set; }
-
-    private void Awake()
-    {
-        instance = this;
-    }
 
     public List<C_LevelDesign> GetLevelDesigns()
     {

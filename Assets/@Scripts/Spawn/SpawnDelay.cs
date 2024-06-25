@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class SpawnDelay : MonoBehaviour, ISpawnDelay
 {
@@ -18,6 +19,13 @@ public class SpawnDelay : MonoBehaviour, ISpawnDelay
 
     public System.Action GetDelayAction()
     {
+        GameDelay -= Time.deltaTime;
+        if (GameDelay > 0)
+        {
+            return null;
+        }
+
+
         return Ac_Delay;
     }
 
@@ -26,6 +34,12 @@ public class SpawnDelay : MonoBehaviour, ISpawnDelay
         GameDelay = delay;
         Ac_Delay = action;
         Ac_Delay += Reset;
+    }
+
+    public void SetDelay(float delay, System.Action action, bool nonereset)
+    {
+        GameDelay = delay;
+        Ac_Delay = action;
     }
 
     public void Reset()
@@ -57,6 +71,7 @@ interface ISpawnDelay
     System.Action Ac_Delay { get; set; }
     System.Action GetDelayAction();
     void SetDelay(float delay, System.Action action);
+    void SetDelay(float delay, System.Action action, bool nonereset);
     void Reset();
     float GetStartDelayTime();
 }

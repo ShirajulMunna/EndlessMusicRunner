@@ -29,8 +29,12 @@ public class SpawnTimePoint : MonoBehaviour, ISpawnTimePoint
 
     public void RemoveTimes()
     {
-
         L_Times.RemoveAt(0);
+    }
+
+    public bool CheckEndTiems()
+    {
+        return L_Times.Count <= 0;
     }
 }
 
@@ -40,4 +44,5 @@ interface ISpawnTimePoint
     void SetUp(string name);
     bool CheckTime(double times);
     void RemoveTimes();
+    bool CheckEndTiems();
 }
