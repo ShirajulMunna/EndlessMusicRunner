@@ -1,12 +1,8 @@
 using DG.Tweening;
 using Spine.Unity;
-using System.Collections;
 using System.Collections.Generic;
-using System.IO.Compression;
 using System.Threading.Tasks;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 
 public class Monster : Entity, IMonsterMove
@@ -71,7 +67,8 @@ public class Monster : Entity, IMonsterMove
     }
     public UniqMonster uniqMonster;
 
-Vector3 targetPosition;
+    Vector3 targetPosition;
+
     protected virtual void Start()
     {
         targetPosition = transform.position; // 초기 위치 설정
@@ -82,11 +79,12 @@ Vector3 targetPosition;
         var checkattack = CheckAttack();
         SetAttack(checkattack);
         SetDieFly();
-            SetMove();
+        SetMove();
     }
 
-    protected virtual void FixedUpdate() {
-    
+    protected virtual void FixedUpdate() 
+    {
+        
     }
 
     //초기화
