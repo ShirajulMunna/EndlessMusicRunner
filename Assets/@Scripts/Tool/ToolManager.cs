@@ -102,8 +102,13 @@ public class ToolManager : MonoBehaviour
 
     public void Btn_DataSave()
     {
-        toolTimePoint.SaveAddPoint();
-        toolDataManager.SetSave(Input_Name.text, int.Parse(Input_Bpm.text), toolTimePoint.GetPoint());
+        var list = new List<double>();
+
+        foreach (var item in toolTimePoint.GetPoint())
+        {
+            list.Add(item.GetTimes());
+        }
+        toolDataManager.SetSave(Input_Name.text, int.Parse(Input_Bpm.text), list);
     }
     public void Btn_DataLoad()
     {
@@ -121,7 +126,6 @@ public class ToolManager : MonoBehaviour
         {
             toolTimePoint.AddPoint(item);
         }
-        toolTimePoint.SaveAddPoint();
     }
 
     //로드했는지 체크

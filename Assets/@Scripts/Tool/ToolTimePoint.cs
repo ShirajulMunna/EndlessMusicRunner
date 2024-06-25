@@ -9,8 +9,7 @@ public class ToolTimePoint : MonoBehaviour, ITimePointManager, ITimePointCreator
 
     public GameObject G_TimePoint { get; set; }
     public Transform Tr_Create { get; set; }
-    public List<double> L_TimePoint { get; set; } = new List<double>();
-    public List<TMP_InputField> L_InputList { get; set; } = new List<TMP_InputField>();
+    public List<UI_ToolInputTimeLine> L_InputList { get; set; } = new List<UI_ToolInputTimeLine>();
 
     private ToolAudio toolAudio;
     private ToolInput toolInput;
@@ -30,9 +29,9 @@ public class ToolTimePoint : MonoBehaviour, ITimePointManager, ITimePointCreator
         AddTimePoint();
     }
 
-    public List<double> GetPoint()
+    public List<UI_ToolInputTimeLine> GetPoint()
     {
-        return L_TimePoint;
+        return L_InputList;
     }
 
     public void AddPoint(double times)
@@ -45,26 +44,15 @@ public class ToolTimePoint : MonoBehaviour, ITimePointManager, ITimePointCreator
     {
         foreach (var item in L_InputList)
         {
-            Destroy(item);
+            Destroy(item.gameObject);
         }
         L_InputList.Clear();
     }
 
-    //저장
-    public void SaveAddPoint()
+    public UI_ToolInputTimeLine CreateTimePoint(double times)
     {
-        L_TimePoint.Clear();
-        foreach (var item in L_InputList)
-        {
-            var times = double.Parse(item.text);
-            L_TimePoint.Add(times);
-        }
-    }
-
-    public TMP_InputField CreateTimePoint(double times)
-    {
-        var point = Instantiate(G_TimePoint, Tr_Create).GetComponent<TMP_InputField>();
-        point.text = times.ToString();
+        var point = Instantiate(G_TimePoint, Tr_Create).GetComponent<UI_ToolInputTimeLine>();
+        point.SetUp(times, this);
         return point;
     }
 
@@ -83,20 +71,24 @@ public class ToolTimePoint : MonoBehaviour, ITimePointManager, ITimePointCreator
 
         toolInput.SetInput(KeyCode.Space, action);
     }
+
+    public void RemovePoint(UI_ToolInputTimeLine line)
+    {
+        L_InputList.Remove(line);
+    }
 }
 
 public interface ITimePointCreator
 {
     GameObject G_TimePoint { get; set; }
     Transform Tr_Create { get; set; }
-    TMP_InputField CreateTimePoint(double times);
+    UI_ToolInputTimeLine CreateTimePoint(double times);
 }
 
 public interface ITimePointManager
 {
-    List<double> GetPoint();
+    List<UI_ToolInputTimeLine> GetPoint();
     void AddPoint(double times);
     void AddTimePoint();
-    void SaveAddPoint();
     void Reset();
 }

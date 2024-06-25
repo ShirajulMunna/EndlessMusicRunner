@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ToolPlayer : MonoBehaviour, IToolPlayer
 {
-    public List<double> L_TimePoint { get; set; }
+    public List<UI_ToolInputTimeLine> L_TimePoint { get; set; }
     ToolTimePoint toolTimePoint;
     ToolEffect toolEffect;
     ToolAudio toolAudio;
@@ -43,7 +43,7 @@ public class ToolPlayer : MonoBehaviour, IToolPlayer
             return;
         }
 
-        var check = curtime < L_TimePoint[0];
+        var check = curtime < L_TimePoint[0].GetTimes();
 
         if (check)
         {
@@ -57,7 +57,7 @@ public class ToolPlayer : MonoBehaviour, IToolPlayer
 
 interface IToolPlayer
 {
-    List<double> L_TimePoint { get; set; }
+    List<UI_ToolInputTimeLine> L_TimePoint { get; set; }
     void Player();
     void UpdatePlayer(double curtime);
 }
