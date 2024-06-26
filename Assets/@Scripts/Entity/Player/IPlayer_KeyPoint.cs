@@ -45,18 +45,18 @@ public class IPlayer_KeyPoint : MonoBehaviour
     E_MovePoint SetKey()
     {
         // 동시 키 입력 처리
-        if (Input.GetKey(KeyCode.F) && Input.GetKey(KeyCode.J))
+        if (Input.GetKeyDown(KeyCode.F) && Input.GetKeyDown(KeyCode.J))
         {
             SetTwin(true);
             return E_MovePoint.Up;
         }
 
-        if (Input.GetKey(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             return E_MovePoint.Up;
         }
 
-        if (Input.GetKey(KeyCode.J))
+        if (Input.GetKeyDown(KeyCode.J))
         {
             return E_MovePoint.Down;
         }

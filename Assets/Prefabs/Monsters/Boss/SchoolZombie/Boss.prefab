@@ -125,7 +125,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -149,14 +149,6 @@ MonoBehaviour:
   Change: 0
   Sk: []
   uniqMonster: 0
-  L_Ani:
-  - idle
-  - idle2
-  - Attack1
-  - Attack2
-  - Attack3
-  - Hit
-  - retire
   Tr_CustomCreate:
   - {fileID: 3381030844900745593}
 --- !u!1 &7109575829686589730

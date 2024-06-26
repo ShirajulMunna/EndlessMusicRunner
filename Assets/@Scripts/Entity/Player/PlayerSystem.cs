@@ -207,7 +207,7 @@ public class PlayerSystem : Entity
     //애니메이션 셋팅
     void SetAttackAni(E_MovePoint keypoint, E_AttackState e_AttackState)
     {
-        if (e_AttackState != E_AttackState.None)
+        if (e_AttackState != E_AttackState.None || keypoint == E_MovePoint.Down)
         {
             noneChange = MaxnoneChange;
             SetAttackCount();
@@ -232,16 +232,13 @@ public class PlayerSystem : Entity
                 SetAni(("Twin_Attack", false));
                 return;
         }
-
-        if (noneChange > 0)
-        {
-            return;
-        }
-
         switch (keypoint)
         {
             case E_MovePoint.Down:
+
                 SetState(E_Entity_State.Running);
+                var state = GetAttackAniState(E_AniType.Kick, E_AniType.Tail_Attack, E_AniType.Fist_attack);
+                SetAni(GetAniName(state));
                 break;
             case E_MovePoint.Up:
                 SetState(E_Entity_State.Fly);

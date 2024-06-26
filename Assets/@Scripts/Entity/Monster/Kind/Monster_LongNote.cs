@@ -51,8 +51,12 @@ public class Monster_LongNote : Monster
 
     protected override void Update()
     {
-        SetMove();
         SetCheck();
+    }
+
+    protected override void FixedUpdate()
+    {
+        base.FixedUpdate();
     }
 
 
@@ -78,11 +82,11 @@ public class Monster_LongNote : Monster
                 GetScoreTime = Time.time;
                 var score = 1;
                 ScoreManager.instance.SetCurrentScore(score);
-               
+
             }
             SoundTime += Time.deltaTime;
 
-            if(SoundTime >= SoundTimeDuration)
+            if (SoundTime >= SoundTimeDuration)
             {
                 SoundTime = 0f;
                 AudioManager.instance.LongNoteSound();
@@ -120,7 +124,7 @@ public class Monster_LongNote : Monster
             GameManager.instance.longNoteDestoryPosition = prevPosition;
             ScoreManager.instance.SetCombo_Add(); // �޺��߰�
             ScoreManager.instance.SetScoreState(perfect);
-            SetConditionEffect(perfect,prevPosition);
+            SetConditionEffect(perfect, prevPosition);
             AudioManager.instance.LongNoteSound();
             return;
         }
@@ -140,9 +144,9 @@ public class Monster_LongNote : Monster
 
         if (Dealy > 0)
         {
-            
+
             Dealy = 0.3f;
-            
+
             AttackHold = 1;
         }
 
@@ -150,7 +154,7 @@ public class Monster_LongNote : Monster
         {
             return;
         }
-                        AudioManager.instance.LongNoteSound();
+        AudioManager.instance.LongNoteSound();
         ScoreManager.instance.SetCombo_Add();
         ScoreManager.instance.SetScoreState(perfect); //롱노트 이펙트는 추가되지만 정확한 내용이 들어가 있지 않음
         //게임매니저에서 처음 충돌위치가져온상태
@@ -191,10 +195,10 @@ public class Monster_LongNote : Monster
 
             var effects = await Effect.Create(transform.position, (int)HitCollisionDetection.ConditionEffect.Opps);
             effects.fadeDuration = HitCollisionDetection.Instance.fadeDuration;
-        }  
+        }
     }
     //판정이펙트 출력
-    private void SetConditionEffect(ScoreManager.E_ScoreState perfect,Vector3 position)
+    private void SetConditionEffect(ScoreManager.E_ScoreState perfect, Vector3 position)
     {
         GameObject effectObject = null;
         switch (perfect)
@@ -206,7 +210,7 @@ public class Monster_LongNote : Monster
                 effectObject = Instantiate(greatEffect, position, default, null);
                 break;
         }
-        if(effectObject != null) 
+        if (effectObject != null)
             effectObject.GetComponent<Effect>().fadeDuration = HitCollisionDetection.Instance.fadeDuration;
     }
 }
