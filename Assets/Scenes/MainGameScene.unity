@@ -4390,6 +4390,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4352346411370839422, guid: 01674f6d627f6a94daea55fbd29b898f, type: 3}
+      propertyPath: StrMusicFileName
+      value: test3
+      objectReference: {fileID: 0}
     - target: {fileID: 8158724943972861327, guid: 01674f6d627f6a94daea55fbd29b898f, type: 3}
       propertyPath: m_Name
       value: SpawnManager
