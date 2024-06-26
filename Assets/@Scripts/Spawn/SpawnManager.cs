@@ -106,6 +106,7 @@ public class SpawnManager : Singleton<SpawnManager>
         {
             case E_GameState.Wait:
                 OffSetTime = spawnDelay.GetStartDelayTime();
+                OffSetTime += 0.1f;
                 break;
             case E_GameState.Play:
                 Ac_MusicPlay += () => AudioManager.instance.PlayMusic();
