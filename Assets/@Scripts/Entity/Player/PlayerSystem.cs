@@ -49,6 +49,8 @@ public class PlayerSystem : Entity
         "idle",
     };
 
+    public bool isStopPlayer = false;
+
     private void Awake()
     {
         playerSystem = this;
@@ -103,7 +105,7 @@ public class PlayerSystem : Entity
     {
         base.SetRunning();
         var result = ("", false);
-        if (SpawnStage.instance.GetStageInfo() >= 1000)
+        if (SpawnManager.instance != null && SpawnStage.instance.GetStageInfo() >= 1000 || isStopPlayer)
         {
             result = GetAniName(E_AniType.idle);
             SetAni(result, result.Item1);
