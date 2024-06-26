@@ -39,8 +39,9 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
         }
     }
 
-    protected virtual void OnDestroy()
-    {
-        applicationIsQuitting = true;
-    }
+    // 씬이동되면서 자동 Destory되기때문에 true로인해서 스폰매니저 객체에 접근이 불가능한 문제가 발생함
+    //protected virtual void OnDestroy()
+    //{
+    //    applicationIsQuitting = true;
+    //}
 }

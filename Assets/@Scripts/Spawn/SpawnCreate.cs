@@ -8,6 +8,7 @@ public class SpawnCreate : Singleton<SpawnCreate>, ISpawnCreate
 
     SpawnStage spawnStage;
     SpawnPoint spawnPoint;
+    public bool isStop;
 
     public List<GameObject> L_CreateData { get; set; } = new List<GameObject>();
     public int CreateIDX { get; set; }
