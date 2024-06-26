@@ -84,6 +84,8 @@ public class SpawnManager : Singleton<SpawnManager>
     const float gameOverTime_Result = 2f;
     //게임 오버 후 딜레이 시간
     const float gameOverTime_Delay = 4.5f;
+    
+    [SerializeField] string StrMusicFileName;
 
     public System.Action Ac_EndGame;
     System.Action Ac_MusicPlay;
@@ -106,6 +108,7 @@ public class SpawnManager : Singleton<SpawnManager>
         {
             case E_GameState.Wait:
                 OffSetTime = spawnDelay.GetStartDelayTime();
+                OffSetTime += 0.1f;
                 break;
             case E_GameState.Play:
                 Ac_MusicPlay += () => AudioManager.instance.PlayMusic();
@@ -136,7 +139,7 @@ public class SpawnManager : Singleton<SpawnManager>
     public void PlayGame()
     {
         SetState(E_GameState.Wait);
-        spawnTimePoint.SetUp("test2");
+        spawnTimePoint.SetUp(StrMusicFileName);
         spawnCreate.SetStart();
         DelayStart();
     }

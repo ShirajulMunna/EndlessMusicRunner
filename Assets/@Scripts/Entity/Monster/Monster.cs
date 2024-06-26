@@ -1,8 +1,12 @@
 using DG.Tweening;
 using Spine.Unity;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO.Compression;
 using System.Threading.Tasks;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 
 public class Monster : Entity, IMonsterMove
@@ -27,15 +31,16 @@ public class Monster : Entity, IMonsterMove
     [SerializeField] protected SkeletonDataAsset[] Sk;
 
     Rigidbody2D rg2;
-    protected Rigidbody2D rb{
-        get 
+    protected Rigidbody2D rb
+    {
+        get
         {
-            if(rg2 == null)
+            if (rg2 == null)
             {
                 rg2 = GetComponent<Rigidbody2D>();
             }
             return rg2;
-            }
+        }
     }
 
     //죽었을때 날아가기
@@ -68,7 +73,6 @@ public class Monster : Entity, IMonsterMove
     public UniqMonster uniqMonster;
 
     Vector3 targetPosition;
-
     protected virtual void Start()
     {
         targetPosition = transform.position; // 초기 위치 설정
@@ -79,12 +83,12 @@ public class Monster : Entity, IMonsterMove
         var checkattack = CheckAttack();
         SetAttack(checkattack);
         SetDieFly();
-        SetMove();
+
     }
 
-    protected virtual void FixedUpdate() 
+    protected virtual void FixedUpdate()
     {
-        
+        SetMove();
     }
 
     //초기화
@@ -208,11 +212,7 @@ public class Monster : Entity, IMonsterMove
     //이동 함수
     public virtual void SetMove()
     {
-// 타겟 위치를 왼쪽으로 갱신
-        targetPosition += Vector3.left * Speed * Time.deltaTime;
-        
-        // Lerp를 사용하여 부드럽게 이동
-        transform.position = Vector3.Lerp(transform.position, targetPosition, 0.1f);
+        transform.Translate(Vector2.left * Speed * Time.fixedDeltaTime);
 
         var values = DestoryX;
 
