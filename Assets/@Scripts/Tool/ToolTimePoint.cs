@@ -52,7 +52,7 @@ public class ToolTimePoint : MonoBehaviour, ITimePointManager, ITimePointCreator
     public UI_ToolInputTimeLine CreateTimePoint(double times)
     {
         var point = Instantiate(G_TimePoint, Tr_Create).GetComponent<UI_ToolInputTimeLine>();
-        point.SetUp(times, this);
+        point.SetUp(L_InputList.Count, times, this);
         return point;
     }
 

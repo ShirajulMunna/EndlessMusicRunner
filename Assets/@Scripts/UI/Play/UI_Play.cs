@@ -23,6 +23,7 @@ public class UI_Play : MonoBehaviour
     [Header("Fever")]
     [SerializeField] Image Img_Fever;
     [SerializeField] Image Img_Fever_CoolTime;
+
     float DelayTime = 3;
     public bool GameOver;
 

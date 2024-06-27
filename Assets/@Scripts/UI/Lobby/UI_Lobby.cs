@@ -7,10 +7,16 @@ public class UI_Lobby : MonoBehaviour
 {
     [SerializeField] TMP_Dropdown skinDropDown;
     [SerializeField] TextMeshProUGUI T_Type;
+    [SerializeField] TMP_Dropdown BitDropDown;
+    [SerializeField] SkeletonGraphic playerUiGraphic;
+
     public static bool Type;
     public static PlayerSkinType playerSkinType = PlayerSkinType.Skin0;
     static int ScrollValue;
-    public SkeletonGraphic playerUiGraphic;
+    public static string Str_BitName;
+
+
+
 
     private List<string> skin_Names = new()
     {
@@ -19,10 +25,11 @@ public class UI_Lobby : MonoBehaviour
     };
     private void Start()
     {
+        SetBit();
         if (T_Type == null)
             return;
         T_Type.text = !Type ? "VsMode" : "RunMode";
-        skinDropDown.value = ScrollValue; 
+        skinDropDown.value = ScrollValue;
         ChangePlayerUiGraphics();
     }
 
@@ -33,13 +40,18 @@ public class UI_Lobby : MonoBehaviour
 
         if (!Type)
         {
-            text = "VsMode"; 
+            text = "VsMode";
         }
         else
         {
             text = "RunMode";
         }
         T_Type.text = text;
+    }
+
+    public void SetBit()
+    {
+        Str_BitName = BitDropDown.options[BitDropDown.value].text;
     }
 
     public void SetSkin()

@@ -10,7 +10,6 @@ public class ToolAudio : MonoBehaviour, IToolAudio
     public AudioSource audioSource { get; set; }
     ToolManager toolManager;
     ToolSlide toolSlide;
-
     private void Awake()
     {
         toolManager = GetComponent<ToolManager>();

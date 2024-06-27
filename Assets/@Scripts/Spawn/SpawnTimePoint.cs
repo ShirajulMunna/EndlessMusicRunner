@@ -13,6 +13,7 @@ public class SpawnTimePoint : MonoBehaviour, ISpawnTimePoint
     {
         L_Times.Clear();
         toolDataManager = GetComponent<ToolDataManager>();
+        print(name);
         toolData = toolDataManager.GetLoad(name);
         L_Times = toolData.L_TimePoint.ToList();
     }

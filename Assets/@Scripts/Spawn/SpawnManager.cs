@@ -84,7 +84,7 @@ public class SpawnManager : Singleton<SpawnManager>
     const float gameOverTime_Result = 2f;
     //게임 오버 후 딜레이 시간
     const float gameOverTime_Delay = 4.5f;
-    
+
     [SerializeField] string StrMusicFileName;
 
     public System.Action Ac_EndGame;
@@ -101,6 +101,7 @@ public class SpawnManager : Singleton<SpawnManager>
                 break;
         }
     }
+
 
     public void SetState(E_GameState State)
     {
@@ -135,11 +136,15 @@ public class SpawnManager : Singleton<SpawnManager>
         e_GameState_ = State;
     }
 
+
     //게임 시작
     public void PlayGame()
     {
         SetState(E_GameState.Wait);
-        spawnTimePoint.SetUp(StrMusicFileName);
+
+        var bitname = string.IsNullOrEmpty(StrMusicFileName) ? UI_Lobby.Str_BitName : StrMusicFileName;
+
+        spawnTimePoint.SetUp(bitname);
         spawnCreate.SetStart();
         DelayStart();
     }

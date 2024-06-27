@@ -20,7 +20,7 @@ public class IPlayer_KeyPoint : MonoBehaviour
     float isHoldTime;
 
     public E_MovePoint SetPoint()
-    { 
+    {
         var point = SetKey();
 
         if (MovePoint == E_MovePoint.Middle)
@@ -48,6 +48,7 @@ public class IPlayer_KeyPoint : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F) && Input.GetKeyDown(KeyCode.J))
         {
             SetTwin(true);
+            print("띠링");
             return E_MovePoint.Up;
         }
 

@@ -28,9 +28,19 @@ public class ToolPlayer : MonoBehaviour, IToolPlayer
 
     public void Player()
     {
-        L_TimePoint = toolTimePoint.GetPoint().ToList();
-    }
+        var list = toolTimePoint.GetPoint().ToList();
+        L_TimePoint = new List<UI_ToolInputTimeLine>();
 
+        foreach (var item in list)
+        {
+            var checks = item.GetTimes() > toolAudio.GetAudioTime();
+            if (!checks)
+            {
+                continue;
+            }
+            L_TimePoint.Add(item);
+        }
+    }
     public void UpdatePlayer(double curtime)
     {
         if (L_TimePoint == null)

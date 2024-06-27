@@ -29,6 +29,8 @@ public class ToolManager : MonoBehaviour
         SetTimePoint(GetComponent<ToolTimePoint>());
         toolDataManager = GetComponent<ToolDataManager>();
         toolPlayer = GetComponent<ToolPlayer>();
+        toolInput.SetInput(KeyCode.X, Btn_Pause);
+        toolInput.SetInput(KeyCode.Z, Btn_Play);
     }
 
     private void FixedUpdate()
