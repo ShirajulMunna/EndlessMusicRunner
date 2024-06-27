@@ -42,12 +42,17 @@ public class IPlayer_Move : MonoBehaviour
 
     void SetMovePoint(E_MovePoint point)
     {
+        if (MovePoint == E_MovePoint.Middle)
+        {
+            CurDownDelay = MaxDownDelay;
+            return;
+        }
+        CurDownDelay = MaxDownDelay;
         if (point == E_MovePoint.None)
         {
             return;
         }
         MovePoint = point;
-        CurDownDelay = MaxDownDelay;
     }
     //움직임 함수
     void Move()
@@ -69,7 +74,6 @@ public class IPlayer_Move : MonoBehaviour
             }
 
         }
-
         // 목표 위치 가져오기
         var targetPos = P_Attack.Tr_AttackVector[GetMoveIDX(MovePoint)];
         var targetY = targetPos.y;
@@ -124,6 +128,15 @@ public class IPlayer_Move : MonoBehaviour
     public void DirectMove(E_MovePoint point)
     {
         var targetPos = P_Attack.Tr_AttackVector[GetMoveIDX(point)];
+        Tr.position = targetPos;
+    }
+
+    //바로 이동
+    public void SetDirrectMove(E_MovePoint point)
+    {
+        MovePoint = point;
+        var targetPos = P_Attack.Tr_AttackVector[GetMoveIDX(point)];
+        targetPos.x = Tr.position.x;
         Tr.position = targetPos;
     }
 }

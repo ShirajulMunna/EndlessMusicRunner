@@ -23,11 +23,6 @@ public class IPlayer_KeyPoint : MonoBehaviour
     {
         var point = SetKey();
 
-        if (MovePoint == E_MovePoint.Middle)
-        {
-            return MovePoint;
-        }
-
         if (point != E_MovePoint.None && !Attack.CheckHoldPoint() && MovePoint == point)
         {
             isHoldTime += Time.deltaTime;
@@ -75,12 +70,6 @@ public class IPlayer_KeyPoint : MonoBehaviour
     public void SetDirectMoveIdx(E_MovePoint idx)
     {
         MovePoint = idx;
-    }
-
-    //상태 체크
-    public bool CheckPoint(E_MovePoint point)
-    {
-        return MovePoint == point;
     }
 
     //이중 입력 확인

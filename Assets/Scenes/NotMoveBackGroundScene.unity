@@ -4306,11 +4306,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &2072862674 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4697130073566055630, guid: ebf406e66866c174fb3254da9cfb93ea, type: 3}
-  m_PrefabInstance: {fileID: 7357550160565204674}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2122496688
 GameObject:
   m_ObjectHideFlags: 0
@@ -4470,18 +4465,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2634369252569677922, guid: ebf406e66866c174fb3254da9cfb93ea, type: 3}
-      propertyPath: curHp
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 2634369252569677922, guid: ebf406e66866c174fb3254da9cfb93ea, type: 3}
-      propertyPath: maxHp
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 2634369252569677922, guid: ebf406e66866c174fb3254da9cfb93ea, type: 3}
-      propertyPath: TestParticle
-      value: 
-      objectReference: {fileID: 2072862674}
     - target: {fileID: 2634369252569677922, guid: ebf406e66866c174fb3254da9cfb93ea, type: 3}
       propertyPath: isStopPlayer
       value: 1

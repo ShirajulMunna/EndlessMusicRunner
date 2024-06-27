@@ -35,6 +35,7 @@ public class SpawnTimePoint : MonoBehaviour, ISpawnTimePoint
 
     public bool CheckEndTiems()
     {
+        print(L_Times.Count);
         return L_Times.Count <= 0;
     }
 }

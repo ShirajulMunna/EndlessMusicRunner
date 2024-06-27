@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 [Serializable]
@@ -45,11 +46,6 @@ public class IPlayer_Attack
             return E_AttackState.None;
         }
 
-        var check = CheckAttackState();
-        if (!check)
-        {
-            return E_AttackState.None;
-        }
         AttackState = SetAttack(point);
         return AttackState;
     }
@@ -67,44 +63,41 @@ public class IPlayer_Attack
             return E_AttackState.None;
         }
 
-        foreach (var item in col)
+        var item = col[0];
+
+        //보스일때 처리
+        var boss = item.GetComponent<Boss>();
+        var result = SetBoss(boss, perfect);
+
+        if (result != E_AttackState.None)
         {
-            //보스일때 처리
-            var boss = item.GetComponent<Boss>();
-            var result = SetBoss(boss, perfect);
+            return result;
+        }
 
-            if (result != E_AttackState.None)
-            {
-                return result;
-            }
+        //롱 노트 일때 처리
+        var longnote = item.GetComponent<Monster_LongNote>();
+        result = SetLongNote(longnote, perfect);
 
-            //롱 노트 일때 처리
-            var longnote = item.GetComponent<Monster_LongNote>();
-            result = SetLongNote(longnote, perfect);
+        if (result != E_AttackState.None)
+        {
+            return result;
+        }
 
-            if (result != E_AttackState.None)
-            {
-                return result;
-            }
+        //2단 몬스터 일때 
+        var twinMonster = item.GetComponent<Monster_Twin>();
+        result = SetTwinMonster(twinMonster, perfect);
+        if (result != E_AttackState.None)
+        {
+            return result;
+        }
 
-            //2단 몬스터 일때 
-            var twinMonster = item.GetComponent<Monster_Twin>();
-            result = SetTwinMonster(twinMonster, perfect);
-            if (result != E_AttackState.None)
-            {
-                return result;
-            }
+        //몬스터 일때 처리
+        var monster = item.GetComponent<Monster>();
+        result = SetMonster(monster, perfect);
 
-            //몬스터 일때 처리
-            var monster = item.GetComponent<Monster>();
-            result = SetMonster(monster, perfect);
-
-            if (result != E_AttackState.None)
-            {
-                return result;
-            }
-
-            return E_AttackState.None;
+        if (result != E_AttackState.None)
+        {
+            return result;
         }
 
         return E_AttackState.None;

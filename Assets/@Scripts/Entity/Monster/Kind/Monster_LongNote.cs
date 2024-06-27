@@ -18,7 +18,6 @@ public class Monster_LongNote : Monster
     [SerializeField] float Scale_X;
 
     GameObject effect;
-    float Dealy = 0f;
 
     private float GetScoreTime = 0f;
 
@@ -32,6 +31,9 @@ public class Monster_LongNote : Monster
 
     float SoundTime = 0f;
     public float SoundTimeDuration = 0.15f;
+
+    System.Action Ac_Close;
+
     protected override void Start()
     {
         if (Change)
@@ -73,8 +75,12 @@ public class Monster_LongNote : Monster
             return;
         }
 
+        Ac_Close?.Invoke();
+
         var player = GameManager.instance.player;
-        if (player.M_Attack.GetAttackState(E_AttackState.Hold))
+        var check = player.M_Attack.GetAttackState(E_AttackState.Hold);
+
+        if (check)
         {
             //딜레이 시간
             if (GetScoreTime + 0.1f <= Time.time)
@@ -117,22 +123,13 @@ public class Monster_LongNote : Monster
 
     public void SetAttack(ScoreManager.E_ScoreState perfect)
     {
-        if (AttackHold == 0)
-        {
-            AttackHold = 1;
-            prevPosition = transform.position;
-            GameManager.instance.longNoteDestoryPosition = prevPosition;
-            ScoreManager.instance.SetCombo_Add(); // �޺��߰�
-            ScoreManager.instance.SetScoreState(perfect);
-            SetConditionEffect(perfect, prevPosition);
-            AudioManager.instance.LongNoteSound();
-            return;
-        }
-
-        if (AttackHold == 2)
-        {
-            return;
-        }
+        AttackHold = 1;
+        prevPosition = transform.position;
+        GameManager.instance.longNoteDestoryPosition = prevPosition;
+        ScoreManager.instance.SetCombo_Add(); // �޺��߰�
+        ScoreManager.instance.SetScoreState(perfect);
+        SetConditionEffect(perfect, prevPosition);
+        AudioManager.instance.LongNoteSound();
 
         if (effect == null)
         {
@@ -140,30 +137,30 @@ public class Monster_LongNote : Monster
             effect = Instantiate(G_Effect, createposr, default, null);
         }
 
-        Dealy -= Time.deltaTime;
-
-        if (Dealy > 0)
-        {
-
-            Dealy = 0.3f;
-
-            AttackHold = 1;
-        }
-
-        if (Tr.localScale.x > 0)
+        if (AttackHold == 2)
         {
             return;
         }
-        AudioManager.instance.LongNoteSound();
-        ScoreManager.instance.SetCombo_Add();
-        ScoreManager.instance.SetScoreState(perfect); //롱노트 이펙트는 추가되지만 정확한 내용이 들어가 있지 않음
-        //게임매니저에서 처음 충돌위치가져온상태
-        var createpos = GameManager.instance.longNoteDestoryPosition;
-        var end = Instantiate(G_End, createpos, default, null);
-        SetConditionEffect(perfect, createpos);
-        Destroy(end, 1f);
-        Destroy(this.gameObject);
-        Destroy(effect);
+
+        System.Action action = () =>
+        {
+            if (Tr.localScale.x > 0)
+            {
+                return;
+            }
+            AudioManager.instance.LongNoteSound();
+            ScoreManager.instance.SetCombo_Add();
+            ScoreManager.instance.SetScoreState(perfect); //롱노트 이펙트는 추가되지만 정확한 내용이 들어가 있지 않음
+                                                          //게임매니저에서 처음 충돌위치가져온상태
+            var createpos = GameManager.instance.longNoteDestoryPosition;
+            var end = Instantiate(G_End, createpos, default, null);
+            SetConditionEffect(perfect, createpos);
+            Destroy(end, 1f);
+            Destroy(this.gameObject);
+            Destroy(effect);
+            Ac_Close = null;
+        };
+        Ac_Close = action;
     }
 
     public override void SetMove()
