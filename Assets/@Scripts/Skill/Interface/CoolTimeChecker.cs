@@ -13,6 +13,7 @@ public interface ICoolTimeChecker
     void SetCoolTimeData();
 
     float GetCoolTimePer();
+    void Reset();
 }
 
 
@@ -44,6 +45,7 @@ public class CoolTimeChecker : ICoolTimeChecker
 
     public void UpdateCoolTime()
     {
+        Debug.Log(CoolTime);
         CoolTime -= Time.deltaTime;
     }
 
@@ -57,5 +59,9 @@ public class CoolTimeChecker : ICoolTimeChecker
         var per = (CoolTime / _MaxCoolTime) - 1;
 
         return Mathf.Abs(per);
+    }
+    public void Reset()
+    {
+        CoolTime = 0;
     }
 }

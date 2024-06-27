@@ -74,5 +74,6 @@ public class SkillClass : ISkillClass
     public void SetData()
     {
         CoolTimeChecker.SetCoolTimeData();
+        UI_Play.Instance.Ac_Play += CoolTimeChecker.Reset;
     }
 }

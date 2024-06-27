@@ -28,6 +28,7 @@ public class UI_Play : MonoBehaviour
     public bool GameOver;
 
     public System.Action Ac_Update;
+    public System.Action Ac_Play;
 
     private void Awake()
     {
@@ -43,6 +44,7 @@ public class UI_Play : MonoBehaviour
     {
         ScoreManager.instance.ScoreReset();
         Key_Explain.SetActive(activate);
+        Ac_Play?.Invoke();
         StartCoroutine(DeactivatePanel());
     }
 

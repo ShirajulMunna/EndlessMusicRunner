@@ -102,7 +102,6 @@ public class SpawnManager : Singleton<SpawnManager>
         }
     }
 
-
     public void SetState(E_GameState State)
     {
         switch (State)

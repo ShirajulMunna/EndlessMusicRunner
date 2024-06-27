@@ -139,4 +139,9 @@ public class IPlayer_Move : MonoBehaviour
         targetPos.x = Tr.position.x;
         Tr.position = targetPos;
     }
+
+    public E_MovePoint GetPoint()
+    {
+        return MovePoint;
+    }
 }

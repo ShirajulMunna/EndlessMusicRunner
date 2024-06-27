@@ -4,11 +4,8 @@ using UnityEngine;
 public class FerverTimeSystem : Skill
 {
     const string Name = "FeverTime_{0}";
-    const string SkyName = "FeverTime_Sky_{0}";
-    const string BackName = "FeverTime_Back_{0}";
 
     public static ISkillClass _skillClass;
-    public static SkillData skillData;
     public static bool isActive;
 
     public static async void Create(SkillData st_Skill)
@@ -82,12 +79,11 @@ public class FerverTimeSystem : Skill
 
     private void OnDestroy()
     {
+        isActive = false;
         if (UI_Play.Instance == null)
         {
             return;
         }
-
-        isActive = false;
         UI_Play.Instance.Ac_Update -= SetGage;
     }
 }

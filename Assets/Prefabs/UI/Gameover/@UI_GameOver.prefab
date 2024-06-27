@@ -4433,7 +4433,6 @@ MonoBehaviour:
     - {fileID: 7444697224899921802}
     - {fileID: 2228570344171683108}
     - {fileID: 2285025085619926755}
-    - {fileID: 2285025085619926755}
     e_GameState: 2
   T_TextList:
   - {fileID: 4743841954802306118}

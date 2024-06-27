@@ -63,7 +63,7 @@ public class UI_GameOver : MonoBehaviour
             return E_GameOverState.Faild;
         }
 
-        if (ScoreManager.instance.GetBestCombo() < ScoreManager.instance.GetCurrentScore())
+        if (ScoreManager.instance.GetBestScore() < ScoreManager.instance.GetCurrentScore())
         {
             return E_GameOverState.NewScore;
         }
@@ -77,19 +77,9 @@ public class UI_GameOver : MonoBehaviour
 
         foreach (var item in L_GameState)
         {
-            if (item.e_GameState == getgamestate)
+            foreach (var ites in item.G_List)
             {
-                foreach (var ites in item.G_List)
-                {
-                    ites.SetActive(true);
-                }
-            }
-            else
-            {
-                foreach (var ites in item.G_List)
-                {
-                    ites.SetActive(false);
-                }
+                ites.SetActive(item.e_GameState == getgamestate);
             }
         }
     }
@@ -137,7 +127,7 @@ public class UI_GameOver : MonoBehaviour
         var curscore = ScoreManager.instance.GetCurrentScore();
         var dleay = 1f;
         //실패할땐 실패 스코어 사운드 출력
-        if (GameManager.instance.player.CurHp <=0)
+        if (GameManager.instance.player.CurHp <= 0)
             AudioManager.instance.PlayEffectSound("Gameover_Score_Fail");
         else
             AudioManager.instance.PlayEffectSound("Gameover_Score");
@@ -185,7 +175,7 @@ public class UI_GameOver : MonoBehaviour
     {
         //스코어 매니저에서 등급 받아서 랭크 이미지 출력
         var rank = ScoreManager.instance.GetScoreRank();
-        if(GameManager.instance.player.CurHp<=0)
+        if (GameManager.instance.player.CurHp <= 0)
         {
             G_RankSprite[(int)ScoreManager.ScoreRank.F].gameObject.SetActive(true);
         }
@@ -200,13 +190,13 @@ public class UI_GameOver : MonoBehaviour
             resultAmount.fillAmount = 0f;
         }
         else
-            resultAmount.fillAmount = ScoreManager.instance.GetRestultPersent() /100f;
+            resultAmount.fillAmount = ScoreManager.instance.GetRestultPersent() / 100f;
     }
 
     //재시작할때 혹시나 랭크 이미지 초기화해주기
     private void OFFGameobject()
     {
-        for(int i=0;i< G_RankSprite.Length;++i)
+        for (int i = 0; i < G_RankSprite.Length; ++i)
         {
             G_RankSprite[i].gameObject.SetActive(false);
         }

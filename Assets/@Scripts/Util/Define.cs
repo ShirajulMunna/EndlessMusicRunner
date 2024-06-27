@@ -6,7 +6,7 @@ using UnityEngine;
 
 public static class Define
 {
-    public static void SetAni_Player(this SkeletonAnimation skeletonAnimation, string animationString, bool loop = false, string loopani = "Running")
+    public static void SetAni_Player(this SkeletonAnimation skeletonAnimation, string animationString, bool loop = false, string loopani = "")
     {
         var currentTrackEntry = skeletonAnimation.AnimationState.GetCurrent(0);
         if (animationString == loopani && currentTrackEntry.Animation.Name == loopani)
@@ -34,12 +34,11 @@ public static class Define
 
         if (loop == false)
         {
-            var ani = loopani;
-            if (animationString == "fire attack")
+            if (string.IsNullOrEmpty(loopani))
             {
-                ani = "fly";
+                loopani = GameManager.instance.player.GetIdle();
             }
-            skeletonAnimation.AnimationState.AddAnimation(0, ani, true, delay); // 찾은 딜레이 값을 AddAnimation에 적용
+            skeletonAnimation.AnimationState.AddAnimation(0, loopani, true, delay); // 찾은 딜레이 값을 AddAnimation에 적용
         }
     }
 

@@ -123,7 +123,8 @@ public class PlayerSystem : Entity
         base.SetHit();
         UI_Play.Instance.SetHp(MaxHp, CurHp);
         //공격 사운드 및 애니메이션 처리
-        SetAni(GetAniName(E_AniType.Hit));
+
+        SetAni(GetAniName(E_AniType.Hit), GetIdle());
 
         StartCoroutine(DamageEffect());
     }
@@ -204,6 +205,17 @@ public class PlayerSystem : Entity
 
     #region 애니메이션
 
+    public string GetIdle()
+    {
+        if (UI_Lobby.Type)
+        {
+            var idle_Type_0 = M_Move.GetPoint() == E_MovePoint.Up ? "fly" : "Running";
+            return idle_Type_0;
+        }
+        var idle_Type_1 = M_Move.GetPoint() == E_MovePoint.Up ? "fly" : "idle";
+        return idle_Type_1;
+    }
+
     //애니메이션 셋팅
     void SetAttackAni(E_MovePoint keypoint, E_AttackState e_AttackState)
     {
@@ -272,7 +284,7 @@ public class PlayerSystem : Entity
     public (string, bool) GetAniName(E_AniType state)
     {
         return (L_AniStr[(int)state], state == E_AniType.Running || state == E_AniType.Fly
-            || state == E_AniType.Die || state == E_AniType.idle);
+            || state == E_AniType.Die || state == E_AniType.idle || state == E_AniType.Hold_Attack || state == E_AniType.Hold_Fly_Attack);
     }
     #endregion
 

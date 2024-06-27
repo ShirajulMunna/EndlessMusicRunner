@@ -42,7 +42,7 @@ public class Boss : Monster
         base.Update();
 
         //보스 뒤로가게만듬
-        if (SpawnManager.instance.GetGameState() == E_GameState.Result)
+        if (SpawnManager.instance.GetGameState() == E_GameState.End)
         {
             if (!isBossDie)
             {
