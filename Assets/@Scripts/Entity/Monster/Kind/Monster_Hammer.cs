@@ -39,9 +39,9 @@ public class Monster_Hammer : Monster
     {
         base.SetDie();
         skeletonAnimation.SetAni_Monster("Hit", true);
-        Destroy(skeletonAnimation.transform.parent.gameObject,0.5f);
+        Destroy(skeletonAnimation.transform.parent.gameObject, 0.5f);
     }
-    public override void SetMove()
+    public override void SetMove(int dirx = -1)
     {
     }
 }

@@ -85,6 +85,11 @@ public class SpawnCreate : Singleton<SpawnCreate>, ISpawnCreate
             {
                 continue;
             }
+            if (Boss.instance != null && item == Boss.instance.gameObject)
+            {
+                Boss.instance.SetBossState(E_BossState.Die);
+                continue;
+            }
             item.SetActive(false);
         }
     }

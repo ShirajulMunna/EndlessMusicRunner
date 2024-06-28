@@ -28,59 +28,146 @@ public class Boss : Monster
 
     //6.14 보스 바닥에서 나오게하는 코드 작업
     Vector3 StartPos = new Vector3(13.5f, -4.2f, 0);
+    float HitDelay;
+    const float MaxHitDelay = 2f;
+    int DirX = -1;
 
-    bool hasReachedStartPos = false;
-    bool isDestorySetting = false;
+    private List<string> HitRandAnimation = new List<string>()
+    {
+        "Hit","Hit2","Hit3"
+    };
+    E_BossState e_BossState = E_BossState.Move;
 
-    bool isBossDie = false;
+    Vector3 TargetPos;
 
-    float DieDelay = 2f;
     private void Awake()
     {
         instance = this;
+        TargetPos = StartPos;
     }
 
     protected override void Update()
     {
         base.Update();
+        UpdateStaet();
+    }
 
-        //보스 뒤로가게만듬
-        if (SpawnManager.instance.GetGameState() == E_GameState.End)
+    void UpdateStaet()
+    {
+        switch (e_BossState)
         {
-            DieDelay -= Time.deltaTime;
-            if (DieDelay > 0)
-            {
-                return;
-            }
+            case E_BossState.Idle:
+                break;
+            case E_BossState.MoveAttack:
+                base.SetMove(DirX);
+                var check = CheckAttack();
+                if (!check)
+                {
+                    return;
+                }
+                SetBossState(E_BossState.Idle);
+                SetBossState(E_BossState.Move);
+                break;
+            case E_BossState.Move:
+                base.SetMove(DirX);
+                check = CheckTargetPos();
+                if (!check)
+                {
+                    return;
+                }
+                transform.position = TargetPos;
+                DoNotMoveGame();
+                break;
+            case E_BossState.Hit:
+                HitDelay += Time.deltaTime;
+                if (HitDelay < MaxHitDelay)
+                {
+                    return;
+                }
+                SetBossState(E_BossState.Move);
+                break;
+            case E_BossState.Die:
+                break;
+        }
+    }
 
-            if (!isBossDie)
-            {
-                isBossDie = true;
+    public override void SetMove(int dirx = -1)
+    {
+        Vector2 targetPos = TargetPos;
+        Vector2 currentPos = rb.position;
+        Vector2 newPos = Vector2.MoveTowards(currentPos, targetPos, Speed * Time.fixedDeltaTime);
+        rb.MovePosition(newPos);
+    }
+
+    public void SetBossState(E_BossState state)
+    {
+        switch (state)
+        {
+            case E_BossState.Idle:
+                TargetPos = StartPos;
+                GameManager.instance.player.SetisStop(true);
+                break;
+            case E_BossState.Move:
+                SetAni(E_BossAttack.idle);
+                break;
+            case E_BossState.MoveAttack:
+                TargetPos = GameManager.instance.player.transform.position;
+                TargetPos.y = StartPos.y;
+                break;
+            case E_BossState.Hit:
+                Speed = 0;
+                DirX = 1;
+                TargetPos = StartPos;
+                int random = Random.Range(0, HitRandAnimation.Count - 1);
+                skeletonAnimation.SetAni_Monster(HitRandAnimation[random], true);
+                break;
+            case E_BossState.Die:
+                SetBossState(E_BossState.Idle);
                 SetAni(E_BossAttack.Die);
                 Destroy(gameObject, 1f);
-            }
+                break;
         }
+        e_BossState = state;
     }
 
-    public override void SetMove()
+    //타겟 위치에 도달 했는지 체크
+    bool CheckTargetPos()
     {
-        if (hasReachedStartPos)
-        {
-            GameManager.instance.player.SetisStop(true);
-            return;
-        }
+        // 현재 위치와 StartPos 사이의 거리를 계산
+        float distance = Vector3.Distance(transform.position, TargetPos);
 
-        base.SetMove();
+        // 거리가 임계값 이하이면 도달한 것으로 간주
+        return distance <= 0.1f;
+    }
 
-        // StartPos에 도달했는지 체크
-        if (transform.position.x <= StartPos.x)
+    protected override void SetAttack(bool check)
+    {
+        base.SetAttack(check);
+
+        if (check)
         {
-            // 위치를 고정하고 SetMove를 더 이상 호출하지 않도록 설정
-            transform.position = StartPos;
-            hasReachedStartPos = true;
-            DoNotMoveGame();
+            SetCrush();
         }
     }
+
+    protected override bool CheckHitPoint()
+    {
+        return true;
+    }
+
+    void SetCrush()
+    {
+        GameManager.instance.player.SetHit();
+        SetBossState(E_BossState.Move);
+        DirX = -1;
+    }
+
+    public override void SetHit()
+    {
+        base.SetHit();
+        SetBossState(E_BossState.Hit);
+    }
+
 
     //애니셋팅
     public void SetAni(E_BossAttack boss)
@@ -111,5 +198,6 @@ public class Boss : Monster
     {
         var str = L_Ani[(int)E_BossAttack.Start];
         skeletonAnimation.SetAni_Monster(str, false, L_Ani[(int)E_BossAttack.idle2]);
+        SetBossState(E_BossState.Idle);
     }
 }

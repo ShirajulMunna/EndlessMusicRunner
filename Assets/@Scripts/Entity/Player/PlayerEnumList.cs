@@ -13,8 +13,10 @@ public enum E_AniType
     Fly_Attack,
     Die,
     Hold_Fly_Attack,
-    Clear, // 클리어 애니메이션추가
+    Clear_S, // 클리어 애니메이션추가
     idle,
+    Clear_A, // 클리어 애니메이션추가
+    Clear_C, // 클리어 애니메이션추가
 }
 
 public enum E_AttackState

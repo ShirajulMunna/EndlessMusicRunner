@@ -210,9 +210,11 @@ public class Monster : Entity, IMonsterMove
     }
 
     //이동 함수
-    public virtual void SetMove()
+    public virtual void SetMove(int dirx = -1)
     {
-        rb.MovePosition(rb.position + Vector2.left * Speed * Time.fixedDeltaTime);
+        Vector2 dir = Vector2.zero;
+        dir.x = dirx;
+        rb.MovePosition(rb.position + dir * Speed * Time.fixedDeltaTime);
 
         var values = DestoryX;
 

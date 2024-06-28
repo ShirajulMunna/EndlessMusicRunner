@@ -2,5 +2,5 @@ public interface IMonsterMove
 {
     float Speed { get; set; }
     float DestoryX { get; set; }
-    void SetMove();
+    void SetMove(int dirx = -1);
 }

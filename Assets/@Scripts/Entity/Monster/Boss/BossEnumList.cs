@@ -9,3 +9,12 @@ public enum E_BossAttack
     Die,
     Start,
 }
+
+public enum E_BossState
+{
+    Idle,
+    Move,
+    MoveAttack,
+    Hit,
+    Die
+}

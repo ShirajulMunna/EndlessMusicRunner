@@ -180,7 +180,9 @@ public class UI_GameOver : MonoBehaviour
             G_RankSprite[(int)ScoreManager.ScoreRank.F].gameObject.SetActive(true);
         }
         else
+        {
             G_RankSprite[(int)rank].gameObject.SetActive(true);
+        }
     }
     //결과 이미지 게이지바 작동
     void SetImageAmount()

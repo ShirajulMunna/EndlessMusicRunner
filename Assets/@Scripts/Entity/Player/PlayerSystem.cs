@@ -45,8 +45,10 @@ public class PlayerSystem : Entity
         "fly_attack",
         "retire",
         "fly_biting",
-        "Clear_2",// 클리어 애니메이션추가
+        "Clear_3",// 클리어 애니메이션추가
         "idle",
+        "Clear_2",// 클리어 애니메이션추가
+        "Clear_1",// 클리어 애니메이션추가
     };
 
     public bool isStopPlayer = false;
@@ -195,7 +197,21 @@ public class PlayerSystem : Entity
     {
         base.SetClear();
         EndGame();
-        SetAni(GetAniName(E_AniType.Clear));
+        var rank = ScoreManager.instance.GetScoreRank();
+        switch (rank)
+        {
+            case ScoreManager.ScoreRank.S:
+                SetAni(GetAniName(E_AniType.Clear_S));
+                break;
+            case ScoreManager.ScoreRank.A:
+            case ScoreManager.ScoreRank.B:
+                SetAni(GetAniName(E_AniType.Clear_A));
+                break;
+            case ScoreManager.ScoreRank.C:
+            case ScoreManager.ScoreRank.F:
+                SetAni(GetAniName(E_AniType.Clear_C));
+                break;
+        }
     }
 
     //게임 종료 처리들
@@ -214,7 +230,7 @@ public class PlayerSystem : Entity
     {
         var idle_Type = M_Move.GetPoint() == E_MovePoint.Up ? "fly" : "Running";
 
-        if (UI_Lobby.Type || isStopPlayer)
+        if (!UI_Lobby.Type || isStopPlayer)
         {
             idle_Type = M_Move.GetPoint() == E_MovePoint.Up ? "fly" : "idle";
         }

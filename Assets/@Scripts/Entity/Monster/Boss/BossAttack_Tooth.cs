@@ -14,7 +14,8 @@ public class BossAttack_Tooth : Monster
     [SerializeField] bool CheckCustomMove;
     [SerializeField] int CustomePos_IDX;
     Vector3 OriginPos;
-    int isCount = 2;
+
+    BossCount bossCount = new BossCount();
 
     protected override void Update()
     {
@@ -26,21 +27,20 @@ public class BossAttack_Tooth : Monster
     {
         base.SetUp(data, cratepos);
         SetCustomPos(cratepos);
-        Speed = 10;
     }
 
     //애니메이션 및 사운드 
     void SetAni_Sound()
     {
-        if (isCount > 0)
+        var check = bossCount.CheckPlay();
+
+        if (!check)
         {
-            isCount--;
-            if (isCount <= 0)
-            {
-                Boss.instance.SetAni(BossState);
-                SetSound();
-            }
+            return;
         }
+
+        Boss.instance.SetAni(BossState);
+        SetSound();
     }
 
 
@@ -68,7 +68,7 @@ public class BossAttack_Tooth : Monster
         AudioManager.instance.PlayEffectSound(string.Format(SoundName, PlaySound));
     }
 
-    public override void SetMove()
+    public override void SetMove(int dirx = -1)
     {
         if (CheckCustomMove)
         {
@@ -77,7 +77,7 @@ public class BossAttack_Tooth : Monster
         else
         {
             // y 값이 맞춰졌으면 x 방향으로만 이동
-            base.SetMove();
+            base.SetMove(dirx);
         }
     }
 
@@ -92,8 +92,10 @@ public class BossAttack_Tooth : Monster
             targetpos.x = transform.position.x;
             transform.position = targetpos;
             CheckCustomMove = false;
+            Speed = 20;
             return;
         }
+        Speed = 17;
         targetpos.x = player.transform.position.x;
         targetpos.y = OriginPos.y * 3;
         transform.position = Vector2.MoveTowards(transform.position, targetpos, Speed * Time.deltaTime);

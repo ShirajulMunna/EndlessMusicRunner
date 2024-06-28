@@ -165,7 +165,7 @@ public class Monster_LongNote : Monster
         Ac_Close = action;
     }
 
-    public override void SetMove()
+    public override void SetMove(int dirx = -1)
     {
         transform.Translate(Vector2.left * Speed * Time.deltaTime);
         var values = DestoryX;
