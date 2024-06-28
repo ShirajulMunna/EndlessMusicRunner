@@ -1,151 +1,173 @@
 Character_bird.png
-	size: 1450, 1450
+	size: 1498, 1498
 	filter: Linear, Linear
 	pma: true
 05 Effect 01
-	bounds: 1161, 169, 38, 45
+	bounds: 412, 23, 38, 45
 	offsets: 81, 86, 200, 217
 05 Effect 02
-	bounds: 1342, 210, 96, 97
+	bounds: 1391, 31, 96, 97
 	offsets: 52, 60, 200, 217
 	rotate: 90
 05 Effect 03
-	bounds: 1074, 737, 163, 169
+	bounds: 1307, 1032, 163, 169
 	offsets: 19, 24, 200, 217
+	rotate: 90
 05 Effect 04
-	bounds: 908, 736, 164, 175
+	bounds: 1191, 1321, 164, 175
 	offsets: 18, 21, 200, 217
 05 Effect 05
-	bounds: 625, 585, 200, 217
+	bounds: 1088, 994, 200, 217
+	rotate: 90
 05 Effect 06
-	bounds: 823, 560, 20, 23
+	bounds: 257, 2, 20, 23
 	offsets: 90, 97, 200, 217
+	rotate: 90
 39 Effect 11
-	bounds: 526, 160, 300, 79
-	rotate: 90
+	bounds: 282, 70, 300, 79
 39 Effect 12
-	bounds: 1286, 870, 300, 79
-	rotate: 90
+	bounds: 285, 424, 300, 79
 39 Effect 13
-	bounds: 1367, 870, 300, 79
-	rotate: 90
+	bounds: 587, 424, 300, 79
 39 Effect 14
-	bounds: 607, 158, 300, 79
+	bounds: 557, 1196, 300, 79
+	rotate: 90
 39 Effect 15
-	bounds: 827, 611, 300, 79
+	bounds: 557, 894, 300, 79
 	rotate: 90
 Head
-	bounds: 523, 2, 177, 154
+	bounds: 775, 6, 177, 154
 Head_Attack1
-	bounds: 702, 2, 174, 154
+	bounds: 1197, 632, 174, 154
 	offsets: 1, 0, 177, 154
+	rotate: 90
 Left Wing
-	bounds: 1073, 356, 142, 105
+	bounds: 1363, 728, 142, 105
+	rotate: 90
 Left Wing_Attack1
-	bounds: 929, 158, 141, 104
+	bounds: 1080, 466, 141, 104
 	offsets: 0, 1, 142, 105
+	rotate: 90
 Left leg
-	bounds: 1150, 32, 58, 131
-	offsets: 0, 0, 58, 137
+	bounds: 1080, 309, 89, 155
+	offsets: 9, 0, 100, 172
 Left leg_Attack1
-	bounds: 1347, 308, 98, 114
+	bounds: 1291, 13, 98, 114
 	offsets: 0, 0, 99, 114
 Left leg_Attack2
-	bounds: 625, 412, 196, 171
+	bounds: 1017, 807, 185, 171
+	offsets: 0, 0, 196, 171
+	rotate: 90
 Mouth
-	bounds: 557, 728, 74, 32
-	offsets: 5, 12, 83, 50
-	rotate: 90
+	bounds: 91, 3, 83, 50
 Mouth2
-	bounds: 1419, 797, 71, 29
+	bounds: 257, 24, 71, 29
 	offsets: 1, 10, 72, 50
-	rotate: 90
 Mouth2_Attack1
-	bounds: 1282, 74, 80, 58
-	rotate: 90
+	bounds: 330, 10, 80, 58
 Mouth3
-	bounds: 1072, 165, 49, 87
+	bounds: 2, 4, 49, 87
 	offsets: 17, 2, 83, 95
 	rotate: 90
 Mouth_Attack1
-	bounds: 1321, 158, 79, 50
+	bounds: 176, 3, 79, 50
 body
-	bounds: 263, 2, 258, 176
-	offsets: 0, 0, 259, 176
+	bounds: 926, 609, 269, 184
+	offsets: 0, 0, 297, 206
 body_Attack1
-	bounds: 2, 2, 259, 176
+	bounds: 638, 959, 277, 208
+	offsets: 14, 0, 291, 218
+	rotate: 90
 body_Attack2
-	bounds: 1084, 908, 200, 238
+	bounds: 848, 994, 200, 238
+	rotate: 90
 body_Attack3
-	bounds: 379, 462, 260, 244
+	bounds: 659, 162, 260, 244
 	rotate: 90
 face
-	bounds: 823, 412, 134, 146
+	bounds: 1197, 496, 134, 146
+	rotate: 90
 face2
-	bounds: 1264, 424, 134, 146
+	bounds: 1345, 401, 134, 146
 	rotate: 90
 face3
-	bounds: 878, 10, 134, 146
-face4
-	bounds: 929, 264, 134, 146
-face_Attack1
-	bounds: 1014, 10, 134, 146
-face_Attack2
-	bounds: 959, 442, 112, 158
-face_Attack4
-	bounds: 908, 602, 132, 173
+	bounds: 1186, 360, 134, 146
 	rotate: 90
+face4
+	bounds: 905, 303, 134, 146
+	rotate: 90
+face5
+	bounds: 1334, 265, 134, 146
+	rotate: 90
+face6
+	bounds: 1171, 224, 134, 146
+	rotate: 90
+face7
+	bounds: 905, 167, 134, 146
+	rotate: 90
+face_Attack1
+	bounds: 1319, 129, 134, 146
+	rotate: 90
+face_Attack2
+	bounds: 1363, 872, 112, 158
+face_Attack4
+	bounds: 1357, 1323, 132, 173
 face_Attack5
-	bounds: 1072, 216, 141, 138
+	bounds: 1148, 84, 141, 138
 face_Attack6
-	bounds: 1239, 751, 117, 178
+	bounds: 557, 775, 117, 178
 	rotate: 90
 face_retire
-	bounds: 805, 243, 122, 167
+	bounds: 1191, 1197, 122, 167
+	rotate: 90
 right Wing
-	bounds: 1217, 324, 128, 98
+	bounds: 1360, 1223, 128, 98
 	offsets: 0, 0, 129, 98
 right Wing_2
-	bounds: 1083, 600, 189, 135
+	bounds: 584, 14, 189, 135
 right Wing_3
-	bounds: 1274, 560, 189, 135
-	rotate: 90
+	bounds: 889, 439, 189, 135
 right Wing_4
-	bounds: 1073, 463, 189, 135
-right Wing_Attack1
-	bounds: 1215, 227, 125, 95
-	offsets: 2, 1, 129, 98
-right leg
-	bounds: 1215, 156, 69, 104
-	offsets: 0, 2, 74, 106
+	bounds: 1353, 537, 189, 135
 	rotate: 90
+right Wing_Attack1
+	bounds: 954, 40, 125, 95
+	offsets: 2, 1, 129, 98
+	rotate: 90
+right leg
+	bounds: 1053, 165, 93, 142
+	offsets: 6, 1, 102, 143
 right leg_Attack1
-	bounds: 1210, 50, 70, 104
+	bounds: 1051, 59, 70, 104
 	offsets: 4, 2, 74, 106
 right leg_Attack2
-	bounds: 607, 239, 196, 171
-right leg_Attack3
-	bounds: 362, 180, 162, 278
-spotlight1
-	bounds: 824, 913, 258, 233
-spotlight2
-	bounds: 2, 724, 553, 724
-swing1
-	bounds: 1216, 1172, 276, 197
-	offsets: 9, 12, 300, 300
+	bounds: 1190, 808, 184, 171
+	offsets: 0, 0, 196, 171
 	rotate: 90
+right leg_Attack3
+	bounds: 737, 795, 162, 278
+	rotate: 90
+spotlight1
+	bounds: 648, 1238, 258, 233
+	rotate: 90
+spotlight2
+	bounds: 2, 772, 553, 724
+swing1
+	bounds: 648, 576, 276, 197
+	offsets: 9, 12, 300, 300
 swing2
-	bounds: 914, 1148, 300, 300
+	bounds: 889, 1196, 300, 300
 swing3
-	bounds: 2, 460, 375, 262
+	bounds: 282, 151, 375, 262
 	offsets: 23, 23, 405, 300
 wind1
-	bounds: 557, 804, 361, 265
+	bounds: 285, 505, 361, 265
 	offsets: 11, 66, 400, 411
-	rotate: 90
 wind2
-	bounds: 557, 1167, 355, 281
+	bounds: 2, 415, 355, 281
 	offsets: 26, 53, 400, 411
+	rotate: 90
 wind3
-	bounds: 2, 180, 358, 278
+	bounds: 2, 55, 358, 278
 	offsets: 18, 62, 400, 411
+	rotate: 90
