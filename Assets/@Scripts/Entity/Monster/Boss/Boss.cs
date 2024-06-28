@@ -1,6 +1,7 @@
 using Spine.Unity;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -32,6 +33,8 @@ public class Boss : Monster
     bool isDestorySetting = false;
 
     bool isBossDie = false;
+
+    float DieDelay = 2f;
     private void Awake()
     {
         instance = this;
@@ -44,6 +47,12 @@ public class Boss : Monster
         //보스 뒤로가게만듬
         if (SpawnManager.instance.GetGameState() == E_GameState.End)
         {
+            DieDelay -= Time.deltaTime;
+            if (DieDelay > 0)
+            {
+                return;
+            }
+
             if (!isBossDie)
             {
                 isBossDie = true;
@@ -53,11 +62,11 @@ public class Boss : Monster
         }
     }
 
-
     public override void SetMove()
     {
         if (hasReachedStartPos)
         {
+            GameManager.instance.player.SetisStop(true);
             return;
         }
 
@@ -77,16 +86,7 @@ public class Boss : Monster
     public void SetAni(E_BossAttack boss)
     {
         var str = GetBossAni(boss);
-
-        //대게임모드일때와 아닐때 애니메이션 세팅
-        if (SpawnStage.instance.GetStageInfo() >= 1000)
-        {
-            skeletonAnimation.SetAni_Monster(str, default, L_Ani[(int)E_BossAttack.idle2]);
-        }
-        else
-        {
-            skeletonAnimation.SetAni_Monster(str);
-        }
+        skeletonAnimation.SetAni_Monster(str, default, L_Ani[(int)E_BossAttack.idle2]);
     }
     //애니메이션 딜레이 확인
     public float GetAniDelay(E_BossAttack boss)
@@ -109,10 +109,7 @@ public class Boss : Monster
     //백그라운드 멈춰있을때 스테이지 정보가 1000이상이면 백그라운드 멈춰있는것으로 간주
     public void DoNotMoveGame()
     {
-        if (SpawnStage.instance.GetStageInfo() >= 1000)
-        {
-            var str = L_Ani[(int)E_BossAttack.Start];
-            skeletonAnimation.SetAni_Monster(str, false, L_Ani[(int)E_BossAttack.idle2]);
-        }
+        var str = L_Ani[(int)E_BossAttack.Start];
+        skeletonAnimation.SetAni_Monster(str, false, L_Ani[(int)E_BossAttack.idle2]);
     }
 }

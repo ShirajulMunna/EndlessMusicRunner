@@ -81,6 +81,11 @@ public class PlayerSystem : Entity
 
 
     #region 상태처리
+    public void SetisStop(bool state)
+    {
+        isStopPlayer = state;
+    }
+
     public override void SetIdle()
     {
         base.SetIdle();
@@ -105,7 +110,7 @@ public class PlayerSystem : Entity
     {
         base.SetRunning();
         var result = ("", false);
-        if (SpawnManager.instance != null && SpawnStage.instance.GetStageInfo() >= 1000 || isStopPlayer)
+        if (isStopPlayer)
         {
             result = GetAniName(E_AniType.idle);
             SetAni(result, result.Item1);
@@ -207,13 +212,14 @@ public class PlayerSystem : Entity
 
     public string GetIdle()
     {
-        if (UI_Lobby.Type)
+        var idle_Type = M_Move.GetPoint() == E_MovePoint.Up ? "fly" : "Running";
+
+        if (UI_Lobby.Type || isStopPlayer)
         {
-            var idle_Type_0 = M_Move.GetPoint() == E_MovePoint.Up ? "fly" : "Running";
-            return idle_Type_0;
+            idle_Type = M_Move.GetPoint() == E_MovePoint.Up ? "fly" : "idle";
         }
-        var idle_Type_1 = M_Move.GetPoint() == E_MovePoint.Up ? "fly" : "idle";
-        return idle_Type_1;
+
+        return idle_Type;
     }
 
     //애니메이션 셋팅
@@ -298,6 +304,11 @@ public class PlayerSystem : Entity
             return;
         }
 
+        foreach (var item in L_Particle)
+        {
+            item.SetChange(skilltype);
+        }
+
         var data = L_Particle.FindAll(x => x.SkillType == skilltype);
 
         if (data.Count <= 0)
@@ -308,18 +319,6 @@ public class PlayerSystem : Entity
         foreach (var item in data)
         {
             item.SetParticle(activetime);
-        }
-
-        //Fly, Running체크해서 파티클 끄고 키기
-        var checkrunning = data[0].SetIdle();
-        if (checkrunning)
-        {
-            var type = skilltype == E_PlayerSkill.Fly ? E_PlayerSkill.Running : E_PlayerSkill.Fly;
-            data = L_Particle.FindAll(x => x.SkillType == type);
-            foreach (var item in data)
-            {
-                item.SetDirectActive(false);
-            }
         }
     }
 

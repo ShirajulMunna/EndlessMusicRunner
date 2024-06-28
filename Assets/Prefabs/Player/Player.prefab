@@ -410,28 +410,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6999f0b967a573468f50aec485f76b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 10000000
-  curHp: 10000000
+  maxHp: 100
+  curHp: 100
   _skeletonAnimation: {fileID: 1236657713761570640}
   L_Particle:
   - SkillType: 0
     G_Particle:
     - {fileID: 6287367797854668996}
+    isOffList: 
   - SkillType: 1
     G_Particle:
     - {fileID: 3957618831164542698}
+    isOffList: 
   - SkillType: 3
     G_Particle:
     - {fileID: 6279018230795655936}
+    isOffList: 
   - SkillType: 2
     G_Particle:
     - {fileID: 7546043932877010485}
+    isOffList: 
   - SkillType: 4
     G_Particle:
     - {fileID: 4697130073566055630}
+    isOffList: 05000000
   - SkillType: 5
     G_Particle:
     - {fileID: 2463349541583272434}
+    isOffList: 04000000
   M_Attack:
     Tr_AttackVector:
     - {x: -7, y: -3.5, z: 0}

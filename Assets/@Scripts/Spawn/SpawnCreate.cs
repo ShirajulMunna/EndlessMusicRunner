@@ -72,6 +72,7 @@ public class SpawnCreate : Singleton<SpawnCreate>, ISpawnCreate
         }
 
         L_CreateData[CreateIDX].SetActive(true);
+        L_CreateData[CreateIDX].name = CreateIDX.ToString();
         CreateIDX++;
     }
 

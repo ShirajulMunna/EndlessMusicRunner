@@ -45,7 +45,6 @@ public class CoolTimeChecker : ICoolTimeChecker
 
     public void UpdateCoolTime()
     {
-        Debug.Log(CoolTime);
         CoolTime -= Time.deltaTime;
     }
 

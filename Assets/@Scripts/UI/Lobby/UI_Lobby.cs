@@ -15,12 +15,8 @@ public class UI_Lobby : MonoBehaviour
     static int ScrollValue;
     public static string Str_BitName;
 
-
-
-
     private List<string> skin_Names = new()
     {
-        // "skin0","skin1","skin2","skin3","skin4","skin5","skin6","skin7"
         "skin4","skin6","skin0","skin3","skin1","skin2","skin5","skin7" //그래픽 변경
     };
     private void Start()
@@ -28,6 +24,8 @@ public class UI_Lobby : MonoBehaviour
         SetBit();
         if (T_Type == null)
             return;
+
+        Type = true;
         T_Type.text = !Type ? "VsMode" : "RunMode";
         skinDropDown.value = ScrollValue;
         ChangePlayerUiGraphics();

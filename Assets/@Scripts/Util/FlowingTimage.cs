@@ -19,8 +19,12 @@ public class FlowingImage : MonoBehaviour
 
     void Update()
     {
+        var conditioncheck_0 = SpawnManager.instance.GetGameState() == E_GameState.Result && speed >= 0.01f;
+        var conditioncheck_1 = GameManager.instance.player.isStopPlayer;
+
+
         // 게임이 끝난다면 움직임 종료 
-        if (SpawnManager.instance != null &&SpawnManager.instance.GetGameState() == E_GameState.Result && speed >= 0.01f)
+        if (conditioncheck_0 || conditioncheck_1)
         {
             speed = 0.0f;
         }

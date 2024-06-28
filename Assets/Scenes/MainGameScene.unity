@@ -2643,6 +2643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.2
+  CheckisStop: 0
 --- !u!1 &1315516064
 GameObject:
   m_ObjectHideFlags: 0
@@ -3218,6 +3219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  CheckisStop: 1
 --- !u!1 &1470521558
 GameObject:
   m_ObjectHideFlags: 0
@@ -4464,10 +4466,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2463349541583272434, guid: ebf406e66866c174fb3254da9cfb93ea, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4823724451177025718, guid: ebf406e66866c174fb3254da9cfb93ea, type: 3}
       propertyPath: m_Mesh
       value: 

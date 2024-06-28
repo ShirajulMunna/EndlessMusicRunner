@@ -14,9 +14,6 @@ public class BossAttack_Tooth : Monster
     [SerializeField] bool CheckCustomMove;
     [SerializeField] int CustomePos_IDX;
     Vector3 OriginPos;
-
-
-
     int isCount = 2;
 
     protected override void Update()
@@ -29,6 +26,7 @@ public class BossAttack_Tooth : Monster
     {
         base.SetUp(data, cratepos);
         SetCustomPos(cratepos);
+        Speed = 10;
     }
 
     //애니메이션 및 사운드 
