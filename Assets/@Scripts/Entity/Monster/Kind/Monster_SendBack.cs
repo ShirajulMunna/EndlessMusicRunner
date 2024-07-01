@@ -51,13 +51,11 @@ public class Monster_SendBack : MonoBehaviour
         EndTimes = true;
         monster.Speed = 0;
         PlayerMove.SetDirrectMove(E_MovePoint.Middle);
-        CameraSystem.cameraSystem.SetZoomIn();
     }
 
     //줌아웃 단계
     void SetZoomOut()
     {
         PlayerMove.SetDirrectMove(E_MovePoint.Down);
-        CameraSystem.cameraSystem.ReSetZoom();
     }
 }

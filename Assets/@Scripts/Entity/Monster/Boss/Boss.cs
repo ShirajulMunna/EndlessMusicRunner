@@ -112,6 +112,7 @@ public class Boss : Monster
                 GameManager.instance.player.SetisStop(true);
                 break;
             case E_BossState.Move:
+                SetZoomOut();
                 Speed = 20;
                 SetAni(E_BossAttack.idle);
                 break;
@@ -124,6 +125,7 @@ public class Boss : Monster
                 Speed = 0;
                 DirX = 1;
                 TargetPos = StartPos;
+                SetZoomIn();
                 int random = Random.Range(0, HitRandAnimation.Count - 1);
                 skeletonAnimation.SetAni_Monster(HitRandAnimation[random], true);
                 break;
@@ -216,5 +218,24 @@ public class Boss : Monster
         var str = L_Ani[(int)E_BossAttack.Start];
         skeletonAnimation.SetAni_Monster(str, false, L_Ani[(int)E_BossAttack.idle2]);
         SetBossState(E_BossState.Idle);
+    }
+
+    IPlayer_Move PlayerMove
+    {
+        get => GameManager.instance.player.M_Move;
+    }
+
+    //줌인 단계
+    void SetZoomIn()
+    {
+        PlayerMove.SetDirrectMove(E_MovePoint.Middle);
+        CameraSystem.cameraSystem.SetZoomIn();
+    }
+
+    //줌아웃 단계
+    void SetZoomOut()
+    {
+        PlayerMove.SetDirrectMove(E_MovePoint.Down);
+        CameraSystem.cameraSystem.ReSetZoom();
     }
 }
