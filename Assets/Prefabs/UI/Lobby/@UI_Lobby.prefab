@@ -383,7 +383,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2841333415954866061
 RectTransform:
   m_ObjectHideFlags: 0
@@ -494,11 +494,7 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Ellagator_S1E1_MIX
-      m_Image: {fileID: 0}
-    - m_Text: Ellagator_S1E1_Base
-      m_Image: {fileID: 0}
-    - m_Text: Ellagator_S1E1
+    - m_Text: Ellagator_S1E1_MIX_2
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6350,7 +6346,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ellagator_S1E1_MIX
+  m_text: Ellagator_S1E1_MIX_2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eb2480a4b2b0eaf46a090a66e078596e, type: 2}
   m_sharedMaterial: {fileID: -6111408611981994702, guid: eb2480a4b2b0eaf46a090a66e078596e, type: 2}

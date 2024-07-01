@@ -106,8 +106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2d2c6ccbcb582a459dd4ad36467d6da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 10
-  curHp: 10
+  maxHp: 100
+  curHp: 100
   _skeletonAnimation: {fileID: 9047021708755453407}
   damageAmount: 0
   damageFx: {fileID: 6630400188505773858, guid: dd80aa9b27baa334ea57eb66d90b8392, type: 3}

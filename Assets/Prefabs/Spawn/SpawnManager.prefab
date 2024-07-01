@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d89e2ad830cd3b4bbc7ff3fde4b65c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StrMusicFileName: Ellagator_S1E1_MIX
+  StrMusicFileName: 
 --- !u!114 &5778122790857727710
 MonoBehaviour:
   m_ObjectHideFlags: 0

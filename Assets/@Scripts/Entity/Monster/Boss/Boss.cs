@@ -29,7 +29,7 @@ public class Boss : Monster
     //6.14 보스 바닥에서 나오게하는 코드 작업
     Vector3 StartPos = new Vector3(13.5f, -4.2f, 0);
     float HitDelay;
-    const float MaxHitDelay = 2f;
+    const float MaxHitDelay = 1f;
     int DirX = -1;
 
     private List<string> HitRandAnimation = new List<string>()
@@ -37,6 +37,7 @@ public class Boss : Monster
         "Hit","Hit2","Hit3"
     };
     E_BossState e_BossState = E_BossState.Move;
+
 
     Vector3 TargetPos;
 
@@ -54,6 +55,7 @@ public class Boss : Monster
 
     void UpdateStaet()
     {
+        print($"지금이순간?{e_BossState}");
         switch (e_BossState)
         {
             case E_BossState.Idle:
@@ -69,6 +71,7 @@ public class Boss : Monster
                 SetBossState(E_BossState.Move);
                 break;
             case E_BossState.Move:
+                print("마이 스피드 : " + Speed);
                 base.SetMove(DirX);
                 check = CheckTargetPos();
                 if (!check)
@@ -84,6 +87,7 @@ public class Boss : Monster
                 {
                     return;
                 }
+                TargetPos = StartPos;
                 SetBossState(E_BossState.Move);
                 break;
             case E_BossState.Die:
@@ -108,6 +112,7 @@ public class Boss : Monster
                 GameManager.instance.player.SetisStop(true);
                 break;
             case E_BossState.Move:
+                Speed = 20;
                 SetAni(E_BossAttack.idle);
                 break;
             case E_BossState.MoveAttack:
@@ -115,6 +120,7 @@ public class Boss : Monster
                 TargetPos.y = StartPos.y;
                 break;
             case E_BossState.Hit:
+                HitDelay = 0;
                 Speed = 0;
                 DirX = 1;
                 TargetPos = StartPos;
@@ -135,6 +141,8 @@ public class Boss : Monster
     {
         // 현재 위치와 StartPos 사이의 거리를 계산
         float distance = Vector3.Distance(transform.position, TargetPos);
+
+        print($"내위치 : {transform.position} / 타겟위치{TargetPos}");
 
         // 거리가 임계값 이하이면 도달한 것으로 간주
         return distance <= 0.1f;
@@ -164,7 +172,16 @@ public class Boss : Monster
 
     public override void SetHit()
     {
+        if (e_BossState == E_BossState.Move)
+        {
+            return;
+        }
         base.SetHit();
+
+        if (e_BossState == E_BossState.Hit)
+        {
+            return;
+        }
         SetBossState(E_BossState.Hit);
     }
 
