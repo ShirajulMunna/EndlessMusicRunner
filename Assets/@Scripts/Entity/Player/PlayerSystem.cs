@@ -102,10 +102,40 @@ public class PlayerSystem : Entity
         SetParticle(E_PlayerSkill.Fly, 0);
     }
 
+    [SerializeField] float dleays;
+    bool Checkss;
     public override void UpdateClear()
     {
         base.UpdateClear();
         M_Move.IsClearMove();
+
+        dleays -= Time.deltaTime;
+
+        if (dleays > 0)
+        {
+            return;
+        }
+
+        if (!Checkss)
+        {
+            M_Move.SetClearMoveTime();
+            CameraSystem.cameraSystem.SetZoomIn(true);
+            Checkss = true;
+            var rank = ScoreManager.instance.GetScoreRank();
+            switch (rank)
+            {
+                case ScoreManager.ScoreRank.S:
+                    SetAni(GetAniName(E_AniType.Clear_S));
+                    break;
+                case ScoreManager.ScoreRank.A:
+                case ScoreManager.ScoreRank.B:
+                    SetAni(GetAniName(E_AniType.Clear_A));
+                    break;
+                default:
+                    SetAni(GetAniName(E_AniType.Clear_C));
+                    break;
+            }
+        }
     }
 
     public override void SetRunning()
@@ -197,21 +227,7 @@ public class PlayerSystem : Entity
     {
         base.SetClear();
         EndGame();
-        var rank = ScoreManager.instance.GetScoreRank();
-        switch (rank)
-        {
-            case ScoreManager.ScoreRank.S:
-                SetAni(GetAniName(E_AniType.Clear_S));
-                break;
-            case ScoreManager.ScoreRank.A:
-            case ScoreManager.ScoreRank.B:
-                SetAni(GetAniName(E_AniType.Clear_A));
-                break;
-            case ScoreManager.ScoreRank.C:
-            case ScoreManager.ScoreRank.F:
-                SetAni(GetAniName(E_AniType.Clear_C));
-                break;
-        }
+        SetAni(GetAniName(E_AniType.Running));
     }
 
     //게임 종료 처리들

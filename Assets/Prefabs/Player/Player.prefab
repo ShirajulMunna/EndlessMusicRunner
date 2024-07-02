@@ -446,6 +446,7 @@ MonoBehaviour:
   M_Move: {fileID: 0}
   M_State: {fileID: 0}
   isStopPlayer: 0
+  dleays: 0.75
 --- !u!1 &7546043932877010485
 GameObject:
   m_ObjectHideFlags: 0

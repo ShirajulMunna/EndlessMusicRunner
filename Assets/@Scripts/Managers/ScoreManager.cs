@@ -6,7 +6,7 @@ public class ScoreManager : MonoBehaviour
 {
     public enum ScoreRank
     {
-        S,A,B,C,F,
+        S, A, B, C, F,
     }
     public static ScoreManager _instance;
     public static ScoreManager instance
@@ -185,7 +185,14 @@ public class ScoreManager : MonoBehaviour
     //판정 모두 검사하는 형태로 작업
     public bool IsPerfectState()
     {
-        return (GetAccuracy()/ GetMaxState()) ==1 ;
+        try
+        {
+            return (GetAccuracy() / GetMaxState()) == 1;
+        }
+        catch
+        {
+            return true;
+        }
     }
 
     // 판정들 초기화
@@ -197,7 +204,7 @@ public class ScoreManager : MonoBehaviour
 
     public float GetRestultPersent()
     {
-       return ((float)GetAccuracy() / (float)GetMaxState()) * 100;
+        return ((float)GetAccuracy() / (float)GetMaxState()) * 100;
     }
     //랭크 출력
     public ScoreRank GetScoreRank()

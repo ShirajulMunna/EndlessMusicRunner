@@ -65,10 +65,10 @@ public class CameraSystem : MonoBehaviour
         transform.position = pos;
     }
 
-    public void SetZoomIn()
+    public void SetZoomIn(bool posorigin = false)
     {
         targetSize = ZoomInSize;
-        target = ZoomInPos;
+        target = posorigin ? orginPos : ZoomInPos;
     }
 
     public void ReSetZoom()

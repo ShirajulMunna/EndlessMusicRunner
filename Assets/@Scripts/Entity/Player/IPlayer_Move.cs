@@ -16,7 +16,7 @@ public class IPlayer_Move : MonoBehaviour
     const float MiddleMoveSpeed = 100;
 
     //이동 딜레이
-    float ClearMoveDelay = 2f;
+    float ClearMoveDelay;
 
     PlayerSystem player
     {
@@ -120,7 +120,23 @@ public class IPlayer_Move : MonoBehaviour
         {
             return;
         }
+
+        var xvalue = Tr.transform.position.x;
+
+        if (xvalue >= 0)
+        {
+            var pos = Tr.transform.position;
+            pos.x = 0;
+            Tr.position = pos;
+            return;
+        }
+
         Tr.transform.Translate(Vector3.right * Time.deltaTime * 15f);
+    }
+
+    public void SetClearMoveTime()
+    {
+        ClearMoveDelay = 100f;
     }
 
 

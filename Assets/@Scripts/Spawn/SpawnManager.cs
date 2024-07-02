@@ -81,9 +81,9 @@ public class SpawnManager : Singleton<SpawnManager>
     float OffSetTime;
 
     //게임 오버 후 딜레이 시간
-    const float gameOverTime_Result = 2f;
+    const float gameOverTime_Result = 2.5f;
     //게임 오버 후 딜레이 시간
-    const float gameOverTime_Delay = 2.5f;
+    const float gameOverTime_Delay = 2f;
 
     [SerializeField] string StrMusicFileName;
 
