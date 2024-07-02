@@ -7,7 +7,13 @@ public class Monster_SendBack : MonoBehaviour
     [SerializeField] Monster monster;
 
     bool EndTimes;
-    float DelayTime = 3;
+    float DelayTime = 0.5f;
+
+    IPlayer_Move PlayerMove
+    {
+        get => GameManager.instance.player.M_Move;
+    }
+
 
     private void Start()
     {
@@ -40,15 +46,11 @@ public class Monster_SendBack : MonoBehaviour
         return;
     }
 
-    IPlayer_Move PlayerMove
-    {
-        get => GameManager.instance.player.M_Move;
-    }
-
     //줌인 단계
     void SetZoomIn()
     {
         EndTimes = true;
+        DelayTime = 0.5f;
         monster.Speed = 0;
         PlayerMove.SetDirrectMove(E_MovePoint.Middle);
     }

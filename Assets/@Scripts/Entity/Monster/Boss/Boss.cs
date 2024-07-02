@@ -55,14 +55,13 @@ public class Boss : Monster
 
     void UpdateStaet()
     {
-        print($"지금이순간?{e_BossState}");
         switch (e_BossState)
         {
             case E_BossState.Idle:
                 break;
             case E_BossState.MoveAttack:
                 base.SetMove(DirX);
-                var check = CheckAttack();
+                var check = CheckAttack() || CheckTargetPos();
                 if (!check)
                 {
                     return;
@@ -71,7 +70,6 @@ public class Boss : Monster
                 SetBossState(E_BossState.Move);
                 break;
             case E_BossState.Move:
-                print("마이 스피드 : " + Speed);
                 base.SetMove(DirX);
                 check = CheckTargetPos();
                 if (!check)
@@ -126,7 +124,7 @@ public class Boss : Monster
                 DirX = 1;
                 TargetPos = StartPos;
                 SetZoomIn();
-                int random = Random.Range(0, HitRandAnimation.Count - 1);
+                int random = Random.Range(0, HitRandAnimation.Count);
                 skeletonAnimation.SetAni_Monster(HitRandAnimation[random], true);
                 break;
             case E_BossState.Die:
@@ -144,7 +142,6 @@ public class Boss : Monster
         // 현재 위치와 StartPos 사이의 거리를 계산
         float distance = Vector3.Distance(transform.position, TargetPos);
 
-        print($"내위치 : {transform.position} / 타겟위치{TargetPos}");
 
         // 거리가 임계값 이하이면 도달한 것으로 간주
         return distance <= 0.1f;

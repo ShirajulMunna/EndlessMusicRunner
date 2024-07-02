@@ -4,9 +4,9 @@ using UnityEngine.Playables;
 
 public class Monster_Twin : Monster
 {
-    IPlayer_KeyPoint player_State
+    IPlayer_Move playerMove
     {
-        get => GameManager.instance.player.M_State;
+        get => GameManager.instance.player.M_Move;
     }
 
     const string Name = "Monster_{0}";
@@ -14,7 +14,7 @@ public class Monster_Twin : Monster
     protected override void Start()
     {
         Ac_Hit += SetPlayerMiddleAttack;
-        Ac_Die += PlayerAttackStateReset;
+        Ac_Die += SetPlayerMiddleAttack;
     }
     protected override void Update()
     {
@@ -23,12 +23,9 @@ public class Monster_Twin : Monster
 
     private void SetPlayerMiddleAttack()
     {
-        player_State.SetDirectMoveIdx(E_MovePoint.Middle);
+        playerMove.SetDirrectMove(E_MovePoint.Middle);
     }
-    private void PlayerAttackStateReset()
-    {
-        player.M_Attack.Reset();
-    }
+
     protected override void SetAttack(bool check)
     {
         if (!check)
@@ -51,7 +48,7 @@ public class Monster_Twin : Monster
     }
     private void OnDestroy()
     {
-        player_State.SetDirectMoveIdx(E_MovePoint.Down);
+        playerMove.SetDirrectMove(E_MovePoint.Down);
     }
     public override void SetHit(ScoreManager.E_ScoreState perfect)
     {

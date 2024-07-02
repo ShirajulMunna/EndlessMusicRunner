@@ -83,7 +83,6 @@ public class Monster : Entity, IMonsterMove
         var checkattack = CheckAttack();
         SetAttack(checkattack);
         SetDieFly();
-
     }
 
     protected virtual void FixedUpdate()
@@ -164,15 +163,14 @@ public class Monster : Entity, IMonsterMove
         e_MonsterState = E_MonsterState.NoneAttack;
         SetHp(-1);
         HitCollisionDetection.Instance.SetHit(this.gameObject, perfect);
-        AudioManager.instance.PlaySound();
+        AudioManager.instance.PlaySound(perfect);
 
         // 샌드백일때 애니메이션 여러개 나오게하기
         if (uniqMonster == UniqMonster.SendBack)
         {
             int random = Random.Range(0, HitRandAnimation.Count - 1);
-            skeletonAnimation.SetAni_Monster(HitRandAnimation[random], true);
+            skeletonAnimation.SetAni_Monster(HitRandAnimation[random], false, "Idle");
         }
-
     }
 
     public override void SetDie()

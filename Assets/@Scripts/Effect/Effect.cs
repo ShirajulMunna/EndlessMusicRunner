@@ -19,13 +19,11 @@ public class Effect : MonoBehaviour
     void Start()
     {
         StartCoroutine(OpacityChange());
-
         MoveUPword();
+        Destroy(this.gameObject, 1f);
     }
     public IEnumerator OpacityChange()
     {
-        //var color = GetComponent<SpriteRenderer>();
-        //Color currentColor = GetComponent<SpriteRenderer>().color;
         var color = spriteRenderer;
         Color currentColor = spriteRenderer.color;
 

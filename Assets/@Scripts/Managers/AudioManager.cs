@@ -36,11 +36,11 @@ public class AudioManager : MonoBehaviour
         Audio_BackGround.Pause();
     }
 
-    public void PlaySound()
+    public void PlaySound(ScoreManager.E_ScoreState state)
     {
-        AudioClip clipToPlay = Random.value > 0.5 ? clap_1 : clap_2;
+        var audio = state == ScoreManager.E_ScoreState.Perfect ? clap_1 : clap_2;
 
-        audioSource.PlayOneShot(clipToPlay, 0.3f);
+        audioSource.PlayOneShot(audio, 0.3f);
     }
 
     public void PlayerHItSound()

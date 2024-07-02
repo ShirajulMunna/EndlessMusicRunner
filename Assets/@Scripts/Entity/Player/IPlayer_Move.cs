@@ -129,11 +129,13 @@ public class IPlayer_Move : MonoBehaviour
     {
         var targetPos = P_Attack.Tr_AttackVector[GetMoveIDX(point)];
         Tr.position = targetPos;
+        CurDownDelay = MaxDownDelay;
     }
 
     //바로 이동
     public void SetDirrectMove(E_MovePoint point)
     {
+        CurDownDelay = MaxDownDelay;
         MovePoint = point;
         var targetPos = P_Attack.Tr_AttackVector[GetMoveIDX(point)];
         targetPos.x = Tr.position.x;
