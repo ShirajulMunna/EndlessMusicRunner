@@ -31,6 +31,7 @@ public class Boss : Monster
     float HitDelay;
     const float MaxHitDelay = 1f;
     int DirX = -1;
+    int HitIdx;
 
     private List<string> HitRandAnimation = new List<string>()
     {
@@ -124,8 +125,6 @@ public class Boss : Monster
                 DirX = 1;
                 TargetPos = StartPos;
                 SetZoomIn();
-                int random = Random.Range(0, HitRandAnimation.Count);
-                skeletonAnimation.SetAni_Monster(HitRandAnimation[random], true);
                 break;
             case E_BossState.Die:
                 SetBossState(E_BossState.Idle);
@@ -176,12 +175,23 @@ public class Boss : Monster
             return;
         }
         base.SetHit();
-
+        SetHitAni();
         if (e_BossState == E_BossState.Hit)
         {
             return;
         }
         SetBossState(E_BossState.Hit);
+    }
+
+    void SetHitAni()
+    {
+        skeletonAnimation.SetAni_Monster(HitRandAnimation[HitIdx], false, L_Ani[(int)E_BossAttack.idle2]);
+        HitIdx++;
+
+        if (HitIdx >= HitRandAnimation.Count)
+        {
+            HitIdx = 0;
+        }
     }
 
 
