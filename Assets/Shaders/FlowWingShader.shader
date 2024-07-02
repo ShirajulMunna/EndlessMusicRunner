@@ -37,15 +37,20 @@ Shader "Custom/FlowingShader"
             v2f vert (appdata_t v)
             {
                 v2f o;
+                // 월드 좌표를 클립 좌표로 변환
                 o.vertex = UnityObjectToClipPos(v.vertex);
+                // 텍스처 좌표 변환
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
                 return o;
             }
 
             fixed4 frag (v2f i) : SV_Target
             {
+                // UV 좌표를 가져옵니다
                 float2 uv = i.uv;
-                uv.x = frac(uv.x + _Time.y * _Speed * 0.1);
+                // UV 좌표를 일정 속도로 이동시킵니다
+                uv.x = frac(uv.x + _Time.y * _Speed);
+                // 텍스처의 색상을 가져옵니다
                 return tex2D(_MainTex, uv);
             }
             ENDCG

@@ -168,6 +168,7 @@ public class Monster : Entity, IMonsterMove
         // 샌드백일때 애니메이션 여러개 나오게하기
         if (uniqMonster == UniqMonster.SendBack)
         {
+            e_MonsterState = E_MonsterState.idle;
             int random = Random.Range(0, HitRandAnimation.Count - 1);
             skeletonAnimation.SetAni_Monster(HitRandAnimation[random], false, "Idle");
         }

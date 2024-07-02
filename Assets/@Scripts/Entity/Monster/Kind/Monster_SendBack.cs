@@ -7,6 +7,7 @@ public class Monster_SendBack : MonoBehaviour
     [SerializeField] Monster monster;
 
     bool EndTimes;
+    bool DownType;
     float DelayTime = 0.5f;
 
     IPlayer_Move PlayerMove
@@ -41,7 +42,11 @@ public class Monster_SendBack : MonoBehaviour
         {
             return;
         }
-        SetZoomOut();
+        if (!DownType)
+        {
+            SetZoomOut();
+            DownType = true;
+        }
         monster.Speed = 20;
         return;
     }
@@ -49,8 +54,9 @@ public class Monster_SendBack : MonoBehaviour
     //줌인 단계
     void SetZoomIn()
     {
+        DownType = false;
         EndTimes = true;
-        DelayTime = 0.5f;
+        DelayTime = 0.3f;
         monster.Speed = 0;
         PlayerMove.SetDirrectMove(E_MovePoint.Middle);
     }

@@ -189,16 +189,12 @@ public class Monster_LongNote : Monster
     }
     private async Task HandleDestroyAsync()
     {
-        var playerPos = GameManager.instance.player.transform.position;
-        if (playerPos.y + 0.5f >= transform.position.y && playerPos.y - 0.5f <= transform.position.y || uniqMonster == UniqMonster.SendBack)
-        {
-            GameManager.instance.player.SetHp(-5);
-            ScoreManager.instance.SetBestCombo_Reset();
-            ScoreManager.instance.SetScoreState(ScoreManager.E_ScoreState.Miss); // 롱노트 중간에 실패하면 Miss를 추가해주기
+        GameManager.instance.player.SetHp(-5);
+        ScoreManager.instance.SetBestCombo_Reset();
+        ScoreManager.instance.SetScoreState(ScoreManager.E_ScoreState.Miss); // 롱노트 중간에 실패하면 Miss를 추가해주기
 
-            var effects = await Effect.Create(transform.position, (int)HitCollisionDetection.ConditionEffect.Opps);
-            effects.fadeDuration = HitCollisionDetection.Instance.fadeDuration;
-        }
+        var effects = await Effect.Create(transform.position, (int)HitCollisionDetection.ConditionEffect.Opps);
+        effects.fadeDuration = HitCollisionDetection.Instance.fadeDuration;
     }
     //판정이펙트 출력
     private void SetConditionEffect(ScoreManager.E_ScoreState perfect, Vector3 position)

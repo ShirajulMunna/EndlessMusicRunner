@@ -84,7 +84,7 @@ public class SpawnManager : Singleton<SpawnManager>
     const float gameOverTime_Result = 2.5f;
     //게임 오버 후 딜레이 시간
     const float gameOverTime_Delay = 2f;
-
+    const float gameOverTime_Delay_Destory = 3f;
     [SerializeField] string StrMusicFileName;
 
     public System.Action Ac_EndGame;
@@ -115,18 +115,25 @@ public class SpawnManager : Singleton<SpawnManager>
                 Ac_MusicPlay += () => Ac_MusicPlay = null;
                 break;
             case E_GameState.End:
-                System.Action action = () =>
+
+
+                System.Action actions = () =>
                 {
+                    spawnCreate.AllDestoryMonster();
                     spawnDelay.Reset();
-                    SetState(E_GameState.Result);
+                    System.Action action = () =>
+                    {
+                        spawnDelay.Reset();
+                        SetState(E_GameState.Result);
+                    };
+                    spawnDelay.SetDelay(gameOverTime_Delay, action, true);
                 };
-                spawnDelay.SetDelay(gameOverTime_Delay, action, true);
+                spawnDelay.SetDelay(gameOverTime_Delay_Destory, actions, true);
                 break;
             case E_GameState.GameOver:
                 GameEnd();
                 break;
             case E_GameState.Result:
-                spawnCreate.AllDestoryMonster();
                 Ac_EndGame?.Invoke();
                 gameResult?.SetGameResult();
                 spawnDelay.SetDelay(gameOverTime_Result, () => SetState(E_GameState.GameOver));
