@@ -7,8 +7,28 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
     public static GameManager instance;
+
+    static NPC _Player;
+    public static NPC M_Player
+    {
+        get
+        {
+            if (_Player == null)
+            {
+                _Player = FindObjectOfType<Player>();
+            }
+
+            return _Player;
+        }
+    }
+
+    //################################################################### ∏Æ∆Â≈‰∏Æ¡ﬂ
+
+
+
+
+
     public SkeletonAnimation skeleton;
 
     public PlayerSystem player;

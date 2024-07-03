@@ -1,0 +1,74 @@
+
+using UnityEngine;
+
+public class MonsterAttack : MonoBehaviour, IMonsterAttack
+{
+    public IMove move;
+    public System.Action Ac_Attack { get; set; }
+    public bool isCheckAttack { get; set; }
+
+    private void Start()
+    {
+        move = GetComponent<IMove>();
+    }
+
+    private void Update()
+    {
+        UpdateAttack();
+    }
+
+    public void UpdateAttack()
+    {
+        if (isCheckAttack)
+        {
+            return;
+        }
+
+        var check = CheckAttack();
+
+        if (!check)
+        {
+            return;
+        }
+        SetisAttack(true);
+
+        check = CheckMovePoint();
+        if (!check)
+        {
+            return;
+        }
+        Ac_Attack?.Invoke();
+    }
+
+    /// <summary>
+    /// 공격 가능 위치 확인
+    /// </summary>
+    /// <returns></returns>
+    bool CheckMovePoint()
+    {
+        var playerimove = GameManager.M_Player.GetComponent<IMove>();
+        var point = playerimove.GetMoveData();
+        return point == move.GetMoveData();
+    }
+
+    public bool CheckAttack()
+    {
+        return transform.position.x <= IMovePoint.GetMax_X_value();
+    }
+
+    /// <summary>
+    /// 공격
+    /// </summary>
+    public void AddAttack(System.Action action)
+    {
+        Ac_Attack += action;
+    }
+
+    /// <summary>
+    /// 공격 가능 여부
+    /// </summary>
+    public void SetisAttack(bool state)
+    {
+        isCheckAttack = state;
+    }
+}

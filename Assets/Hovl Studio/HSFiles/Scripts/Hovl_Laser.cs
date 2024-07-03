@@ -24,15 +24,15 @@ public class Hovl_Laser : MonoBehaviour
     private bool LaserSaver = false;
     private bool UpdateSaver = false;
 
-    private ParticleSystem[] Effects;
-    private ParticleSystem[] Hit;
+    private UnityEngine.ParticleSystem[] Effects;
+    private UnityEngine.ParticleSystem[] Hit;
 
     void Start ()
     {
         //Get LineRender and ParticleSystem components from current prefab;  
         Laser = GetComponent<LineRenderer>();
-        Effects = GetComponentsInChildren<ParticleSystem>();
-        Hit = HitEffect.GetComponentsInChildren<ParticleSystem>();
+        Effects = GetComponentsInChildren<UnityEngine.ParticleSystem>();
+        Hit = HitEffect.GetComponentsInChildren<UnityEngine.ParticleSystem>();
         //if (Laser.material.HasProperty("_SpeedMainTexUVNoiseZW")) LaserStartSpeed = Laser.material.GetVector("_SpeedMainTexUVNoiseZW");
         //Save [1] and [3] textures speed
         //{ DISABLED AFTER UPDATE}

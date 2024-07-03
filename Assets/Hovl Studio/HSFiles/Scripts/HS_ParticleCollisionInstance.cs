@@ -13,13 +13,13 @@ public class HS_ParticleCollisionInstance : MonoBehaviour
     public bool useOnlyRotationOffset = true;
     public bool UseFirePointRotation;
     public bool DestoyMainEffect = false;
-    private ParticleSystem part;
+    private UnityEngine.ParticleSystem part;
     private List<ParticleCollisionEvent> collisionEvents = new List<ParticleCollisionEvent>();
-    private ParticleSystem ps;
+    private UnityEngine.ParticleSystem ps;
 
     void Start()
     {
-        part = GetComponent<ParticleSystem>();
+        part = GetComponent<UnityEngine.ParticleSystem>();
     }
     void OnParticleCollision(GameObject other)
     {      

@@ -23,14 +23,14 @@ public class HS_ProjectileMover2D : MonoBehaviour
             flashInstance.transform.forward = gameObject.transform.forward;
             
             //Destroy flash effect depending on particle Duration time
-            var flashPs = flashInstance.GetComponent<ParticleSystem>();
+            var flashPs = flashInstance.GetComponent<UnityEngine.ParticleSystem>();
             if (flashPs != null)
             {
                 Destroy(flashInstance, flashPs.main.duration);
             }
             else
             {
-                var flashPsParts = flashInstance.transform.GetChild(0).GetComponent<ParticleSystem>();
+                var flashPsParts = flashInstance.transform.GetChild(0).GetComponent<UnityEngine.ParticleSystem>();
                 Destroy(flashInstance, flashPsParts.main.duration);
             }
         }
@@ -66,14 +66,14 @@ public class HS_ProjectileMover2D : MonoBehaviour
             else { hitInstance.transform.LookAt(contact.point + contact.normal); }
 
             //Destroy hit effects depending on particle Duration time
-            var hitPs = hitInstance.GetComponent<ParticleSystem>();
+            var hitPs = hitInstance.GetComponent<UnityEngine.ParticleSystem>();
             if (hitPs != null)
             {
                 Destroy(hitInstance, hitPs.main.duration);
             }
             else
             {
-                var hitPsParts = hitInstance.transform.GetChild(0).GetComponent<ParticleSystem>();
+                var hitPsParts = hitInstance.transform.GetChild(0).GetComponent<UnityEngine.ParticleSystem>();
                 Destroy(hitInstance, hitPsParts.main.duration);
             }
         }

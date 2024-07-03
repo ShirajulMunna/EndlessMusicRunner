@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7170990967824259659}
-  - component: {fileID: 345578015453725092}
   - component: {fileID: 98197925962513228}
   - component: {fileID: -6925637741920482263}
   m_Layer: 8
@@ -35,28 +34,6 @@ Transform:
   - {fileID: 4386252542439846756}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &345578015453725092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1450675091563296711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf14aa19107eee946b6e8380e33102ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHp: 0
-  curHp: 0
-  _skeletonAnimation: {fileID: 7572026843236710443}
-  damageAmount: 2
-  damageFx: {fileID: 6630400188505773858, guid: dd80aa9b27baa334ea57eb66d90b8392, type: 3}
-  Change: 0
-  Sk:
-  - {fileID: 11400000, guid: cbd81e36774e1344aa41414036206d96, type: 2}
-  - {fileID: 11400000, guid: 0ed707407aa0980479d0f5811245833d, type: 2}
-  uniqMonster: 0
 --- !u!58 &98197925962513228
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -131,7 +108,6 @@ GameObject:
   - component: {fileID: 7975724649422891569}
   - component: {fileID: 9053755253548066760}
   - component: {fileID: 7572026843236710443}
-  - component: {fileID: 4302595588941498590}
   m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
@@ -244,15 +220,3 @@ MonoBehaviour:
   _animationName: Idle
   loop: 1
   timeScale: 1
---- !u!114 &4302595588941498590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8896488139967747448}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 012f8caf96117b642b39ab58708b5eae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
