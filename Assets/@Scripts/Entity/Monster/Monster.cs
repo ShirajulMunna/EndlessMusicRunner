@@ -111,7 +111,7 @@ public class Monster : Entity, IMonsterMove
         }
 
         var targetpos = player.transform.position;
-        var offsetx = targetpos.x;
+        var offsetx = targetpos.x + 1;
         if (offsetx < transform.position.x)
         {
             return false;
@@ -160,7 +160,12 @@ public class Monster : Entity, IMonsterMove
     public virtual void SetHit(ScoreManager.E_ScoreState perfect)
     {
         Ac_Hit?.Invoke();
-        e_MonsterState = E_MonsterState.NoneAttack;
+
+        if (CheckDie())
+        {
+            e_MonsterState = E_MonsterState.NoneAttack;
+        }
+
         SetHp(-1);
         HitCollisionDetection.Instance.SetHit(this.gameObject, perfect);
         AudioManager.instance.PlaySound(perfect);
@@ -168,7 +173,6 @@ public class Monster : Entity, IMonsterMove
         // 샌드백일때 애니메이션 여러개 나오게하기
         if (uniqMonster == UniqMonster.SendBack)
         {
-            e_MonsterState = E_MonsterState.idle;
             int random = Random.Range(0, HitRandAnimation.Count - 1);
             skeletonAnimation.SetAni_Monster(HitRandAnimation[random], false, "Idle");
         }
