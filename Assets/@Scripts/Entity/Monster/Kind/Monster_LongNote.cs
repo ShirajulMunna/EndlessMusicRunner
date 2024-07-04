@@ -157,7 +157,7 @@ public class Monster_LongNote : Monster
             ScoreManager.instance.SetScoreState(perfect);
 
             var ani = GameManager.instance.GetPlayer(transform.position.y).GetIdle();
-            GameManager.instance.player.SetAni((ani, true));
+            GameManager.instance.GetPlayer(transform.position.y).SetAni((ani, true));
             var createpos = GameManager.instance.longNoteDestoryPosition;
             var end = Instantiate(G_End, createpos, default, null);
             SetConditionEffect(perfect, createpos);
