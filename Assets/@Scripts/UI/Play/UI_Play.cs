@@ -3,10 +3,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_Play : MonoBehaviour
+public class UI_Play : Singleton<UI_Play>
 {
-    public static UI_Play Instance;
-
     [Header("키 설명")]
     public GameObject Key_Explain;
 
@@ -27,24 +25,12 @@ public class UI_Play : MonoBehaviour
     float DelayTime = 3;
     public bool GameOver;
 
-    public System.Action Ac_Update;
-    public System.Action Ac_Play;
-
-    private void Awake()
-    {
-        Instance = this;
-    }
-
-    private void Update()
-    {
-        Ac_Update?.Invoke();
-    }
 
     public void ActivatPanel(bool activate)
     {
         ScoreManager.instance.ScoreReset();
         Key_Explain.SetActive(activate);
-        Ac_Play?.Invoke();
+        PlayManager.instance.SetAction(E_Play.Play);
         StartCoroutine(DeactivatePanel());
     }
 

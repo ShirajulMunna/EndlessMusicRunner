@@ -54,6 +54,19 @@ public class Monsters : NPC, IMonster
         set => _nPC = value;
     }
 
+    MonsterState _monsterState;
+    public MonsterState monsterState
+    {
+        get
+        {
+            if (_monsterState == null)
+            {
+                _monsterState = GetComponent<MonsterState>();
+            }
+            return _monsterState;
+        }
+        set => _monsterState = value;
+    }
 
     /// <summary>
     /// 몬스터 생성 처리
@@ -64,7 +77,7 @@ public class Monsters : NPC, IMonster
         transform.position = cratepos;
 
         //타입 지정
-        monsterType.SetMonsterType((E_MonsterType)data.Uniq_MonsterType);
+        monsterType?.SetMonsterType((E_MonsterType)data.Uniq_MonsterType);
 
         //공격 셋팅
         System.Action action = () =>
@@ -74,21 +87,30 @@ public class Monsters : NPC, IMonster
         };
         monsterAttack?.AddAttack(action);
 
+        Ac_Active = () =>
+        {
+            SetUp(data.MaxHp, data.Speed, data.Damage, SetMoveTarget());
+        };
+    }
+
+    //이동 위치 타겟
+    public virtual Vector3 SetMoveTarget()
+    {
         //이동 위치 셋팅
         var target = transform.position;
         target.x = IMovePoint.GetMax_X_value();
-        SetUp(data.MaxHp, data.Speed, data.Damage, target);
+        return target;
     }
 
     /// <summary>
     /// 사망 시 위치 셋팅
     /// </summary>
-    public void SetDieMonster()
+    public virtual void SetDieMonster()
     {
         // 오른쪽으로 랜덤 방향 설정 (X 축 양수 방향)
         float randomY = Random.Range(-1f, 1f);
         var target = new Vector3(1f, randomY, 0f).normalized; // 정규화된 벡터
-        nPC_Move.SetTarget(target);
+        nPC_Move?.SetTarget(target);
     }
 
     /// <summary>
@@ -110,18 +132,20 @@ public class Monsters : NPC, IMonster
         base.SetDie();
         SetDieMonster();
         //사망 애니메이션
-        iAni.SetDie();
+        iAni.SetAni(E_AniKind_Monster.Die, true);
     }
 
     public override void SetHit(int hp)
     {
         base.SetHit(hp);
-        iAni.SetHit();
+        iAni?.SetAni(E_AniKind_Monster.Hit_0, true);
+        monsterState?.SetState(E_MonstersState.Hit);
     }
 
     public override void SetAttack(NPC target)
     {
         base.SetAttack(target);
-        iAni.SetAttack();
+        iAni?.SetAni(E_AniKind_Monster.Attack_0, true);
+        monsterState?.SetState(E_MonstersState.Attack);
     }
 }

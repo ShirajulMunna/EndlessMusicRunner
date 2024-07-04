@@ -40,8 +40,6 @@ public class HitCollisionDetection : MonoBehaviour
         {
             Instance = this;
         }
-
-
     }
 
     //점수 처리 및 파티클 생성

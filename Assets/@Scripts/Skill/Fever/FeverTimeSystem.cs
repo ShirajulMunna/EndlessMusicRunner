@@ -16,7 +16,7 @@ public class FerverTimeSystem : Skill
 
         if (!isActive)
         {
-            UI_Play.Instance.SetFever(st_Skill.Combo);
+            UI_Play.instance.SetFever(st_Skill.Combo);
         }
 
         var result = await Skill.Create<FerverTimeSystem>(st_Skill, name, _skillClass);
@@ -48,43 +48,43 @@ public class FerverTimeSystem : Skill
         base.Setup(data, skillclass);
         ActiveTime = data.Activetime;
         CurremtTime = ActiveTime;
-        UI_Play.Instance.Ac_Update += SetGage;
-        UI_Play.Instance.Ac_Update += SetCoolGage;
+        PlayManager.instance.AddAction(E_Play.Update, SetGage);
+        PlayManager.instance.AddAction(E_Play.Update, SetCoolGage);
     }
 
 
     void SetGage()
     {
         CurremtTime -= Time.deltaTime;
-        UI_Play.Instance.SetMinusFever(ActiveTime, CurremtTime);
+        UI_Play.instance.SetMinusFever(ActiveTime, CurremtTime);
     }
 
     public void SetCoolGage()
     {
         if (isActive)
         {
-            UI_Play.Instance.SetFeverCoolTime(0);
+            UI_Play.instance.SetFeverCoolTime(0);
             return;
         }
 
         var per = _skillClass.CoolTimeChecker.GetCoolTimePer();
-        UI_Play.Instance.SetFeverCoolTime(per);
+        UI_Play.instance.SetFeverCoolTime(per);
         if (per < 1)
         {
             return;
         }
-        UI_Play.Instance.Ac_Update -= SetCoolGage;
-        UI_Play.Instance.SetFeverCoolTime(0);
+        PlayManager.instance.RemoveAction(E_Play.Update, SetCoolGage);
+        UI_Play.instance.SetFeverCoolTime(0);
     }
 
     private void OnDestroy()
     {
         isActive = false;
-        if (UI_Play.Instance == null)
+        if (UI_Play.instance == null)
         {
             return;
         }
-        UI_Play.Instance.Ac_Update -= SetGage;
+        PlayManager.instance.RemoveAction(E_Play.Update, SetGage);
     }
 }
 

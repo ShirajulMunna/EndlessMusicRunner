@@ -5,17 +5,33 @@ using UnityEngine;
 public class SpawnTimePoint : MonoBehaviour, ISpawnTimePoint
 {
     public ToolData toolData { get; set; }
+    public SpawnDelay spawnDelay { get; set; }
 
     List<double> L_Times = new List<double>();
     ToolDataManager toolDataManager;
+    float ClearDelay;
+
+    private void Update()
+    {
+        var check = CheckEndTiems();
+
+        if (!check)
+        {
+            return;
+        }
+
+        SpawnManager.instance.SetisStart(false);
+    }
 
     public void SetUp(string name)
     {
         L_Times.Clear();
+        spawnDelay = GetComponent<SpawnDelay>();
         toolDataManager = GetComponent<ToolDataManager>();
         print(name);
         toolData = toolDataManager.GetLoad(name);
         L_Times = toolData.L_TimePoint.ToList();
+        ClearDelay = spawnDelay.GetMonsterCreateDelay();
     }
 
     public bool CheckTime(double times)
@@ -25,7 +41,7 @@ public class SpawnTimePoint : MonoBehaviour, ISpawnTimePoint
             return false;
         }
 
-        return times > L_Times[0];
+        return times > L_Times[0] + ClearDelay;
     }
 
     public void RemoveTimes()
@@ -37,13 +53,4 @@ public class SpawnTimePoint : MonoBehaviour, ISpawnTimePoint
     {
         return L_Times.Count <= 0;
     }
-}
-
-interface ISpawnTimePoint
-{
-    ToolData toolData { get; set; }
-    void SetUp(string name);
-    bool CheckTime(double times);
-    void RemoveTimes();
-    bool CheckEndTiems();
 }

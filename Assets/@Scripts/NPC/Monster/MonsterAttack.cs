@@ -7,6 +7,20 @@ public class MonsterAttack : MonoBehaviour, IMonsterAttack
     public System.Action Ac_Attack { get; set; }
     public bool isCheckAttack { get; set; }
 
+    MonsterState _monsterState;
+    public MonsterState monsterState
+    {
+        get
+        {
+            if (_monsterState == null)
+            {
+                _monsterState = GetComponent<MonsterState>();
+            }
+            return _monsterState;
+        }
+        set => _monsterState = value;
+    }
+
     private void Start()
     {
         move = GetComponent<IMove>();
@@ -53,7 +67,7 @@ public class MonsterAttack : MonoBehaviour, IMonsterAttack
 
     public bool CheckAttack()
     {
-        return transform.position.x <= IMovePoint.GetMax_X_value();
+        return transform.position.x <= IMovePoint.GetMonster_Attack_Point_X();
     }
 
     /// <summary>

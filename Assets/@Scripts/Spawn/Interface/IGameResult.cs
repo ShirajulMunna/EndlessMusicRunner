@@ -1,0 +1,4 @@
+interface IGameResult
+{
+    void SetGameResult();
+}

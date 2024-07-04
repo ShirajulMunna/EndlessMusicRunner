@@ -63,12 +63,9 @@ public class PlayerSystem : Entity
 
     private void Start()
     {
-        UI_Play.Instance.ActivatPanel(true);
+        UI_Play.instance.ActivatPanel(true);
         SetState(E_Entity_State.Running);
-        SpawnManager.instance.Ac_EndGame += () =>
-        {
-            SetState(E_Entity_State.Clear);
-        };
+        PlayManager.instance.AddAction(E_Play.End, () => SetState(E_Entity_State.Clear));
     }
 
     private void Update()
@@ -77,7 +74,7 @@ public class PlayerSystem : Entity
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            SpawnManager.instance.SetState(E_GameState.End);
+
         }
     }
 
@@ -158,7 +155,7 @@ public class PlayerSystem : Entity
     public override void SetHit()
     {
         base.SetHit();
-        UI_Play.Instance.SetHp(MaxHp, CurHp);
+        UI_Play.instance.SetHp(MaxHp, CurHp);
         //공격 사운드 및 애니메이션 처리
 
         SetAni(GetAniName(E_AniType.Hit), GetIdle());
@@ -219,7 +216,6 @@ public class PlayerSystem : Entity
         base.SetDie();
         EndGame();
         SetAni(GetAniName(E_AniType.Die));
-        SpawnManager.instance.Ac_EndGame = null;
     }
 
     //클리어 처리
@@ -236,7 +232,6 @@ public class PlayerSystem : Entity
         M_Move.DirectMove(E_MovePoint.Down);
         OffAllL_Particle();
         AudioManager.instance.StopMusic();
-        SpawnManager.instance.SetState(E_GameState.End);
     }
     #endregion
 

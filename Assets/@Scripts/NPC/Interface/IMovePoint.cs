@@ -21,6 +21,16 @@ public static class IMovePoint
         return Monster_Max_Move_X_Value;
     }
 
+    static float Monster_Attack_Point_X= -14f;
+
+    /// <summary>
+    /// 몬스터 최대 이동 거리
+    /// </summary>
+    public static float GetMonster_Attack_Point_X()
+    {
+        return Monster_Attack_Point_X;
+    }
+
     public static Vector3 GetMovePoint(E_MoveData e_MoveData)
     {
         return D_MovePoint[e_MoveData];

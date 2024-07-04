@@ -73,23 +73,10 @@ public class MonsterAni : MonoBehaviour, IAni, IMonsterAni
         return data;
     }
 
-    public void SetHit()
+    public void SetAni(E_AniKind_Monster state, bool loop)
     {
-        var ani = GetAniString(E_AniKind_Monster.Hit_0);
-        SetAni(ani, true, null);
-    }
-
-    public void SetAttack()
-    {
-        var ani = GetAniString(E_AniKind_Monster.Attack_0);
-        SetAni(ani, true, null);
-    }
-
-    public void SetDie()
-    {
-        //히트 애니메이션
-        var ani = GetAniString(E_AniKind_Monster.Die);
-        SetAni(ani, true, null);
+        var ani = GetAniString(state);
+        SetAni(ani, false, null);
     }
 }
 

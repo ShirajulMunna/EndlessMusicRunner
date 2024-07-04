@@ -20,7 +20,3 @@ public class GameResult
     }
 }
 
-interface IGameResult
-{
-    void SetGameResult();
-}

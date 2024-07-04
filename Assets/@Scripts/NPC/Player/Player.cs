@@ -30,7 +30,7 @@ public class Player : NPC
     }
 
     Player_Attacker _player_Attacker;
-    Player_Attacker player_Attacker
+    public Player_Attacker player_Attacker
     {
         get
         {
@@ -102,7 +102,7 @@ public class Player : NPC
         //특수 몬스터 확인 후 공격
         var monstertype = target.GetComponent<IMonsterType>();
         var check = player_Attacker.CheckSpecialMonster(monstertype);
-        
+
         if (!check)
         {
             return;
@@ -118,5 +118,19 @@ public class Player : NPC
         {
             nPC_Move.SetTarget(E_MoveData.Middle);
         }
+    }
+
+    public override void SetHit(int hp)
+    {
+        base.SetHit(hp);
+        Effect.Create(transform.position, (int)HitCollisionDetection.ConditionEffect.Opps);
+        ScoreManager.instance.SetCombo_Reset();
+        player_Ani.SetAni(player_Ani.GetAniString(E_AniKind_Player.Hit), false, player_Ani.GetAniString(E_AniKind_Player.Idle));
+    }
+
+    public override void SetDie()
+    {
+        base.SetDie();
+        player_Ani.SetAni(player_Ani.GetAniString(E_AniKind_Player.Die), true, null);
     }
 }

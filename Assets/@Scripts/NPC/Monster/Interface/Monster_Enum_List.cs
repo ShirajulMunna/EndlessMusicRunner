@@ -24,5 +24,6 @@ public enum E_AniKind_Monster
     Die,
     Attack_0,
     Attack_1,
-    Attack_2
+    Attack_2,
+    Move,
 }

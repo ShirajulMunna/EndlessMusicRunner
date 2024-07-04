@@ -3,6 +3,7 @@ public interface IMonsterAttack
     //공격 처리
     System.Action Ac_Attack { get; set; }
     bool isCheckAttack { get; set; }
+    MonsterState monsterState { get; set; }
 
     //공격 가능 업데이트
     void UpdateAttack();

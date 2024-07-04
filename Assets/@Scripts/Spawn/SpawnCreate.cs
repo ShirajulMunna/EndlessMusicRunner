@@ -17,7 +17,7 @@ public class SpawnCreate : Singleton<SpawnCreate>, ISpawnCreate
     //몬스터 생성 함수
     public async Task<GameObject> MonsterSpawn(C_MonsterTable data, Vector3 createpoint)
     {
-        var result = await Monster.Create(data, createpoint, this.transform);
+        var result = await MonsterCreate.Create(data, createpoint, this.transform);
         return result;
     }
 
@@ -49,12 +49,6 @@ public class SpawnCreate : Singleton<SpawnCreate>, ISpawnCreate
 
                 // 연속 생성일 시 처리
                 createpoint.x += MonsterOffSetX * j;
-                // 2단 몬스터일때 y포지션 0으로 고정
-                if (monsterInfo.Uniq_MonsterType == UniqMonster.TwinMonster)
-                {
-                    createpoint.y = 0;
-                }
-
                 var result = await MonsterSpawn(monsterInfo, createpoint);
                 L_CreateData.Add(result);
                 result.SetActive(false);
@@ -85,9 +79,8 @@ public class SpawnCreate : Singleton<SpawnCreate>, ISpawnCreate
             {
                 continue;
             }
-            if (Boss.instance != null && item == Boss.instance.gameObject)
+            if (Boss.instance != null && item == Bosst.instance.gameObject)
             {
-                Boss.instance.SetBossState(E_BossState.Die);
                 continue;
             }
             item.SetActive(false);
@@ -96,12 +89,3 @@ public class SpawnCreate : Singleton<SpawnCreate>, ISpawnCreate
 
 }
 
-
-interface ISpawnCreate
-{
-    List<GameObject> L_CreateData { get; set; }
-    int CreateIDX { get; set; }
-    void SetStart();
-    Task<GameObject> MonsterSpawn(C_MonsterTable data, Vector3 createpoint);
-    void SetActiveMonster();
-}

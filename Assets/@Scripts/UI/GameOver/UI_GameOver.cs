@@ -25,12 +25,12 @@ public class UI_GameOver : MonoBehaviour
     const string Name = "UI_GameOver";
     public static async void Create()
     {
-        if (UI_Play.Instance.GameOver)
+        if (UI_Play.instance.GameOver)
         {
             return;
         }
 
-        UI_Play.Instance.GameOver = true;
+        UI_Play.instance.GameOver = true;
         var obj = await Name.CreateOBJ<UI_GameOver>();
         var audio = AudioManager.instance;
         audio.Audio_BackGround.PlayOneShot(audio.failGame);

@@ -12,5 +12,8 @@ public interface IMove
     void SetTarget(Vector3 point);
     void MoveToTarget();
     void SetSpeed(float speed);
+
+    //도달 했으면 false
+    bool CheckIn();
     E_MoveData GetMoveData();
 }

@@ -227,7 +227,7 @@ public class Monster : Entity, IMonsterMove
     public void SetComboReset()
     {
         ScoreManager.instance.SetScoreState(ScoreManager.E_ScoreState.Miss);
-        ScoreManager.instance.SetBestCombo_Reset();
+        ScoreManager.instance.SetCombo_Reset();
     }
     public void CreatPlayerHitEffect()
     {

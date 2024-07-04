@@ -7,6 +7,7 @@ public interface IMonster
     IMonsterAttack monsterAttack { get; set; }
     IMonsterAni iAni { get; set; }
     NPC npc { get; set; }
+    MonsterState monsterState { get; set; }
     //생성 처리 함수
     void CreateMonster(C_MonsterTable data, Vector3 cratepos);
 

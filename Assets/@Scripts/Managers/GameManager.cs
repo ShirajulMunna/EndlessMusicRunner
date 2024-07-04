@@ -9,8 +9,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    static NPC _Player;
-    public static NPC M_Player
+    static Player _Player;
+    public static Player M_Player
     {
         get
         {

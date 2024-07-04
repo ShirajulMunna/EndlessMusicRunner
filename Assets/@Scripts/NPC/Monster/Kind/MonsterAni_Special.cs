@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using Spine.Unity;
 using UnityEngine;
 
@@ -14,7 +15,6 @@ public class MonsterAni_Special : MonoBehaviour, IAni, IMonsterAni
     {
         "skin4","skin6","skin0","skin3","skin1","skin2","skin5","skin7" //그래픽 변경
     };
-    public int AttackCount { get; set; }
     public int HitCount { get; set; }
 
     [SerializeField] List<St_Monster_Ani> st_Monster_Anis;
@@ -72,8 +72,13 @@ public class MonsterAni_Special : MonoBehaviour, IAni, IMonsterAni
         return data;
     }
 
-    public void SetHit()
+    E_AniKind_Monster SetHit(E_AniKind_Monster state)
     {
+        if (state != E_AniKind_Monster.Hit_0)
+        {
+            return state;
+        }
+
         var types = E_AniKind_Monster.Hit_0;
         switch (HitCount)
         {
@@ -84,42 +89,14 @@ public class MonsterAni_Special : MonoBehaviour, IAni, IMonsterAni
                 types = E_AniKind_Monster.Hit_2;
                 break;
         }
-        var ani = GetAniString(types);
 
-        if (string.IsNullOrEmpty(ani))
-        {
-            ani = GetAniString(E_AniKind_Monster.Hit_0);
-        }
-
-        SetAni(ani, true, null);
+        return types;
     }
 
-    public void SetAttack()
+    public void SetAni(E_AniKind_Monster state, bool loop)
     {
-        var types = E_AniKind_Monster.Attack_0;
-        switch (HitCount)
-        {
-            case 1:
-                types = E_AniKind_Monster.Attack_1;
-                break;
-            case 2:
-                types = E_AniKind_Monster.Attack_2;
-                break;
-        }
-        var ani = GetAniString(types);
-
-        if (string.IsNullOrEmpty(ani))
-        {
-            ani = GetAniString(E_AniKind_Monster.Attack_0);
-        }
-
-        SetAni(ani, true, null);
-    }
-
-    public void SetDie()
-    {
-        //히트 애니메이션
-        var ani = GetAniString(E_AniKind_Monster.Die);
-        SetAni(ani, true, null);
+        state = SetHit(state);
+        var ani = GetAniString(state);
+        SetAni(ani, loop, GetAniString(E_AniKind_Monster.idle));
     }
 }

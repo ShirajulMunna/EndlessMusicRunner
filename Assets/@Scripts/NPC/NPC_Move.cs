@@ -68,9 +68,8 @@ public class NPC_Move : MonoBehaviour, IMove
 
     public void MoveToTarget()
     {
-        var dis = Vector3.Distance(rb.position, target);
-
-        if (dis > arrivalThreshold)
+        var check = CheckIn();
+        if (check)
         {
             var direction = (target - rb.position).normalized;
             rb.MovePosition(rb.position + direction * Speed * Time.fixedDeltaTime);
@@ -84,5 +83,12 @@ public class NPC_Move : MonoBehaviour, IMove
     public void SetSpeed(float speed)
     {
         Speed = speed;
+    }
+
+    public bool CheckIn()
+    {
+        var dis = Vector3.Distance(rb.position, target);
+
+        return dis > arrivalThreshold;
     }
 }

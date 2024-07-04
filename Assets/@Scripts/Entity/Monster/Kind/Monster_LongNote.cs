@@ -118,7 +118,7 @@ public class Monster_LongNote : Monster
             isAttackPlayer = true;
             Destroy(effect);
             Destroy(gameObject);
-            ScoreManager.instance.SetBestCombo_Reset();
+            ScoreManager.instance.SetCombo_Reset();
         }
     }
 
@@ -190,7 +190,7 @@ public class Monster_LongNote : Monster
     private async Task HandleDestroyAsync()
     {
         GameManager.instance.player.SetHp(-5);
-        ScoreManager.instance.SetBestCombo_Reset();
+        ScoreManager.instance.SetCombo_Reset();
         ScoreManager.instance.SetScoreState(ScoreManager.E_ScoreState.Miss); // 롱노트 중간에 실패하면 Miss를 추가해주기
 
         var effects = await Effect.Create(transform.position, (int)HitCollisionDetection.ConditionEffect.Opps);
