@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "MES16Wz3SlQ", "spine": "4.1.24", "x": -633.75, "y": -256, "width": 1243.25, "height": 537.69 },
+"skeleton": { "hash": "8CJJJtqtpOk", "spine": "4.1.24", "x": -633.75, "y": -256, "width": 1243.25, "height": 537.69 },
 "bones": [
 	{ "name": "root" },
 	{ "name": "bone2", "parent": "root", "x": -1272.01 },
@@ -161,46 +161,75 @@
 			}
 		}
 	},
-	"launch": {
+	"idle": {
 		"bones": {
-			"bone": {
+			"root": {
 				"rotate": [
-					{ "value": -12.8, "curve": "stepped" },
-					{
-						"time": 0.0667,
-						"value": -12.8,
-						"curve": [ 0.207, -12.8, 0.36, 0 ]
-					},
-					{ "time": 0.5 }
+					{ "curve": "stepped" },
+					{ "time": 0.3333 }
+				],
+				"translate": [
+					{ "curve": "stepped" },
+					{ "time": 0.3333 }
 				],
 				"scale": [
+					{ "curve": "stepped" },
+					{ "time": 0.3333 }
+				],
+				"shear": [
+					{ "curve": "stepped" },
+					{ "time": 0.3333 }
+				]
+			},
+			"bone2": {
+				"rotate": [
+					{ "curve": "stepped" },
+					{ "time": 0.3333 }
+				],
+				"translate": [
+					{ "curve": "stepped" },
+					{ "time": 0.3333 }
+				],
+				"scale": [
+					{ "curve": "stepped" },
+					{ "time": 0.3333 }
+				],
+				"shear": [
+					{ "curve": "stepped" },
+					{ "time": 0.3333 }
+				]
+			},
+			"bone": {
+				"rotate": [
 					{
-						"x": 0,
-						"y": 0,
-						"curve": [ 0.02, 0, 0.047, 0.317, 0.02, 0, 0.047, 0 ]
+						"value": -7.67,
+						"curve": [ 0.033, -7.67, 0.067, 11.09 ]
 					},
 					{
-						"time": 0.0667,
-						"x": 0.4,
-						"y": 0.2,
-						"curve": [ 0.087, 0.483, 0.113, 0.45, 0.087, 0.4, 0.113, 1.2 ]
+						"time": 0.1,
+						"value": 11.09,
+						"curve": [ 0.178, 11.09, 0.256, -7.67 ]
+					},
+					{ "time": 0.3333, "value": -7.67 }
+				],
+				"translate": [
+					{
+						"curve": [ 0.078, 0, 0.156, 0, 0.078, 0, 0.156, 53.84 ]
 					},
 					{
-						"time": 0.1333,
-						"x": 0.5,
-						"y": 1.2,
-						"curve": [ 0.193, 0.65, 0.24, 1, 0.193, 1.2, 0.24, 1 ]
+						"time": 0.2333,
+						"y": 53.84,
+						"curve": [ 0.267, 0, 0.3, 0, 0.267, 53.84, 0.3, 0 ]
 					},
-					{
-						"time": 0.3,
-						"curve": [ 0.33, 1, 0.337, 0.867, 0.33, 1, 0.337, 1 ]
-					},
-					{
-						"time": 0.3667,
-						"x": 0.867,
-						"curve": [ 0.397, 0.867, 0.47, 1, 0.397, 1, 0.47, 1 ]
-					},
-					{ "time": 0.5 }
+					{ "time": 0.3333 }
+				],
+				"scale": [
+					{ "curve": "stepped" },
+					{ "time": 0.3333 }
+				],
+				"shear": [
+					{ "curve": "stepped" },
+					{ "time": 0.3333 }
 				]
 			}
 		}

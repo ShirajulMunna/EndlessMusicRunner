@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "z+3Lfirx9Go", "spine": "4.1.24", "x": -280.01, "y": -640.74, "width": 555.68, "height": 1371.87 },
+"skeleton": { "hash": "F/ubQP5ma2s", "spine": "4.1.24", "x": -280.01, "y": -640.74, "width": 555.68, "height": 1371.87 },
 "bones": [
 	{ "name": "root" },
 	{ "name": "cloud_A", "parent": "root", "x": 13.51, "y": 478.51 },
@@ -515,7 +515,7 @@
 			}
 		}
 	},
-	"launch": {
+	"idle": {
 		"slots": {
 			"Left lightning1": {
 				"attachment": [

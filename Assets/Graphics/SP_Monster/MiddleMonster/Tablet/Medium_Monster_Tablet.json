@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "sRn+Y58u+Xs", "spine": "4.1.24", "x": -592.7, "y": -481.27, "width": 1103.78, "height": 933.39 },
+"skeleton": { "hash": "/NOuAlVcUdo", "spine": "4.1.24", "x": -592.7, "y": -481.27, "width": 1103.78, "height": 933.39 },
 "bones": [
 	{ "name": "root" },
 	{ "name": "center", "parent": "root" },
@@ -375,7 +375,7 @@
 	}
 ],
 "animations": {
-	"Idle": {
+	"idle": {
 		"bones": {
 			"root": {
 				"rotate": [
