@@ -65,7 +65,7 @@ public class HitCollisionDetection : MonoBehaviour
         ScoreManager.instance.SetCombo_Add();
         ScoreManager.instance.SetCurrentScore(score);
 
-        CreateStateEffect(perfect);
+        CreateStateEffect(obj, perfect);
 
         if (perfect == ScoreManager.E_ScoreState.Pass)
         {
@@ -75,9 +75,10 @@ public class HitCollisionDetection : MonoBehaviour
     }
 
     //상태별 파티클 생성
-    async void CreateStateEffect(ScoreManager.E_ScoreState perfect)
+    async void CreateStateEffect(GameObject obj, ScoreManager.E_ScoreState perfect)
     {
-        var hitPoint = GameManager.instance.player.transform.position;
+        var hitPoint = obj.transform.position;
+        hitPoint.x = GameManager.instance.player.transform.position.x;
         hitPoint.x += OffSetX_value;
 
         var effect = ConditionEffect.Opps;

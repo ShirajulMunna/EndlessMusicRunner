@@ -11,6 +11,7 @@ public class PlayerSystem : Entity
     public static PlayerSystem playerSystem;
 
     [SerializeField] List<IPlayer_Particle> L_Particle = new List<IPlayer_Particle>();
+    public bool isHigt;
 
     //공격 클래스
     [HideInInspector] public IPlayer_Attack M_Attack;
@@ -34,17 +35,17 @@ public class PlayerSystem : Entity
     //애니메이션 리스트
     List<string> L_AniStr = new List<string>()
     {
-        "Running",
+        "running",
         "fly",
-        "Kick",
-        "tail attack",
-        "fist attack",
-        "fire attack",
-        "biting attack",
+        "running_Attack1",
+        "running_Attack2",
+        "running_Attack3",
+        "fly_Attack1",
+        "running_Attack_long_note",
         "Hit",
-        "fly_attack",
+        "fly_Attack2",
         "retire",
-        "fly_biting",
+        "fly_Attack_long_note",
         "Clear_3",// 클리어 애니메이션추가
         "idle",
         "Clear_2",// 클리어 애니메이션추가
@@ -56,14 +57,18 @@ public class PlayerSystem : Entity
     private void Awake()
     {
         playerSystem = this;
-        M_Attack = new IPlayer_Attack();
-        M_Move = new IPlayer_Move();
+        M_Attack = GetComponent<IPlayer_Attack>();
+        M_Move = GetComponent<IPlayer_Move>();
         M_State = new IPlayer_KeyPoint();
+        M_State.isHigt = isHigt;
     }
 
     private void Start()
     {
-        UI_Play.Instance.ActivatPanel(true);
+        if (!isHigt)
+        {
+            UI_Play.Instance.ActivatPanel(true);
+        }
         SetState(E_Entity_State.Running);
         SpawnManager.instance.Ac_EndGame += () =>
         {
@@ -244,7 +249,7 @@ public class PlayerSystem : Entity
 
     public string GetIdle()
     {
-        var idle_Type = M_Move.GetPoint() == E_MovePoint.Up ? "fly" : "Running";
+        var idle_Type = M_Move.GetPoint() == E_MovePoint.Up ? "fly" : "running";
 
         if (!UI_Lobby.Type || isStopPlayer)
         {
@@ -420,6 +425,11 @@ public class PlayerSystem : Entity
     {
         for (int i = 0; i < 3; i++)
         {
+            if (M_Attack == null)
+            {
+                return;
+            }
+
             M_Attack.DrawOverlapBox(i, ScoreManager.E_ScoreState.Perfect, Color.green);
 
             M_Attack.DrawOverlapBox(i, ScoreManager.E_ScoreState.Early, Color.yellow);

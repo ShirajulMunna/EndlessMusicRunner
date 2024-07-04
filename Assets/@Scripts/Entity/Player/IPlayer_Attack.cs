@@ -1,19 +1,25 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 [Serializable]
-public class IPlayer_Attack
+public class IPlayer_Attack : MonoBehaviour
 {
+    PlayerSystem _Player;
     PlayerSystem Player
     {
-        get => GameManager.instance.player;
+        get
+        {
+            if (_Player == null)
+            {
+                _Player = GetComponent<PlayerSystem>();
+            }
+            return _Player;
+        }
     }
 
     IPlayer_KeyPoint State
     {
-        get => GameManager.instance.player.M_State;
+        get => Player.M_State;
     }
 
     //X값 오프셋
@@ -28,13 +34,24 @@ public class IPlayer_Attack
         new Vector3(1f,1.5f,1)
     };
 
+
     //위치
     public List<Vector3> Tr_AttackVector = new List<Vector3>()
     {
-        new Vector3(-11, -3.5f, 0),
-        new Vector3(-11, 0, 0),
-        new Vector3(-11, 3.5f, 0)
+        new Vector3(-11, 1, 0),
+        new Vector3(-11, 3.5f, 0),
+        new Vector3(-11, 5f, 0),
     };
+
+    public List<Vector3> Tr_AttackVector_Low = new List<Vector3>()
+    {
+        new Vector3(-11, -6.5f, 0),
+        new Vector3(-11, -5f, 0),
+        new Vector3(-11, -2.5f, 0),
+    };
+
+
+
     //공격 상태
     E_AttackState AttackState = E_AttackState.Attack_Re;
 
@@ -106,8 +123,9 @@ public class IPlayer_Attack
     //히트 판정
     (Collider2D[], ScoreManager.E_ScoreState) SetHit(int idx)
     {
+        var area = Area(Player);
         //퍼펙트 체크
-        var col = Physics2D.OverlapBoxAll(Tr_AttackVector[idx], BoxSize[(int)ScoreManager.E_ScoreState.Perfect], default);
+        var col = Physics2D.OverlapBoxAll(area[idx], BoxSize[(int)ScoreManager.E_ScoreState.Perfect], default);
 
         if (col != null && col.Length > 0)
         {
@@ -115,7 +133,7 @@ public class IPlayer_Attack
         }
 
         //그레이트 체크
-        col = Physics2D.OverlapBoxAll(Tr_AttackVector[idx], BoxSize[(int)ScoreManager.E_ScoreState.Great], default);
+        col = Physics2D.OverlapBoxAll(area[idx], BoxSize[(int)ScoreManager.E_ScoreState.Great], default);
 
         if (col != null && col.Length > 0)
         {
@@ -123,7 +141,7 @@ public class IPlayer_Attack
         }
 
         //얼리 체크
-        var earlypos = Tr_AttackVector[idx];
+        var earlypos = area[idx];
         earlypos.x += OffSetX_value;
         col = Physics2D.OverlapBoxAll(earlypos, BoxSize[(int)ScoreManager.E_ScoreState.Early], default);
 
@@ -133,7 +151,7 @@ public class IPlayer_Attack
         }
 
         //늦음 체크
-        var latepos = Tr_AttackVector[idx];
+        var latepos = area[idx];
         latepos.x += -OffSetX_value;
         col = Physics2D.OverlapBoxAll(latepos, BoxSize[(int)ScoreManager.E_ScoreState.Late], default);
 
@@ -147,7 +165,8 @@ public class IPlayer_Attack
 
     public void DrawOverlapBox(int i, ScoreManager.E_ScoreState state, Color color)
     {
-        var pos = Tr_AttackVector[i];
+        var posarea = Area(Player);
+        var pos = posarea[i];
         var boxsize = BoxSize[(int)state];
 
         if (state == ScoreManager.E_ScoreState.Early)
@@ -231,12 +250,9 @@ public class IPlayer_Attack
         return AttackState == state;
     }
 
-
-    //공격 가능 상태 체크
-    bool CheckAttackState()
+    public List<Vector3> Area(PlayerSystem player)
     {
-        return AttackState == E_AttackState.Hold || AttackState == E_AttackState.Attack_Re;
+        var posarea = player.isHigt ? Tr_AttackVector : Tr_AttackVector_Low;
+        return posarea;
     }
-
-
 }

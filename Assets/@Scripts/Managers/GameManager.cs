@@ -9,12 +9,9 @@ public class GameManager : MonoBehaviour
 {
 
     public static GameManager instance;
-    public SkeletonAnimation skeleton;
 
     public PlayerSystem player;
-    public Transform bossWaitPosition;
-
-    public Transform lowerAttackPoint;
+    public PlayerSystem player_1;
     [HideInInspector] public Vector3 longNoteDestoryPosition;
 
     public Vector3 GameResultPosition = new Vector3(10, -2, 0);
@@ -28,9 +25,12 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
-
-        skeleton = GameObject.Find("Player").transform.GetChild(0).GetComponent<SkeletonAnimation>();
         Application.targetFrameRate = 120;
+    }
+
+    public PlayerSystem GetPlayer(float y)
+    {
+        return y > 0 ? player_1 : player;
     }
 
     // After playing some times background will

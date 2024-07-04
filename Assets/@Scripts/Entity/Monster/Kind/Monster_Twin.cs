@@ -6,7 +6,7 @@ public class Monster_Twin : Monster
 {
     IPlayer_Move playerMove
     {
-        get => GameManager.instance.player.M_Move;
+        get => GameManager.instance.GetPlayer(transform.position.y).M_Move;
     }
 
     const string Name = "Monster_{0}";

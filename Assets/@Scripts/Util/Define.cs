@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using Spine;
 using Spine.Unity;
@@ -6,8 +7,32 @@ using UnityEngine;
 
 public static class Define
 {
+    static Dictionary<SkeletonAnimation, List<string>> animationNames = new Dictionary<SkeletonAnimation, List<string>>();
     public static void SetAni_Player(this SkeletonAnimation skeletonAnimation, string animationString, bool loop = false, string loopani = "")
     {
+        if (!animationNames.ContainsKey(skeletonAnimation))
+        {
+            animationNames[skeletonAnimation] = new List<string>();
+
+            if (skeletonAnimation != null && skeletonAnimation.SkeletonDataAsset != null)
+            {
+                var animationStateData = skeletonAnimation.SkeletonDataAsset.GetAnimationStateData();
+                foreach (var animation in animationStateData.SkeletonData.Animations)
+                {
+                    animationNames[skeletonAnimation].Add(animation.Name);
+                }
+            }
+        }
+
+        var idx = animationNames[skeletonAnimation].FindIndex(x => x == animationString);
+
+        if (idx == -1)
+        {
+            return;
+        }
+
+
+
         var currentTrackEntry = skeletonAnimation.AnimationState.GetCurrent(0);
         if (animationString == loopani && currentTrackEntry.Animation.Name == loopani)
         {

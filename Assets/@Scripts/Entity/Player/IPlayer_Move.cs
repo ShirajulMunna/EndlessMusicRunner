@@ -18,9 +18,18 @@ public class IPlayer_Move : MonoBehaviour
     //이동 딜레이
     float ClearMoveDelay;
 
+    PlayerSystem _player;
     PlayerSystem player
     {
-        get => GameManager.instance.player;
+        get
+        {
+            if (_player == null)
+            {
+                _player = this.gameObject.GetComponent<PlayerSystem>();
+            }
+
+            return _player;
+        }
     }
     IPlayer_Attack P_Attack
     {
@@ -57,25 +66,25 @@ public class IPlayer_Move : MonoBehaviour
     //움직임 함수
     void Move()
     {
-        if (CurDownDelay <= 0)
-        {
-            CurDownDelay = MaxDownDelay;
+        // if (CurDownDelay <= 0)
+        // {
+        //     CurDownDelay = MaxDownDelay;
 
-            //플레이어의 위치에 따라서 하늘 또는 하단에 고정
-            if (player.transform.position.y > 0)
-            {
-                MovePoint = E_MovePoint.Up;
-                player.SetState(E_Entity_State.Fly);
-            }
-            else
-            {
-                MovePoint = E_MovePoint.Down;
-                player.SetState(E_Entity_State.Running);
-            }
-
-        }
+        //     //플레이어의 위치에 따라서 하늘 또는 하단에 고정
+        //     if (player.transform.position.y > 0)
+        //     {
+        //         MovePoint = E_MovePoint.Up;
+        //         player.SetState(E_Entity_State.Fly);
+        //     }
+        //     else
+        //     {
+        //         MovePoint = E_MovePoint.Down;
+        //         player.SetState(E_Entity_State.Running);
+        //     }
+        // }
+        var area = P_Attack.Area(player);
         // 목표 위치 가져오기
-        var targetPos = P_Attack.Tr_AttackVector[GetMoveIDX(MovePoint)];
+        var targetPos = area[GetMoveIDX(MovePoint)];
         var targetY = targetPos.y;
         var targetZ = targetPos.z;
 
@@ -143,7 +152,8 @@ public class IPlayer_Move : MonoBehaviour
     //바로 이동
     public void DirectMove(E_MovePoint point)
     {
-        var targetPos = P_Attack.Tr_AttackVector[GetMoveIDX(point)];
+        var area = P_Attack.Area(player);
+        var targetPos = area[GetMoveIDX(point)];
         Tr.position = targetPos;
         CurDownDelay = MaxDownDelay;
     }
@@ -153,7 +163,8 @@ public class IPlayer_Move : MonoBehaviour
     {
         CurDownDelay = MaxDownDelay;
         MovePoint = point;
-        var targetPos = P_Attack.Tr_AttackVector[GetMoveIDX(point)];
+        var area = P_Attack.Area(player);
+        var targetPos = area[GetMoveIDX(point)];
         targetPos.x = Tr.position.x;
         Tr.position = targetPos;
     }

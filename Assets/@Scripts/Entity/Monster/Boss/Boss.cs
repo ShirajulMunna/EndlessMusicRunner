@@ -116,8 +116,8 @@ public class Boss : Monster
                 SetAni(E_BossAttack.idle);
                 break;
             case E_BossState.MoveAttack:
-                TargetPos = GameManager.instance.player.transform.position;
-                TargetPos.y = StartPos.y;
+                TargetPos = StartPos;
+                TargetPos.x = -14f;
                 break;
             case E_BossState.Hit:
                 HitDelay = 0;
@@ -163,6 +163,7 @@ public class Boss : Monster
 
     void SetCrush()
     {
+        GameManager.instance.player.SetHit();
         GameManager.instance.player.SetHit();
         SetBossState(E_BossState.Move);
         DirX = -1;

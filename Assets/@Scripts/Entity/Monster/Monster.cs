@@ -64,7 +64,7 @@ public class Monster : Entity, IMonsterMove
     };
     protected PlayerSystem player
     {
-        get => GameManager.instance.player;
+        get => GameManager.instance.GetPlayer(transform.position.y);
     }
     protected IPlayer_KeyPoint Player_State
     {
@@ -147,8 +147,20 @@ public class Monster : Entity, IMonsterMove
     protected virtual bool CheckHitPoint()
     {
         //위치 맞는지 체크 후 공격
-        var point = transform.position.y == -3.5f ? E_MovePoint.Down : E_MovePoint.Up;
-        var checkhit = player.M_Move.CheckHitActive(point);
+        var point = E_MovePoint.Down;
+        var players = player;
+        var ishigt = transform.position.y > 0;
+
+        if (ishigt)
+        {
+            point = transform.position.y > 3.5f ? E_MovePoint.Up : E_MovePoint.Down;
+        }
+        else
+        {
+            point = transform.position.y > -5f ? E_MovePoint.Up : E_MovePoint.Down;
+        }
+
+        var checkhit = players.M_Move.CheckHitActive(point);
         return checkhit;
     }
 
@@ -174,7 +186,7 @@ public class Monster : Entity, IMonsterMove
         if (uniqMonster == UniqMonster.SendBack)
         {
             int random = Random.Range(0, HitRandAnimation.Count - 1);
-            skeletonAnimation.SetAni_Monster(HitRandAnimation[random], false, "Idle");
+            skeletonAnimation.SetAni_Monster(HitRandAnimation[random], false, "idle");
         }
     }
 

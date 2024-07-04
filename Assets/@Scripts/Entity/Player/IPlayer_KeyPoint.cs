@@ -2,29 +2,27 @@ using UnityEngine;
 
 public class IPlayer_KeyPoint : MonoBehaviour
 {
-    PlayerSystem Player
-    {
-        get => GameManager.instance.player;
-    }
-
     IPlayer_Attack Attack
     {
         get => GameManager.instance.player.M_Attack;
     }
 
     // 위치 상태
-    [SerializeField] E_MovePoint MovePoint = E_MovePoint.None;
+    E_MovePoint MovePoint = E_MovePoint.None;
+    public bool isHigt;
+
 
     bool isTwinAttack;
     float isHoldTime;
+    bool isDKeyPressed;
     bool isFKeyPressed;
-    bool isJKeyPressed;
     bool isFKeyHandled;
     bool isJKeyHandled;
 
+
     public E_MovePoint SetPoint()
     {
-        var point = SetKey();
+        var point = !isHigt ? SetKey() : SetKey_Higt();
 
         if (point != E_MovePoint.None && !Attack.CheckHoldPoint() && MovePoint == point)
         {
@@ -43,52 +41,107 @@ public class IPlayer_KeyPoint : MonoBehaviour
     E_MovePoint SetKey()
     {
         // 동시 키 입력 처리
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.J))
         {
-            isFKeyPressed = true;
+            isDKeyPressed = true;
             isFKeyHandled = true;
             CheckTwinKey();
         }
 
-        if (Input.GetKeyDown(KeyCode.J))
+        if (Input.GetKeyDown(KeyCode.K))
         {
-            isJKeyPressed = true;
+            isFKeyPressed = true;
             isJKeyHandled = true;
             CheckTwinKey();
         }
 
-        if (Input.GetKeyUp(KeyCode.F))
+        if (Input.GetKeyUp(KeyCode.J))
         {
-            isFKeyPressed = false;
+            isDKeyPressed = false;
             isFKeyHandled = false;
             Reset();
         }
 
-        if (Input.GetKeyUp(KeyCode.J))
+        if (Input.GetKeyUp(KeyCode.K))
         {
-            isJKeyPressed = false;
+            isFKeyPressed = false;
             isJKeyHandled = false;
             Reset();
         }
 
         if (isFKeyHandled && isJKeyHandled)
         {
-            isJKeyPressed = false;
             isFKeyPressed = false;
+            isDKeyPressed = false;
             isFKeyHandled = false;
             isJKeyHandled = false;
             return E_MovePoint.Up;
         }
 
-        if (isFKeyPressed && !isJKeyPressed)
+        if (isDKeyPressed && !isFKeyPressed)
         {
-            isFKeyPressed = false;
+            isDKeyPressed = false;
             return E_MovePoint.Up;
         }
 
-        if (isJKeyPressed && !isFKeyPressed)
+        if (isFKeyPressed && !isDKeyPressed)
         {
-            isJKeyPressed = false;
+            isFKeyPressed = false;
+            return E_MovePoint.Down;
+        }
+
+        return E_MovePoint.None;
+    }
+
+    E_MovePoint SetKey_Higt()
+    {
+        // 동시 키 입력 처리
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            isDKeyPressed = true;
+            isFKeyHandled = true;
+            CheckTwinKey();
+        }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            isFKeyPressed = true;
+            isJKeyHandled = true;
+            CheckTwinKey();
+        }
+
+        if (Input.GetKeyUp(KeyCode.D))
+        {
+            isDKeyPressed = false;
+            isFKeyHandled = false;
+            Reset();
+        }
+
+        if (Input.GetKeyUp(KeyCode.F))
+        {
+            isFKeyPressed = false;
+            isJKeyHandled = false;
+            Reset();
+        }
+
+        if (isFKeyHandled && isJKeyHandled)
+        {
+            isFKeyPressed = false;
+            isDKeyPressed = false;
+            isFKeyHandled = false;
+            isJKeyHandled = false;
+            return E_MovePoint.Up;
+        }
+
+        if (isDKeyPressed && !isFKeyPressed)
+        {
+            isDKeyPressed = false;
+            return E_MovePoint.Up;
+        }
+
+        if (isFKeyPressed && !isDKeyPressed)
+        {
+            isFKeyPressed = false;
             return E_MovePoint.Down;
         }
 
