@@ -80,4 +80,9 @@ public class NPC_Move : MonoBehaviour, IMove
         // 목표에 도달했으므로 이동 중지
         isMoving = false;
     }
+
+    public void SetSpeed(float speed)
+    {
+        Speed = speed;
+    }
 }

@@ -11,5 +11,6 @@ public interface IMove
     void SetTarget(E_MoveData point);
     void SetTarget(Vector3 point);
     void MoveToTarget();
+    void SetSpeed(float speed);
     E_MoveData GetMoveData();
 }

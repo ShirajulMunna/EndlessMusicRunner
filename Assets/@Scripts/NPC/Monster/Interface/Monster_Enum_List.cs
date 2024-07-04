@@ -7,6 +7,14 @@ public enum E_MonsterType
     Hold,
 }
 
+public enum E_MonstersState
+{
+    idle,
+    Hit,
+    Die,
+    Attack,
+}
+
 public enum E_AniKind_Monster
 {
     idle,

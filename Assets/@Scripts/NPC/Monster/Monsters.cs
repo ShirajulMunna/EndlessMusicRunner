@@ -109,7 +109,6 @@ public class Monsters : NPC, IMonster
     {
         base.SetDie();
         SetDieMonster();
-
         //사망 애니메이션
         iAni.SetDie();
     }
@@ -117,7 +116,6 @@ public class Monsters : NPC, IMonster
     public override void SetHit(int hp)
     {
         base.SetHit(hp);
-
         iAni.SetHit();
     }
 
