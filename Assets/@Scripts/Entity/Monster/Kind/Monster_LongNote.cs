@@ -77,7 +77,7 @@ public class Monster_LongNote : Monster
 
         Ac_Close?.Invoke();
 
-        var player = GameManager.instance.player;
+        var player = GameManager.instance.GetPlayer(transform.position.y);
         var check = player.M_Attack.GetAttackState(E_AttackState.Hold);
 
         if (check)
@@ -156,7 +156,7 @@ public class Monster_LongNote : Monster
             //게임매니저에서 처음 충돌위치가져온상태
             ScoreManager.instance.SetScoreState(perfect);
 
-            var ani = GameManager.instance.player.GetIdle();
+            var ani = GameManager.instance.GetPlayer(transform.position.y).GetIdle();
             GameManager.instance.player.SetAni((ani, true));
             var createpos = GameManager.instance.longNoteDestoryPosition;
             var end = Instantiate(G_End, createpos, default, null);
