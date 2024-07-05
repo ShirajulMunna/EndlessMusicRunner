@@ -37,7 +37,7 @@ public class Player_Attacker : MonoBehaviour, IPlayerAttack
     public Dictionary<E_MoveData, Vector3> Tr_AttackVector { get; set; } = new Dictionary<E_MoveData, Vector3>()
     {
         {E_MoveData.Down,new Vector3(-11, -3.5f, 0)},
-        {E_MoveData.Down,new Vector3(-11, 0f, 0)},
+        {E_MoveData.Middle,new Vector3(-11, 0f, 0)},
         {E_MoveData.Up,new Vector3(-11, 3.5f, 0)},
     };
 

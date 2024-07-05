@@ -17,15 +17,8 @@ public class Repeatingground : MonoBehaviour
 
     void Update()
     {
-        var conditioncheck_1 = CheckisStop ? GameManager.instance.player.isStopPlayer : false;
+        //*!*! 게임 종료 시 멈추도록
 
-        // 게임이 끝난다면 움직임 종료 
-        if (conditioncheck_1)
-        {
-            speed = 0.0f;
-        }
-        else if (GameManager.instance.player.CurHp <= 0)
-            speed = 0.0f;
         transform.Translate(Vector3.left * Time.deltaTime * speed);
 
         if (transform.position.x <= lastPosition)

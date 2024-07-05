@@ -68,15 +68,21 @@ public class NPC_Move : MonoBehaviour, IMove
 
     public void MoveToTarget()
     {
-        var check = CheckIn();
-        if (check)
+        if (CheckIn())
         {
             var direction = (target - rb.position).normalized;
-            rb.MovePosition(rb.position + direction * Speed * Time.fixedDeltaTime);
+            var newPosition = rb.position + direction * Speed * Time.fixedDeltaTime;
+
+            // 목표 지점을 지나치지 않도록 보정
+            newPosition.x = Mathf.Clamp(newPosition.x, Mathf.Min(rb.position.x, target.x), Mathf.Max(rb.position.x, target.x));
+            newPosition.y = Mathf.Clamp(newPosition.y, Mathf.Min(rb.position.y, target.y), Mathf.Max(rb.position.y, target.y));
+
+            rb.MovePosition(newPosition);
             return;
         }
-
-        // 목표에 도달했으므로 이동 중지
+        
+        // 목표에 도달했으므로 정확한 위치로 설정하고 이동 중지
+        rb.position = target;
         isMoving = false;
     }
 
@@ -87,8 +93,8 @@ public class NPC_Move : MonoBehaviour, IMove
 
     public bool CheckIn()
     {
-        var dis = Vector3.Distance(rb.position, target);
-
-        return dis > arrivalThreshold;
+        var dx = Mathf.Abs(rb.position.x - target.x);
+        var dy = Mathf.Abs(rb.position.y - target.y);
+        return dx > arrivalThreshold || dy > arrivalThreshold;
     }
 }

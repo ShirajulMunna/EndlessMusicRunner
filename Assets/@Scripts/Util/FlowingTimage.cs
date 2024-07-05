@@ -19,16 +19,7 @@ public class FlowingImage : MonoBehaviour
 
     void Update()
     {
-        var conditioncheck_1 = GameManager.instance.player.isStopPlayer;
-
-
-        // 게임이 끝난다면 움직임 종료 
-        if (conditioncheck_1)
-        {
-            speed = 0.0f;
-        }
-        else if (GameManager.instance.player.CurHp <= 0)
-            speed = 0.0f;
+        //*!*! 게임 종료 시 멈추도록
         if (material != null)
         {
             material.SetFloat("_Speed", speed);

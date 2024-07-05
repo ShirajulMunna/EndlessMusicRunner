@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MonsterAni : MonoBehaviour, IAni, IMonsterAni
 {
-    [SerializeField] SkeletonAnimation _sk;
+    SkeletonAnimation _sk;
     public SkeletonAnimation sk
     {
         get => _sk;
@@ -24,6 +24,7 @@ public class MonsterAni : MonoBehaviour, IAni, IMonsterAni
 
     private void Start()
     {
+        _sk = transform.GetChild(0).GetComponent<SkeletonAnimation>();
         SetAniData();
         SetPlayerSkin();
     }

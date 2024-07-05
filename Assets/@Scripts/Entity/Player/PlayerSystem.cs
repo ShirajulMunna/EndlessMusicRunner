@@ -63,7 +63,6 @@ public class PlayerSystem : Entity
 
     private void Start()
     {
-        UI_Play.instance.ActivatPanel(true);
         SetState(E_Entity_State.Running);
         PlayManager.instance.AddAction(E_Play.End, () => SetState(E_Entity_State.Clear));
     }

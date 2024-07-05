@@ -25,6 +25,18 @@ public class UI_Play : Singleton<UI_Play>
     float DelayTime = 3;
     public bool GameOver;
 
+    private void Start()
+    {
+
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            ActivatPanel(true);
+        }
+    }
 
     public void ActivatPanel(bool activate)
     {
