@@ -171,8 +171,11 @@ public class Monster_LongNote : Monster
 
     public override void SetMove(int dirx = -1)
     {
-        transform.Translate(Vector2.left * Speed * Time.deltaTime);
+        rb.MovePosition(rb.position + Vector2.left * Speed * Time.fixedDeltaTime);
+
         var values = DestoryX;
+
+        // 오브젝트가 특정 위치를 벗어나면 파괴
         if (transform.position.x < values)
         {
             isAttackPlayer = true;
@@ -189,7 +192,7 @@ public class Monster_LongNote : Monster
     }
     private async Task HandleDestroyAsync()
     {
-        GameManager.instance.player.SetHp(-5);
+        GameManager.instance.GetPlayer(transform.position.y).SetHp(-5);
         ScoreManager.instance.SetBestCombo_Reset();
         ScoreManager.instance.SetScoreState(ScoreManager.E_ScoreState.Miss); // 롱노트 중간에 실패하면 Miss를 추가해주기
 

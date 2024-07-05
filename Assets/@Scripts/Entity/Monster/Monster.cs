@@ -64,18 +64,18 @@ public class Monster : Entity, IMonsterMove
     };
     protected PlayerSystem player
     {
-        get => GameManager.instance.GetPlayer(transform.position.y);
+        get
+        {
+            print($"위치 : {transform.position.y}");
+            return GameManager.instance.GetPlayer(transform.position.y);
+        }
     }
-    protected IPlayer_KeyPoint Player_State
-    {
-        get => GameManager.instance.player.M_State;
-    }
+
     public UniqMonster uniqMonster;
 
-    Vector3 targetPosition;
     protected virtual void Start()
     {
-        targetPosition = transform.position; // 초기 위치 설정
+
     }
 
     protected virtual void Update()
@@ -148,19 +148,18 @@ public class Monster : Entity, IMonsterMove
     {
         //위치 맞는지 체크 후 공격
         var point = E_MovePoint.Down;
-        var players = player;
         var ishigt = transform.position.y > 0;
 
         if (ishigt)
         {
-            point = transform.position.y > 3.5f ? E_MovePoint.Up : E_MovePoint.Down;
+            point = transform.position.y > 2f ? E_MovePoint.Up : E_MovePoint.Down;
         }
         else
         {
-            point = transform.position.y > -5f ? E_MovePoint.Up : E_MovePoint.Down;
+            point = transform.position.y > -4f ? E_MovePoint.Up : E_MovePoint.Down;
         }
 
-        var checkhit = players.M_Move.CheckHitActive(point);
+        var checkhit = player.M_Move.CheckHitActive(point);
         return checkhit;
     }
 

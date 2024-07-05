@@ -2,10 +2,7 @@ using UnityEngine;
 
 public class IPlayer_KeyPoint : MonoBehaviour
 {
-    IPlayer_Attack Attack
-    {
-        get => GameManager.instance.player.M_Attack;
-    }
+    IPlayer_Attack Attack;
 
     // 위치 상태
     E_MovePoint MovePoint = E_MovePoint.None;
@@ -18,6 +15,11 @@ public class IPlayer_KeyPoint : MonoBehaviour
     bool isFKeyPressed;
     bool isFKeyHandled;
     bool isJKeyHandled;
+
+    private void Start()
+    {
+        Attack = GetComponent<IPlayer_Attack>();
+    }
 
 
     public E_MovePoint SetPoint()

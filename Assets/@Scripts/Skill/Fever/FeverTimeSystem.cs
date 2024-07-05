@@ -10,7 +10,6 @@ public class FerverTimeSystem : Skill
 
     public static async void Create(SkillData st_Skill)
     {
-        _skillClass = SkillClass.CreateClass(_skillClass);
         //이름 만들기
         var name = string.Format(Name, st_Skill.Objnum);
 
@@ -26,6 +25,7 @@ public class FerverTimeSystem : Skill
         }
         isActive = true;
         GameManager.instance.player.SetParticle(E_PlayerSkill.Fever, st_Skill.Activetime);
+        GameManager.instance.player_1.SetParticle(E_PlayerSkill.Fever, st_Skill.Activetime);
         AudioManager.instance.PlayEffectSound("Fever_Time");
     }
 

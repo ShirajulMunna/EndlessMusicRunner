@@ -9,10 +9,10 @@ public class SpawnPoint : MonoBehaviour, ISpawnPoint
     {
         new Vector3(20, 5f, 0),
         new Vector3(20, 3.5f, 0),
-        new Vector3(20, 1, 0),
+        new Vector3(20, 2f, 0),
+        new Vector3(20, -1f, 0),
         new Vector3(20, -2.5f, 0),
-        new Vector3(20, -5f, 0),
-        new Vector3(20, -6.5f, 0),
+        new Vector3(20, -4f, 0),
     };
 
     public Vector3 GetSpawnPoint(MonsterSpwanPosition spwanPosition, float offsetx, float offsety)

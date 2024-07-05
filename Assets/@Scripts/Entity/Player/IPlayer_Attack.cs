@@ -28,32 +28,39 @@ public class IPlayer_Attack : MonoBehaviour
     //피격박스 사이즈
     List<Vector3> BoxSize = new List<Vector3>()
     {
-        new Vector3(1.5f, 1.5f, 1),
-        new Vector3(3f, 1.5f, 1),
-        new Vector3(1f,1.5f,1),
-        new Vector3(1f,1.5f,1)
+        new Vector3(1.5f, 1f, 1),
+        new Vector3(3f, 1f, 1),
+        new Vector3(1f,1f,1),
+        new Vector3(1f,1f,1)
     };
 
 
     //위치
-    public List<Vector3> Tr_AttackVector = new List<Vector3>()
-    {
-        new Vector3(-11, 1, 0),
-        new Vector3(-11, 3.5f, 0),
-        new Vector3(-11, 5f, 0),
-    };
 
-    public List<Vector3> Tr_AttackVector_Low = new List<Vector3>()
-    {
-        new Vector3(-11, -6.5f, 0),
-        new Vector3(-11, -5f, 0),
-        new Vector3(-11, -2.5f, 0),
-    };
-
-
+    [HideInInspector]
+    public List<Vector3> Tr_AttackVector = new List<Vector3>();
+    [HideInInspector]
+    public List<Vector3> Tr_AttackVector_Low = new List<Vector3>();
 
     //공격 상태
     E_AttackState AttackState = E_AttackState.Attack_Re;
+
+    private void Start()
+    {
+        Tr_AttackVector = new List<Vector3>()
+        {
+            new Vector3(-11, 2f, 0),
+            new Vector3(-11, 3.5f, 0),
+            new Vector3(-11, 5f, 0),
+        };
+
+        Tr_AttackVector_Low = new List<Vector3>()
+        {
+            new Vector3(-11, -4f, 0),
+            new Vector3(-11, -2.5f, 0),
+            new Vector3(-11, -1f, 0),
+        };
+    }
 
     //공격 함수
     public E_AttackState Attack(E_MovePoint point)
@@ -180,6 +187,33 @@ public class IPlayer_Attack : MonoBehaviour
 
         Gizmos.color = color;
         Gizmos.DrawWireCube(pos, boxsize);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Tr_AttackVector = new List<Vector3>()
+        {
+            new Vector3(-11, 2f, 0),
+            new Vector3(-11, 3.5f, 0),
+            new Vector3(-11, 5f, 0),
+        };
+
+        Tr_AttackVector_Low = new List<Vector3>()
+        {
+            new Vector3(-11, -4f, 0),
+            new Vector3(-11, -2.5f, 0),
+            new Vector3(-11, -1f, 0),
+        };
+        for (int i = 0; i < 3; i++)
+        {
+            DrawOverlapBox(i, ScoreManager.E_ScoreState.Perfect, Color.green);
+
+            DrawOverlapBox(i, ScoreManager.E_ScoreState.Early, Color.yellow);
+
+            DrawOverlapBox(i, ScoreManager.E_ScoreState.Late, Color.red);
+
+            DrawOverlapBox(i, ScoreManager.E_ScoreState.Great, Color.blue);
+        }
     }
 
     //몬스터 공격 세팅

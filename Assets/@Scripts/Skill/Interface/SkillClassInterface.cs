@@ -69,11 +69,11 @@ public class SkillClass : ISkillClass
             data = new SkillClass();
             data.SetData();
         }
+        data.CoolTimeChecker.Reset();
         return data;
     }
     public void SetData()
     {
         CoolTimeChecker.SetCoolTimeData();
-        UI_Play.Instance.Ac_Play += CoolTimeChecker.Reset;
     }
 }

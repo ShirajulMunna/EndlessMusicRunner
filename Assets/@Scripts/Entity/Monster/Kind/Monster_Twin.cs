@@ -4,26 +4,39 @@ using UnityEngine.Playables;
 
 public class Monster_Twin : Monster
 {
-    IPlayer_Move playerMove
-    {
-        get => GameManager.instance.GetPlayer(transform.position.y).M_Move;
-    }
+    float delay = 0.1f;
+    bool isDie;
+    bool isSetDown;
+    IPlayer_Move playerMove;
 
     const string Name = "Monster_{0}";
 
-    protected override void Start()
+    public override void SetUp(C_MonsterTable data, Vector3 cratepos)
     {
-        Ac_Hit += SetPlayerMiddleAttack;
-        Ac_Die += SetPlayerMiddleAttack;
+        base.SetUp(data, cratepos);
+        playerMove = GameManager.instance.GetPlayer(transform.position.y).M_Move;
     }
+
     protected override void Update()
     {
         base.Update();
-    }
 
-    private void SetPlayerMiddleAttack()
-    {
-        playerMove.SetDirrectMove(E_MovePoint.Middle);
+        if (!isDie)
+        {
+            return;
+        }
+
+        delay -= Time.deltaTime;
+        if (delay > 0)
+        {
+            return;
+        }
+        if (isSetDown)
+        {
+            return;
+        }
+        isSetDown = true;
+        playerMove.SetDirrectMove(E_MovePoint.Down);
     }
 
     protected override void SetAttack(bool check)
@@ -42,14 +55,19 @@ public class Monster_Twin : Monster
         base.SetMinusHp(value);
     }
 
+    public override void SetHit()
+    {
+        base.SetHit();
+
+    }
+
     public override void SetDie()
     {
         base.SetDie();
+        playerMove.SetDirrectMove(E_MovePoint.Middle);
+        isDie = true;
     }
-    private void OnDestroy()
-    {
-        playerMove.SetDirrectMove(E_MovePoint.Down);
-    }
+
     public override void SetHit(ScoreManager.E_ScoreState perfect)
     {
         base.SetHit(perfect);

@@ -3,8 +3,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
-using UnityEngine.UIElements;
 
 public class PlayerSystem : Entity
 {
@@ -59,7 +57,7 @@ public class PlayerSystem : Entity
         playerSystem = this;
         M_Attack = GetComponent<IPlayer_Attack>();
         M_Move = GetComponent<IPlayer_Move>();
-        M_State = new IPlayer_KeyPoint();
+        M_State = GetComponent<IPlayer_KeyPoint>();
         M_State.isHigt = isHigt;
     }
 
@@ -163,6 +161,18 @@ public class PlayerSystem : Entity
     public override void SetHit()
     {
         base.SetHit();
+
+        var checkhp = GameManager.instance.player_1.CurHp > GameManager.instance.player.CurHp;
+
+        if (checkhp)
+        {
+            GameManager.instance.player_1.CurHp = GameManager.instance.player.CurHp;
+        }
+        else
+        {
+            GameManager.instance.player.CurHp = GameManager.instance.player_1.CurHp;
+        }
+
         UI_Play.Instance.SetHp(MaxHp, CurHp);
         //공격 사운드 및 애니메이션 처리
 
@@ -238,7 +248,15 @@ public class PlayerSystem : Entity
     //게임 종료 처리들
     void EndGame()
     {
-        M_Move.DirectMove(E_MovePoint.Down);
+        if (!isHigt)
+        {
+            M_Move.DirectMove(E_MovePoint.Down);
+        }
+        else
+        {
+            M_Move.DirectMove(E_MovePoint.Down, 1.1f);
+        }
+
         OffAllL_Particle();
         AudioManager.instance.StopMusic();
         SpawnManager.instance.SetState(E_GameState.End);
@@ -420,23 +438,4 @@ public class PlayerSystem : Entity
         }
     }
     #endregion
-    //그림
-    private void OnDrawGizmos()
-    {
-        for (int i = 0; i < 3; i++)
-        {
-            if (M_Attack == null)
-            {
-                return;
-            }
-
-            M_Attack.DrawOverlapBox(i, ScoreManager.E_ScoreState.Perfect, Color.green);
-
-            M_Attack.DrawOverlapBox(i, ScoreManager.E_ScoreState.Early, Color.yellow);
-
-            M_Attack.DrawOverlapBox(i, ScoreManager.E_ScoreState.Late, Color.red);
-
-            M_Attack.DrawOverlapBox(i, ScoreManager.E_ScoreState.Great, Color.blue);
-        }
-    }
 }

@@ -283,7 +283,7 @@ MonoBehaviour:
   disableRenderingOnOverride: 1
   updateTiming: 1
   unscaledTime: 0
-  _animationName: idle2
+  _animationName: walking
   loop: 1
   timeScale: 1
 --- !u!114 &874346086855987068

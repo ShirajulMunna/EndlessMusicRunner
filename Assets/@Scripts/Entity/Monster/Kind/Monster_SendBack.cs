@@ -12,7 +12,7 @@ public class Monster_SendBack : MonoBehaviour
 
     IPlayer_Move PlayerMove
     {
-        get => GameManager.instance.player.M_Move;
+        get => GameManager.instance.GetPlayer(transform.position.y).M_Move;
     }
 
 

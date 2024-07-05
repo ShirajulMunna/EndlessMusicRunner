@@ -63,7 +63,7 @@ public class BossAttack_Crush : Monster, IBossAttack
         {
             return;
         }
-        boss.SetAni(E_BossAttack.idle);
+        boss.SetAni(E_BossAttack.walking);
         isPlayAni = 1;
         boss.SetBossState(E_BossState.MoveAttack);
     }

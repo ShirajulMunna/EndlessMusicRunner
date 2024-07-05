@@ -14,7 +14,7 @@ public class Boss : Monster
     List<string> L_Ani = new List<string>()
     {
         "idle",
-        "idle2",
+        "walking",
         "Attack1",
         "Attack2",
         "Attack3",
@@ -35,7 +35,7 @@ public class Boss : Monster
 
     private List<string> HitRandAnimation = new List<string>()
     {
-        "Hit","Hit2","Hit3"
+        "Hit_0","Hit_1","Hit_2"
     };
     E_BossState e_BossState = E_BossState.Move;
 
@@ -109,11 +109,12 @@ public class Boss : Monster
             case E_BossState.Idle:
                 TargetPos = StartPos;
                 GameManager.instance.player.SetisStop(true);
+                GameManager.instance.player_1.SetisStop(true);
                 break;
             case E_BossState.Move:
                 SetZoomOut();
                 Speed = 20;
-                SetAni(E_BossAttack.idle);
+                SetAni(E_BossAttack.walking);
                 break;
             case E_BossState.MoveAttack:
                 TargetPos = StartPos;
@@ -127,6 +128,11 @@ public class Boss : Monster
                 SetZoomIn();
                 break;
             case E_BossState.Die:
+                if (GameManager.instance.player.CurHp <= 0)
+                {
+                    return;
+                }
+
                 SetBossState(E_BossState.Idle);
                 SetAni(E_BossAttack.Die);
                 Destroy(gameObject, 1f);
@@ -164,7 +170,6 @@ public class Boss : Monster
     void SetCrush()
     {
         GameManager.instance.player.SetHit();
-        GameManager.instance.player.SetHit();
         SetBossState(E_BossState.Move);
         DirX = -1;
     }
@@ -186,7 +191,7 @@ public class Boss : Monster
 
     void SetHitAni()
     {
-        skeletonAnimation.SetAni_Monster(HitRandAnimation[HitIdx], false, L_Ani[(int)E_BossAttack.idle2]);
+        skeletonAnimation.SetAni_Monster(HitRandAnimation[HitIdx], false, L_Ani[(int)E_BossAttack.idle]);
         HitIdx++;
 
         if (HitIdx >= HitRandAnimation.Count)
@@ -200,7 +205,7 @@ public class Boss : Monster
     public void SetAni(E_BossAttack boss)
     {
         var str = GetBossAni(boss);
-        skeletonAnimation.SetAni_Monster(str, default, L_Ani[(int)E_BossAttack.idle2]);
+        skeletonAnimation.SetAni_Monster(str, default, L_Ani[(int)E_BossAttack.idle]);
     }
     //애니메이션 딜레이 확인
     public float GetAniDelay(E_BossAttack boss)
@@ -224,7 +229,7 @@ public class Boss : Monster
     public void DoNotMoveGame()
     {
         var str = L_Ani[(int)E_BossAttack.Start];
-        skeletonAnimation.SetAni_Monster(str, false, L_Ani[(int)E_BossAttack.idle2]);
+        skeletonAnimation.SetAni_Monster(str, false, L_Ani[(int)E_BossAttack.walking]);
         SetBossState(E_BossState.Idle);
     }
 
@@ -232,11 +237,16 @@ public class Boss : Monster
     {
         get => GameManager.instance.player.M_Move;
     }
+    IPlayer_Move PlayerMove_1
+    {
+        get => GameManager.instance.player_1.M_Move;
+    }
 
     //줌인 단계
     void SetZoomIn()
     {
         PlayerMove.SetDirrectMove(E_MovePoint.Middle);
+        PlayerMove_1.SetDirrectMove(E_MovePoint.Middle);
         CameraSystem.cameraSystem.SetZoomIn();
     }
 
@@ -244,6 +254,7 @@ public class Boss : Monster
     void SetZoomOut()
     {
         PlayerMove.SetDirrectMove(E_MovePoint.Down);
+        PlayerMove_1.SetDirrectMove(E_MovePoint.Down);
         CameraSystem.cameraSystem.ReSetZoom();
     }
 }
