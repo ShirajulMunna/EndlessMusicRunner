@@ -34,11 +34,11 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
+    wrapU: 0
+    wrapV: 0
     wrapW: 0
   nPOTScale: 0
   lightmap: 0
@@ -51,7 +51,7 @@ TextureImporter:
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
-  alphaUsage: 1
+  alphaUsage: 0
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
@@ -84,7 +84,7 @@ TextureImporter:
     buildTarget: Standalone
     maxTextureSize: 4096
     resizeAlgorithm: 0
-    textureFormat: 12
+    textureFormat: 29
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -139,10 +139,10 @@ TextureImporter:
       name: IMG_Song_Selection_Screen_0
       rect:
         serializedVersion: 2
-        x: 176
-        y: 4158
-        width: 4469
-        height: 1924
+        x: 14
+        y: 3560
+        width: 849
+        height: 462
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,10 +160,10 @@ TextureImporter:
       name: IMG_Song_Selection_Screen_1
       rect:
         serializedVersion: 2
-        x: 4753
-        y: 4568
-        width: 1140
-        height: 1465
+        x: 32
+        y: 3387
+        width: 193
+        height: 133
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,55 +178,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_Song_Selection_Screen_13
-      rect:
-        serializedVersion: 2
-        x: 424
-        y: 2646
-        width: 196
-        height: 137
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3f4327f7be420864cbca28f44e6bfe1e
-      internalID: -1831541996
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IMG_Song_Selection_Screen_14
-      rect:
-        serializedVersion: 2
-        x: 678
-        y: 2645
-        width: 325
-        height: 138
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ef9097f08d376d34aaf19263b67c89e1
-      internalID: -2030260105
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: IMG_Song_Selection_Screen_15
       rect:
         serializedVersion: 2
-        x: 1059
-        y: 2648
-        width: 213
-        height: 135
+        x: 1633
+        y: 1416
+        width: 993
+        height: 1125
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -241,34 +199,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_Song_Selection_Screen_19
-      rect:
-        serializedVersion: 2
-        x: 3928
-        y: 1538
-        width: 1078
-        height: 1020
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c39b44632f1776d48b21e8394e11e59f
-      internalID: -1168602590
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: IMG_Song_Selection_Screen_2
       rect:
         serializedVersion: 2
-        x: 325
-        y: 2806
-        width: 3791
-        height: 1304
+        x: 289
+        y: 3387
+        width: 316
+        height: 133
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -286,10 +223,10 @@ TextureImporter:
       name: IMG_Song_Selection_Screen_20
       rect:
         serializedVersion: 2
-        x: 5013
-        y: 1355
-        width: 993
-        height: 1124
+        x: 777
+        y: 1488
+        width: 838
+        height: 860
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -304,76 +241,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_Song_Selection_Screen_21
-      rect:
-        serializedVersion: 2
-        x: 1910
-        y: 1583
-        width: 757
-        height: 586
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0c371a68e3eb1b54ab3483727169dfe2
-      internalID: -2130633541
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IMG_Song_Selection_Screen_22
-      rect:
-        serializedVersion: 2
-        x: 2752
-        y: 1606
-        width: 543
-        height: 492
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f17e435d094b4124c9c1234b3dee8d65
-      internalID: -1733536468
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IMG_Song_Selection_Screen_23
-      rect:
-        serializedVersion: 2
-        x: 3310
-        y: 1660
-        width: 598
-        height: 365
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 03191356f1a55ea48820440c5c61741d
-      internalID: -489393430
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: IMG_Song_Selection_Screen_3
       rect:
         serializedVersion: 2
-        x: 4167
-        y: 3361
-        width: 750
-        height: 750
+        x: 669
+        y: 3389
+        width: 206
+        height: 131
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -388,34 +262,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_Song_Selection_Screen_7
-      rect:
-        serializedVersion: 2
-        x: 4932
-        y: 2591
-        width: 1092
-        height: 1838
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d3301253647d72c4c9e12a0cc79b6f37
-      internalID: -793094571
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: IMG_Song_Selection_Screen_28
       rect:
         serializedVersion: 2
-        x: 833
-        y: 363
-        width: 840
-        height: 860
+        x: 17
+        y: 75
+        width: 1375
+        height: 1406
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -433,10 +286,10 @@ TextureImporter:
       name: IMG_Song_Selection_Screen_29
       rect:
         serializedVersion: 2
-        x: 1674
-        y: 304
-        width: 686
-        height: 1072
+        x: 1406
+        y: 1137
+        width: 406
+        height: 322
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -454,10 +307,10 @@ TextureImporter:
       name: IMG_Song_Selection_Screen_30
       rect:
         serializedVersion: 2
-        x: 2395
-        y: 120
-        width: 1374
-        height: 1406
+        x: 1819
+        y: 1133
+        width: 396
+        height: 272
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -472,76 +325,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_Song_Selection_Screen_16
-      rect:
-        serializedVersion: 2
-        x: 2762
-        y: 2128
-        width: 1151
-        height: 606
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a9045d175eadc044cabda7e86f67aa4c
-      internalID: -2127579092
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IMG_Song_Selection_Screen_17
-      rect:
-        serializedVersion: 2
-        x: 257
-        y: 1331
-        width: 1596
-        height: 1306
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3de5755303ab4ad4795ea827b17834c1
-      internalID: 1074611045
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IMG_Song_Selection_Screen_18
-      rect:
-        serializedVersion: 2
-        x: 1881
-        y: 2210
-        width: 851
-        height: 463
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 60c7b7c22922f7e42a741ac1961634cc
-      internalID: 959616088
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: IMG_Song_Selection_Screen_31
       rect:
         serializedVersion: 2
-        x: 3824
-        y: 816
-        width: 773
-        height: 548
+        x: 2973
+        y: 730
+        width: 756
+        height: 584
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -559,10 +349,10 @@ TextureImporter:
       name: IMG_Song_Selection_Screen_32
       rect:
         serializedVersion: 2
-        x: 4602
-        y: 767
-        width: 782
-        height: 536
+        x: 1428
+        y: 868
+        width: 390
+        height: 268
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -580,10 +370,10 @@ TextureImporter:
       name: IMG_Song_Selection_Screen_33
       rect:
         serializedVersion: 2
-        x: 5393
-        y: 727
-        width: 783
-        height: 535
+        x: 1829
+        y: 879
+        width: 387
+        height: 253
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -598,13 +388,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_Song_Selection_Screen_38
+      name: IMG_Song_Selection_Screen_4
       rect:
         serializedVersion: 2
-        x: 3790
-        y: 271
-        width: 781
-        height: 537
+        x: 21
+        y: 2350
+        width: 1076
+        height: 1019
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -612,20 +402,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f6c9b4c19b24e246a945684660a7748
-      internalID: 1764584895
+      spriteID: 848b488449deb3a40906742150b71103
+      internalID: -2146678006
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_Song_Selection_Screen_39
+      name: IMG_Song_Selection_Screen_9
       rect:
         serializedVersion: 2
-        x: 4583
-        y: 212
-        width: 783
-        height: 537
+        x: 2994
+        y: 1350
+        width: 1093
+        height: 1837
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -633,18 +423,123 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98c4730f28cdd7a459ab28c34d104486
-      internalID: 735883822
+      spriteID: 591d83571d37b3e4f98a37e4104cab7f
+      internalID: 96832228
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_Song_Selection_Screen_24
+      name: IMG_Song_Selection_Screen_27
       rect:
         serializedVersion: 2
-        x: 24
-        y: 437
+        x: 2289
+        y: 617
+        width: 677
+        height: 921
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c3951d1de5fb0249bc87dd7a2bd9c43
+      internalID: 1400845667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_Song_Selection_Screen_34
+      rect:
+        serializedVersion: 2
+        x: 1420
+        y: 564
+        width: 406
+        height: 304
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7531020c74d36104bb3906993326cb03
+      internalID: 624185384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_Song_Selection_Screen_35
+      rect:
+        serializedVersion: 2
+        x: 1988
+        y: 121
+        width: 542
+        height: 491
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: beb05647e1ea14c48ab028b3d383766c
+      internalID: -1203601782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_Song_Selection_Screen_36
+      rect:
+        serializedVersion: 2
+        x: 2539
+        y: 114
+        width: 1146
+        height: 604
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebbfaae141d084945a2ad304d5c8b79e
+      internalID: -430280616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_Song_Selection_Screen_37
+      rect:
+        serializedVersion: 2
+        x: 1396
+        y: 253
+        width: 588
+        height: 308
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc52bf72c0f2cd3419affb5d1abd2094
+      internalID: 996490250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_Song_Selection_Screen_5
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 1535
         width: 750
         height: 750
       alignment: 0
@@ -654,8 +549,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce8fdb2ea64f2484196b1839bcb9892e
-      internalID: -1746854861
+      spriteID: 3dbfe6fa0f274a34b88434aab2e0c71a
+      internalID: -959347303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_Song_Selection_Screen_6
+      rect:
+        serializedVersion: 2
+        x: 1195
+        y: 2482
+        width: 750
+        height: 750
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 764cc24e0278f084087e9c197ec44dca
+      internalID: 1758540190
       vertices: []
       indices: 
       edges: []
@@ -703,11 +619,7 @@ TextureImporter:
       IMG_Song_Selection_Screen_35: -1203601782
       IMG_Song_Selection_Screen_36: -430280616
       IMG_Song_Selection_Screen_37: 996490250
-      IMG_Song_Selection_Screen_38: 1764584895
-      IMG_Song_Selection_Screen_39: 735883822
       IMG_Song_Selection_Screen_4: -2146678006
-      IMG_Song_Selection_Screen_40: -1676163563
-      IMG_Song_Selection_Screen_41: 495338670
       IMG_Song_Selection_Screen_5: -959347303
       IMG_Song_Selection_Screen_6: 1758540190
       IMG_Song_Selection_Screen_7: -793094571
