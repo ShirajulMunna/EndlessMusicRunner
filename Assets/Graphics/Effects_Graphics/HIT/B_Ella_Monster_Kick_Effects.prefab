@@ -253,7 +253,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 4
+      scalar: 4.5
       minScalar: 2
       maxCurve:
         serializedVersion: 2
@@ -9788,7 +9788,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3355147322548860196, guid: cd6c5fcfa47f9864e867f185f044345e, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3355147322548860196, guid: cd6c5fcfa47f9864e867f185f044345e, type: 3}
       propertyPath: InitialModule.startSize.minScalar
@@ -9824,7 +9824,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3355147322548860196, guid: cd6c5fcfa47f9864e867f185f044345e, type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
-      value: 4
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3355147322548894112, guid: cd6c5fcfa47f9864e867f185f044345e, type: 3}
       propertyPath: lengthInSec
