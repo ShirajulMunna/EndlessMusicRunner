@@ -45,17 +45,17 @@ public class NPC : MonoBehaviour
 
     public virtual void SetUp(int hp, float speed, int damage, Vector3 target)
     {
-        nPC_Status.SetUp(hp, speed, damage);
-        nPC_Move.SetTarget(target);
-        nPC_ParticleSystem.ActiveParticle(E_ParticleKind.Idle);
+        nPC_Status?.SetUp(hp, speed, damage);
+        nPC_Move?.SetTarget(target);
+        nPC_ParticleSystem?.ActiveParticle(E_ParticleKind.Idle);
     }
 
     // 데미지 받음
     public virtual void SetHit(int hp)
     {
-        nPC_Status.SetHp(hp);
+        nPC_Status?.SetHp(hp);
 
-        if (!nPC_Status.CheckDie())
+        if (nPC_Status.CheckDie())
         {
             return;
         }
@@ -65,8 +65,8 @@ public class NPC : MonoBehaviour
     // 공격
     public virtual void SetAttack(NPC target)
     {
-        var damage = nPC_Status.GetDamage();
-        target.SetHit(damage);
+        var damage = nPC_Status?.GetDamage();
+        target.SetHit((int)damage);
     }
 
     // 사망시 처리
@@ -78,11 +78,11 @@ public class NPC : MonoBehaviour
     // 위치 이동
     public virtual void SetMove(E_MoveData e_MoveData)
     {
-        nPC_Move.SetTarget(e_MoveData);
+        nPC_Move?.SetTarget(e_MoveData);
     }
 
     public virtual void SetMove(Vector3 pos)
     {
-        nPC_Move.SetTarget(pos);
+        nPC_Move?.SetTarget(pos);
     }
 }

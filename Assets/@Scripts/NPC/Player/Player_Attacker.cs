@@ -39,6 +39,7 @@ public class Player_Attacker : MonoBehaviour, IPlayerAttack
         {E_MoveData.Down,new Vector3(-11, -3.5f, 0)},
         {E_MoveData.Middle,new Vector3(-11, 0f, 0)},
         {E_MoveData.Up,new Vector3(-11, 3.5f, 0)},
+        {E_MoveData.Twin,new Vector3(-11, 0f, 0)},
     };
 
     public void SetAttack(E_MoveData idx)

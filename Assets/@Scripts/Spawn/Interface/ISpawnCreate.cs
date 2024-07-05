@@ -5,9 +5,9 @@ using UnityEngine;
 
 interface ISpawnCreate
 {
-    List<GameObject> L_CreateData { get; set; }
+    List<IMonster> L_CreateData { get; set; }
     int CreateIDX { get; set; }
     void SetStart();
-    Task<GameObject> MonsterSpawn(C_MonsterTable data, Vector3 createpoint);
+    Task<IMonster> MonsterSpawn(C_MonsterTable data, Vector3 createpoint);
     void SetActiveMonster();
 }

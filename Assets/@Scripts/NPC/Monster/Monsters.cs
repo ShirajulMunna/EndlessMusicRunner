@@ -108,8 +108,8 @@ public class Monsters : NPC, IMonster
     public virtual void SetDieMonster()
     {
         // 오른쪽으로 랜덤 방향 설정 (X 축 양수 방향)
-        float randomY = Random.Range(-1f, 1f);
-        var target = new Vector3(1f, randomY, 0f).normalized; // 정규화된 벡터
+        float randomY = Random.Range(-10f, 10f);
+        var target = new Vector3(10f, randomY, 0f).normalized; // 정규화된 벡터
         nPC_Move?.SetTarget(target);
     }
 
@@ -133,6 +133,8 @@ public class Monsters : NPC, IMonster
         SetDieMonster();
         //사망 애니메이션
         iAni.SetAni(E_AniKind_Monster.Die, true);
+        nPC_Move.SetSpeed(100);
+        Destroy(this.gameObject, 0.1f);
     }
 
     public override void SetHit(int hp)

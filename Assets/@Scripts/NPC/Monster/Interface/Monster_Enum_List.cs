@@ -5,7 +5,9 @@ public enum E_MonsterType
     Middle,
     Twin,
     Hold,
+    Boss,
 }
+
 
 public enum E_MonstersState
 {

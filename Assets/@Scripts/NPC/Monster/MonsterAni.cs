@@ -34,6 +34,11 @@ public class MonsterAni : MonoBehaviour, IAni, IMonsterAni
     /// </summary>
     void SetAniData()
     {
+        if (st_Monster_Anis == null || st_Monster_Anis.Count <= 0)
+        {
+            return;
+        }
+
         foreach (var item in st_Monster_Anis)
         {
             D_Ani[item.e_AniKind_Monster] = item.Ani;

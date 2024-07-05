@@ -10,10 +10,8 @@ public interface IMonster
     MonsterState monsterState { get; set; }
     //생성 처리 함수
     void CreateMonster(C_MonsterTable data, Vector3 cratepos);
-
     //몬스터 온 처리
     void SetActive();
-
     //사망 처리
     void SetDieMonster();
 }

@@ -10,12 +10,12 @@ public class SpawnCreate : Singleton<SpawnCreate>, ISpawnCreate
     SpawnPoint spawnPoint;
     public bool isStop;
 
-    public List<GameObject> L_CreateData { get; set; } = new List<GameObject>();
+    public List<IMonster> L_CreateData { get; set; } = new List<IMonster>();
     public int CreateIDX { get; set; }
     int CreateCount;
 
     //몬스터 생성 함수
-    public async Task<GameObject> MonsterSpawn(C_MonsterTable data, Vector3 createpoint)
+    public async Task<IMonster> MonsterSpawn(C_MonsterTable data, Vector3 createpoint)
     {
         var result = await MonsterCreate.Create(data, createpoint, this.transform);
         return result;
@@ -51,7 +51,7 @@ public class SpawnCreate : Singleton<SpawnCreate>, ISpawnCreate
                 createpoint.x += MonsterOffSetX * j;
                 var result = await MonsterSpawn(monsterInfo, createpoint);
                 L_CreateData.Add(result);
-                result.SetActive(false);
+                result.npc.gameObject.SetActive(false);
                 CreateCount++;
             }
         }
@@ -65,8 +65,7 @@ public class SpawnCreate : Singleton<SpawnCreate>, ISpawnCreate
             return;
         }
 
-        L_CreateData[CreateIDX].SetActive(true);
-        L_CreateData[CreateIDX].name = CreateIDX.ToString();
+        L_CreateData[CreateIDX].SetActive();
         CreateIDX++;
     }
 
@@ -79,11 +78,11 @@ public class SpawnCreate : Singleton<SpawnCreate>, ISpawnCreate
             {
                 continue;
             }
-            if (Boss.instance != null && item == Bosst.instance.gameObject)
+            if (item.monsterType.e_MonsterType == E_MonsterType.Boss)
             {
                 continue;
             }
-            item.SetActive(false);
+            item.npc.gameObject.SetActive(false);
         }
     }
 
