@@ -66,7 +66,6 @@ public class Monster : Entity, IMonsterMove
     {
         get
         {
-            print($"위치 : {transform.position.y}");
             return GameManager.instance.GetPlayer(transform.position.y);
         }
     }
@@ -143,6 +142,7 @@ public class Monster : Entity, IMonsterMove
         //이펙트추가 함수화 함 
         CreatPlayerHitEffect();
     }
+
 
     protected virtual bool CheckHitPoint()
     {
