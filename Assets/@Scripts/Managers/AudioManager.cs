@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : Singleton<AudioManager>
 {
-    public static AudioManager instance;
     private AudioSource audioSource;
     public AudioClip clap_1;
     public AudioClip clap_2;
@@ -14,19 +13,9 @@ public class AudioManager : MonoBehaviour
     public AudioClip longNoteClip;
     [SerializeField] public AudioSource Audio_BackGround;
     [SerializeField] AudioClip[] BackSound;
-    bool CheckMusic;
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-
-        if (instance != null)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            instance = this;
-        }
         SetBG();
     }
 

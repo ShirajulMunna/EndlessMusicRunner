@@ -23,6 +23,11 @@ public class UI_Play : MonoBehaviour
     [Header("Fever")]
     [SerializeField] Image Img_Fever;
     [SerializeField] Image Img_Fever_CoolTime;
+    [Header("게이지")]
+    [SerializeField] Image Img_Gage;
+
+    float MaxAudioValue;
+    double CurAudioValue;
 
     float DelayTime = 3;
     public bool GameOver;
@@ -33,11 +38,25 @@ public class UI_Play : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+
     }
 
     private void Update()
     {
         Ac_Update?.Invoke();
+        UpdatePlaying();
+    }
+
+    void SetPlaying()
+    {
+        MaxAudioValue = AudioManager.instance.Audio_BackGround.clip.length;
+        Img_Gage.fillAmount = 0;
+    }
+
+    void UpdatePlaying()
+    {
+        CurAudioValue = AudioManager.instance.GetAudioTime();
+        Img_Gage.fillAmount = (float)CurAudioValue / MaxAudioValue;
     }
 
     public void ActivatPanel(bool activate)
@@ -46,6 +65,7 @@ public class UI_Play : MonoBehaviour
         Key_Explain.SetActive(activate);
         Ac_Play?.Invoke();
         StartCoroutine(DeactivatePanel());
+        SetPlaying();
     }
 
     IEnumerator DeactivatePanel()
@@ -85,7 +105,6 @@ public class UI_Play : MonoBehaviour
     {
         G_HP_BackGorund.SetActive(per <= 0.25f);
     }
-
 
     public async void Btn_Pause()
     {
