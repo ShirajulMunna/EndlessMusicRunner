@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "3lbS3r64/Js", "spine": "4.1.24", "x": -281.5, "y": -214, "width": 564, "height": 429 },
+"skeleton": { "hash": "cOZzMlRXF5I", "spine": "4.1.24", "x": -281.5, "y": -262.5, "width": 564, "height": 526 },
 "bones": [
 	{ "name": "root" },
 	{ "name": "bone", "parent": "root", "x": 43.48, "y": 76.61 }
@@ -12,7 +12,7 @@
 		"name": "skin0",
 		"attachments": {
 			"pencil": {
-				"pencil": { "name": "skin0/small note", "x": -42.98, "y": -76.11, "width": 564, "height": 429 }
+				"pencil": { "name": "skin0/small note", "x": -42.98, "y": -76.11, "width": 564, "height": 526 }
 			}
 		}
 	},
@@ -20,7 +20,7 @@
 		"name": "skin1",
 		"attachments": {
 			"pencil": {
-				"pencil": { "name": "skin1/small note", "x": -42.98, "y": -76.11, "width": 564, "height": 429 }
+				"pencil": { "name": "skin1/small note", "x": -42.98, "y": -76.11, "width": 564, "height": 526 }
 			}
 		}
 	},
@@ -28,7 +28,7 @@
 		"name": "skin2",
 		"attachments": {
 			"pencil": {
-				"pencil": { "name": "skin2/small note", "x": -42.98, "y": -76.11, "width": 564, "height": 429 }
+				"pencil": { "name": "skin2/small note", "x": -42.98, "y": -76.11, "width": 564, "height": 526 }
 			}
 		}
 	},
@@ -36,7 +36,7 @@
 		"name": "skin3",
 		"attachments": {
 			"pencil": {
-				"pencil": { "name": "skin3/small note", "x": -42.98, "y": -76.11, "width": 564, "height": 429 }
+				"pencil": { "name": "skin3/small note", "x": -42.98, "y": -76.11, "width": 564, "height": 526 }
 			}
 		}
 	},
@@ -44,7 +44,7 @@
 		"name": "skin4",
 		"attachments": {
 			"pencil": {
-				"pencil": { "name": "skin4/small note", "x": -42.98, "y": -76.11, "width": 564, "height": 429 }
+				"pencil": { "name": "skin4/small note", "x": -42.98, "y": -76.11, "width": 564, "height": 526 }
 			}
 		}
 	},
@@ -52,7 +52,7 @@
 		"name": "skin5",
 		"attachments": {
 			"pencil": {
-				"pencil": { "name": "skin5/small note", "x": -42.98, "y": -76.11, "width": 564, "height": 429 }
+				"pencil": { "name": "skin5/small note", "x": -42.98, "y": -76.11, "width": 564, "height": 526 }
 			}
 		}
 	},
@@ -60,7 +60,7 @@
 		"name": "skin6",
 		"attachments": {
 			"pencil": {
-				"pencil": { "name": "skin6/small note", "x": -42.98, "y": -76.11, "width": 564, "height": 429 }
+				"pencil": { "name": "skin6/small note", "x": -42.98, "y": -76.11, "width": 564, "height": 526 }
 			}
 		}
 	},
@@ -68,7 +68,7 @@
 		"name": "skin7",
 		"attachments": {
 			"pencil": {
-				"pencil": { "name": "skin7/small note", "x": -42.98, "y": -76.11, "width": 564, "height": 429 }
+				"pencil": { "name": "skin7/small note", "x": -42.98, "y": -76.11, "width": 564, "height": 526 }
 			}
 		}
 	}

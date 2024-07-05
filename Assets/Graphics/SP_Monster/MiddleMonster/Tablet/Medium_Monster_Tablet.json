@@ -1,15 +1,41 @@
 {
-"skeleton": { "hash": "/NOuAlVcUdo", "spine": "4.1.24", "x": -592.7, "y": -481.27, "width": 1103.78, "height": 933.39 },
+"skeleton": { "hash": "u1kSQtM0e0E", "spine": "4.1.24", "x": -592.7, "y": -619.95, "width": 1103.78, "height": 1095.63 },
 "bones": [
 	{ "name": "root" },
 	{ "name": "center", "parent": "root" },
 	{ "name": "bone", "parent": "center", "y": -431.26 },
 	{ "name": "bady", "parent": "bone", "y": 356.57 },
 	{ "name": "R_hand", "parent": "bady", "length": 33.01, "rotation": -22.54, "x": 221.33, "y": 115.43 },
-	{ "name": "R_foot", "parent": "bady", "length": 160.64, "rotation": 159.44, "x": 107.57, "y": -218.64 },
+	{
+		"name": "R_foot",
+		"parent": "bady",
+		"length": 160.64,
+		"rotation": 159.44,
+		"x": 107.57,
+		"y": -218.64,
+		"scaleX": 1.6422,
+		"scaleY": 2.8516
+	},
 	{ "name": "L_hand", "parent": "bady", "length": 38.13, "rotation": -168.29, "x": -301.54, "y": 99.44 },
-	{ "name": "L_foot", "parent": "bady", "length": 129.4, "rotation": -117.65, "x": -82.86, "y": -280.15 },
-	{ "name": "face", "parent": "bady", "rotation": -18.5, "x": 11.95, "y": 250.81 },
+	{
+		"name": "L_foot",
+		"parent": "bady",
+		"length": 129.4,
+		"rotation": -117.65,
+		"x": -82.86,
+		"y": -280.15,
+		"scaleX": 1.6422,
+		"scaleY": 3.3001
+	},
+	{
+		"name": "face",
+		"parent": "bady",
+		"rotation": -18.5,
+		"x": 33.03,
+		"y": 215.61,
+		"scaleX": 1.5,
+		"scaleY": 1.5
+	},
 	{ "name": "L_hand2", "parent": "L_hand", "length": 36.89, "rotation": -11.01, "x": 38.13 },
 	{ "name": "L_hand3", "parent": "L_hand2", "length": 32.38, "rotation": -3.93, "x": 37.34, "y": -0.01 },
 	{ "name": "L_hand4", "parent": "L_hand3", "length": 32.54, "rotation": -3.2, "x": 32.38 },

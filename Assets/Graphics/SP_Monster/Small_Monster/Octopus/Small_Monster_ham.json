@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "i6sKo57jV3I", "spine": "4.1.24", "x": -272.5, "y": -214, "width": 546, "height": 429 },
+"skeleton": { "hash": "P3g/eYa//60", "spine": "4.1.24", "x": -272.5, "y": -244, "width": 546, "height": 489 },
 "bones": [
 	{ "name": "root" },
 	{ "name": "bone2", "parent": "root", "x": -1272.01 },
@@ -13,7 +13,7 @@
 		"name": "skin0",
 		"attachments": {
 			"pencil": {
-				"pencil": { "name": "skin0/ham", "x": 0.5, "y": 0.5, "width": 546, "height": 429 }
+				"pencil": { "name": "skin0/ham", "x": 0.5, "y": 0.5, "width": 546, "height": 489 }
 			}
 		}
 	},
@@ -21,7 +21,7 @@
 		"name": "skin1",
 		"attachments": {
 			"pencil": {
-				"pencil": { "name": "skin1/ham", "x": 0.5, "y": 0.5, "width": 546, "height": 429 }
+				"pencil": { "name": "skin1/ham", "x": 0.5, "y": 0.5, "width": 546, "height": 489 }
 			}
 		}
 	},
@@ -29,7 +29,7 @@
 		"name": "skin2",
 		"attachments": {
 			"pencil": {
-				"pencil": { "name": "skin2/ham", "x": 0.5, "y": 0.5, "width": 546, "height": 429 }
+				"pencil": { "name": "skin2/ham", "x": 0.5, "y": 0.5, "width": 546, "height": 489 }
 			}
 		}
 	},
@@ -37,7 +37,7 @@
 		"name": "skin3",
 		"attachments": {
 			"pencil": {
-				"pencil": { "name": "skin3/ham", "x": 0.5, "y": 0.5, "width": 546, "height": 429 }
+				"pencil": { "name": "skin3/ham", "x": 0.5, "y": 0.5, "width": 546, "height": 489 }
 			}
 		}
 	},
@@ -45,7 +45,7 @@
 		"name": "skin4",
 		"attachments": {
 			"pencil": {
-				"pencil": { "name": "skin4/ham", "x": 0.5, "y": 0.5, "width": 546, "height": 429 }
+				"pencil": { "name": "skin4/ham", "x": 0.5, "y": 0.5, "width": 546, "height": 489 }
 			}
 		}
 	},
@@ -53,7 +53,7 @@
 		"name": "skin5",
 		"attachments": {
 			"pencil": {
-				"pencil": { "name": "skin5/ham", "x": 0.5, "y": 0.5, "width": 546, "height": 429 }
+				"pencil": { "name": "skin5/ham", "x": 0.5, "y": 0.5, "width": 546, "height": 489 }
 			}
 		}
 	},
@@ -61,7 +61,7 @@
 		"name": "skin6",
 		"attachments": {
 			"pencil": {
-				"pencil": { "name": "skin6/ham", "x": 0.5, "y": 0.5, "width": 546, "height": 429 }
+				"pencil": { "name": "skin6/ham", "x": 0.5, "y": 0.5, "width": 546, "height": 489 }
 			}
 		}
 	},
@@ -69,7 +69,7 @@
 		"name": "skin7",
 		"attachments": {
 			"pencil": {
-				"pencil": { "name": "skin7/ham", "x": 0.5, "y": 0.5, "width": 546, "height": 429 }
+				"pencil": { "name": "skin7/ham", "x": 0.5, "y": 0.5, "width": 546, "height": 489 }
 			}
 		}
 	}
