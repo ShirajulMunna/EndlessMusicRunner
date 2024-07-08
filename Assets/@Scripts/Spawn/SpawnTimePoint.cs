@@ -9,7 +9,6 @@ public class SpawnTimePoint : MonoBehaviour, ISpawnTimePoint
 
     List<double> L_Times = new List<double>();
     ToolDataManager toolDataManager;
-    float ClearDelay;
 
     private void Update()
     {
@@ -28,10 +27,8 @@ public class SpawnTimePoint : MonoBehaviour, ISpawnTimePoint
         L_Times.Clear();
         spawnDelay = GetComponent<SpawnDelay>();
         toolDataManager = GetComponent<ToolDataManager>();
-        print(name);
         toolData = toolDataManager.GetLoad(name);
         L_Times = toolData.L_TimePoint.ToList();
-        ClearDelay = spawnDelay.GetMonsterCreateDelay();
     }
 
     public bool CheckTime(double times)
@@ -41,7 +38,7 @@ public class SpawnTimePoint : MonoBehaviour, ISpawnTimePoint
             return false;
         }
 
-        return times > L_Times[0] + ClearDelay;
+        return times > L_Times[0];
     }
 
     public void RemoveTimes()

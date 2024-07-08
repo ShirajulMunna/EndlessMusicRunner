@@ -20,7 +20,7 @@ public class Monster_LongNotes : Monsters
     float SoundTimeDuration = 0.15f;
     bool isHold = false;
     float initialDestoryTime;
-    Vector3 initialPosition;
+
     GameObject G_Effect;
 
     [SerializeField] SpriteRenderer[] myNoteSprite;
@@ -93,6 +93,11 @@ public class Monster_LongNotes : Monsters
 
     void ActiveEndEffect()
     {
+        if (G_Effect == null)
+        {
+            return;
+        }
+
         Destroy(G_Effect);
     }
 
@@ -100,6 +105,10 @@ public class Monster_LongNotes : Monsters
     {
         var name = string.Format(Name, EffectIdx);
         G_Effect = await name.CreateOBJ<GameObject>();
+        if (this.gameObject == null)
+        {
+            return;
+        }
         G_Effect.transform.position = transform.position;
     }
 
@@ -107,7 +116,6 @@ public class Monster_LongNotes : Monsters
     {
         ActiveStartEffect();
         isHold = true;
-        initialPosition = myNoteSprite[2].transform.position;
     }
 
     public override void SetAttack(NPC target)

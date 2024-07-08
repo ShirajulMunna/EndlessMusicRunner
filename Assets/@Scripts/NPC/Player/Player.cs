@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : NPC
@@ -80,16 +81,30 @@ public class Player : NPC
     {
         nPC_Move.SetTarget(E_MoveData.Up);
         player_Attacker.SetHold(true);
+        if (!CheckMoveAni(E_MoveData.Up))
+        {
+            player_Ani.SetAni(player_Ani.GetAniString(E_AniKind_Player.Fly), true, null);
+        }
         player_Attacker.SetAttack(E_MoveData.Up);
-        player_Ani.SetAni(player_Ani.GetAniString(E_AniKind_Player.Fly), true, null);
     }
 
     void KeyDown_J()
     {
         nPC_Move.SetTarget(E_MoveData.Down);
         player_Attacker.SetHold(true);
+        if (!CheckMoveAni(E_MoveData.Down))
+        {
+            player_Ani.SetAni(player_Ani.GetAniString(E_AniKind_Player.Down), true, null);
+        }
         player_Attacker.SetAttack(E_MoveData.Down);
-        player_Ani.SetAni(player_Ani.GetAniString(E_AniKind_Player.Down), true, null);
+    }
+
+    /// <summary>
+    /// idle애니메이션 체크
+    /// </summary>
+    bool CheckMoveAni(E_MoveData data)
+    {
+        return nPC_Move.GetMoveData() == data;
     }
 
     /// <summary>
@@ -123,13 +138,12 @@ public class Player : NPC
 
         var point = target.nPC_Move.GetMoveData();
         var type = monstertype.GetMonsterType();
-
         player_Ani.SetAttackAni(type, point);
-
         if (type == E_MonsterType.Middle || type == E_MonsterType.Twin)
         {
             SetMiddle();
         }
+
         DamageEffect.Create(point);
         GameLog.Log($"공격력{nPC_Status.GetDamage()} / HP{target.nPC_Status.GetHp()}");
     }
@@ -144,6 +158,7 @@ public class Player : NPC
         ScoreManager.instance.SetCombo_Reset();
         player_Ani.SetAni(player_Ani.GetAniString(E_AniKind_Player.Hit), false, player_Ani.GetAniString(E_AniKind_Player.Idle));
         base.SetHit(hp);
+        UpdateHp();
         print($"현재HP{nPC_Status.GetHp()}");
     }
 
@@ -179,5 +194,12 @@ public class Player : NPC
         MiddleDelay = 0;
         isMiddle = true;
         nPC_Move.SetTarget(E_MoveData.Middle);
+    }
+
+    void UpdateHp()
+    {
+        var max = nPC_Status.MaxHp;
+        var cur = nPC_Status.GetHp();
+        UI_Play.instance.SetHp(max, cur);
     }
 }

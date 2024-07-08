@@ -27,4 +27,7 @@ interface IPlayerAttack
 
     //특수 몬스터 확인
     bool CheckSpecialMonster(IMonsterType types);
+
+    //이펙트 처리
+    void SetMonsterEffect(GameObject obj, E_MoveData idx, ScoreManager.E_ScoreState scorestate);
 }

@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class Player_Effect : MonoBehaviour
+public class Player_Effect : MonoBehaviour, IEffect
 {
     /// <summary>
     /// 이펙트 생성
     /// </summary>
-    public void SetEffect(ScoreManager.E_ScoreState state)
+    public async void SetEffect(Vector3 pos, ScoreManager.E_ScoreState state)
     {
         var idx = 0;
         switch (state)
@@ -25,12 +25,11 @@ public class Player_Effect : MonoBehaviour
                 idx = 4;
                 break;
         }
-
-        Effect.Create(transform.position, idx);
+        await Effect.Create(pos, idx);
     }
 }
 
 interface IEffect
 {
-    void SetEffect(ScoreManager.E_ScoreState state);
+    void SetEffect(Vector3 pos, ScoreManager.E_ScoreState state);
 }

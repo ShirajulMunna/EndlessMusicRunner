@@ -40,6 +40,11 @@ public class NPC_Move : MonoBehaviour, IMove
 
     public void SetTarget(E_MoveData point)
     {
+        if (GetMoveData() == point)
+        {
+            return;
+        }
+
         target = IMovePoint.GetMovePoint(point);
         e_MoveData = point;
         isMoving = true;
@@ -80,7 +85,7 @@ public class NPC_Move : MonoBehaviour, IMove
             rb.MovePosition(newPosition);
             return;
         }
-        
+
         // 목표에 도달했으므로 정확한 위치로 설정하고 이동 중지
         rb.position = target;
         isMoving = false;

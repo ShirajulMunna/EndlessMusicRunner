@@ -10,7 +10,12 @@ public class DamageEffect : MonoBehaviour
         var name = string.Format(Name, idx);
         var result = await name.CreateOBJ<GameObject>();
 
-        CreatePoint(result);
+        var pos = IMovePoint.GetMovePoint(e_MoveData);
+        pos.x = -11;
+
+        result.transform.position = pos;
+        GameLog.Log($"생성위치: {pos}");
+
         Destroy(result.gameObject, 1f);
     }
 
@@ -34,15 +39,5 @@ public class DamageEffect : MonoBehaviour
         }
 
         return idx;
-    }
-
-    /// <summary>
-    /// 생성 위치
-    /// </summary>
-    static void CreatePoint(GameObject obj)
-    {
-        var pos = GameManager.M_Player.transform.position;
-        pos.x = -11;
-        obj.transform.position = pos;
     }
 }

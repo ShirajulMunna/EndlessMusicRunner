@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Player_Attacker : MonoBehaviour, IPlayerAttack
 {
@@ -65,10 +64,28 @@ public class Player_Attacker : MonoBehaviour, IPlayerAttack
             return;
         }
         var obj = result.Item1[0].gameObject;
-        nPC.SetAttack(obj.GetComponent<NPC>());
+        var target = obj.GetComponent<NPC>();
+        nPC.SetAttack(target);
 
-        //이펙트 처리
-        player_Effect.SetEffect(result.Item2);
+        SetMonsterEffect(obj, idx, result.Item2);
+    }
+
+    /// <summary>
+    /// 이펙트 처리
+    /// </summary>
+    public void SetMonsterEffect(GameObject obj, E_MoveData idx, ScoreManager.E_ScoreState scorestate)
+    {
+        var mon = obj.GetComponent<IMonster>();
+        var type = mon.monsterType.GetMonsterType();
+
+        var twin = type == E_MonsterType.Twin && idx != E_MoveData.Twin;
+        var mid = type == E_MonsterType.Middle && idx != E_MoveData.Middle;
+        if (twin || mid)
+        {
+            return;
+        }
+
+        player_Effect.SetEffect(Tr_AttackVector[idx], scorestate);
     }
 
     public (Collider2D[], ScoreManager.E_ScoreState) SetAttack_Area(E_MoveData idx)
@@ -109,7 +126,6 @@ public class Player_Attacker : MonoBehaviour, IPlayerAttack
         {
             return (col, ScoreManager.E_ScoreState.Late);
         }
-
         return (null, ScoreManager.E_ScoreState.Miss);
     }
 

@@ -27,15 +27,7 @@ public class UI_Play : Singleton<UI_Play>
 
     private void Start()
     {
-
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            ActivatPanel(true);
-        }
+        ActivatPanel(true);
     }
 
     public void ActivatPanel(bool activate)

@@ -12,6 +12,7 @@ public class Effect : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public static async Task<Effect> Create(Vector3 spawnPosition, int number)
     {
+        spawnPosition.x = -11;
         var name = string.Format(Name, number);
         var result = await name.CreateOBJ<Effect>(default, spawnPosition, default);
         return result;

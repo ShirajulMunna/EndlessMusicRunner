@@ -13,7 +13,7 @@ public class AudioManager : Singleton<AudioManager>
     public AudioClip longNoteClip;
     [SerializeField] public AudioSource Audio_BackGround;
     [SerializeField] AudioClip[] BackSound;
-    
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -50,6 +50,7 @@ public class AudioManager : Singleton<AudioManager>
 
     public void PlayMusic()
     {
+        print("뮤직 큐!");
         audioSource.Play();
     }
 

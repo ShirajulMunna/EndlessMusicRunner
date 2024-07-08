@@ -32,6 +32,11 @@ public class MonsterAni_Special : MonoBehaviour, IAni, IMonsterAni
     /// </summary>
     void SetAniData()
     {
+        if (st_Monster_Anis == null)
+        {
+            return;
+        }
+
         foreach (var item in st_Monster_Anis)
         {
             D_Ani[item.e_AniKind_Monster] = item.Ani;

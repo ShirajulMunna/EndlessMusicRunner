@@ -37,11 +37,14 @@ public class Player_Ani : MonoBehaviour, IAni
         {E_AniKind_Player.Twin, "Twin_Attack"},
     };
 
+    public NPC nPC;
+
     int AttackCount = 0;
 
     private void Start()
     {
         SetPlayerSkin();
+        nPC = GetComponent<NPC>();
     }
 
     /// <summary>
@@ -79,8 +82,14 @@ public class Player_Ani : MonoBehaviour, IAni
     {
         if (kind == E_AniKind_Player.Idle || kind == E_AniKind_Player.Running)
         {
-            var checkboss = Bosst.instance == null;
+            var point = nPC.nPC_Move.GetMoveData();
 
+            if (point == E_MoveData.Up)
+            {
+                return E_AniKind_Player.Fly;
+            }
+
+            var checkboss = Bosst.instance == null;
             if (checkboss)
             {
                 kind = E_AniKind_Player.Running;
@@ -90,12 +99,12 @@ public class Player_Ani : MonoBehaviour, IAni
                 kind = E_AniKind_Player.Idle;
             }
         }
-
         return kind;
     }
 
     public void SetAttackAni(E_MonsterType point, E_MoveData movepoint)
     {
+        GameLog.Log($"타입:{point}");
         switch (point)
         {
             case E_MonsterType.Boss:
@@ -154,14 +163,14 @@ public class Player_Ani : MonoBehaviour, IAni
         var anistr = "";
         switch (AttackCount)
         {
-            case 2:
+            case 1:
                 anistr = GetAniString(E_AniKind_Player.FlyAttack_1);
                 break;
             default:
                 anistr = GetAniString(E_AniKind_Player.FlyAttack_0);
                 break;
         }
-        var idle = GetAniString(E_AniKind_Player.Idle);
+        var idle = GetAniString(E_AniKind_Player.Fly);
         SetAni(anistr, false, idle);
     }
 

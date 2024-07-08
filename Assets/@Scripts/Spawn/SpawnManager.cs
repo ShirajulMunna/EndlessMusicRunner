@@ -74,6 +74,8 @@ public class SpawnManager : Singleton<SpawnManager>
 
     [SerializeField] string StrMusicFileName;
     bool isStart;
+    float DelayStartTime;
+    float UpdateDelayStartTime;
 
     private void Start()
     {
@@ -114,8 +116,8 @@ public class SpawnManager : Singleton<SpawnManager>
     {
         spawnDelay.SetDelay(2, () => SetisStart(true));
 
-        var delaytimes = spawnDelay.GetMonsterCreateDelay();
-        spawnDelay.SetDelay(2 + delaytimes, AudioManager.instance.PlayMusic);
+        DelayStartTime = spawnDelay.GetMonsterCreateDelay();
+        spawnDelay.SetDelay(2 + DelayStartTime, AudioManager.instance.PlayMusic);
     }
 
     //플레이
@@ -125,8 +127,15 @@ public class SpawnManager : Singleton<SpawnManager>
         {
             return;
         }
+
+        UpdateDelayStartTime += Time.fixedDeltaTime;
+        if (UpdateDelayStartTime >= DelayStartTime)
+        {
+            UpdateDelayStartTime = DelayStartTime;
+        }
+
         var totaltime = AudioManager.instance.GetAudioTime();
-        SetCreate(totaltime);
+        SetCreate(totaltime + UpdateDelayStartTime);
     }
 
     void SetCreate(double totaltime)

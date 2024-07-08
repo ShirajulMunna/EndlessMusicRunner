@@ -61,7 +61,6 @@ public class UI_Lobby : MonoBehaviour
     }
     public void ChangePlayerUiGraphics()
     {
-
         playerUiGraphic.Skeleton.SetSkin(skin_Names[(int)UI_Lobby.playerSkinType]);
         playerUiGraphic.Skeleton.SetSlotsToSetupPose();
         playerUiGraphic.AnimationState.Apply(playerUiGraphic.Skeleton);
@@ -77,9 +76,7 @@ public class UI_Lobby : MonoBehaviour
         var mode = !Type ? "NotMoveBackGroundScene" : "MainGameScene";
         SecenManager.LoadScene(mode);
     }
-
 }
-
 
 public enum PlayerSkinType
 {
