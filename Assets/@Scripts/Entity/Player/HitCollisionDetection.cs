@@ -1,13 +1,4 @@
-using DG.Tweening;
-using Spine.Unity;
-using System.Collections;
-using System.Collections.Generic;
-using System.Net;
-using System.Xml.Linq;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.AsyncOperations;
-using UnityEngine.UIElements;
 
 public class HitCollisionDetection : MonoBehaviour
 {
@@ -23,11 +14,13 @@ public class HitCollisionDetection : MonoBehaviour
     {
         None, Up, Down, Middle
     }
+
     //판정 조건 오브젝트 생성
     public enum ConditionEffect
     {
         None = 0, Perfect, Great, Opps, PASS
     }
+
     const string AddresEffectName = "PlayerEffect_{0}";
     private void Start()
     {

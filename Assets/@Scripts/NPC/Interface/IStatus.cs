@@ -11,4 +11,7 @@ public interface IStatus
     int GetDamage();
 
     bool CheckDie();
+
+    int GetHp();
+    float GetSpeed();
 }

@@ -58,7 +58,7 @@ public class UI_GameOver : MonoBehaviour
     //성공 실패 확인
     E_GameOverState GetGameState()
     {
-        if (GameManager.instance.player.CheckDie())
+        if (GameManager.M_Player.nPC_Status.CheckDie())
         {
             return E_GameOverState.Faild;
         }
@@ -127,7 +127,7 @@ public class UI_GameOver : MonoBehaviour
         var curscore = ScoreManager.instance.GetCurrentScore();
         var dleay = 1f;
         //실패할땐 실패 스코어 사운드 출력
-        if (GameManager.instance.player.CurHp <= 0)
+        if (GameManager.M_Player.nPC_Status.CheckDie())
             AudioManager.instance.PlayEffectSound("Gameover_Score_Fail");
         else
             AudioManager.instance.PlayEffectSound("Gameover_Score");
@@ -175,7 +175,7 @@ public class UI_GameOver : MonoBehaviour
     {
         //스코어 매니저에서 등급 받아서 랭크 이미지 출력
         var rank = ScoreManager.instance.GetScoreRank();
-        if (GameManager.instance.player.CurHp <= 0)
+        if (GameManager.M_Player.nPC_Status.CheckDie())
         {
             G_RankSprite[(int)ScoreManager.ScoreRank.F].gameObject.SetActive(true);
         }
@@ -187,7 +187,7 @@ public class UI_GameOver : MonoBehaviour
     //결과 이미지 게이지바 작동
     void SetImageAmount()
     {
-        if (GameManager.instance.player.CurHp <= 0)
+        if (GameManager.M_Player.nPC_Status.CheckDie())
         {
             resultAmount.fillAmount = 0f;
         }

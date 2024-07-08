@@ -7,7 +7,7 @@ public class NPC_Move : MonoBehaviour, IMove
     public Vector2 target { get; set; } = IMovePoint.GetMovePoint(E_MoveData.Down);
     public bool isMoving { get; set; } = false;
     public float arrivalThreshold { get; set; } = 0.1f; // 목표 도달 판정 거리
-    public float Speed { get => nPC_Status.Speed; set => nPC_Status.Speed = value; }
+    public float Speed { get => nPC_Status.GetSpeed(); set => nPC_Status.Speed = value; }
     public E_MoveData e_MoveData { get; set; }
 
     NPC_Status _nPC_Status;

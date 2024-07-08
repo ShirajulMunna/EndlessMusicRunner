@@ -16,6 +16,7 @@ public class Effect : MonoBehaviour
         var result = await name.CreateOBJ<Effect>(default, spawnPosition, default);
         return result;
     }
+
     void Start()
     {
         StartCoroutine(OpacityChange());

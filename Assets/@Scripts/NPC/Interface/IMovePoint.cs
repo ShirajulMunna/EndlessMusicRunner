@@ -11,7 +11,7 @@ public static class IMovePoint
         { E_MoveData.Twin, new Vector3(-15,3.5f)},
     };
 
-    static float Monster_Max_Move_X_Value = -25f;
+    static float Monster_Max_Move_X_Value = -40f;
 
     /// <summary>
     /// 몬스터 최대 이동 거리

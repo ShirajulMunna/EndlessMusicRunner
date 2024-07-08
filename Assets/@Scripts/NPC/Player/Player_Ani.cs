@@ -79,34 +79,38 @@ public class Player_Ani : MonoBehaviour, IAni
     {
         if (kind == E_AniKind_Player.Idle || kind == E_AniKind_Player.Running)
         {
-            var checkboss = Boss.instance == null;
+            var checkboss = Bosst.instance == null;
 
             if (checkboss)
             {
-                kind = E_AniKind_Player.Idle;
+                kind = E_AniKind_Player.Running;
             }
             else
             {
-                kind = E_AniKind_Player.Running;
+                kind = E_AniKind_Player.Idle;
             }
         }
 
         return kind;
     }
 
-    public void SetAttackAni(E_MoveData point)
+    public void SetAttackAni(E_MonsterType point, E_MoveData movepoint)
     {
         switch (point)
         {
-            case E_MoveData.Down:
+            case E_MonsterType.Boss:
+            case E_MonsterType.Middle:
+            case E_MonsterType.Down:
                 SetDownAttackAni();
                 break;
-            case E_MoveData.Middle:
-                break;
-            case E_MoveData.Up:
+            case E_MonsterType.Up:
                 SetFlyAttackAni();
                 break;
-            case E_MoveData.Twin:
+            case E_MonsterType.Twin:
+                SetTiwn();
+                break;
+            case E_MonsterType.Hold:
+                SetHold(movepoint);
                 break;
         }
         AttackCount++;
@@ -157,6 +161,26 @@ public class Player_Ani : MonoBehaviour, IAni
                 anistr = GetAniString(E_AniKind_Player.FlyAttack_0);
                 break;
         }
+        var idle = GetAniString(E_AniKind_Player.Idle);
+        SetAni(anistr, false, idle);
+    }
+
+    /// <summary>
+    /// 트윈 공격
+    /// </summary>
+    void SetTiwn()
+    {
+        var anistr = GetAniString(E_AniKind_Player.Twin);
+        var idle = GetAniString(E_AniKind_Player.Idle);
+        SetAni(anistr, false, idle);
+    }
+
+    /// <summary>
+    /// 홀드
+    /// </summary>
+    void SetHold(E_MoveData movepoint)
+    {
+        var anistr = movepoint == E_MoveData.Up ? GetAniString(E_AniKind_Player.FlyHoldAttack) : GetAniString(E_AniKind_Player.DownHoldAttack);
         var idle = GetAniString(E_AniKind_Player.Idle);
         SetAni(anistr, false, idle);
     }

@@ -7,8 +7,6 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    public static GameManager instance;
-
     static Player _Player;
     public static Player M_Player
     {

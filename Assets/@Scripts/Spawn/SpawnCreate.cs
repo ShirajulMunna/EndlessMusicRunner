@@ -82,6 +82,11 @@ public class SpawnCreate : Singleton<SpawnCreate>, ISpawnCreate
             {
                 continue;
             }
+            if (item.npc == null)
+            {
+                continue;
+            }
+
             item.npc.gameObject.SetActive(false);
         }
     }

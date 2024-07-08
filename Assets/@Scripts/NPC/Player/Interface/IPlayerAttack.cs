@@ -4,7 +4,7 @@ using UnityEngine;
 interface IPlayerAttack
 {
     Dictionary<E_MoveData, Vector3> Tr_AttackVector { get; set; }
-    NPC_Status nPC_Status { get; set; }
+    NPC nPC { get; set; }
     bool isTwin { get; set; }
     bool isHold { get; set; }
     List<Vector3> BoxSize { get; set; }

@@ -41,8 +41,13 @@ GameObject:
   m_Component:
   - component: {fileID: 5927427790796394012}
   - component: {fileID: 5983066574386384427}
-  - component: {fileID: 709892467265065013}
   - component: {fileID: 8106121816410996402}
+  - component: {fileID: 1591774314722334333}
+  - component: {fileID: 2538266183029987285}
+  - component: {fileID: 479661850264688959}
+  - component: {fileID: 4314207250806096178}
+  - component: {fileID: 5266808565094699712}
+  - component: {fileID: 8380234159327470331}
   m_Layer: 12
   m_Name: Boss
   m_TagString: Boss
@@ -94,28 +99,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &709892467265065013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5927427790796394008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2d2c6ccbcb582a459dd4ad36467d6da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHp: 100
-  curHp: 100
-  _skeletonAnimation: {fileID: 9047021708755453407}
-  damageAmount: 0
-  damageFx: {fileID: 6630400188505773858, guid: dd80aa9b27baa334ea57eb66d90b8392, type: 3}
-  Change: 0
-  Sk: []
-  uniqMonster: 0
-  Tr_CustomCreate:
-  - {fileID: 3381030844900745593}
 --- !u!61 &8106121816410996402
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -161,6 +144,79 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6, y: 14}
   m_EdgeRadius: 0
+--- !u!114 &1591774314722334333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5927427790796394008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ebd369c72b73a44b25f04da5ff8806, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2538266183029987285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5927427790796394008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7383bbf847af9b54493f2633c14631ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sk: {fileID: 9047021708755453407}
+--- !u!114 &479661850264688959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5927427790796394008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6ad9306d9d72be4b84c2b1c848c85ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4314207250806096178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5927427790796394008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b074feb090d8fcf40ab3cc6d208c368a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5266808565094699712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5927427790796394008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c65154ebebe952843b93ce076a952698, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8380234159327470331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5927427790796394008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5a0f6033f69668449e4a6879901b6df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7109575829686589730
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,7 +229,6 @@ GameObject:
   - component: {fileID: 1701958435451665653}
   - component: {fileID: 8865284756877708372}
   - component: {fileID: 9047021708755453407}
-  - component: {fileID: 874346086855987068}
   m_Layer: 0
   m_Name: Spine GameObject (Zombie boss)
   m_TagString: Untagged
@@ -286,15 +341,3 @@ MonoBehaviour:
   _animationName: idle2
   loop: 1
   timeScale: 1
---- !u!114 &874346086855987068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7109575829686589730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 012f8caf96117b642b39ab58708b5eae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -43,10 +43,20 @@ public class Player : NPC
         }
     }
 
+    float MiddleDelay;
+    float MaxMiddleDelay = 0.25f;
+    bool isMiddle;
+
     private void Start()
     {
         SetUp(100, 500, 10, IMovePoint.GetMovePoint(E_MoveData.Down));
     }
+
+    private void Update()
+    {
+        UpdateMiddle();
+    }
+
 
     public override void SetUp(int hp, float speed, int damage, Vector3 target)
     {
@@ -61,7 +71,9 @@ public class Player : NPC
         player_KeyInput.AddKeyPoint_Down(KeyCode.J, KeyDown_J);
         player_KeyInput.AddKeyPoint_Up(KeyCode.F, ResetKey);
         player_KeyInput.AddKeyPoint_Up(KeyCode.J, ResetKey);
-        player_KeyInput.AddTwinKeyPoint(KeyCode.F, KeyCode.J, SetTwin);
+
+        player_KeyInput.AddTwinKeyPoint_Down(KeyCode.F, KeyCode.J, SetTwin);
+        player_KeyInput.AddTwinKeyPoint_Up(KeyCode.F, KeyCode.J, ResetKey);
     }
 
     void KeyDown_F()
@@ -86,6 +98,7 @@ public class Player : NPC
     void SetTwin()
     {
         player_Attacker.SetTwin(true);
+        player_Attacker.SetAttack(E_MoveData.Twin);
     }
 
     /// <summary>
@@ -102,35 +115,69 @@ public class Player : NPC
         //특수 몬스터 확인 후 공격
         var monstertype = target.GetComponent<IMonsterType>();
         var check = player_Attacker.CheckSpecialMonster(monstertype);
-
         if (!check)
         {
             return;
         }
-
         base.SetAttack(target);
 
         var point = target.nPC_Move.GetMoveData();
-        player_Ani.SetAttackAni(point);
-
         var type = monstertype.GetMonsterType();
+
+        player_Ani.SetAttackAni(type, point);
+
         if (type == E_MonsterType.Middle || type == E_MonsterType.Twin)
         {
-            nPC_Move.SetTarget(E_MoveData.Middle);
+            SetMiddle();
         }
+        DamageEffect.Create(point);
+        GameLog.Log($"공격력{nPC_Status.GetDamage()} / HP{target.nPC_Status.GetHp()}");
     }
 
     public override void SetHit(int hp)
     {
-        base.SetHit(hp);
         Effect.Create(transform.position, (int)HitCollisionDetection.ConditionEffect.Opps);
+        if (nPC_Status.CheckDie())
+        {
+            return;
+        }
         ScoreManager.instance.SetCombo_Reset();
         player_Ani.SetAni(player_Ani.GetAniString(E_AniKind_Player.Hit), false, player_Ani.GetAniString(E_AniKind_Player.Idle));
+        base.SetHit(hp);
+        print($"현재HP{nPC_Status.GetHp()}");
     }
 
     public override void SetDie()
     {
         base.SetDie();
         player_Ani.SetAni(player_Ani.GetAniString(E_AniKind_Player.Die), true, null);
+        PlayManager.instance.SetAction(E_Play.End);
+        print("사망");
+    }
+
+    /// <summary>
+    /// 미들 이동 시 업데이트
+    /// </summary>
+    void UpdateMiddle()
+    {
+        if (!isMiddle)
+        {
+            return;
+        }
+        MiddleDelay += Time.deltaTime;
+
+        if (MaxMiddleDelay > MiddleDelay)
+        {
+            return;
+        }
+        isMiddle = false;
+        nPC_Move.SetTarget(E_MoveData.Down);
+    }
+
+    void SetMiddle()
+    {
+        MiddleDelay = 0;
+        isMiddle = true;
+        nPC_Move.SetTarget(E_MoveData.Middle);
     }
 }

@@ -5,7 +5,7 @@ public class GameResult
         var gameresult = "Gameover_Score";
         var types = GameResultType.Clear;
 
-        if (GameManager.instance.player.CurHp <= 0)
+        if (GameManager.M_Player.nPC_Status.CheckDie())
         {
             gameresult = "GameFail";
             types = GameResultType.Failed;

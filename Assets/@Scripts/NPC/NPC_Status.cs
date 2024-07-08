@@ -29,4 +29,14 @@ public class NPC_Status : MonoBehaviour, IStatus
     {
         return CurrentHp <= 0;
     }
+
+    public int GetHp()
+    {
+        return CurrentHp;
+    }
+
+    public float GetSpeed()
+    {
+        return Speed;
+    }
 }

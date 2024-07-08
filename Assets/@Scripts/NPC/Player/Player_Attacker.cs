@@ -5,19 +5,33 @@ using UnityEngine.UIElements;
 
 public class Player_Attacker : MonoBehaviour, IPlayerAttack
 {
-    NPC_Status _nPC_Status;
-    public NPC_Status nPC_Status
+    NPC _nPC_Status;
+    public NPC nPC
     {
         get
         {
             if (_nPC_Status == null)
             {
-                _nPC_Status = GetComponent<NPC_Status>();
+                _nPC_Status = GetComponent<NPC>();
             }
 
             return _nPC_Status;
         }
         set => _nPC_Status = value;
+    }
+
+    Player_Effect _player_Effect;
+    public Player_Effect player_Effect
+    {
+        get
+        {
+            if (_player_Effect == null)
+            {
+                _player_Effect = GetComponent<Player_Effect>();
+            }
+
+            return _player_Effect;
+        }
     }
 
     public bool isTwin { get; set; }
@@ -50,13 +64,16 @@ public class Player_Attacker : MonoBehaviour, IPlayerAttack
         {
             return;
         }
+        var obj = result.Item1[0].gameObject;
+        nPC.SetAttack(obj.GetComponent<NPC>());
 
-        var monster = result.Item1[0].GetComponent<IMonster>();
-        monster.npc.SetHit(nPC_Status.GetDamage());
+        //이펙트 처리
+        player_Effect.SetEffect(result.Item2);
     }
 
     public (Collider2D[], ScoreManager.E_ScoreState) SetAttack_Area(E_MoveData idx)
     {
+        GameLog.Log($"위치값: {Tr_AttackVector[idx]} /방향: {idx}");
         //퍼펙트 체크
         var col = Physics2D.OverlapBoxAll(Tr_AttackVector[idx], BoxSize[(int)ScoreManager.E_ScoreState.Perfect], default);
 
@@ -175,7 +192,6 @@ public class Player_Attacker : MonoBehaviour, IPlayerAttack
         }
     }
 #endif
-
     #endregion
 }
 

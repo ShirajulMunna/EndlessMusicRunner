@@ -55,7 +55,7 @@ public class NPC : MonoBehaviour
     {
         nPC_Status?.SetHp(hp);
 
-        if (nPC_Status.CheckDie())
+        if (!nPC_Status.CheckDie())
         {
             return;
         }
@@ -66,7 +66,7 @@ public class NPC : MonoBehaviour
     public virtual void SetAttack(NPC target)
     {
         var damage = nPC_Status?.GetDamage();
-        target.SetHit((int)damage);
+        target.SetHit(-(int)damage);
     }
 
     // 사망시 처리
