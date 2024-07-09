@@ -107,7 +107,7 @@ public class MonsterCrush : Monsters
                 Bosst.instance.SetAttack(GameManager.M_Player);
                 break;
             case E_State.Start:
-                CameraSystem.cameraSystem.ReSetZoom();
+                CameraSystem.instance.ReSetZoom();
                 Ac_Move_Complted += () => SetState(E_State.Complted);
                 Bosst.instance.nPC_Move.SetTarget(Bosst.instance.FirstPos());
                 SetState(E_State.Move);

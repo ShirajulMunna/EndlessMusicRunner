@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class CameraSystem : MonoBehaviour
+public class CameraSystem : Singleton<CameraSystem>
 {
-    public static CameraSystem cameraSystem;
 
     //기존 위치
     Vector3 orginPos = new Vector3(0f, 0.3f, -10f);
@@ -25,7 +24,6 @@ public class CameraSystem : MonoBehaviour
 
     private void Awake()
     {
-        cameraSystem = this;
         targetSize = orginSize;
         target = this.transform.position;
     }

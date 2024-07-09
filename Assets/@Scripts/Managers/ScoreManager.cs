@@ -2,25 +2,13 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class ScoreManager : MonoBehaviour
+public class ScoreManager : Singleton<ScoreManager>
 {
     public enum ScoreRank
     {
         S, A, B, C, F,
     }
-    public static ScoreManager _instance;
-    public static ScoreManager instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                var add = GameObject.CreatePrimitive(default).AddComponent<ScoreManager>();
-                _instance = add;
-            }
-            return _instance;
-        }
-    }
+
     public int CurrentScore;
     public int BestScore;
     public int CurrentCombo;
@@ -35,20 +23,6 @@ public class ScoreManager : MonoBehaviour
         Late,
         Pass,
         Miss
-    }
-
-    private void Awake()
-    {
-        if (_instance != null)
-        {
-            Destroy(this.gameObject);
-
-        }
-        else
-        {
-            _instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
     }
 
     public void ScoreReset()
