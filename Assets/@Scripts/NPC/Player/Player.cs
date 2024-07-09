@@ -158,7 +158,7 @@ public class Player : NPC
 
     public override void SetHit(int hp)
     {
-        Effect.Create(transform.position, (int)HitCollisionDetection.ConditionEffect.Opps);
+        Effect.Create(transform.position, 3);
         if (nPC_Status.CheckDie())
         {
             return;

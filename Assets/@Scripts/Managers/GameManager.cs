@@ -34,7 +34,6 @@ public class GameManager : Singleton<GameManager>
 
     public SkeletonAnimation skeleton;
 
-    public PlayerSystem player;
     public Transform bossWaitPosition;
 
     public Transform lowerAttackPoint;
