@@ -5,8 +5,6 @@ public class PlayManager : Singleton<PlayManager>
 {
     Dictionary<E_Play, System.Action> D_Action = new Dictionary<E_Play, System.Action>();
 
-    System.Action Ac_Play;
-
     private void Update()
     {
         SetAction(E_Play.Update);

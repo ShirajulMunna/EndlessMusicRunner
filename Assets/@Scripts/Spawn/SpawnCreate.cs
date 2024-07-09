@@ -74,14 +74,16 @@ public class SpawnCreate : Singleton<SpawnCreate>, ISpawnCreate
     {
         foreach (var item in L_CreateData)
         {
-            if (item == null)
+            if (item == null || item.monsterType == null)
             {
                 continue;
             }
+
             if (item.monsterType.e_MonsterType == E_MonsterType.Boss)
             {
                 continue;
             }
+            
             if (item.npc == null)
             {
                 continue;

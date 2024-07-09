@@ -5,7 +5,7 @@ public class Player_Effect : MonoBehaviour, IEffect
     /// <summary>
     /// 이펙트 생성
     /// </summary>
-    public async void SetEffect(Vector3 pos, ScoreManager.E_ScoreState state)
+    public  async void SetEffect(Vector3 pos, ScoreManager.E_ScoreState state)
     {
         var idx = 0;
         switch (state)

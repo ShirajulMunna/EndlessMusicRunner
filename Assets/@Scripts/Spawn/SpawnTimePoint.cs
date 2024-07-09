@@ -10,18 +10,6 @@ public class SpawnTimePoint : MonoBehaviour, ISpawnTimePoint
     List<double> L_Times = new List<double>();
     ToolDataManager toolDataManager;
 
-    private void Update()
-    {
-        var check = CheckEndTiems();
-
-        if (!check)
-        {
-            return;
-        }
-
-        SpawnManager.instance.SetisStart(false);
-    }
-
     public void SetUp(string name)
     {
         L_Times.Clear();

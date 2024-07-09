@@ -74,6 +74,7 @@ public class SpawnManager : Singleton<SpawnManager>
 
     [SerializeField] string StrMusicFileName;
     bool isStart;
+    bool isEndGame;
     float DelayStartTime;
     float UpdateDelayStartTime;
 
@@ -94,6 +95,11 @@ public class SpawnManager : Singleton<SpawnManager>
             spawnDelay.SetDelay(4, UI_GameOver.Create);
         };
         PlayManager.instance.AddAction(E_Play.End, actions);
+    }
+
+    private void Update()
+    {
+        UpdateEndSpwan();
     }
 
     private void FixedUpdate()
@@ -152,5 +158,27 @@ public class SpawnManager : Singleton<SpawnManager>
     public void SetisStart(bool State)
     {
         isStart = State;
+    }
+
+
+    /// <summary>
+    /// 게임 종료 확인
+    /// </summary>
+    void UpdateEndSpwan()
+    {
+        if (!isStart)
+        {
+            return;
+        }
+
+        var check = spawnTimePoint.CheckEndTiems();
+
+        if (!check)
+        {
+            return;
+        }
+        isEndGame = true;
+        PlayManager.instance.SetAction(E_Play.End);
+        SetisStart(false);
     }
 }

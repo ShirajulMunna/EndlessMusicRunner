@@ -105,7 +105,7 @@ public class Monster_LongNotes : Monsters
     {
         var name = string.Format(Name, EffectIdx);
         G_Effect = await name.CreateOBJ<GameObject>();
-        if (this.gameObject == null)
+        if (this == null || this.gameObject == null)
         {
             return;
         }

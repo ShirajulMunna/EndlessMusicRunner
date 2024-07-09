@@ -127,7 +127,7 @@ public class Monster_LongNote : Monster
         AttackHold = 1;
         prevPosition = transform.position;
         GameManager.instance.longNoteDestoryPosition = prevPosition;
-        ScoreManager.instance.SetCombo_Add(); // �޺��߰�
+        ScoreManager.instance.SetCombo_Add(); // 
         ScoreManager.instance.SetScoreState(perfect);
         SetConditionEffect(perfect, prevPosition);
         AudioManager.instance.LongNoteSound();
