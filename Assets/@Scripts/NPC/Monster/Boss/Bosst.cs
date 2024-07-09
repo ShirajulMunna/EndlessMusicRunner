@@ -6,6 +6,7 @@ public class Bosst : Monsters
     public static Bosst instance;
     public BossPattern_MoveAttack bossPattern_MoveAttack;
 
+    public System.Action Ac_Hit;
     //보스 위치
     Vector3 StartPos = new Vector3(13.5f, 0, 0);
 
@@ -40,6 +41,7 @@ public class Bosst : Monsters
     {
         base.SetHit(hp);
         CameraSystem.cameraSystem.SetZoomIn();
+        Ac_Hit?.Invoke();
     }
 
     public override void SetDieMonster()

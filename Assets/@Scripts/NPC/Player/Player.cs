@@ -77,7 +77,7 @@ public class Player : NPC
     {
         player_KeyInput.AddKeyPoint_Down(KeyCode.F, KeyDown_F);
         player_KeyInput.AddKeyPoint_Down(KeyCode.J, KeyDown_J);
-        
+
         player_KeyInput.AddKeyPoint_Up(KeyCode.F, ResetKey);
         player_KeyInput.AddKeyPoint_Up(KeyCode.J, ResetKey);
 
