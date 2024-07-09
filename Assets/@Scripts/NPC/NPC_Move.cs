@@ -44,7 +44,6 @@ public class NPC_Move : MonoBehaviour, IMove
         {
             return;
         }
-
         target = IMovePoint.GetMovePoint(point);
         e_MoveData = point;
         isMoving = true;

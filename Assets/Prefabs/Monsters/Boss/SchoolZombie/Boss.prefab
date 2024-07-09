@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 4436806907924129070}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.48, y: 4.56, z: 0}
+  m_LocalPosition: {x: -7.5, y: -2.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -42,12 +42,13 @@ GameObject:
   - component: {fileID: 5927427790796394012}
   - component: {fileID: 5983066574386384427}
   - component: {fileID: 8106121816410996402}
-  - component: {fileID: 1591774314722334333}
   - component: {fileID: 2538266183029987285}
   - component: {fileID: 479661850264688959}
   - component: {fileID: 4314207250806096178}
-  - component: {fileID: 5266808565094699712}
   - component: {fileID: 8380234159327470331}
+  - component: {fileID: 8283745545830912792}
+  - component: {fileID: 6991418340550453424}
+  - component: {fileID: 4067192122279827559}
   m_Layer: 12
   m_Name: Boss
   m_TagString: Boss
@@ -131,7 +132,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 3}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -142,20 +143,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 14}
+  m_Size: {x: 6, y: 20}
   m_EdgeRadius: 0
---- !u!114 &1591774314722334333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5927427790796394008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64ebd369c72b73a44b25f04da5ff8806, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2538266183029987285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,18 +182,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b074feb090d8fcf40ab3cc6d208c368a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5266808565094699712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5927427790796394008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c65154ebebe952843b93ce076a952698, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8380234159327470331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,6 +192,43 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5a0f6033f69668449e4a6879901b6df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8283745545830912792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5927427790796394008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03bcbce1cc3f2dd48bef00a785f7151a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossPattern_MoveAttack: {fileID: 6991418340550453424}
+--- !u!114 &6991418340550453424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5927427790796394008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45b208a6fb1e59242b67a9efb1890e67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4067192122279827559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5927427790796394008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125592b951ff74b4d9f4a463c80513c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7109575829686589730
@@ -245,7 +259,7 @@ Transform:
   m_GameObject: {fileID: 7109575829686589730}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -5, z: 0}
   m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
   m_ConstrainProportionsScale: 0
   m_Children: []

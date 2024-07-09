@@ -118,11 +118,6 @@ public class Monster_LongNotes : Monsters
         isHold = true;
     }
 
-    public override void SetAttack(NPC target)
-    {
-
-    }
-
     public override void SetUp(int hp, float speed, int damage, Vector3 target)
     {
         base.SetUp(hp, speed, damage, target);

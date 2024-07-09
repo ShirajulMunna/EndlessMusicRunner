@@ -50,7 +50,7 @@ public class Player : NPC
 
     private void Start()
     {
-        SetUp(100, 500, 10, IMovePoint.GetMovePoint(E_MoveData.Down));
+        SetUp(1000000, 500, 10, IMovePoint.GetMovePoint(E_MoveData.Down));
     }
 
     private void Update()
@@ -79,23 +79,23 @@ public class Player : NPC
 
     void KeyDown_F()
     {
-        nPC_Move.SetTarget(E_MoveData.Up);
-        player_Attacker.SetHold(true);
         if (!CheckMoveAni(E_MoveData.Up))
         {
             player_Ani.SetAni(player_Ani.GetAniString(E_AniKind_Player.Fly), true, null);
         }
+        nPC_Move.SetTarget(E_MoveData.Up);
+        player_Attacker.SetHold(true);
         player_Attacker.SetAttack(E_MoveData.Up);
     }
 
     void KeyDown_J()
     {
-        nPC_Move.SetTarget(E_MoveData.Down);
-        player_Attacker.SetHold(true);
         if (!CheckMoveAni(E_MoveData.Down))
         {
             player_Ani.SetAni(player_Ani.GetAniString(E_AniKind_Player.Down), true, null);
         }
+        nPC_Move.SetTarget(E_MoveData.Down);
+        player_Attacker.SetHold(true);
         player_Attacker.SetAttack(E_MoveData.Down);
     }
 

@@ -26,7 +26,6 @@ public class SpawnPoint : MonoBehaviour, ISpawnPoint
                 break;
             case MonsterSpwanPosition.Random:
                 int random = Random.Range(0, 2);
-
                 if (random == 1)
                 {
                     MySpwanPoint = GetPoint(E_SpawnPoint.Low);
@@ -35,6 +34,12 @@ public class SpawnPoint : MonoBehaviour, ISpawnPoint
             case MonsterSpwanPosition.Custom:
                 MySpwanPoint = new Vector3(offsetx, offsety, 0);
                 break;
+        }
+
+        if (spwanPosition != MonsterSpwanPosition.Custom)
+        {
+            MySpwanPoint.x += offsetx;
+            MySpwanPoint.y += offsety;
         }
         return MySpwanPoint;
     }

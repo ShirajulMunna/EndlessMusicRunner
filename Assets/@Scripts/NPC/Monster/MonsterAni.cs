@@ -84,6 +84,11 @@ public class MonsterAni : MonoBehaviour, IAni, IMonsterAni
         var ani = GetAniString(state);
         SetAni(ani, false, null);
     }
+
+    public void SetAni(string aniname, bool loop)
+    {
+        SetAni(aniname, loop, GetAniString(E_AniKind_Monster.idle));
+    }
 }
 
 

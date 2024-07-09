@@ -148,12 +148,12 @@ GameObject:
   - component: {fileID: 5927427790796394012}
   - component: {fileID: 5927427790796393987}
   - component: {fileID: 5983066574386384427}
-  - component: {fileID: -3479969142906078004}
   - component: {fileID: -4075971005991043541}
   - component: {fileID: 3666091506366460039}
   - component: {fileID: 8336311254347265730}
   - component: {fileID: -4096771604606327442}
   - component: {fileID: -5452025204052244273}
+  - component: {fileID: 4764331641326641051}
   m_Layer: 8
   m_Name: Boss_Bullet_Ani_Down
   m_TagString: Monster
@@ -239,18 +239,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &-3479969142906078004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5927427790796394008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64ebd369c72b73a44b25f04da5ff8806, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-4075971005991043541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,3 +299,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b074feb090d8fcf40ab3cc6d208c368a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4764331641326641051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5927427790796394008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37f3ed980bc732d48aa1869c2ea5758a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AniName: Attack2
