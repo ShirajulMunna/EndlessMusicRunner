@@ -80,7 +80,7 @@ public class Player_Ani : MonoBehaviour, IAni
     /// </summary>
     E_AniKind_Player SetAniIdle(E_AniKind_Player kind)
     {
-        if (kind == E_AniKind_Player.Idle || kind == E_AniKind_Player.Running)
+        if (kind == E_AniKind_Player.Idle || kind == E_AniKind_Player.Running || kind == E_AniKind_Player.Down)
         {
             var point = nPC.nPC_Move.GetMoveData();
 

@@ -8,8 +8,11 @@ public class FlowingImage : MonoBehaviour
     [SerializeField] Image Img_FlowingImage;
     [SerializeField] SpriteRenderer Sp_Spite;
 
+    bool isStop;
+
     void Start()
     {
+        PlayManager.instance.AddAction(E_Play.Boss, () => isStop = true);
         material = Img_FlowingImage == null ? Sp_Spite.material : Img_FlowingImage.material;
         if (material == null)
         {
@@ -19,7 +22,12 @@ public class FlowingImage : MonoBehaviour
 
     void Update()
     {
-        //*!*! 게임 종료 시 멈추도록
+        if (isStop)
+        {
+            material.SetFloat("_Speed", 0);
+            return;
+        }
+
         if (material != null)
         {
             material.SetFloat("_Speed", speed);

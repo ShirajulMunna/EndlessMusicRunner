@@ -64,12 +64,20 @@ public class Player : NPC
         base.SetUp(hp, speed, damage, target);
         nPC_ParticleSystem.ActiveParticle(E_ParticleKind.Running, 0);
         SetKeyInput();
+
+        System.Action action = () =>
+        {
+            var kind = nPC_Move.GetMoveData() == E_MoveData.Down ? E_AniKind_Player.Running : E_AniKind_Player.Fly;
+            player_Ani.SetAni(player_Ani.GetAniString(kind), true, null);
+        };
+        PlayManager.instance.AddAction(E_Play.Boss, action);
     }
 
     void SetKeyInput()
     {
         player_KeyInput.AddKeyPoint_Down(KeyCode.F, KeyDown_F);
         player_KeyInput.AddKeyPoint_Down(KeyCode.J, KeyDown_J);
+        
         player_KeyInput.AddKeyPoint_Up(KeyCode.F, ResetKey);
         player_KeyInput.AddKeyPoint_Up(KeyCode.J, ResetKey);
 
