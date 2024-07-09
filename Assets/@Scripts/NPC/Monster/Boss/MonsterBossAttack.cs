@@ -37,16 +37,15 @@ public class MonsterBossAttack : Monsters
             return;
         }
 
-        var x = transform.position.x;
-        var targetx = GameManager.M_Player.transform.position.x - 1;
-        if (x > targetx)
+        var ischeck = monsterAttack.CheckAttack();
+        if (!ischeck)
         {
             return;
         }
-
-        ScoreManager.instance.SetCurrentScore(1);
         var pos = GameManager.M_Player.transform.position;
         GameManager.M_Player.player_Attacker.player_Effect.SetEffect(pos, ScoreManager.E_ScoreState.Pass);
+
+        ScoreManager.instance.SetCurrentScore(1);
         isCheck = false;
         isAttack = true;
     }
@@ -69,11 +68,7 @@ public class MonsterBossAttack : Monsters
         }
 
         base.SetAttack(target);
-    }
-
-
-    public override void SetDie()
-    {
-        base.SetDie();
+        isCheck = false;
+        isAttack = true;
     }
 }

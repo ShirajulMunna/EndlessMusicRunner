@@ -63,8 +63,7 @@ public class Monster_LongNotes : Monsters
         if (GetScoreTime + 0.1f <= Time.time)
         {
             GetScoreTime = Time.time;
-            var score = 1;
-            ScoreManager.instance.SetCurrentScore(score);
+            ScoreManager.instance.SetCurrentScore(1);
         }
 
         SoundTime += deltaTime;

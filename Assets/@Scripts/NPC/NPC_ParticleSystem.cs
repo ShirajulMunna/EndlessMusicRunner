@@ -41,7 +41,7 @@ public class NPC_ParticleSystem : MonoBehaviour, IParticleSystem
     }
 
     //파티클 온
-    public void ActiveParticle(E_ParticleKind kind)
+    public void ActiveParticle(E_ParticleKind kind, float times)
     {
         if (!D_ParticleKind.ContainsKey(kind) || D_ParticleKind[kind].Count == 0)
         {
@@ -57,16 +57,14 @@ public class NPC_ParticleSystem : MonoBehaviour, IParticleSystem
         }
 
         // 새 코루틴 시작
-        Coroutine newCoroutine = StartCoroutine(IE_Active(kind));
+        Coroutine newCoroutine = StartCoroutine(IE_Active(kind, times));
         D_Active[kind] = newCoroutine;
     }
 
     //시간 맞춰 끄는 함수
-    public IEnumerator IE_Active(E_ParticleKind kind)
+    public IEnumerator IE_Active(E_ParticleKind kind, float times)
     {
         var data = D_ParticleKind[kind][0];
-        var times = data.ActiveTime;
-
         var check = D_WaitTime.ContainsKey(times);
         if (!check)
         {

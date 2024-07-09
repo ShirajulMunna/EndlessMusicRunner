@@ -137,7 +137,6 @@ public class Monsters : NPC, IMonster
         //사망 애니메이션
         iAni?.SetAni(E_AniKind_Monster.Die, true);
         nPC_Move.SetSpeed(100);
-        ScoreManager.instance.SetCurrentScore(1);
         Destroy(this.gameObject, 0.1f);
     }
 

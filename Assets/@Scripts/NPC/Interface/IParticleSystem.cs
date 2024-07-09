@@ -8,6 +8,6 @@ public interface IParticleSystem
     Dictionary<float, WaitForSeconds> D_WaitTime { get; set; }
     Dictionary<E_ParticleKind, List<St_PlarticleKind>> D_ParticleKind { get; set; }
     void SetUp();
-    IEnumerator IE_Active(E_ParticleKind kind);
-    void ActiveParticle(E_ParticleKind kind);
+    IEnumerator IE_Active(E_ParticleKind kind, float times);
+    void ActiveParticle(E_ParticleKind kind, float times);
 }

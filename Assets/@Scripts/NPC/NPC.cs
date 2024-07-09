@@ -30,7 +30,7 @@ public class NPC : MonoBehaviour
     }
 
     IParticleSystem _nPC_ParticleSystem;
-    protected IParticleSystem nPC_ParticleSystem
+    public IParticleSystem nPC_ParticleSystem
     {
         get
         {
@@ -47,7 +47,7 @@ public class NPC : MonoBehaviour
     {
         nPC_Status?.SetUp(hp, speed, damage);
         nPC_Move?.SetTarget(target);
-        nPC_ParticleSystem?.ActiveParticle(E_ParticleKind.Idle);
+        nPC_ParticleSystem?.ActiveParticle(E_ParticleKind.Idle, 0);
     }
 
     // 데미지 받음

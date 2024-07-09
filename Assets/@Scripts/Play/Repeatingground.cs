@@ -5,19 +5,23 @@ using UnityEngine;
 public class Repeatingground : MonoBehaviour
 {
     [SerializeField] float speed;
-    [SerializeField] bool CheckisStop;
     float startPosition;
     float lastPosition = -250;
     Vector3 pos;
+    bool isStop;
 
     private void Start()
     {
         pos = new Vector3(startPosition, transform.position.y);
+        PlayManager.instance.AddAction(E_Play.Boss, () => isStop = true);
     }
 
     void Update()
     {
-        //*!*! 게임 종료 시 멈추도록
+        if (isStop)
+        {
+            return;
+        }
 
         transform.Translate(Vector3.left * Time.deltaTime * speed);
 

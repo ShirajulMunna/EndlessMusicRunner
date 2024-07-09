@@ -62,7 +62,7 @@ public class Player : NPC
     public override void SetUp(int hp, float speed, int damage, Vector3 target)
     {
         base.SetUp(hp, speed, damage, target);
-        nPC_ParticleSystem.ActiveParticle(E_ParticleKind.Running);
+        nPC_ParticleSystem.ActiveParticle(E_ParticleKind.Running, 0);
         SetKeyInput();
     }
 
@@ -155,6 +155,7 @@ public class Player : NPC
         {
             return;
         }
+        ScoreManager.instance.SetScoreState(ScoreManager.E_ScoreState.Miss);
         ScoreManager.instance.SetCombo_Reset();
         player_Ani.SetAni(player_Ani.GetAniString(E_AniKind_Player.Hit), false, player_Ani.GetAniString(E_AniKind_Player.Idle));
         base.SetHit(hp);

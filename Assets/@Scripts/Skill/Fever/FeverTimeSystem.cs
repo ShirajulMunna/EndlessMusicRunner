@@ -25,7 +25,7 @@ public class FerverTimeSystem : Skill
             return;
         }
         isActive = true;
-        GameManager.instance.player.SetParticle(E_PlayerSkill.Fever, st_Skill.Activetime);
+        GameManager.M_Player.nPC_ParticleSystem.ActiveParticle(E_ParticleKind.Fever, st_Skill.Activetime);
         AudioManager.instance.PlayEffectSound("Fever_Time");
     }
 

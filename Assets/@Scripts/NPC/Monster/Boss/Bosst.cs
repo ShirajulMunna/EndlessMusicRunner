@@ -20,6 +20,12 @@ public class Bosst : Monsters
         PlayManager.instance.AddAction(E_Play.End, SetDie);
     }
 
+    public override void SetAttack(NPC target)
+    {
+        base.SetAttack(target);
+        PlayManager.instance.SetAction(E_Play.Boss);
+    }
+
     public Vector3 FirstPos()
     {
         return StartPos;

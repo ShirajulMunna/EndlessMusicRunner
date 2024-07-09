@@ -44,5 +44,6 @@ public enum E_Play
 {
     Play,
     End,
-    Update
+    Update,
+    Boss,
 }
