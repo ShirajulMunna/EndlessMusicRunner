@@ -7,6 +7,7 @@ public class MonsterCrush : Monsters
 
     enum E_State
     {
+        idle,
         Hit,
         CrushMove,
         Crush,
@@ -15,13 +16,14 @@ public class MonsterCrush : Monsters
         Complted,
     }
 
-    E_State e_State;
+    E_State e_State = E_State.idle;
     float Delaytime = 0.3f;
     float Delaytime_Hit = 1f;
     System.Action Ac_Move_Complted;
 
     private void Start()
     {
+        e_State = E_State.idle;
         Bosst.instance.Ac_Hit += SetBossHit;
     }
 
