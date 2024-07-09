@@ -8,28 +8,23 @@ public class FlowingImage : MonoBehaviour
     [SerializeField] Image Img_FlowingImage;
     [SerializeField] SpriteRenderer Sp_Spite;
 
+    bool isStop;
+
     void Start()
     {
+        PlayManager.instance.AddAction(E_Play.Boss, () => isStop = true);
+        PlayManager.instance.AddAction(E_Play.Boss, () => material.SetFloat("_Speed", 0));
+
         material = Img_FlowingImage == null ? Sp_Spite.material : Img_FlowingImage.material;
-        if (material == null)
-        {
-            Debug.LogError("Material is missing!");
-        }
     }
 
     void Update()
     {
-        var conditioncheck_0 = SpawnManager.instance.GetGameState() == E_GameState.Result && speed >= 0.01f;
-        var conditioncheck_1 = GameManager.instance.player.isStopPlayer;
-
-
-        // 게임이 끝난다면 움직임 종료 
-        if (conditioncheck_0 || conditioncheck_1)
+        if (isStop)
         {
-            speed = 0.0f;
+            return;
         }
-        else if (GameManager.instance.player.CurHp <= 0)
-            speed = 0.0f;
+
         if (material != null)
         {
             material.SetFloat("_Speed", speed);

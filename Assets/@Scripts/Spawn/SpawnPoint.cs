@@ -7,43 +7,47 @@ public class SpawnPoint : MonoBehaviour, ISpawnPoint
     //스폰 위치
     public List<Vector3> L_SpawnPoint { get; set; } = new List<Vector3>()
     {
-        new Vector3(20, 5f, 0),
+        new Vector3(20, -3.5f, 0),
+        new Vector3(20, 0, 0),
         new Vector3(20, 3.5f, 0),
-        new Vector3(20, 2f, 0),
-        new Vector3(20, -1f, 0),
-        new Vector3(20, -2.5f, 0),
-        new Vector3(20, -4f, 0),
     };
 
     public Vector3 GetSpawnPoint(MonsterSpwanPosition spwanPosition, float offsetx, float offsety)
     {
-        var MySpwanPoint = GetPoint(spwanPosition);
+        var MySpwanPoint = GetPoint(E_SpawnPoint.Hight);
 
         switch (spwanPosition)
         {
-            case MonsterSpwanPosition.Random:
+            case MonsterSpwanPosition.Down:
+                MySpwanPoint = GetPoint(E_SpawnPoint.Low);
                 break;
-            case MonsterSpwanPosition.Player:
-                MySpwanPoint = GameManager.instance.player.transform.position;
+            case MonsterSpwanPosition.Middle:
+                MySpwanPoint = GetPoint(E_SpawnPoint.Middle);
+                break;
+            case MonsterSpwanPosition.Random:
+                int random = Random.Range(0, 2);
+                if (random == 1)
+                {
+                    MySpwanPoint = GetPoint(E_SpawnPoint.Low);
+                }
                 break;
             case MonsterSpwanPosition.Custom:
                 MySpwanPoint = new Vector3(offsetx, offsety, 0);
                 break;
         }
+
+        if (spwanPosition != MonsterSpwanPosition.Custom)
+        {
+            MySpwanPoint.x += offsetx;
+            MySpwanPoint.y += offsety;
+        }
         return MySpwanPoint;
     }
 
     //위치 가져오기
-    public Vector3 GetPoint(MonsterSpwanPosition spawnPoint)
+    public Vector3 GetPoint(E_SpawnPoint spawnPoint)
     {
         return L_SpawnPoint[(int)spawnPoint];
     }
 
-}
-
-interface ISpawnPoint
-{
-    List<Vector3> L_SpawnPoint { get; set; }
-    Vector3 GetSpawnPoint(MonsterSpwanPosition spwanPosition, float offsetx, float offsety);
-    Vector3 GetPoint(MonsterSpwanPosition spawnPoint);
 }

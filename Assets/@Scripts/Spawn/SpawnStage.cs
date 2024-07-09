@@ -19,10 +19,3 @@ public class SpawnStage : Singleton<SpawnStage>, ISpawnState
 
 }
 
-
-interface ISpawnState
-{
-    int StageInfo { get; set; }
-    List<C_LevelDesign> GetLevelDesigns();
-    int GetStageInfo();
-}

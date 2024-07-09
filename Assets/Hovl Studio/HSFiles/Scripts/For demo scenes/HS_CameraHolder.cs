@@ -72,7 +72,7 @@ public class HS_CameraHolder : MonoBehaviour
         }
     }
 
-    private ParticleSystem[] particleSystems = new ParticleSystem[0];
+    private UnityEngine.ParticleSystem[] particleSystems = new UnityEngine.ParticleSystem[0];
     private List<SVA> svList = new List<SVA>();
     private float H;
 
@@ -99,7 +99,7 @@ public class HS_CameraHolder : MonoBehaviour
             Destroy(Instance);
         }
         Instance = Instantiate(Prefabs[Prefab]);
-        particleSystems = Instance.GetComponentsInChildren<ParticleSystem>(); //Get color from current instance 
+        particleSystems = Instance.GetComponentsInChildren<UnityEngine.ParticleSystem>(); //Get color from current instance 
         svList.Clear();
         foreach (var ps in particleSystems)
         {

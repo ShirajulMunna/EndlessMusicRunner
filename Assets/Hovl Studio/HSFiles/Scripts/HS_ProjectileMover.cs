@@ -9,13 +9,13 @@ public class HS_ProjectileMover : MonoBehaviour
     [SerializeField] protected bool UseFirePointRotation;
     [SerializeField] protected Vector3 rotationOffset = new Vector3(0, 0, 0);
     [SerializeField] protected GameObject hit;
-    [SerializeField] protected ParticleSystem hitPS;
+    [SerializeField] protected UnityEngine.ParticleSystem hitPS;
     [SerializeField] protected GameObject flash;
     [SerializeField] protected Rigidbody rb;
     [SerializeField] protected Collider col;
     [SerializeField] protected Light lightSourse;
     [SerializeField] protected GameObject[] Detached;
-    [SerializeField] protected ParticleSystem projectilePS;
+    [SerializeField] protected UnityEngine.ParticleSystem projectilePS;
     private bool startChecker = false;
     [SerializeField]protected bool notDestroy = false;
 
@@ -103,7 +103,7 @@ public class HS_ProjectileMover : MonoBehaviour
         {
             if (detachedPrefab != null)
             {
-                ParticleSystem detachedPS = detachedPrefab.GetComponent<ParticleSystem>();
+                UnityEngine.ParticleSystem detachedPS = detachedPrefab.GetComponent<UnityEngine.ParticleSystem>();
                 detachedPS.Stop();
             }
         }

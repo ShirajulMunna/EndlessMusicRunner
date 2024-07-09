@@ -15,22 +15,22 @@ public class Hovl_Laser2 : MonoBehaviour
     public float MaxLength;
 
     private bool UpdateSaver = false;
-    private ParticleSystem laserPS;
-    private ParticleSystem[] Flash;
-    private ParticleSystem[] Hit;
+    private UnityEngine.ParticleSystem laserPS;
+    private UnityEngine.ParticleSystem[] Flash;
+    private UnityEngine.ParticleSystem[] Hit;
     private Material laserMat;
     private int particleCount;
-    private ParticleSystem.Particle[] particles;
+    private UnityEngine.ParticleSystem.Particle[] particles;
     private Vector3[] particlesPositions;
     private float dissovleTimer = 0;
     private bool startDissovle = false;
 
     void Start()
     {
-        laserPS = GetComponent<ParticleSystem>();
+        laserPS = GetComponent<UnityEngine.ParticleSystem>();
         laserMat = GetComponent<ParticleSystemRenderer>().material;
-        Flash = FlashEffect.GetComponentsInChildren<ParticleSystem>();
-        Hit = HitEffect.GetComponentsInChildren<ParticleSystem>();
+        Flash = FlashEffect.GetComponentsInChildren<UnityEngine.ParticleSystem>();
+        Hit = HitEffect.GetComponentsInChildren<UnityEngine.ParticleSystem>();
         laserMat.SetFloat("_Scale", laserScale);
     }
 
@@ -112,7 +112,7 @@ public class Hovl_Laser2 : MonoBehaviour
         LaserPS.emission.SetBursts(new[] { new ParticleSystem.Burst(0f, particleCount + 1) });
         */
 
-        particles = new ParticleSystem.Particle[particleCount];
+        particles = new UnityEngine.ParticleSystem.Particle[particleCount];
 
         for (int i = 0; i < particleCount; i++)
         {

@@ -2,25 +2,13 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class ScoreManager : MonoBehaviour
+public class ScoreManager : Singleton<ScoreManager>
 {
     public enum ScoreRank
     {
         S, A, B, C, F,
     }
-    public static ScoreManager _instance;
-    public static ScoreManager instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                var add = GameObject.CreatePrimitive(default).AddComponent<ScoreManager>();
-                _instance = add;
-            }
-            return _instance;
-        }
-    }
+
     public int CurrentScore;
     public int BestScore;
     public int CurrentCombo;
@@ -35,20 +23,6 @@ public class ScoreManager : MonoBehaviour
         Late,
         Pass,
         Miss
-    }
-
-    private void Awake()
-    {
-        if (_instance != null)
-        {
-            Destroy(this.gameObject);
-
-        }
-        else
-        {
-            _instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
     }
 
     public void ScoreReset()
@@ -76,7 +50,7 @@ public class ScoreManager : MonoBehaviour
         CurrentCombo++;
         //현재 콤보가 5이상일때만 오브젝트 활성화 시키기
         if (CurrentCombo >= 5)
-            UI_Play.Instance.Set_Combo(CurrentCombo);
+            UI_Play.instance.Set_Combo(CurrentCombo);
 
         //피버타임 체크
         SkillSystem.instance.ActivePassiveSkill(SkillSystem.E_Trigger.Combo);
@@ -90,10 +64,10 @@ public class ScoreManager : MonoBehaviour
     }
 
     //콤보 리셋
-    public void SetBestCombo_Reset()
+    public void SetCombo_Reset()
     {
         CurrentCombo = 0;
-        UI_Play.Instance.Reset_Combo();
+        UI_Play.instance.Reset_Combo();
     }
 
     //점수 높이기
@@ -101,13 +75,13 @@ public class ScoreManager : MonoBehaviour
     {
         var totalvalue = FerverTimeSystem.SetFeverScore(vlaue);
         CurrentScore += totalvalue;
-        UI_Play.Instance.SetScore(CurrentScore);
+        UI_Play.instance.SetScore(CurrentScore);
     }
     //스킬 영향 없이 획득
     public void SetCurrentScore(int vlaue, bool noneadd)
     {
         CurrentScore += vlaue;
-        UI_Play.Instance.SetScore(CurrentScore);
+        UI_Play.instance.SetScore(CurrentScore);
     }
 
     //현재 점수 가져오기

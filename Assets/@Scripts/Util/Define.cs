@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Globalization;
 using Spine;
 using Spine.Unity;
@@ -7,38 +6,9 @@ using UnityEngine;
 
 public static class Define
 {
-    static Dictionary<SkeletonAnimation, List<string>> animationNames = new Dictionary<SkeletonAnimation, List<string>>();
-    public static void SetAni_Player(this SkeletonAnimation skeletonAnimation, string animationString, bool loop = false, string loopani = "")
+    //애니메이션 실행
+    public static void SetAni(this SkeletonAnimation skeletonAnimation, string anistr, bool loop, string idle)
     {
-        if (!animationNames.ContainsKey(skeletonAnimation))
-        {
-            animationNames[skeletonAnimation] = new List<string>();
-
-            if (skeletonAnimation != null && skeletonAnimation.SkeletonDataAsset != null)
-            {
-                var animationStateData = skeletonAnimation.SkeletonDataAsset.GetAnimationStateData();
-                foreach (var animation in animationStateData.SkeletonData.Animations)
-                {
-                    animationNames[skeletonAnimation].Add(animation.Name);
-                }
-            }
-        }
-
-        var idx = animationNames[skeletonAnimation].FindIndex(x => x == animationString);
-
-        if (idx == -1)
-        {
-            return;
-        }
-
-
-
-        var currentTrackEntry = skeletonAnimation.AnimationState.GetCurrent(0);
-        if (animationString == loopani && currentTrackEntry.Animation.Name == loopani)
-        {
-            return;
-        }
-
         skeletonAnimation.AnimationState.ClearTracks(); // 모든 애니메이션 트랙을 제거
         SkeletonDataAsset skeletonDataAsset = skeletonAnimation.SkeletonDataAsset;
 
@@ -48,77 +18,20 @@ public static class Define
         // animationString에 해당하는 애니메이션의 Duration을 찾아 delay로 설정
         foreach (var anim in animations)
         {
-            if (anim.Name == animationString)
+            if (anim.Name == anistr)
             {
                 delay = anim.Duration;
                 break;
             }
         }
         skeletonAnimation.skeleton.SetToSetupPose();
-        skeletonAnimation.AnimationState.SetAnimation(0, animationString, loop);
+        skeletonAnimation.AnimationState.SetAnimation(0, anistr, loop);
 
         if (loop == false)
         {
-            if (string.IsNullOrEmpty(loopani))
-            {
-                loopani = GameManager.instance.player.GetIdle();
-            }
-            skeletonAnimation.AnimationState.AddAnimation(0, loopani, true, delay); // 찾은 딜레이 값을 AddAnimation에 적용
+            skeletonAnimation.AnimationState.AddAnimation(0, idle, true, delay); // 찾은 딜레이 값을 AddAnimation에 적용
         }
     }
-
-    public static void SetAni_Monster(this SkeletonAnimation skeletonAnimation, string animationString, bool loop = false, string loopani = "idle")
-    {
-        var currentTrackEntry = skeletonAnimation.AnimationState.GetCurrent(0);
-        if (animationString == loopani && currentTrackEntry.Animation.Name == loopani)
-        {
-            return;
-        }
-
-        skeletonAnimation.AnimationState.ClearTracks(); // 모든 애니메이션 트랙을 제거
-        SkeletonDataAsset skeletonDataAsset = skeletonAnimation.SkeletonDataAsset;
-
-        SkeletonData skeletonData = skeletonDataAsset.GetSkeletonData(true);
-        var animations = skeletonData.Animations.Items;
-        float delay = 0f;
-        // animationString에 해당하는 애니메이션의 Duration을 찾아 delay로 설정
-        foreach (var anim in animations)
-        {
-            if (anim.Name == animationString)
-            {
-                delay = anim.Duration;
-                break;
-            }
-        }
-
-        skeletonAnimation.skeleton.SetToSetupPose();
-        skeletonAnimation.AnimationState.SetAnimation(0, animationString, loop);
-
-        if (loop == false)
-        {
-            var ani = loopani;
-            skeletonAnimation.AnimationState.AddAnimation(0, ani, true, delay); // 찾은 딜레이 값을 AddAnimation에 적용
-        }
-    }
-
-    public static float GetAniDelay(this SkeletonAnimation skeletonAnimation, string animationString)
-    {
-        SkeletonDataAsset skeletonDataAsset = skeletonAnimation.SkeletonDataAsset;
-        SkeletonData skeletonData = skeletonDataAsset.GetSkeletonData(true);
-        var animations = skeletonData.Animations.Items;
-        float delay = 0f;
-        // animationString에 해당하는 애니메이션의 Duration을 찾아 delay로 설정
-        foreach (var anim in animations)
-        {
-            if (anim.Name == animationString)
-            {
-                delay = anim.Duration;
-                return delay;
-            }
-        }
-        return delay;
-    }
-
 }
 
 

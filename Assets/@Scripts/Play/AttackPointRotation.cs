@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class AttackPointRotation : MonoBehaviour
 {
-    public float speed;
-    
+    float speed = 100;
+    Vector3 rot = Vector3.zero;
+
+
     void Update()
     {
-        transform.Rotate(new Vector3(0, 0, speed * Time.deltaTime));
+        rot.z = speed * Time.deltaTime;
+        transform.Rotate(rot);
     }
 }

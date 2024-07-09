@@ -4,19 +4,21 @@ using UnityEngine;
 
 public class AudioManager : Singleton<AudioManager>
 {
+    const string EffectSound = "EffectSound_{0}";
+
     private AudioSource audioSource;
-    public AudioClip clap_1;
-    public AudioClip clap_2;
-    public AudioClip ouch_1;
-    public AudioClip failGame;
-    public AudioClip bossAttackClip;
-    public AudioClip longNoteClip;
+    int clap_1 = 0;
+    int clap_2 = 1;
+    int ouch_1 = 2;
+    int longNoteClip = 3;
     [SerializeField] public AudioSource Audio_BackGround;
     [SerializeField] AudioClip[] BackSound;
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
         SetBG();
+        PlayManager.instance.AddAction(E_Play.Play, () => GameManager.M_Player.Ac_Hit += PlayerHItSound);
     }
 
     void SetBG()
@@ -25,21 +27,27 @@ public class AudioManager : Singleton<AudioManager>
         Audio_BackGround.Pause();
     }
 
+    public async void CreateSound_Shot(int id)
+    {
+        var str_audio = string.Format(EffectSound, id);
+        var audio = await str_audio.LoadAsync<AudioClip>();
+        audioSource.PlayOneShot(audio, 0.3f);
+    }
+
     public void PlaySound(ScoreManager.E_ScoreState state)
     {
-        var audio = state == ScoreManager.E_ScoreState.Perfect ? clap_1 : clap_2;
-
-        audioSource.PlayOneShot(audio, 0.3f);
+        var idx = state == ScoreManager.E_ScoreState.Perfect ? clap_1 : clap_2;
+        CreateSound_Shot(idx);
     }
 
     public void PlayerHItSound()
     {
-        audioSource.PlayOneShot(ouch_1, 0.3f);
+        CreateSound_Shot(ouch_1);
     }
     //롱노트사운드
     public void LongNoteSound()
     {
-        audioSource.PlayOneShot(longNoteClip, 0.5f);
+        CreateSound_Shot(longNoteClip);
     }
 
     public void StopMusic()
@@ -60,7 +68,7 @@ public class AudioManager : Singleton<AudioManager>
     //사운드 실행
     public async void PlayEffectSound(string key)
     {
-        var result = await AddressLoad.LoadAsync<AudioClip>(key);
+        var result = await key.LoadAsync<AudioClip>();
         audioSource.PlayOneShot(result, 1);
     }
 }

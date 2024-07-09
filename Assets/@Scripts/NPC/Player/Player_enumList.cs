@@ -1,0 +1,20 @@
+public enum E_AniKind_Player
+{
+    Idle,
+    Running,
+    Down,
+    DownAttack_0,
+    DownAttack_1,
+    DownAttack_2,
+    DownHoldAttack,
+    Fly,
+    FlyAttack_0,
+    FlyAttack_1,
+    FlyHoldAttack,
+    Twin,
+    Hit,
+    Die,
+    Clear_S,
+    Clear_A,
+    Clear_F
+}

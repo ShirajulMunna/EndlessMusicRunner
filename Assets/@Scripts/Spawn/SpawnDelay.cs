@@ -1,54 +1,41 @@
 using System;
+using System.Collections;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 public class SpawnDelay : MonoBehaviour, ISpawnDelay
 {
-    public float GameDelay { get; set; }
-    public System.Action Ac_Delay { get; set; }
-
-    SpawnPoint spawnPoint;
-
-    const float PlaterAttackZone = -11;
-    const float MonsterSpeed = 20;
-
-    private void Start()
+    SpawnPoint _spawnPoint;
+    SpawnPoint spawnPoint
     {
-        spawnPoint = GetComponent<SpawnPoint>();
-    }
-
-    public System.Action GetDelayAction()
-    {
-        GameDelay -= Time.deltaTime;
-        if (GameDelay > 0)
+        get
         {
-            return null;
+            if (_spawnPoint == null)
+            {
+                _spawnPoint = GetComponent<SpawnPoint>();
+            }
+
+            return _spawnPoint;
         }
-
-
-        return Ac_Delay;
+        set => _spawnPoint = value;
     }
+
+
+    public float PlaterAttackZone { get; set; } = -11;
+    public float MonsterSpeed { get; set; } = 20;
 
     public void SetDelay(float delay, System.Action action)
     {
-        GameDelay = delay;
-        Ac_Delay = action;
-        Ac_Delay += Reset;
+        StartCoroutine(IE_Delay(delay, action));
     }
 
-    public void SetDelay(float delay, System.Action action, bool nonereset)
+    public IEnumerator IE_Delay(float delay, System.Action action)
     {
-        GameDelay = delay;
-        Ac_Delay = action;
+        yield return new WaitForSeconds(delay);
+        action?.Invoke();
     }
 
-    public void Reset()
-    {
-        Ac_Delay = null;
-    }
-
-    //딜레이 시간
-    public float GetStartDelayTime()
+    //생성 거리 딜레이 시간
+    public float GetMonsterCreateDelay()
     {
         var pointX = spawnPoint.GetPoint(0).x;
         var attackzone = PlaterAttackZone;
@@ -62,16 +49,5 @@ public class SpawnDelay : MonoBehaviour, ISpawnDelay
 
         return time;
     }
-
 }
 
-interface ISpawnDelay
-{
-    float GameDelay { get; set; }
-    System.Action Ac_Delay { get; set; }
-    System.Action GetDelayAction();
-    void SetDelay(float delay, System.Action action);
-    void SetDelay(float delay, System.Action action, bool nonereset);
-    void Reset();
-    float GetStartDelayTime();
-}

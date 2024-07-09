@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using UnityEngine;
 
 public class SpawnManager : Singleton<SpawnManager>
@@ -75,110 +72,76 @@ public class SpawnManager : Singleton<SpawnManager>
     }
     #endregion
 
-    //게임 상태
-    E_GameState e_GameState_;
-    float DirDelayTime;
-    float OffSetTime;
-
-    //게임 오버 후 딜레이 시간
-    const float gameOverTime_Result = 2.5f;
-    //게임 오버 후 딜레이 시간
-    const float gameOverTime_Delay = 2f;
-    const float gameOverTime_Delay_Destory = 3f;
     [SerializeField] string StrMusicFileName;
+    bool isStart;
+    bool isEndGame;
+    float DelayStartTime;
+    float UpdateDelayStartTime;
 
-    public System.Action Ac_EndGame;
-    System.Action Ac_MusicPlay;
+    private void Start()
+    {
+        PlayManager.instance.AddAction(E_Play.End, () => SetisStart(false));
+        PlayManager.instance.AddAction(E_Play.End, AudioManager.instance.StopMusic);
+        PlayManager.instance.AddAction(E_Play.End, spawnCreate.AllDestoryMonster);
+
+        System.Action action = () =>
+        {
+            spawnDelay.SetDelay(2, gameResult.SetGameResult);
+        };
+        PlayManager.instance.AddAction(E_Play.End, action);
+
+        System.Action actions = () =>
+        {
+            spawnDelay.SetDelay(4, UI_GameOver.Create);
+        };
+        PlayManager.instance.AddAction(E_Play.End, actions);
+    }
+
+    private void Update()
+    {
+        UpdateEndSpwan();
+    }
 
     private void FixedUpdate()
     {
-        spawnDelay?.GetDelayAction()?.Invoke();
-        switch (e_GameState_)
-        {
-            case E_GameState.Play:
-                UpdatePlay();
-                UpdateEndCheck();
-                break;
-        }
+        UpdatePlay();
     }
-
-    public void SetState(E_GameState State)
-    {
-        switch (State)
-        {
-            case E_GameState.Wait:
-                OffSetTime = spawnDelay.GetStartDelayTime();
-                OffSetTime += 0.1f;
-                break;
-            case E_GameState.Play:
-                Ac_MusicPlay += () => AudioManager.instance.PlayMusic();
-                Ac_MusicPlay += () => Ac_MusicPlay = null;
-                break;
-            case E_GameState.End:
-
-
-                System.Action actions = () =>
-                {
-                    spawnCreate.AllDestoryMonster();
-                    spawnDelay.Reset();
-                    System.Action action = () =>
-                    {
-                        spawnDelay.Reset();
-                        SetState(E_GameState.Result);
-                    };
-                    spawnDelay.SetDelay(gameOverTime_Delay, action, true);
-                };
-                spawnDelay.SetDelay(gameOverTime_Delay_Destory, actions, true);
-                break;
-            case E_GameState.GameOver:
-                GameEnd();
-                break;
-            case E_GameState.Result:
-                Ac_EndGame?.Invoke();
-                gameResult?.SetGameResult();
-                spawnDelay.SetDelay(gameOverTime_Result, () => SetState(E_GameState.GameOver));
-                break;
-        }
-        e_GameState_ = State;
-    }
-
 
     //게임 시작
     public void PlayGame()
     {
-        SetState(E_GameState.Wait);
-
         var bitname = string.IsNullOrEmpty(StrMusicFileName) ? UI_Lobby.Str_BitName : StrMusicFileName;
-
         spawnTimePoint.SetUp(bitname);
         spawnCreate.SetStart();
         DelayStart();
     }
 
+
     //딜레이 후 시작
     void DelayStart()
     {
-        System.Action action = () =>
-        {
-            spawnDelay.Reset();
-            SetState(E_GameState.Play);
-        };
-        spawnDelay.SetDelay(2, action, true);
+        spawnDelay.SetDelay(2, () => SetisStart(true));
+
+        DelayStartTime = spawnDelay.GetMonsterCreateDelay();
+        spawnDelay.SetDelay(2 + DelayStartTime, AudioManager.instance.PlayMusic);
     }
 
     //플레이
     void UpdatePlay()
     {
-        DirDelayTime += Time.fixedDeltaTime;
-
-        if (DirDelayTime <= OffSetTime)
+        if (!isStart)
         {
-            SetCreate(DirDelayTime);
             return;
         }
-        Ac_MusicPlay?.Invoke();
-        var totaltime = AudioManager.instance.GetAudioTime() + OffSetTime;
-        SetCreate(totaltime);
+
+        UpdateDelayStartTime += Time.fixedDeltaTime;
+        if (UpdateDelayStartTime >= DelayStartTime)
+        {
+            UpdateDelayStartTime = DelayStartTime;
+        }
+
+        var totaltime = AudioManager.instance.GetAudioTime();
+        SetCreate(totaltime + UpdateDelayStartTime);
     }
 
     void SetCreate(double totaltime)
@@ -192,28 +155,30 @@ public class SpawnManager : Singleton<SpawnManager>
         spawnCreate?.SetActiveMonster();
     }
 
-    void UpdateEndCheck()
+    public void SetisStart(bool State)
     {
-        var check = spawnTimePoint.CheckEndTiems();
-        if (!check)
+        isStart = State;
+    }
+
+
+    /// <summary>
+    /// 게임 종료 확인
+    /// </summary>
+    void UpdateEndSpwan()
+    {
+        if (!isStart)
         {
             return;
         }
 
-        SetState(E_GameState.End);
-    }
+        var check = spawnTimePoint.CheckEndTiems();
 
-    //게임 종료 함수
-    void GameEnd()
-    {
-        AudioManager.instance.StopMusic();
-        UI_GameOver.Create();
-    }
-
-
-    //현재 게임상태 가져오기
-    public E_GameState GetGameState()
-    {
-        return e_GameState_;
+        if (!check)
+        {
+            return;
+        }
+        isEndGame = true;
+        PlayManager.instance.SetAction(E_Play.End);
+        SetisStart(false);
     }
 }

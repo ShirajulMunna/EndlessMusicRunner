@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class SkillSystem : MonoBehaviour
+public class SkillSystem : Singleton<SkillSystem>
 {
     public enum E_Trigger
     {
@@ -18,9 +18,6 @@ public class SkillSystem : MonoBehaviour
         Passive
     }
 
-
-    public static SkillSystem instance;
-
     System.Action Ac_CoolTime;
     Dictionary<KeyCode, System.Action> D_ActiveSkill = new Dictionary<KeyCode, System.Action>();
     Dictionary<int, KeyCode> D_ActiveskillKeys = new Dictionary<int, KeyCode>();
@@ -30,11 +27,6 @@ public class SkillSystem : MonoBehaviour
     Dictionary<int, SkillICON> D_SkillICON = new Dictionary<int, SkillICON>();
 
     public Transform Tr_SkillICONCreate;
-
-    private void Awake()
-    {
-        instance = this;
-    }
 
     private void Start()
     {

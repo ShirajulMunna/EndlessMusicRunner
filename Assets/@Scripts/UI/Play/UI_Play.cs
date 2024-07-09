@@ -3,10 +3,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_Play : MonoBehaviour
+public class UI_Play : Singleton<UI_Play>
 {
-    public static UI_Play Instance;
-
     [Header("키 설명")]
     public GameObject Key_Explain;
 
@@ -35,16 +33,19 @@ public class UI_Play : MonoBehaviour
     public System.Action Ac_Update;
     public System.Action Ac_Play;
 
-    private void Awake()
-    {
-        Instance = this;
-
-    }
-
     private void Update()
     {
         Ac_Update?.Invoke();
         UpdatePlaying();
+    }
+
+    public void ActivatPanel(bool activate)
+    {
+        ScoreManager.instance.ScoreReset();
+        Key_Explain.SetActive(activate);
+        PlayManager.instance.SetAction(E_Play.Play);
+        StartCoroutine(DeactivatePanel());
+        SetPlaying();
     }
 
     void SetPlaying()
@@ -57,15 +58,6 @@ public class UI_Play : MonoBehaviour
     {
         CurAudioValue = AudioManager.instance.GetAudioTime();
         Img_Gage.fillAmount = (float)CurAudioValue / MaxAudioValue;
-    }
-
-    public void ActivatPanel(bool activate)
-    {
-        ScoreManager.instance.ScoreReset();
-        Key_Explain.SetActive(activate);
-        Ac_Play?.Invoke();
-        StartCoroutine(DeactivatePanel());
-        SetPlaying();
     }
 
     IEnumerator DeactivatePanel()

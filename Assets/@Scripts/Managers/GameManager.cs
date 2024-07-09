@@ -5,47 +5,30 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
-
-    public static GameManager instance;
-
-    public PlayerSystem player;
-    public PlayerSystem player_1;
-    [HideInInspector] public Vector3 longNoteDestoryPosition;
-
-    public Vector3 GameResultPosition = new Vector3(10, -2, 0);
-    void Awake()
+    static Player _Player;
+    public static Player M_Player
     {
-        if (instance != null)
+        get
         {
-            Destroy(this.gameObject);
+            if (_Player == null)
+            {
+                _Player = FindObjectOfType<Player>();
+            }
+
+            return _Player;
         }
-        else
-        {
-            instance = this;
-        }
-        Application.targetFrameRate = 120;
     }
 
-    public PlayerSystem GetPlayer(float y)
-    {
-        return y > 0 ? player_1 : player;
-    }
-
-    // After playing some times background will
-    // will change autometically .
-    // Implement it here
+    Vector3 GameResultPosition = new Vector3(10, -2, 0);
 
     private UI_Pause pasueObject;
 
-    //게임 결과 가져오기
-    public void SetGameResult(GameResultType type)
+    private void Awake()
     {
-        Spine_GameResult.Create(GameResultPosition, type);
+        Application.targetFrameRate = 120;
     }
-
-
 
     public void Update()
     {
@@ -62,6 +45,13 @@ public class GameManager : MonoBehaviour
                 Btn_Pause();
         }
     }
+
+    //게임 결과 가져오기
+    public void SetGameResult(GameResultType type)
+    {
+        Spine_GameResult.Create(GameResultPosition, type);
+    }
+
     public async void Btn_Pause()
     {
         var name = "UI_Pause";

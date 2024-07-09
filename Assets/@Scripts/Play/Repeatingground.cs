@@ -5,28 +5,24 @@ using UnityEngine;
 public class Repeatingground : MonoBehaviour
 {
     [SerializeField] float speed;
-    [SerializeField] bool CheckisStop;
     float startPosition;
     float lastPosition = -250;
     Vector3 pos;
+    bool isStop;
 
     private void Start()
     {
         pos = new Vector3(startPosition, transform.position.y);
+        PlayManager.instance.AddAction(E_Play.Boss, () => isStop = true);
     }
 
     void Update()
     {
-        var conditioncheck_0 = SpawnManager.instance.GetGameState() == E_GameState.Result && speed >= 0.01f;
-        var conditioncheck_1 = CheckisStop ? GameManager.instance.player.isStopPlayer : false;
-
-        // 게임이 끝난다면 움직임 종료 
-        if (conditioncheck_0 || conditioncheck_1)
+        if (isStop)
         {
-            speed = 0.0f;
+            return;
         }
-        else if (GameManager.instance.player.CurHp <= 0)
-            speed = 0.0f;
+
         transform.Translate(Vector3.left * Time.deltaTime * speed);
 
         if (transform.position.x <= lastPosition)

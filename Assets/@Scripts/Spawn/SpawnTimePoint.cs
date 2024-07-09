@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnTimePoint : MonoBehaviour, ISpawnTimePoint
 {
     public ToolData toolData { get; set; }
+    public SpawnDelay spawnDelay { get; set; }
 
     List<double> L_Times = new List<double>();
     ToolDataManager toolDataManager;
@@ -12,8 +13,8 @@ public class SpawnTimePoint : MonoBehaviour, ISpawnTimePoint
     public void SetUp(string name)
     {
         L_Times.Clear();
+        spawnDelay = GetComponent<SpawnDelay>();
         toolDataManager = GetComponent<ToolDataManager>();
-        print(name);
         toolData = toolDataManager.GetLoad(name);
         L_Times = toolData.L_TimePoint.ToList();
     }
@@ -37,13 +38,4 @@ public class SpawnTimePoint : MonoBehaviour, ISpawnTimePoint
     {
         return L_Times.Count <= 0;
     }
-}
-
-interface ISpawnTimePoint
-{
-    ToolData toolData { get; set; }
-    void SetUp(string name);
-    bool CheckTime(double times);
-    void RemoveTimes();
-    bool CheckEndTiems();
 }

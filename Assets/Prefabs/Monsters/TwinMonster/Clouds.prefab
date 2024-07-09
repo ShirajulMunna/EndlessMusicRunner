@@ -11,7 +11,12 @@ GameObject:
   - component: {fileID: 1360827245715586380}
   - component: {fileID: 5901821475690382484}
   - component: {fileID: 7899325905714343274}
-  - component: {fileID: 835354748177332750}
+  - component: {fileID: 6069044019887975061}
+  - component: {fileID: -7757000701537267087}
+  - component: {fileID: -4968936411916087930}
+  - component: {fileID: 4293540671583920393}
+  - component: {fileID: -423814166303344361}
+  - component: {fileID: -7069460396247256242}
   m_Layer: 8
   m_Name: Clouds
   m_TagString: Monster
@@ -107,7 +112,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3, y: 6.241944}
   m_EdgeRadius: 0
---- !u!114 &835354748177332750
+--- !u!114 &6069044019887975061
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,17 +121,70 @@ MonoBehaviour:
   m_GameObject: {fileID: 5761064382725156241}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47d2d6b5a50aca048bb52a9390d502be, type: 3}
+  m_Script: {fileID: 11500000, guid: 64ebd369c72b73a44b25f04da5ff8806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 1
-  curHp: 1
-  _skeletonAnimation: {fileID: 1503502804172216974}
-  damageAmount: 5
-  damageFx: {fileID: 6630400188505773858, guid: dd80aa9b27baa334ea57eb66d90b8392, type: 3}
-  Change: 0
-  Sk: []
-  uniqMonster: 3
+--- !u!114 &-7757000701537267087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5761064382725156241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6ad9306d9d72be4b84c2b1c848c85ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-4968936411916087930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5761064382725156241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b074feb090d8fcf40ab3cc6d208c368a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4293540671583920393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5761064382725156241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f0c8d853cb0bf24a8df1e88c4c31790, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sk: {fileID: 0}
+--- !u!114 &-423814166303344361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5761064382725156241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c65154ebebe952843b93ce076a952698, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-7069460396247256242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5761064382725156241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5a0f6033f69668449e4a6879901b6df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7310268301564807895
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,7 +197,6 @@ GameObject:
   - component: {fileID: 6142286235480696715}
   - component: {fileID: 1503502804172216974}
   - component: {fileID: 1890937799203830875}
-  - component: {fileID: 22961832205888320}
   m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
@@ -252,15 +309,3 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7310268301564807895}
   m_Mesh: {fileID: 0}
---- !u!114 &22961832205888320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7310268301564807895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 012f8caf96117b642b39ab58708b5eae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
