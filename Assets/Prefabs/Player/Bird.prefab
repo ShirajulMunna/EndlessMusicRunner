@@ -123,7 +123,7 @@ Transform:
   m_GameObject: {fileID: 5080516472507002763}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.7, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -157,7 +157,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b79ed8437041daa46955e382ae9b39c4, type: 2}
+  - {fileID: 2100000, guid: 74294acc90417f346b757717523fea53, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: 8323912bc1ad603498b7fd4c39dc4cc8, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: baf1f2950e0399f46b59687ac26e2b68, type: 2}
   initialSkinName: skin0
   fixPrefabOverrideViaMeshFilter: 2
   initialFlipX: 0
@@ -216,7 +216,7 @@ MonoBehaviour:
   disableRenderingOnOverride: 1
   updateTiming: 1
   unscaledTime: 0
-  _animationName: Running
+  _animationName: running
   loop: 1
   timeScale: 1
 --- !u!1 &6279018230795655936
@@ -302,7 +302,7 @@ GameObject:
   - component: {fileID: 3240313346248199669}
   - component: {fileID: 7785734086702686972}
   m_Layer: 0
-  m_Name: Player 1
+  m_Name: Bird
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -408,22 +408,18 @@ MonoBehaviour:
   - ParticleType: 3
     G_Particle:
     - {fileID: 6287367797854668996}
-    ActiveTime: 0
     Loop: 0
   - ParticleType: 4
     G_Particle:
     - {fileID: 3957618831164542698}
-    ActiveTime: 2
     Loop: 0
   - ParticleType: 5
     G_Particle:
     - {fileID: 7546043932877010485}
-    ActiveTime: 2
     Loop: 0
   - ParticleType: 6
     G_Particle:
     - {fileID: 6279018230795655936}
-    ActiveTime: 2
     Loop: 0
 --- !u!114 &913829019021342680
 MonoBehaviour:
@@ -462,6 +458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sk: {fileID: 1236657713761570640}
+  nPC: {fileID: 0}
 --- !u!114 &8221021730761921059
 MonoBehaviour:
   m_ObjectHideFlags: 0

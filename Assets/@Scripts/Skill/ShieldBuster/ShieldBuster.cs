@@ -14,7 +14,8 @@ public class ShieldBuster : Skill
         {
             return;
         }
-        GameManager.M_Player.nPC_ParticleSystem.ActiveParticle(E_ParticleKind.Shield, st_Skill.Activetime);
+        PlayerManager.instance.GetPlayer(0).nPC_ParticleSystem.ActiveParticle(E_ParticleKind.Shield, st_Skill.Activetime);
+        PlayerManager.instance.GetPlayer(1).nPC_ParticleSystem.ActiveParticle(E_ParticleKind.Shield, st_Skill.Activetime);
     }
 
     //쉴드 작동 체크

@@ -14,11 +14,15 @@ public class AudioManager : Singleton<AudioManager>
     [SerializeField] public AudioSource Audio_BackGround;
     [SerializeField] AudioClip[] BackSound;
 
-    void Start()
+    private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
         SetBG();
-        PlayManager.instance.AddAction(E_Play.Play, () => GameManager.M_Player.Ac_Hit += PlayerHItSound);
+    }
+
+    private void Start()
+    {
+        PlayerManager.instance.Ac_Hit += PlayerHItSound;
     }
 
     void SetBG()

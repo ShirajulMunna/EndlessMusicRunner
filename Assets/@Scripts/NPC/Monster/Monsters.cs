@@ -84,7 +84,7 @@ public class Monsters : NPC, IMonster
         //공격 셋팅
         System.Action action = () =>
         {
-            var target_npc = GameManager.M_Player;
+            var target_npc = PlayerManager.instance.GetPlayer(transform.position.y);
             SetAttack(target_npc);
         };
         monsterAttack?.AddAttack(action);
@@ -112,7 +112,7 @@ public class Monsters : NPC, IMonster
         // 오른쪽으로 랜덤 방향 설정 (X 축 양수 방향)
         float randomY = Random.Range(-1f, 1f);
         float randomX = Random.Range(-1f, 1f);
-        var target = new Vector3(randomX, randomY, 0f).normalized; // 정규화된 벡터
+        var target = new Vector3(randomX, transform.position.y, 0f).normalized; // 정규화된 벡터
         nPC_Move?.SetTarget(target);
     }
 

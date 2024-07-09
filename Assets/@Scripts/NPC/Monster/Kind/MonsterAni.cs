@@ -18,31 +18,15 @@ public class MonsterAni : MonoBehaviour, IAni, IMonsterAni
     public int AttackCount { get; set; }
     public int HitCount { get; set; }
 
-    [SerializeField] List<St_Monster_Ani> st_Monster_Anis;
-
-    Dictionary<E_AniKind_Monster, string> D_Ani = new Dictionary<E_AniKind_Monster, string>();
+    Dictionary<E_AniKind_Monster, string> D_Ani = new Dictionary<E_AniKind_Monster, string>()
+    {
+        { E_AniKind_Monster.idle,"idle"},
+    };
 
     private void Start()
     {
         _sk = transform.GetChild(0).GetComponent<SkeletonAnimation>();
-        SetAniData();
         SetPlayerSkin();
-    }
-
-    /// <summary>
-    /// 애니메이션 데이터 적용
-    /// </summary>
-    void SetAniData()
-    {
-        if (st_Monster_Anis == null || st_Monster_Anis.Count <= 0)
-        {
-            return;
-        }
-
-        foreach (var item in st_Monster_Anis)
-        {
-            D_Ani[item.e_AniKind_Monster] = item.Ani;
-        }
     }
 
     /// <summary>

@@ -39,7 +39,7 @@ public class SpawnCreate : Singleton<SpawnCreate>, ISpawnCreate
             var currentLevel = level[i];
             var monsterInfo = GameData.Data.MonsterTable[currentLevel.MonsterInfo];
             int spawnCount = currentLevel.MonsterSpwanCount;
-            var posstate = (MonsterSpwanPosition)currentLevel.Spwan_Position;
+            var posstate = (E_MoveData)currentLevel.Spwan_Position;
             var offsetx = currentLevel.OffSetX;
             var offsety = currentLevel.OffSetY;
 
@@ -83,7 +83,7 @@ public class SpawnCreate : Singleton<SpawnCreate>, ISpawnCreate
             {
                 continue;
             }
-            
+
             if (item.npc == null)
             {
                 continue;

@@ -17,30 +17,22 @@ public class MonsterAni_Special : MonoBehaviour, IAni, IMonsterAni
     };
     public int HitCount { get; set; }
 
-    [SerializeField] List<St_Monster_Ani> st_Monster_Anis;
-
-    Dictionary<E_AniKind_Monster, string> D_Ani = new Dictionary<E_AniKind_Monster, string>();
+    Dictionary<E_AniKind_Monster, string> D_Ani = new Dictionary<E_AniKind_Monster, string>()
+    {
+        { E_AniKind_Monster.idle,"idle"},
+        { E_AniKind_Monster.Attack_1,"Attack1"},
+        { E_AniKind_Monster.Attack_2,"Attack2"},
+        { E_AniKind_Monster.Attack_3,"Attack3"},
+        { E_AniKind_Monster.Hit_0,"Hit_0"},
+        { E_AniKind_Monster.Hit_1,"Hit_1"},
+        { E_AniKind_Monster.Hit_2,"Hit_2"},
+        { E_AniKind_Monster.Die,"retire"},
+        { E_AniKind_Monster.Move,"walking"},
+    };
 
     private void Start()
     {
-        SetAniData();
         SetPlayerSkin();
-    }
-
-    /// <summary>
-    /// 애니메이션 데이터 적용
-    /// </summary>
-    void SetAniData()
-    {
-        if (st_Monster_Anis == null)
-        {
-            return;
-        }
-
-        foreach (var item in st_Monster_Anis)
-        {
-            D_Ani[item.e_AniKind_Monster] = item.Ani;
-        }
     }
 
     /// <summary>

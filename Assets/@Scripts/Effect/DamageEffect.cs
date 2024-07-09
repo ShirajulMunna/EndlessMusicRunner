@@ -28,12 +28,10 @@ public class DamageEffect : MonoBehaviour
 
         switch (e_MoveData)
         {
-            case E_MoveData.Down:
-            case E_MoveData.Twin:
-            case E_MoveData.Middle:
-            default:
-                break;
-            case E_MoveData.Up:
+            case E_MoveData.Higt_Higt:
+            case E_MoveData.Higt_Middle:
+            case E_MoveData.Higt_Low:
+            case E_MoveData.Higt_Twin:
                 idx = 2;
                 break;
         }

@@ -7,20 +7,6 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    static Player _Player;
-    public static Player M_Player
-    {
-        get
-        {
-            if (_Player == null)
-            {
-                _Player = FindObjectOfType<Player>();
-            }
-
-            return _Player;
-        }
-    }
-
     Vector3 GameResultPosition = new Vector3(10, -2, 0);
 
     private UI_Pause pasueObject;

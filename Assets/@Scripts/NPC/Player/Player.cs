@@ -1,4 +1,5 @@
 using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
 public class Player : NPC
@@ -47,14 +48,9 @@ public class Player : NPC
     float MiddleDelay;
     float MaxMiddleDelay = 0.25f;
     bool isMiddle;
+    bool isHigt;
 
     public System.Action Ac_Hit;
-
-
-    private void Start()
-    {
-        SetUp(1000000, 500, 10, IMovePoint.GetMovePoint(E_MoveData.Down));
-    }
 
     private void Update()
     {
@@ -65,65 +61,84 @@ public class Player : NPC
     {
         base.SetUp(hp, speed, damage, target);
         nPC_ParticleSystem.ActiveParticle(E_ParticleKind.Running, 0);
-        SetKeyInput();
-
         System.Action action = () =>
         {
-            var kind = nPC_Move.GetMoveData() == E_MoveData.Down ? E_AniKind_Player.Running : E_AniKind_Player.Fly;
-            player_Ani.SetAni(player_Ani.GetAniString(kind), true, null);
+            SetBoss();
         };
         PlayManager.instance.AddAction(E_Play.Boss, action);
     }
 
-    void SetKeyInput()
+    void SetBoss()
     {
-        player_KeyInput.AddKeyPoint_Down(KeyCode.F, KeyDown_F);
-        player_KeyInput.AddKeyPoint_Down(KeyCode.J, KeyDown_J);
-
-        player_KeyInput.AddKeyPoint_Up(KeyCode.F, ResetKey);
-        player_KeyInput.AddKeyPoint_Up(KeyCode.J, ResetKey);
-
-        player_KeyInput.AddTwinKeyPoint_Down(KeyCode.F, KeyCode.J, SetTwin);
-        player_KeyInput.AddTwinKeyPoint_Up(KeyCode.F, KeyCode.J, ResetKey);
+        var point = Getnpc().nPC_Move.GetMoveData();
+        var kind = point == E_MoveData.Higt_Low || point == E_MoveData.Low_Low ? E_AniKind_Player.Running : E_AniKind_Player.Fly;
+        GetAni_npc().SetAni(GetAni_npc().GetAniString(kind), true, null);
     }
 
-    void KeyDown_F()
+    public void SetKeyInput(KeyCode code_1, KeyCode code_2, bool ishigt)
     {
-        if (!CheckMoveAni(E_MoveData.Up))
+        isHigt = ishigt;
+        var up = ishigt ? E_MoveData.Higt_Higt : E_MoveData.Low_Higt;
+        var downs = ishigt ? E_MoveData.Higt_Low : E_MoveData.Low_Low;
+        var twin = ishigt ? E_MoveData.Higt_Twin : E_MoveData.Low_Twin;
+
+        player_KeyInput.AddKeyPoint_Down(code_1, () => KeyDown(up, E_AniKind_Player.Fly));
+        player_KeyInput.AddKeyPoint_Down(code_2, () => KeyDown(downs, E_AniKind_Player.Down));
+        player_KeyInput.AddKeyPoint_Up(code_1, () => ResetKey());
+        player_KeyInput.AddKeyPoint_Up(code_2, () => ResetKey());
+        player_KeyInput.AddTwinKeyPoint_Down(code_1, code_2, () => SetTwin(twin));
+        player_KeyInput.AddTwinKeyPoint_Up(code_1, code_2, () => ResetKey());
+
+        SetUp(100, 500, 10, IMovePoint.GetMovePoint(downs));
+    }
+
+    void KeyDown(E_MoveData e_MoveData, E_AniKind_Player e_AniKind_Player)
+    {
+        var ani = GetAni_npc();
+        var attacker = GetAttacker_npc();
+        var nPc = Getnpc();
+
+        var beforemove = nPc.nPC_Move.GetMoveData();
+        nPc.nPC_Move.SetTarget(e_MoveData);
+
+        if (!CheckMoveAni(beforemove, e_MoveData))
         {
-            player_Ani.SetAni(player_Ani.GetAniString(E_AniKind_Player.Fly), true, null);
+            ani.SetAni(ani.GetAniString(e_AniKind_Player), true, null);
         }
-        nPC_Move.SetTarget(E_MoveData.Up);
-        player_Attacker.SetHold(true);
-        player_Attacker.SetAttack(E_MoveData.Up);
+        attacker.SetHold(true);
+        attacker.SetAttack(e_MoveData);
     }
-
-    void KeyDown_J()
-    {
-        if (!CheckMoveAni(E_MoveData.Down))
-        {
-            player_Ani.SetAni(player_Ani.GetAniString(E_AniKind_Player.Down), true, null);
-        }
-        nPC_Move.SetTarget(E_MoveData.Down);
-        player_Attacker.SetHold(true);
-        player_Attacker.SetAttack(E_MoveData.Down);
-    }
-
     /// <summary>
     /// idle애니메이션 체크
     /// </summary>
-    bool CheckMoveAni(E_MoveData data)
+    bool CheckMoveAni(E_MoveData before, E_MoveData data)
     {
-        return nPC_Move.GetMoveData() == data;
+        return before == data;
+    }
+
+    public Player_Ani GetAni_npc()
+    {
+        return player_Ani;
+    }
+
+    public Player_Attacker GetAttacker_npc()
+    {
+        return player_Attacker;
+    }
+
+    public NPC Getnpc()
+    {
+        return this;
     }
 
     /// <summary>
     /// 트윈 온
     /// </summary>
-    void SetTwin()
+    void SetTwin(E_MoveData e_MoveData)
     {
-        player_Attacker.SetTwin(true);
-        player_Attacker.SetAttack(E_MoveData.Twin);
+        var attacker = GetAttacker_npc();
+        attacker.SetTwin(true);
+        attacker.SetAttack(e_MoveData);
     }
 
     /// <summary>
@@ -131,8 +146,9 @@ public class Player : NPC
     /// </summary>
     void ResetKey()
     {
-        player_Attacker.SetTwin(false);
-        player_Attacker.SetHold(false);
+        var attacker = GetAttacker_npc();
+        attacker.SetTwin(false);
+        attacker.SetHold(false);
     }
 
     public override void SetAttack(NPC target)
@@ -170,6 +186,7 @@ public class Player : NPC
         ScoreManager.instance.SetCombo_Reset();
         player_Ani.SetAni(player_Ani.GetAniString(E_AniKind_Player.Hit), false, player_Ani.GetAniString(E_AniKind_Player.Idle));
         base.SetHit(hp);
+        PlayerManager.instance.SetHit();
         UpdateHp();
         print($"현재HP{nPC_Status.GetHp()}");
     }
@@ -198,14 +215,14 @@ public class Player : NPC
             return;
         }
         isMiddle = false;
-        nPC_Move.SetTarget(E_MoveData.Down);
+        nPC_Move.SetTarget(isHigt ? E_MoveData.Higt_Low : E_MoveData.Low_Low);
     }
 
     void SetMiddle()
     {
         MiddleDelay = 0;
         isMiddle = true;
-        nPC_Move.SetTarget(E_MoveData.Middle);
+        nPC_Move.SetTarget(isHigt ? E_MoveData.Higt_Middle : E_MoveData.Low_Middle);
     }
 
     void UpdateHp()

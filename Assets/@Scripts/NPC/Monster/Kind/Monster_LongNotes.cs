@@ -7,12 +7,12 @@ public class Monster_LongNotes : Monsters
     const string Name = "LongEffect_{0}";
     Player_Attacker player_Attacker
     {
-        get => GameManager.M_Player.player_Attacker;
+        get => PlayerManager.instance.GetPlayer(transform.position.y).player_Attacker;
     }
 
     NPC player
     {
-        get => GameManager.M_Player;
+        get => PlayerManager.instance.GetPlayer(transform.position.y);
     }
 
     float GetScoreTime;
@@ -126,5 +126,10 @@ public class Monster_LongNotes : Monsters
     {
         base.SetActive();
         initialDestoryTime = LongDestoryTime;
+    }
+
+    private void OnDestroy()
+    {
+        ActiveEndEffect();
     }
 }

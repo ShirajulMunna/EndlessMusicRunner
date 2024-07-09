@@ -47,13 +47,21 @@ public class Player_Attacker : MonoBehaviour, IPlayerAttack
     };
 
     //위치
-    public Dictionary<E_MoveData, Vector3> Tr_AttackVector { get; set; } = new Dictionary<E_MoveData, Vector3>()
+    public Dictionary<E_MoveData, Vector3> Tr_AttackVector { get; set; } = IMovePoint.GetPoint();
+    const float XVlaue = -11;
+
+    Vector3 GetPoint(E_MoveData e_MoveData)
     {
-        {E_MoveData.Down,new Vector3(-11, -3.5f, 0)},
-        {E_MoveData.Middle,new Vector3(-11, 0f, 0)},
-        {E_MoveData.Up,new Vector3(-11, 3.5f, 0)},
-        {E_MoveData.Twin,new Vector3(-11, 0f, 0)},
-    };
+        if (!Tr_AttackVector.ContainsKey(e_MoveData))
+        {
+            return default;
+        }
+
+        var pos = Tr_AttackVector[e_MoveData];
+        pos.x = XVlaue;
+        return pos;
+    }
+
 
     public void SetAttack(E_MoveData idx)
     {
@@ -82,21 +90,33 @@ public class Player_Attacker : MonoBehaviour, IPlayerAttack
         var mon = obj.GetComponent<IMonster>();
         var type = mon.monsterType.GetMonsterType();
 
-        var twin = type == E_MonsterType.Twin && idx != E_MoveData.Twin;
-        var mid = type == E_MonsterType.Middle && idx != E_MoveData.Middle;
-        if (twin || mid)
+        if (type == E_MonsterType.Twin)
         {
-            return;
+            var check = idx == E_MoveData.Higt_Twin || idx == E_MoveData.Low_Twin;
+            if (!check)
+            {
+                return;
+            }
         }
+
+        if (type == E_MonsterType.Middle)
+        {
+            var check = idx == E_MoveData.Higt_Middle || idx == E_MoveData.Low_Middle;
+            if (!check)
+            {
+                return;
+            }
+        }
+        
         AudioManager.instance.PlaySound(scorestate);
-        player_Effect.SetEffect(Tr_AttackVector[idx], scorestate);
+        player_Effect.SetEffect(GetPoint(idx), scorestate);
     }
 
     public (Collider2D[], ScoreManager.E_ScoreState) SetAttack_Area(E_MoveData idx)
     {
-        GameLog.Log($"위치값: {Tr_AttackVector[idx]} /방향: {idx}");
+        GameLog.Log($"위치값: {GetPoint(idx)} /방향: {idx}");
         //퍼펙트 체크
-        var col = Physics2D.OverlapBoxAll(Tr_AttackVector[idx], BoxSize[(int)ScoreManager.E_ScoreState.Perfect], default);
+        var col = Physics2D.OverlapBoxAll(GetPoint(idx), BoxSize[(int)ScoreManager.E_ScoreState.Perfect], default);
 
         if (col != null && col.Length > 0)
         {
@@ -104,7 +124,7 @@ public class Player_Attacker : MonoBehaviour, IPlayerAttack
         }
 
         //그레이트 체크
-        col = Physics2D.OverlapBoxAll(Tr_AttackVector[idx], BoxSize[(int)ScoreManager.E_ScoreState.Great], default);
+        col = Physics2D.OverlapBoxAll(GetPoint(idx), BoxSize[(int)ScoreManager.E_ScoreState.Great], default);
 
         if (col != null && col.Length > 0)
         {
@@ -112,7 +132,7 @@ public class Player_Attacker : MonoBehaviour, IPlayerAttack
         }
 
         //얼리 체크
-        var earlypos = Tr_AttackVector[idx];
+        var earlypos = GetPoint(idx);
         earlypos.x += OffSetX_value;
         col = Physics2D.OverlapBoxAll(earlypos, BoxSize[(int)ScoreManager.E_ScoreState.Early], default);
 
@@ -122,7 +142,7 @@ public class Player_Attacker : MonoBehaviour, IPlayerAttack
         }
 
         //늦음 체크
-        var latepos = Tr_AttackVector[idx];
+        var latepos = GetPoint(idx);
         latepos.x += -OffSetX_value;
         col = Physics2D.OverlapBoxAll(latepos, BoxSize[(int)ScoreManager.E_ScoreState.Late], default);
 
@@ -182,7 +202,7 @@ public class Player_Attacker : MonoBehaviour, IPlayerAttack
 
     void DrawOverlapBox(E_MoveData i, ScoreManager.E_ScoreState state, Color color)
     {
-        var pos = Tr_AttackVector[i];
+        var pos = GetPoint(i);
         var boxsize = BoxSize[(int)state];
 
         if (state == ScoreManager.E_ScoreState.Early)

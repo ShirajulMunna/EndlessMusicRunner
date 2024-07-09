@@ -15,12 +15,14 @@ public class Healing : Skill
             return;
         }
         result?.SetHealing(healing);
-        GameManager.M_Player.nPC_ParticleSystem.ActiveParticle(E_ParticleKind.Heal, st_Skill.Activetime);
+        PlayerManager.instance.GetPlayer(0).nPC_ParticleSystem.ActiveParticle(E_ParticleKind.Heal, st_Skill.Activetime);
+        PlayerManager.instance.GetPlayer(1).nPC_ParticleSystem.ActiveParticle(E_ParticleKind.Heal, st_Skill.Activetime);
     }
 
     public void SetHealing(int healing)
     {
-        GameManager.M_Player.nPC_Status.SetHp(healing);
+        PlayerManager.instance.GetPlayer(0).nPC_Status.SetHp(healing);
+        PlayerManager.instance.GetPlayer(1).nPC_Status.SetHp(healing);
     }
 }
 

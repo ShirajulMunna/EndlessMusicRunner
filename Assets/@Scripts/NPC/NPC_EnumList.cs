@@ -1,9 +1,15 @@
 public enum E_MoveData
 {
-    Down,
-    Middle,
-    Up,
-    Twin
+    Higt_Higt,
+    Higt_Middle,
+    Higt_Low,
+
+    Low_Higt,
+    Low_Middle,
+    Low_Low,
+
+    Higt_Twin,
+    Low_Twin,
 }
 
 public enum E_ParticleKind

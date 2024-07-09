@@ -4,50 +4,25 @@ using UnityEngine;
 
 public class SpawnPoint : MonoBehaviour, ISpawnPoint
 {
-    //스폰 위치
-    public List<Vector3> L_SpawnPoint { get; set; } = new List<Vector3>()
+    const float Xvalue = 20;
+
+    public Dictionary<E_MoveData, Vector3> D_MovePoint { get; set; } = IMovePoint.GetPoint();
+
+    public Vector3 GetSpawnPoint(E_MoveData spwanPosition, float offsetx, float offsety)
     {
-        new Vector3(20, -3.5f, 0),
-        new Vector3(20, 0, 0),
-        new Vector3(20, 3.5f, 0),
-    };
-
-    public Vector3 GetSpawnPoint(MonsterSpwanPosition spwanPosition, float offsetx, float offsety)
-    {
-        var MySpwanPoint = GetPoint(E_SpawnPoint.Hight);
-
-        switch (spwanPosition)
-        {
-            case MonsterSpwanPosition.Down:
-                MySpwanPoint = GetPoint(E_SpawnPoint.Low);
-                break;
-            case MonsterSpwanPosition.Middle:
-                MySpwanPoint = GetPoint(E_SpawnPoint.Middle);
-                break;
-            case MonsterSpwanPosition.Random:
-                int random = Random.Range(0, 2);
-                if (random == 1)
-                {
-                    MySpwanPoint = GetPoint(E_SpawnPoint.Low);
-                }
-                break;
-            case MonsterSpwanPosition.Custom:
-                MySpwanPoint = new Vector3(offsetx, offsety, 0);
-                break;
-        }
-
-        if (spwanPosition != MonsterSpwanPosition.Custom)
-        {
-            MySpwanPoint.x += offsetx;
-            MySpwanPoint.y += offsety;
-        }
+        var MySpwanPoint = GetPoint(spwanPosition);
+        MySpwanPoint.x = Xvalue;
+        
+        MySpwanPoint.x += offsetx;
+        MySpwanPoint.y += offsety;
+        
         return MySpwanPoint;
     }
 
     //위치 가져오기
-    public Vector3 GetPoint(E_SpawnPoint spawnPoint)
+    public Vector3 GetPoint(E_MoveData spawnPoint)
     {
-        return L_SpawnPoint[(int)spawnPoint];
+        return D_MovePoint[spawnPoint];
     }
 
 }

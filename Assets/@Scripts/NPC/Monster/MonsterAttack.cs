@@ -60,13 +60,12 @@ public class MonsterAttack : MonoBehaviour, IMonsterAttack
     /// <returns></returns>
     bool CheckMovePoint()
     {
-        if (move.GetMoveData() == E_MoveData.Middle || move.GetMoveData() == E_MoveData.Twin)
+        var playerimove = PlayerManager.instance.GetPlayer(transform.position.y).nPC_Move;
+        var point = playerimove.GetMoveData();
+        if (IMovePoint.CheckMiddle_Twin(point, move.GetMoveData()))
         {
             return true;
         }
-
-        var playerimove = GameManager.M_Player.GetComponent<IMove>();
-        var point = playerimove.GetMoveData();
         return point == move.GetMoveData();
     }
 

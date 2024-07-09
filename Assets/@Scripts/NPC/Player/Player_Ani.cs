@@ -21,20 +21,24 @@ public class Player_Ani : MonoBehaviour, IAni
         {E_AniKind_Player.Idle, "idle"},
         {E_AniKind_Player.Die, "retire"},
         {E_AniKind_Player.Hit, "Hit"},
-        {E_AniKind_Player.Running, "Running"},
+
+        {E_AniKind_Player.Running, "running"},
+        {E_AniKind_Player.Down, "running"},
+        {E_AniKind_Player.DownAttack_0, "running_Attack1"},
+        {E_AniKind_Player.DownAttack_1, "running_Attack2"},
+        {E_AniKind_Player.DownAttack_2, "running_Attack3"},
+        {E_AniKind_Player.DownHoldAttack, "running_Attack_long_note"},
+
+        {E_AniKind_Player.Fly, "fly"},
+        {E_AniKind_Player.FlyAttack_0, "fly_Attack1"},
+        {E_AniKind_Player.FlyAttack_1, "fly_Attack2"},
+        {E_AniKind_Player.FlyHoldAttack, "fly_Attack_long_note"},
+
+        {E_AniKind_Player.Twin, "Twin_Attack"},
+
         {E_AniKind_Player.Clear_S, "Clear_3"},
         {E_AniKind_Player.Clear_A, "Clear_2"},
         {E_AniKind_Player.Clear_F, "Clear_1"},
-        {E_AniKind_Player.Down, "Running"},
-        {E_AniKind_Player.DownAttack_0, "fist attack"},
-        {E_AniKind_Player.DownAttack_1, "Kick"},
-        {E_AniKind_Player.DownAttack_2, "tail attack"},
-        {E_AniKind_Player.DownHoldAttack, "biting attack"},
-        {E_AniKind_Player.Fly, "fly"},
-        {E_AniKind_Player.FlyAttack_0, "fire attack"},
-        {E_AniKind_Player.FlyAttack_1, "fly_attack"},
-        {E_AniKind_Player.FlyHoldAttack, "fly_biting"},
-        {E_AniKind_Player.Twin, "Twin_Attack"},
     };
 
     public NPC nPC;
@@ -84,7 +88,7 @@ public class Player_Ani : MonoBehaviour, IAni
         {
             var point = nPC.nPC_Move.GetMoveData();
 
-            if (point == E_MoveData.Up)
+            if (point == E_MoveData.Higt_Higt || point == E_MoveData.Low_Higt)
             {
                 return E_AniKind_Player.Fly;
             }
@@ -102,26 +106,35 @@ public class Player_Ani : MonoBehaviour, IAni
         return kind;
     }
 
-    public void SetAttackAni(E_MonsterType point, E_MoveData movepoint)
+    public void SetAttackAni(E_MonsterType types, E_MoveData movepoint)
     {
-        GameLog.Log($"타입:{point}");
-        switch (point)
+        if (types == E_MonsterType.Hold)
         {
-            case E_MonsterType.Boss:
-            case E_MonsterType.Middle:
-            case E_MonsterType.Down:
-                SetDownAttackAni();
-                break;
-            case E_MonsterType.Up:
+            SetHold(movepoint);
+            return;
+        }
+
+        switch (movepoint)
+        {
+            case E_MoveData.Low_Higt:
+            case E_MoveData.Higt_Higt:
                 SetFlyAttackAni();
                 break;
-            case E_MonsterType.Twin:
+                
+            case E_MoveData.Higt_Middle:
+            case E_MoveData.Higt_Low:
+            case E_MoveData.Low_Middle:
+            case E_MoveData.Low_Low:
+                SetDownAttackAni();
+                break;
+
+            case E_MoveData.Higt_Twin:
+            case E_MoveData.Low_Twin:
                 SetTiwn();
                 break;
-            case E_MonsterType.Hold:
-                SetHold(movepoint);
-                break;
+
         }
+        GameLog.Log($"타입:{types}");
         AttackCount++;
     }
 
@@ -189,7 +202,8 @@ public class Player_Ani : MonoBehaviour, IAni
     /// </summary>
     void SetHold(E_MoveData movepoint)
     {
-        var anistr = movepoint == E_MoveData.Up ? GetAniString(E_AniKind_Player.FlyHoldAttack) : GetAniString(E_AniKind_Player.DownHoldAttack);
+        var checkup = movepoint == E_MoveData.Higt_Higt || movepoint == E_MoveData.Low_Higt;
+        var anistr = checkup ? GetAniString(E_AniKind_Player.FlyHoldAttack) : GetAniString(E_AniKind_Player.DownHoldAttack);
         var idle = GetAniString(E_AniKind_Player.Idle);
         SetAni(anistr, false, idle);
     }

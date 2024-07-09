@@ -33,6 +33,11 @@ public class UI_Play : Singleton<UI_Play>
     public System.Action Ac_Update;
     public System.Action Ac_Play;
 
+    private void Start()
+    {
+        ActivatPanel(true);
+    }
+
     private void Update()
     {
         Ac_Update?.Invoke();

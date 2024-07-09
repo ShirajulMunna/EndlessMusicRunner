@@ -4,7 +4,7 @@ using UnityEngine;
 public class NPC_Move : MonoBehaviour, IMove
 {
     public Rigidbody2D rb { get; set; }
-    public Vector2 target { get; set; } = IMovePoint.GetMovePoint(E_MoveData.Down);
+    public Vector2 target { get; set; }
     public bool isMoving { get; set; } = false;
     public float arrivalThreshold { get; set; } = 0.1f; // 목표 도달 판정 거리
     public float Speed { get => nPC_Status.GetSpeed(); set => nPC_Status.Speed = value; }
@@ -52,8 +52,9 @@ public class NPC_Move : MonoBehaviour, IMove
     public void SetTarget(Vector3 point)
     {
         target = point;
+        var enumlist = Enum.GetValues(typeof(E_MoveData));
 
-        foreach (E_MoveData moveData in Enum.GetValues(typeof(E_MoveData)))
+        foreach (E_MoveData moveData in enumlist)
         {
             var points = IMovePoint.GetMovePoint(moveData);
             if (points.y == point.y)

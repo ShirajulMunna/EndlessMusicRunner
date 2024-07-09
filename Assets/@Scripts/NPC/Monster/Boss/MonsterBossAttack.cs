@@ -6,6 +6,11 @@ public class MonsterBossAttack : Monsters
     bool isCheck;
     bool isAttack;
 
+    Player player
+    {
+        get => PlayerManager.instance.GetPlayer(transform.position.y);
+    }
+
 
     private void Update()
     {
@@ -42,8 +47,8 @@ public class MonsterBossAttack : Monsters
         {
             return;
         }
-        var pos = GameManager.M_Player.transform.position;
-        GameManager.M_Player.player_Attacker.player_Effect.SetEffect(pos, ScoreManager.E_ScoreState.Pass);
+        var pos = player.transform.position;
+        player.player_Attacker.player_Effect.SetEffect(pos, ScoreManager.E_ScoreState.Pass);
 
         ScoreManager.instance.SetCurrentScore(1);
         isCheck = false;

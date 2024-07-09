@@ -21,10 +21,15 @@ public class MonsterCrush : Monsters
     float Delaytime_Hit = 1f;
     System.Action Ac_Move_Complted;
 
+    Bosst bosst
+    {
+        get => Bosst.instance;
+    }
+
     private void Start()
     {
         e_State = E_State.idle;
-        Bosst.instance.Ac_Hit += SetBossHit;
+        bosst.Ac_Hit += SetBossHit;
     }
 
     private void Update()
@@ -63,7 +68,7 @@ public class MonsterCrush : Monsters
 
     void UpdateMove()
     {
-        if (Bosst.instance.nPC_Move.CheckIn())
+        if (bosst.nPC_Move.CheckIn())
         {
             return;
         }
@@ -94,32 +99,32 @@ public class MonsterCrush : Monsters
         switch (state)
         {
             case E_State.Hit:
-                Bosst.instance.Ac_Hit -= SetBossHit;
-                Bosst.instance.nPC_Move.SetSpeed(0);
+                bosst.Ac_Hit -= SetBossHit;
+                bosst.nPC_Move.SetSpeed(0);
                 break;
             case E_State.CrushMove:
                 Ac_Move_Complted += () => SetState(E_State.Crush);
-                var pos = Bosst.instance.transform.position;
+                var pos = bosst.transform.position;
                 pos.x = IMovePoint.GetMonster_Attack_Point_X();
-                Bosst.instance.nPC_Move.SetTarget(pos);
+                bosst.nPC_Move.SetTarget(pos);
                 break;
             case E_State.Crush:
-                Bosst.instance.Ac_Hit -= SetBossHit;
-                Bosst.instance.iAni.SetAni(AniName, true);
-                Bosst.instance.SetAttack(GameManager.M_Player);
+                bosst.Ac_Hit -= SetBossHit;
+                bosst.iAni.SetAni(AniName, true);
+                bosst.SetAttack(PlayerManager.instance.GetPlayer(bosst.transform.position.y));
                 break;
             case E_State.Start:
                 CameraSystem.instance.ReSetZoom();
                 Ac_Move_Complted += () => SetState(E_State.Complted);
-                Bosst.instance.nPC_Move.SetTarget(Bosst.instance.FirstPos());
+                bosst.nPC_Move.SetTarget(bosst.FirstPos());
                 SetState(E_State.Move);
                 break;
             case E_State.Move:
-                Bosst.instance.iAni.SetAni(E_AniKind_Monster.Move, true);
-                Bosst.instance.nPC_Move.SetSpeed(20);
+                bosst.iAni.SetAni(E_AniKind_Monster.Move, true);
+                bosst.nPC_Move.SetSpeed(20);
                 break;
             case E_State.Complted:
-                Bosst.instance.iAni.SetAni(E_AniKind_Monster.idle, true);
+                bosst.iAni.SetAni(E_AniKind_Monster.idle, true);
                 break;
         }
         e_State = state;
