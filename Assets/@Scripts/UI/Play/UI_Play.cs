@@ -21,13 +21,22 @@ public class UI_Play : Singleton<UI_Play>
     [Header("Fever")]
     [SerializeField] Image Img_Fever;
     [SerializeField] Image Img_Fever_CoolTime;
+    [Header("게이지")]
+    [SerializeField] Image Img_Gage;
+
+    float MaxAudioValue;
+    double CurAudioValue;
 
     float DelayTime = 3;
     public bool GameOver;
 
-    private void Start()
+    public System.Action Ac_Update;
+    public System.Action Ac_Play;
+
+    private void Update()
     {
-        ActivatPanel(true);
+        Ac_Update?.Invoke();
+        UpdatePlaying();
     }
 
     public void ActivatPanel(bool activate)
@@ -36,6 +45,19 @@ public class UI_Play : Singleton<UI_Play>
         Key_Explain.SetActive(activate);
         PlayManager.instance.SetAction(E_Play.Play);
         StartCoroutine(DeactivatePanel());
+        SetPlaying();
+    }
+
+    void SetPlaying()
+    {
+        MaxAudioValue = AudioManager.instance.Audio_BackGround.clip.length;
+        Img_Gage.fillAmount = 0;
+    }
+
+    void UpdatePlaying()
+    {
+        CurAudioValue = AudioManager.instance.GetAudioTime();
+        Img_Gage.fillAmount = (float)CurAudioValue / MaxAudioValue;
     }
 
     IEnumerator DeactivatePanel()
@@ -75,7 +97,6 @@ public class UI_Play : Singleton<UI_Play>
     {
         G_HP_BackGorund.SetActive(per <= 0.25f);
     }
-
 
     public async void Btn_Pause()
     {

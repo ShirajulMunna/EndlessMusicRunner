@@ -32,6 +32,10 @@ public class SkillSystem : Singleton<SkillSystem>
     {
         SetActiveSkill();
         SetPassiveSkill();
+        FerverTimeSystem._skillClass = SkillClass.CreateClass(FerverTimeSystem._skillClass);
+        Healing._skillClass = SkillClass.CreateClass(Healing._skillClass);
+        ScoreBooster._skillClass = SkillClass.CreateClass(ScoreBooster._skillClass);
+        ShieldBuster._skillClass = SkillClass.CreateClass(ShieldBuster._skillClass);
     }
 
     private void Update()

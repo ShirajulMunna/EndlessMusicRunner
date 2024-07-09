@@ -1,1244 +1,1261 @@
 Zombie boss.png
-	size: 3923, 3923
+	size: 4249, 4249
 	filter: Linear, Linear
 	pma: true
 skin0/Bag1
-	bounds: 3806, 1331, 115, 91
+	bounds: 858, 1148, 115, 91
 	offsets: 3, 1, 118, 92
 skin0/Bag1_Attack2
-	bounds: 1711, 280, 181, 141
-skin0/Bag1_Attack3
-	bounds: 2913, 2717, 187, 141
+	bounds: 3603, 3805, 181, 141
 	rotate: 90
+skin0/Bag1_Attack3
+	bounds: 1728, 2478, 187, 141
 skin0/Bag2
-	bounds: 1757, 3462, 232, 185
+	bounds: 423, 1210, 232, 185
 	offsets: 2, 0, 234, 185
 skin0/Bag2_Attack1
-	bounds: 1991, 3460, 200, 273
-	rotate: 90
+	bounds: 1565, 1636, 200, 273
 skin0/Bag2_Attack2
-	bounds: 2, 3077, 419, 272
+	bounds: 725, 2820, 419, 272
 	rotate: 90
 skin0/Bag2_Attack3
-	bounds: 2, 1394, 418, 259
-	rotate: 90
+	bounds: 2082, 3714, 418, 259
 skin0/Eye
-	bounds: 3713, 1027, 96, 79
+	bounds: 3919, 435, 96, 79
 	rotate: 90
 skin0/Eye_Attack2
-	bounds: 3307, 100, 91, 76
-	rotate: 90
+	bounds: 4077, 178, 91, 76
 skin0/Eye_Attack3
-	bounds: 3656, 283, 77, 88
+	bounds: 3764, 1526, 77, 88
 	rotate: 90
 skin5/Eye_Attack3
-	bounds: 3656, 283, 77, 88
+	bounds: 3764, 1526, 77, 88
 	rotate: 90
 skin0/Eye_X
-	bounds: 2252, 2, 96, 80
+	bounds: 3517, 650, 96, 80
 	offsets: 16, 20, 128, 121
 skin1/Eye_X
-	bounds: 2252, 2, 96, 80
+	bounds: 3517, 650, 96, 80
 	offsets: 16, 20, 128, 121
 skin2/Eye_X
-	bounds: 2252, 2, 96, 80
+	bounds: 3517, 650, 96, 80
 	offsets: 16, 20, 128, 121
 skin3/Eye_X
-	bounds: 2252, 2, 96, 80
+	bounds: 3517, 650, 96, 80
 	offsets: 16, 20, 128, 121
 skin4/Eye_X
-	bounds: 2252, 2, 96, 80
+	bounds: 3517, 650, 96, 80
 	offsets: 16, 20, 128, 121
 skin5/Eye_X
-	bounds: 2252, 2, 96, 80
+	bounds: 3517, 650, 96, 80
 	offsets: 16, 20, 128, 121
 skin7/Eye_X
-	bounds: 2252, 2, 96, 80
+	bounds: 3517, 650, 96, 80
 	offsets: 16, 20, 128, 121
 skin0/Hair
-	bounds: 1965, 2058, 196, 204
+	bounds: 3915, 2691, 196, 204
 skin0/Hair_Attack1
-	bounds: 891, 1999, 230, 206
+	bounds: 2385, 3066, 230, 206
 skin0/Hair_Attack2
-	bounds: 1729, 2435, 223, 196
+	bounds: 422, 429, 223, 196
+	rotate: 90
 skin0/Hair_Attack3
-	bounds: 2163, 1842, 202, 210
+	bounds: 2655, 2709, 202, 210
 	rotate: 90
 skin0/Head
-	bounds: 917, 3035, 177, 272
+	bounds: 1784, 2786, 177, 272
 skin0/Head_Attack3
-	bounds: 1298, 2938, 176, 273
-	rotate: 90
+	bounds: 2119, 2510, 176, 273
 skin0/Hit2
-	bounds: 1506, 1480, 215, 79
+	bounds: 2, 8, 215, 79
 skin1/Hit2
-	bounds: 1506, 1480, 215, 79
+	bounds: 2, 8, 215, 79
 skin2/Hit2
-	bounds: 1506, 1480, 215, 79
+	bounds: 2, 8, 215, 79
 skin3/Hit2
-	bounds: 1506, 1480, 215, 79
-skin4/Hit2
-	bounds: 1506, 1480, 215, 79
+	bounds: 2, 8, 215, 79
 skin5/Hit2
-	bounds: 1506, 1480, 215, 79
+	bounds: 2, 8, 215, 79
 skin7/Hit2
-	bounds: 1506, 1480, 215, 79
+	bounds: 2, 8, 215, 79
 skin0/Hit3
-	bounds: 3337, 407, 96, 79
+	bounds: 3915, 213, 96, 79
+	rotate: 90
 skin1/Hit3
-	bounds: 3337, 407, 96, 79
+	bounds: 3915, 213, 96, 79
+	rotate: 90
 skin2/Hit3
-	bounds: 3337, 407, 96, 79
+	bounds: 3915, 213, 96, 79
+	rotate: 90
 skin3/Hit3
-	bounds: 3337, 407, 96, 79
-skin4/Hit3
-	bounds: 3337, 407, 96, 79
+	bounds: 3915, 213, 96, 79
+	rotate: 90
 skin5/Hit3
-	bounds: 3337, 407, 96, 79
+	bounds: 3915, 213, 96, 79
+	rotate: 90
 skin7/Hit3
-	bounds: 3337, 407, 96, 79
+	bounds: 3915, 213, 96, 79
+	rotate: 90
 skin0/Left arm
-	bounds: 2163, 2046, 231, 204
+	bounds: 2871, 3169, 231, 204
 	offsets: 0, 1, 231, 205
 	rotate: 90
 skin0/Left arm1_Attack1
-	bounds: 2443, 867, 97, 168
+	bounds: 1532, 3109, 97, 168
 	offsets: 0, 1, 97, 170
 skin0/Left arm2_Attack1
-	bounds: 2378, 1700, 199, 121
+	bounds: 4126, 4048, 199, 121
 	rotate: 90
 skin0/Left arm_Attack1
-	bounds: 305, 3479, 361, 168
+	bounds: 423, 1397, 361, 168
+	rotate: 90
 skin0/Left arm_Attack2
-	bounds: 639, 3060, 276, 247
+	bounds: 725, 2121, 276, 247
+	rotate: 90
 skin0/Left arm_Attack3
-	bounds: 768, 1226, 195, 261
+	bounds: 1907, 3060, 195, 261
 	rotate: 90
 skin0/Left leg
-	bounds: 1499, 288, 105, 210
+	bounds: 2651, 1269, 105, 210
 	offsets: 1, 0, 109, 211
-	rotate: 90
 skin0/Left leg2_Attack3
-	bounds: 3741, 2594, 135, 52
+	bounds: 2024, 3290, 135, 52
 	offsets: 0, 0, 136, 53
 	rotate: 90
 skin0/Left leg_Attack2
-	bounds: 541, 1226, 225, 183
+	bounds: 3587, 2625, 225, 183
+	rotate: 90
 skin0/Left leg_Attack3
-	bounds: 478, 166, 116, 105
+	bounds: 3258, 7, 116, 105
 	offsets: 1, 0, 117, 106
-	rotate: 90
 skin0/LeftFinger1_Attack2
-	bounds: 2448, 2, 94, 80
+	bounds: 1855, 129, 94, 80
 	offsets: 0, 0, 94, 81
-skin0/LeftFinger2_Attack2
-	bounds: 2670, 2, 92, 143
 	rotate: 90
+skin0/LeftFinger2_Attack2
+	bounds: 2673, 205, 92, 143
 skin0/Pants
-	bounds: 1606, 3320, 157, 145
+	bounds: 2216, 597, 157, 145
 	offsets: 0, 0, 157, 151
 	rotate: 90
 skin0/String1
-	bounds: 1723, 1498, 161, 117
+	bounds: 826, 51, 161, 117
 	offsets: 1, 0, 163, 117
 skin0/String1_Attack2
-	bounds: 1022, 667, 273, 131
+	bounds: 1453, 2478, 273, 131
 	offsets: 0, 41, 273, 213
-	rotate: 90
 skin0/String2
-	bounds: 3626, 2913, 163, 117
-skin0/String2_Attack2
-	bounds: 722, 338, 282, 131
+	bounds: 1518, 303, 163, 117
 	rotate: 90
+skin0/String2_Attack2
+	bounds: 1169, 2478, 282, 131
 skin0/String2_Attack3
-	bounds: 2769, 2496, 163, 211
+	bounds: 2626, 1056, 163, 211
 	offsets: 56, 0, 275, 211
 skin0/String3_Attack3
-	bounds: 1954, 2437, 199, 197
+	bounds: 2475, 2510, 199, 197
 	offsets: 0, 8, 199, 213
-	rotate: 90
 skin0/String_Attack2
-	bounds: 1566, 3121, 179, 197
+	bounds: 3016, 845, 179, 197
 skin0/String_Attack3
-	bounds: 2769, 2282, 163, 212
+	bounds: 1703, 2621, 163, 212
 	offsets: 8, 7, 179, 219
+	rotate: 90
 skin0/Tongue
-	bounds: 2544, 2, 79, 122
+	bounds: 219, 8, 79, 122
 	rotate: 90
 skin0/Tongue_Attack1
-	bounds: 1355, 2048, 178, 61
+	bounds: 4020, 3777, 178, 61
 	rotate: 90
 skin0/Zipper_Attack3
-	bounds: 1221, 2999, 75, 47
+	bounds: 765, 1766, 75, 47
+	rotate: 90
 skin3/Zipper_Attack3
-	bounds: 1221, 2999, 75, 47
+	bounds: 765, 1766, 75, 47
+	rotate: 90
 skin5/Zipper_Attack3
-	bounds: 1221, 2999, 75, 47
+	bounds: 765, 1766, 75, 47
+	rotate: 90
 skin0/body
-	bounds: 1298, 3116, 266, 205
+	bounds: 3108, 3542, 266, 205
+	rotate: 90
 skin0/body_Attack1
-	bounds: 1696, 2245, 188, 257
+	bounds: 3315, 3399, 188, 257
 	rotate: 90
 skin0/body_Attack2
-	bounds: 263, 961, 213, 263
+	bounds: 993, 1578, 213, 263
 skin0/body_Attack3
-	bounds: 1002, 3323, 300, 154
-skin5/body_Attack3
-	bounds: 1002, 3323, 300, 154
-skin7/body_Attack3
-	bounds: 1002, 3323, 300, 154
-skin0/right arm
-	bounds: 554, 2655, 120, 312
-skin0/right arm2_Attack3
-	bounds: 2, 2, 130, 181
+	bounds: 837, 1541, 300, 154
 	rotate: 90
+skin5/body_Attack3
+	bounds: 837, 1541, 300, 154
+	rotate: 90
+skin7/body_Attack3
+	bounds: 837, 1541, 300, 154
+	rotate: 90
+skin0/right arm
+	bounds: 3763, 3957, 120, 312
+	rotate: 90
+skin0/right arm2_Attack3
+	bounds: 2026, 1462, 130, 181
 skin0/right arm_Attack1
-	bounds: 891, 2759, 195, 274
+	bounds: 1631, 3060, 195, 274
+	rotate: 90
 skin0/right arm_Attack2
-	bounds: 3669, 3702, 252, 219
+	bounds: 3315, 3589, 252, 219
 skin0/right arm_Attack3
-	bounds: 855, 264, 197, 118
+	bounds: 4087, 2094, 197, 118
+	rotate: 90
 skin0/right leg
-	bounds: 1671, 851, 86, 212
+	bounds: 671, 656, 86, 212
 	offsets: 0, 0, 86, 215
+	rotate: 90
 skin0/right leg_Attack2
-	bounds: 3795, 3297, 126, 182
+	bounds: 1447, 2611, 126, 182
 skin0/right leg_Attack3
-	bounds: 1573, 2925, 171, 194
+	bounds: 4076, 1898, 171, 194
 skin0/rightFinger1_Attack3
-	bounds: 3784, 1220, 129, 109
+	bounds: 844, 1241, 129, 109
 skin0/rightFinger2_Attack3
-	bounds: 2378, 1641, 78, 57
+	bounds: 4113, 2699, 78, 57
 	offsets: 0, 1, 79, 59
 skin1/Bag1
-	bounds: 3001, 122, 115, 91
+	bounds: 1937, 203, 115, 91
 	offsets: 3, 1, 118, 92
-	rotate: 90
 skin1/Bag1_Attack2
-	bounds: 1054, 249, 181, 141
+	bounds: 1484, 1269, 181, 141
+	rotate: 90
 skin1/Bag1_Attack3
-	bounds: 2151, 2279, 187, 141
+	bounds: 3574, 3402, 187, 141
+	rotate: 90
 skin1/Bag2
-	bounds: 1753, 3275, 232, 185
+	bounds: 3079, 2671, 232, 185
 	offsets: 2, 0, 234, 185
 skin1/Bag2_Attack1
-	bounds: 2266, 3460, 200, 273
-	rotate: 90
+	bounds: 1963, 2785, 200, 273
 skin1/Bag2_Attack2
-	bounds: 305, 3649, 419, 272
+	bounds: 1661, 3975, 419, 272
 skin1/Bag2_Attack3
-	bounds: 1989, 3662, 418, 259
+	bounds: 2503, 3988, 418, 259
 skin1/Eye
-	bounds: 3190, 2, 96, 79
+	bounds: 3996, 200, 96, 79
 	rotate: 90
 skin1/Eye_Attack2
-	bounds: 3465, 220, 91, 76
+	bounds: 4166, 569, 91, 76
+	rotate: 90
 skin1/Eye_Attack3
-	bounds: 3822, 526, 77, 88
+	bounds: 3963, 683, 77, 88
+	rotate: 90
 skin1/Hair
-	bounds: 2767, 2076, 196, 204
+	bounds: 1441, 1063, 196, 204
 skin1/Hair_Attack1
-	bounds: 1123, 2002, 230, 206
+	bounds: 3083, 3066, 230, 206
 skin1/Hair_Attack2
-	bounds: 3401, 2062, 223, 196
+	bounds: 620, 429, 223, 196
 	rotate: 90
 skin1/Hair_Attack3
-	bounds: 2965, 2074, 202, 210
+	bounds: 2867, 2711, 202, 210
+	rotate: 90
 skin1/Head
-	bounds: 3356, 3074, 177, 272
+	bounds: 3746, 3778, 177, 272
 	rotate: 90
 skin1/Head_Attack3
-	bounds: 1981, 3085, 176, 273
-	rotate: 90
+	bounds: 2165, 2785, 176, 273
 skin1/Left arm
-	bounds: 2145, 1636, 231, 204
+	bounds: 3567, 2392, 231, 204
 	offsets: 0, 1, 231, 205
+	rotate: 90
 skin1/Left arm1_Attack1
-	bounds: 2542, 869, 97, 168
+	bounds: 999, 2416, 97, 168
 	offsets: 0, 1, 97, 170
+	rotate: 90
 skin1/Left arm2_Attack1
-	bounds: 3797, 2176, 199, 121
+	bounds: 4097, 2970, 199, 121
 	rotate: 90
 skin1/Left arm_Attack1
-	bounds: 668, 3479, 361, 168
+	bounds: 3763, 4079, 361, 168
 skin1/Left arm_Attack2
-	bounds: 276, 2720, 276, 247
+	bounds: 1169, 2860, 276, 247
 skin1/Left arm_Attack3
-	bounds: 1428, 2079, 195, 261
+	bounds: 3315, 3202, 195, 261
 	rotate: 90
 skin1/Left leg
-	bounds: 600, 201, 105, 210
+	bounds: 4113, 2758, 105, 210
 	offsets: 1, 0, 109, 211
-	rotate: 90
 skin1/Left leg2_Attack3
-	bounds: 3483, 1120, 135, 52
+	bounds: 4090, 3406, 135, 52
 	offsets: 0, 0, 136, 53
-	rotate: 90
 skin1/Left leg_Attack2
-	bounds: 3634, 1835, 225, 183
+	bounds: 818, 429, 225, 183
 	rotate: 90
 skin1/Left leg_Attack3
-	bounds: 3797, 2069, 116, 105
+	bounds: 2054, 184, 116, 105
 	offsets: 1, 0, 117, 106
 skin1/LeftFinger1_Attack2
-	bounds: 3661, 460, 94, 80
+	bounds: 3615, 95, 94, 80
 	offsets: 0, 0, 94, 81
-	rotate: 90
 skin1/LeftFinger2_Attack2
-	bounds: 2856, 135, 92, 143
-	rotate: 90
+	bounds: 2673, 60, 92, 143
 skin1/Pants
-	bounds: 2378, 2304, 157, 145
+	bounds: 4090, 3901, 157, 145
 	offsets: 0, 0, 157, 151
 skin1/String1
-	bounds: 368, 3, 161, 117
+	bounds: 2054, 291, 161, 117
 	offsets: 1, 0, 163, 117
 	rotate: 90
 skin1/String1_Attack2
-	bounds: 1155, 951, 273, 131
+	bounds: 2285, 2235, 273, 131
 	offsets: 0, 41, 273, 213
 	rotate: 90
 skin1/String2
-	bounds: 2435, 699, 163, 117
-	rotate: 90
+	bounds: 2173, 319, 163, 117
 skin1/String2_Attack2
-	bounds: 853, 1441, 282, 131
+	bounds: 1731, 1929, 282, 131
 	rotate: 90
 skin1/String2_Attack3
-	bounds: 3582, 2731, 163, 211
+	bounds: 989, 31, 163, 211
 	offsets: 56, 0, 275, 211
 	rotate: 90
 skin1/String3_Attack3
-	bounds: 3632, 1636, 199, 197
+	bounds: 2676, 2510, 199, 197
 	offsets: 0, 8, 199, 213
 skin1/String_Attack2
-	bounds: 1300, 366, 179, 197
-	rotate: 90
+	bounds: 2598, 714, 179, 197
 skin1/String_Attack3
-	bounds: 2369, 2090, 163, 212
+	bounds: 3569, 3591, 163, 212
 	offsets: 8, 7, 179, 219
 skin1/Tongue
-	bounds: 1451, 207, 79, 122
+	bounds: 2054, 103, 79, 122
 	rotate: 90
 skin1/Tongue_Attack1
-	bounds: 812, 201, 178, 61
+	bounds: 582, 26, 178, 61
 skin1/Zipper_Attack3
-	bounds: 1221, 2950, 75, 47
+	bounds: 1208, 1766, 75, 47
+	rotate: 90
 skin1/body
-	bounds: 878, 1731, 266, 205
-	rotate: 90
+	bounds: 3734, 3571, 266, 205
 skin1/body_Attack1
-	bounds: 1292, 1743, 188, 257
+	bounds: 3151, 1721, 188, 257
 skin1/body_Attack2
-	bounds: 263, 696, 213, 263
+	bounds: 1223, 2213, 213, 263
 skin1/body_Attack3
-	bounds: 1304, 3323, 300, 154
+	bounds: 1263, 1911, 300, 154
+	rotate: 90
 skin1/right arm
-	bounds: 554, 2341, 120, 312
+	bounds: 1447, 2795, 120, 312
 skin1/right arm2_Attack3
-	bounds: 185, 2, 130, 181
-	rotate: 90
+	bounds: 2026, 1279, 130, 181
 skin1/right arm_Attack1
-	bounds: 891, 2483, 195, 274
-skin1/right arm_Attack2
-	bounds: 3669, 3481, 252, 219
-skin1/right arm_Attack3
-	bounds: 2286, 1250, 197, 118
+	bounds: 1208, 1269, 195, 274
 	rotate: 90
+skin1/right arm_Attack2
+	bounds: 3711, 3171, 252, 219
+skin1/right arm_Attack3
+	bounds: 3840, 1383, 197, 118
 skin1/right leg
-	bounds: 1683, 637, 86, 212
+	bounds: 4002, 3563, 86, 212
 	offsets: 0, 0, 86, 215
 skin1/right leg_Attack2
-	bounds: 3795, 3113, 126, 182
+	bounds: 1575, 2611, 126, 182
 skin1/right leg_Attack3
-	bounds: 1955, 2264, 171, 194
-	rotate: 90
+	bounds: 4076, 1702, 171, 194
 skin1/rightFinger1_Attack3
-	bounds: 2978, 11, 129, 109
+	bounds: 3743, 2018, 129, 109
 skin1/rightFinger2_Attack3
-	bounds: 3094, 137, 78, 57
+	bounds: 2573, 2733, 78, 57
 	offsets: 0, 1, 79, 59
 skin2/Bag1
-	bounds: 3190, 100, 115, 91
+	bounds: 1937, 110, 115, 91
 	offsets: 3, 1, 118, 92
 skin2/Bag1_Attack2
-	bounds: 2093, 291, 181, 141
+	bounds: 1627, 1269, 181, 141
 	rotate: 90
 skin2/Bag1_Attack3
-	bounds: 3167, 2511, 187, 141
-	rotate: 90
+	bounds: 3544, 2249, 187, 141
 skin2/Bag2
-	bounds: 1747, 3088, 232, 185
+	bounds: 2417, 1294, 232, 185
 	offsets: 2, 0, 234, 185
 skin2/Bag2_Attack1
-	bounds: 2541, 3460, 200, 273
-	rotate: 90
+	bounds: 1917, 2510, 200, 273
 skin2/Bag2_Attack2
-	bounds: 2, 2656, 419, 272
-	rotate: 90
+	bounds: 2, 1486, 419, 272
 skin2/Bag2_Attack3
-	bounds: 2, 974, 418, 259
-	rotate: 90
+	bounds: 2, 951, 418, 259
 skin2/Eye
-	bounds: 3271, 2, 96, 79
+	bounds: 4077, 354, 96, 79
 	rotate: 90
 skin2/Eye_Attack2
-	bounds: 3654, 205, 91, 76
-skin2/Eye_Attack3
-	bounds: 3821, 447, 77, 88
+	bounds: 3539, 2, 91, 76
 	rotate: 90
+skin2/Eye_Attack3
+	bounds: 4170, 185, 77, 88
 skin2/Hair
-	bounds: 3399, 2287, 196, 204
+	bounds: 1639, 1063, 196, 204
 skin2/Hair_Attack1
-	bounds: 1931, 1850, 230, 206
+	bounds: 3083, 2858, 230, 206
 skin2/Hair_Attack2
-	bounds: 3599, 2062, 223, 196
+	bounds: 2791, 1044, 223, 196
 	rotate: 90
 skin2/Hair_Attack3
-	bounds: 2752, 1872, 202, 210
-	rotate: 90
+	bounds: 3560, 1519, 202, 210
 skin2/Head
-	bounds: 1980, 2906, 177, 272
+	bounds: 3717, 3392, 177, 272
 	rotate: 90
 skin2/Head_Attack3
-	bounds: 2256, 3085, 176, 273
-	rotate: 90
+	bounds: 2297, 2510, 176, 273
 skin2/Left arm
-	bounds: 2934, 2494, 231, 204
+	bounds: 989, 196, 231, 204
 	offsets: 0, 1, 231, 205
+	rotate: 90
 skin2/Left arm1_Attack1
-	bounds: 2554, 699, 97, 168
+	bounds: 885, 657, 97, 168
 	offsets: 0, 1, 97, 170
+	rotate: 90
 skin2/Left arm2_Attack1
-	bounds: 2406, 1251, 199, 121
+	bounds: 2716, 1482, 199, 121
 	rotate: 90
 skin2/Left arm_Attack1
-	bounds: 1031, 3479, 361, 168
+	bounds: 2, 259, 361, 168
 skin2/Left arm_Attack2
-	bounds: 276, 2471, 276, 247
+	bounds: 1169, 2611, 276, 247
 skin2/Left arm_Attack3
-	bounds: 1936, 2638, 195, 261
+	bounds: 3315, 3005, 195, 261
+	rotate: 90
 skin2/Left leg
-	bounds: 1815, 68, 105, 210
+	bounds: 1090, 895, 105, 210
 	offsets: 1, 0, 109, 211
 skin2/Left leg2_Attack3
-	bounds: 3537, 1129, 135, 52
+	bounds: 1518, 249, 135, 52
 	offsets: 0, 0, 136, 53
-	rotate: 90
 skin2/Left leg_Attack2
-	bounds: 2734, 1687, 225, 183
+	bounds: 3004, 1484, 225, 183
+	rotate: 90
 skin2/Left leg_Attack3
-	bounds: 3794, 1019, 116, 105
+	bounds: 3845, 670, 116, 105
 	offsets: 1, 0, 117, 106
 skin2/LeftFinger1_Attack2
-	bounds: 3776, 698, 94, 80
+	bounds: 3711, 95, 94, 80
 	offsets: 0, 0, 94, 81
 skin2/LeftFinger2_Attack2
-	bounds: 3457, 1026, 92, 143
+	bounds: 1792, 225, 92, 143
 	rotate: 90
 skin2/Pants
-	bounds: 2958, 1342, 157, 145
+	bounds: 4090, 3754, 157, 145
 	offsets: 0, 0, 157, 151
 skin2/String1
-	bounds: 487, 3, 161, 117
+	bounds: 2932, 10, 161, 117
 	offsets: 1, 0, 163, 117
-	rotate: 90
 skin2/String1_Attack2
-	bounds: 1155, 676, 273, 131
+	bounds: 2418, 2235, 273, 131
 	offsets: 0, 41, 273, 213
 	rotate: 90
 skin2/String2
-	bounds: 2944, 929, 163, 117
+	bounds: 2173, 200, 163, 117
 skin2/String2_Attack2
-	bounds: 986, 1447, 282, 131
+	bounds: 1767, 1645, 282, 131
 	rotate: 90
 skin2/String2_Attack3
-	bounds: 2087, 78, 163, 211
+	bounds: 2758, 1269, 163, 211
 	offsets: 56, 0, 275, 211
 skin2/String3_Attack3
-	bounds: 606, 2, 199, 197
+	bounds: 2877, 2510, 199, 197
 	offsets: 0, 8, 199, 213
-skin2/String_Attack2
-	bounds: 2048, 872, 179, 197
 	rotate: 90
+skin2/String_Attack2
+	bounds: 3004, 646, 179, 197
 skin2/String_Attack3
-	bounds: 1703, 423, 163, 212
+	bounds: 3116, 2243, 163, 212
 	offsets: 8, 7, 179, 219
+	rotate: 90
 skin2/Tongue
-	bounds: 3089, 410, 79, 122
+	bounds: 4053, 743, 79, 122
 	rotate: 90
 skin2/Tongue_Attack1
-	bounds: 1611, 5, 178, 61
+	bounds: 1202, 2, 178, 61
 skin2/Zipper_Attack3
-	bounds: 1971, 2, 75, 47
+	bounds: 3052, 3458, 75, 47
 	rotate: 90
 skin2/body
-	bounds: 1085, 1731, 266, 205
+	bounds: 3108, 3274, 266, 205
 	rotate: 90
 skin2/body_Attack1
-	bounds: 1316, 1484, 188, 257
+	bounds: 3553, 1990, 188, 257
 skin2/body_Attack2
-	bounds: 263, 431, 213, 263
+	bounds: 1438, 2213, 213, 263
 skin2/body_Attack3
-	bounds: 541, 1411, 300, 154
+	bounds: 1419, 1911, 300, 154
 	rotate: 90
 skin2/right arm
-	bounds: 554, 2027, 120, 312
+	bounds: 643, 1766, 120, 312
 skin2/right arm2_Attack3
-	bounds: 3623, 1361, 130, 181
-	rotate: 90
+	bounds: 4096, 1323, 130, 181
 skin2/right arm_Attack1
-	bounds: 891, 2207, 195, 274
+	bounds: 2130, 1959, 195, 274
 skin2/right arm_Attack2
-	bounds: 1031, 1226, 252, 219
+	bounds: 2617, 3181, 252, 219
 skin2/right arm_Attack3
-	bounds: 3131, 1384, 197, 118
+	bounds: 3856, 1184, 197, 118
+	rotate: 90
 skin2/right leg
-	bounds: 3819, 1855, 86, 212
+	bounds: 1405, 431, 86, 212
 	offsets: 0, 0, 86, 215
 skin2/right leg_Attack2
-	bounds: 3795, 2929, 126, 182
-skin2/right leg_Attack3
-	bounds: 1695, 1284, 171, 194
-skin2/rightFinger1_Attack3
-	bounds: 3591, 1151, 129, 109
-skin2/rightFinger2_Attack3
-	bounds: 3385, 224, 78, 57
-	offsets: 0, 1, 79, 59
-skin3/Bag1
-	bounds: 3359, 589, 115, 91
-	offsets: 3, 1, 118, 92
+	bounds: 2396, 3274, 126, 182
 	rotate: 90
+skin2/right leg_Attack3
+	bounds: 4070, 1506, 171, 194
+skin2/rightFinger1_Attack3
+	bounds: 1047, 784, 129, 109
+skin2/rightFinger2_Attack3
+	bounds: 4184, 829, 78, 57
+	offsets: 0, 1, 79, 59
+	rotate: 90
+skin3/Bag1
+	bounds: 3802, 438, 115, 91
+	offsets: 3, 1, 118, 92
 skin3/Bag1_Attack2
-	bounds: 3623, 1493, 181, 141
+	bounds: 2230, 756, 181, 141
+	rotate: 90
 skin3/Bag1_Attack3
-	bounds: 2375, 1901, 187, 141
+	bounds: 3772, 2714, 187, 141
 	rotate: 90
 skin3/Bag2
-	bounds: 1746, 2901, 232, 185
+	bounds: 2158, 1128, 232, 185
 	offsets: 2, 0, 234, 185
 skin3/Bag2_Attack1
-	bounds: 2816, 3460, 200, 273
-	rotate: 90
+	bounds: 2083, 2235, 200, 273
 skin3/Bag2_Attack2
-	bounds: 726, 3649, 419, 272
+	bounds: 725, 2399, 419, 272
+	rotate: 90
 skin3/Bag2_Attack3
-	bounds: 2409, 3662, 418, 259
+	bounds: 2082, 3453, 418, 259
 skin3/Eye
-	bounds: 3352, 2, 96, 79
+	bounds: 4077, 256, 96, 79
 	rotate: 90
 skin3/Eye_Attack2
-	bounds: 3385, 131, 91, 76
+	bounds: 3617, 2, 91, 76
 	rotate: 90
 skin3/Eye_Attack3
-	bounds: 3463, 59, 77, 88
-	rotate: 90
+	bounds: 4170, 95, 77, 88
 skin3/Hair
-	bounds: 3543, 2493, 196, 204
+	bounds: 1837, 1064, 196, 204
 skin3/Hair_Attack1
-	bounds: 2537, 2501, 230, 206
+	bounds: 2923, 1276, 230, 206
 skin3/Hair_Attack2
-	bounds: 3176, 1881, 223, 196
+	bounds: 1662, 838, 223, 196
+	rotate: 90
 skin3/Hair_Attack3
-	bounds: 2964, 1870, 202, 210
+	bounds: 3197, 839, 202, 210
 	rotate: 90
 skin3/Head
-	bounds: 2254, 2906, 177, 272
-	rotate: 90
+	bounds: 2476, 2792, 177, 272
 skin3/Head_Attack3
-	bounds: 2531, 3085, 176, 273
+	bounds: 2166, 1505, 176, 273
 	rotate: 90
 skin3/Left arm
-	bounds: 3310, 2493, 231, 204
+	bounds: 3189, 1488, 231, 204
 	offsets: 0, 1, 231, 205
+	rotate: 90
 skin3/Left arm1_Attack1
-	bounds: 3117, 1033, 97, 168
+	bounds: 1055, 657, 97, 168
 	offsets: 0, 1, 97, 170
 	rotate: 90
 skin3/Left arm2_Attack1
-	bounds: 2529, 1297, 199, 121
+	bounds: 2035, 1078, 199, 121
 	rotate: 90
 skin3/Left arm_Attack1
-	bounds: 1394, 3479, 361, 168
+	bounds: 2, 89, 361, 168
 skin3/Left arm_Attack2
-	bounds: 276, 2222, 276, 247
+	bounds: 765, 1843, 276, 247
+	rotate: 90
 skin3/Left arm_Attack3
-	bounds: 2387, 2709, 195, 261
+	bounds: 3315, 2808, 195, 261
 	rotate: 90
 skin3/Left leg
-	bounds: 1752, 1072, 105, 210
+	bounds: 3764, 1605, 105, 210
 	offsets: 1, 0, 109, 211
 skin3/Left leg2_Attack3
-	bounds: 3722, 1125, 135, 52
+	bounds: 1655, 268, 135, 52
 	offsets: 0, 0, 136, 53
-	rotate: 90
 skin3/Left leg_Attack2
-	bounds: 2961, 1685, 225, 183
+	bounds: 1770, 1270, 225, 183
 skin3/Left leg_Attack3
-	bounds: 3228, 488, 116, 105
+	bounds: 3725, 638, 116, 105
 	offsets: 1, 0, 117, 106
 skin3/LeftFinger1_Attack2
-	bounds: 3680, 666, 94, 80
+	bounds: 2163, 7, 94, 80
 	offsets: 0, 0, 94, 81
+	rotate: 90
 skin3/LeftFinger2_Attack2
-	bounds: 3682, 764, 92, 143
+	bounds: 2178, 106, 92, 143
+	rotate: 90
 skin3/Pants
-	bounds: 2958, 1195, 157, 145
+	bounds: 4090, 3607, 157, 145
 	offsets: 0, 0, 157, 151
 skin3/String1
-	bounds: 2815, 16, 161, 117
+	bounds: 3097, 126, 161, 117
 	offsets: 1, 0, 163, 117
 skin3/String1_Attack2
-	bounds: 1034, 392, 273, 131
+	bounds: 2343, 2791, 273, 131
 	offsets: 0, 41, 273, 213
 	rotate: 90
 skin3/String2
-	bounds: 3109, 914, 163, 117
+	bounds: 2508, 231, 163, 117
 skin3/String2_Attack2
-	bounds: 756, 942, 282, 131
+	bounds: 1864, 1929, 282, 131
 	rotate: 90
 skin3/String2_Attack3
-	bounds: 2271, 1037, 163, 211
+	bounds: 2778, 496, 163, 211
 	offsets: 56, 0, 275, 211
+	rotate: 90
 skin3/String3_Attack3
-	bounds: 807, 2, 199, 197
+	bounds: 2577, 515, 199, 197
 	offsets: 0, 8, 199, 213
 skin3/String_Attack2
-	bounds: 1859, 673, 179, 197
+	bounds: 2991, 447, 179, 197
 skin3/String_Attack3
-	bounds: 3630, 3246, 163, 212
+	bounds: 3330, 2243, 163, 212
 	offsets: 8, 7, 179, 219
+	rotate: 90
 skin3/Tongue
-	bounds: 3213, 407, 79, 122
+	bounds: 4053, 662, 79, 122
 	rotate: 90
 skin3/Tongue_Attack1
-	bounds: 2916, 745, 178, 61
-	rotate: 90
+	bounds: 1382, 2, 178, 61
 skin3/body
-	bounds: 3091, 3253, 266, 205
+	bounds: 2655, 2913, 266, 205
+	rotate: 90
 skin3/body_Attack1
-	bounds: 1482, 1820, 188, 257
+	bounds: 3562, 1731, 188, 257
 skin3/body_Attack2
-	bounds: 263, 166, 213, 263
+	bounds: 1653, 2213, 213, 263
 skin3/body_Attack3
-	bounds: 697, 1423, 300, 154
+	bounds: 1575, 1911, 300, 154
 	rotate: 90
 skin3/right arm
-	bounds: 554, 1713, 120, 312
+	bounds: 365, 115, 120, 312
 skin3/right arm2_Attack3
-	bounds: 2774, 1057, 130, 181
-	rotate: 90
+	bounds: 4096, 1140, 130, 181
 skin3/right arm_Attack1
-	bounds: 1119, 1455, 195, 274
+	bounds: 2166, 1683, 195, 274
 skin3/right arm_Attack2
-	bounds: 1221, 2717, 252, 219
+	bounds: 2862, 2915, 252, 219
+	rotate: 90
 skin3/right arm_Attack3
-	bounds: 2641, 915, 197, 118
+	bounds: 3976, 1184, 197, 118
 	rotate: 90
 skin3/right leg
-	bounds: 3833, 1641, 86, 212
+	bounds: 3856, 1503, 86, 212
 	offsets: 0, 0, 86, 215
-skin3/right leg_Attack2
-	bounds: 3795, 2745, 126, 182
-skin3/right leg_Attack3
-	bounds: 2247, 864, 171, 194
 	rotate: 90
+skin3/right leg_Attack2
+	bounds: 1639, 1452, 126, 182
+skin3/right leg_Attack3
+	bounds: 3494, 1323, 171, 194
 skin3/rightFinger1_Attack3
-	bounds: 3602, 1020, 129, 109
+	bounds: 3260, 114, 129, 109
 	rotate: 90
 skin3/rightFinger2_Attack3
-	bounds: 3742, 557, 78, 57
+	bounds: 762, 9, 78, 57
 	offsets: 0, 1, 79, 59
+	rotate: 90
 skin4/Bag1
-	bounds: 3346, 496, 115, 91
+	bounds: 3798, 345, 115, 91
 	offsets: 3, 1, 118, 92
 skin4/Bag1_Attack2
-	bounds: 2631, 1114, 181, 141
+	bounds: 1493, 468, 181, 141
 	rotate: 90
 skin4/Bag1_Attack3
-	bounds: 2236, 297, 187, 141
+	bounds: 844, 1352, 187, 141
 	rotate: 90
 skin4/Bag2
-	bounds: 1886, 1473, 232, 185
+	bounds: 2392, 1107, 232, 185
 	offsets: 2, 0, 234, 185
 skin4/Bag2_Attack1
-	bounds: 3091, 3460, 200, 273
+	bounds: 2441, 1481, 200, 273
 	rotate: 90
 skin4/Bag2_Attack2
-	bounds: 2, 2235, 419, 272
-	rotate: 90
+	bounds: 1661, 3701, 419, 272
 skin4/Bag2_Attack3
-	bounds: 2, 554, 418, 259
-	rotate: 90
+	bounds: 2923, 3988, 418, 259
 skin4/Eye
-	bounds: 3435, 415, 96, 79
-skin4/Eye_Attack2
-	bounds: 3559, 146, 91, 76
-skin4/Eye_Attack3
-	bounds: 3737, 370, 77, 88
-skin4/Hair
-	bounds: 3597, 2287, 196, 204
-skin4/Hair_Attack1
-	bounds: 2537, 2293, 230, 206
-skin4/Hair_Attack2
-	bounds: 1470, 1282, 223, 196
-skin4/Hair_Attack3
-	bounds: 3188, 1677, 202, 210
+	bounds: 4147, 471, 96, 79
 	rotate: 90
+skin4/Eye_Attack2
+	bounds: 3695, 2, 91, 76
+	rotate: 90
+skin4/Eye_Attack3
+	bounds: 3905, 134, 77, 88
+	rotate: 90
+skin4/Hair
+	bounds: 1853, 631, 196, 204
+skin4/Hair_Attack1
+	bounds: 2989, 1044, 230, 206
+	rotate: 90
+skin4/Hair_Attack2
+	bounds: 1003, 432, 223, 196
+	rotate: 90
+skin4/Hair_Attack3
+	bounds: 1225, 645, 202, 210
 skin4/Head
-	bounds: 2528, 2906, 177, 272
+	bounds: 3313, 2629, 177, 272
 	rotate: 90
 skin4/Head_Attack3
-	bounds: 2806, 3085, 176, 273
+	bounds: 2503, 3810, 176, 273
+	rotate: 90
+skin4/Hit2
+	bounds: 609, 89, 215, 79
+skin4/Hit3
+	bounds: 4158, 373, 96, 79
 	rotate: 90
 skin4/Left arm
-	bounds: 2534, 2087, 231, 204
+	bounds: 3197, 1043, 231, 204
 	offsets: 0, 1, 231, 205
-skin4/Left arm1_Attack1
-	bounds: 3287, 1026, 97, 168
-	offsets: 0, 1, 97, 170
 	rotate: 90
+skin4/Left arm1_Attack1
+	bounds: 3991, 3393, 97, 168
+	offsets: 0, 1, 97, 170
 skin4/Left arm2_Attack1
-	bounds: 2560, 498, 199, 121
+	bounds: 3773, 2513, 199, 121
 	rotate: 90
 skin4/Left arm_Attack1
-	bounds: 276, 3309, 361, 168
+	bounds: 1661, 3257, 361, 168
 skin4/Left arm_Attack2
-	bounds: 276, 1973, 276, 247
-skin4/Left arm_Attack3
-	bounds: 2650, 2709, 195, 261
+	bounds: 422, 932, 276, 247
 	rotate: 90
+skin4/Left arm_Attack3
+	bounds: 2757, 1705, 195, 261
 skin4/Left leg
-	bounds: 2851, 1475, 105, 210
+	bounds: 3387, 1276, 105, 210
 	offsets: 1, 0, 109, 211
 skin4/Left leg2_Attack3
-	bounds: 2069, 24, 135, 52
+	bounds: 4184, 909, 135, 52
 	offsets: 0, 0, 136, 53
+	rotate: 90
 skin4/Left leg_Attack2
-	bounds: 1285, 1228, 225, 183
+	bounds: 1860, 837, 225, 183
 	rotate: 90
 skin4/Left leg_Attack3
-	bounds: 3094, 303, 116, 105
+	bounds: 3678, 531, 116, 105
 	offsets: 1, 0, 117, 106
 skin4/LeftFinger1_Attack2
-	bounds: 3776, 616, 94, 80
+	bounds: 3995, 104, 94, 80
 	offsets: 0, 0, 94, 81
+	rotate: 90
 skin4/LeftFinger2_Attack2
-	bounds: 3776, 1126, 92, 143
+	bounds: 2323, 102, 92, 143
 	rotate: 90
 skin4/Pants
-	bounds: 2958, 1048, 157, 145
+	bounds: 4090, 3460, 157, 145
 	offsets: 0, 0, 157, 151
 skin4/String1
-	bounds: 2970, 402, 161, 117
+	bounds: 3095, 7, 161, 117
 	offsets: 1, 0, 163, 117
-	rotate: 90
 skin4/String1_Attack2
-	bounds: 1167, 401, 273, 131
+	bounds: 2502, 3402, 273, 131
 	offsets: 0, 41, 273, 213
-	rotate: 90
 skin4/String2
-	bounds: 3274, 907, 163, 117
+	bounds: 2767, 179, 163, 117
 skin4/String2_Attack2
-	bounds: 756, 658, 282, 131
+	bounds: 1900, 1645, 282, 131
 	rotate: 90
 skin4/String2_Attack3
-	bounds: 2230, 486, 163, 211
+	bounds: 1636, 469, 163, 211
 	offsets: 56, 0, 275, 211
+	rotate: 90
 skin4/String3_Attack3
-	bounds: 1008, 2, 199, 197
+	bounds: 3896, 2492, 199, 197
 	offsets: 0, 8, 199, 213
 skin4/String_Attack2
-	bounds: 2040, 673, 179, 197
+	bounds: 2984, 248, 179, 197
 skin4/String_Attack3
-	bounds: 3630, 3032, 163, 212
+	bounds: 2839, 1491, 163, 212
 	offsets: 8, 7, 179, 219
 skin4/Tongue
-	bounds: 3109, 13, 79, 122
+	bounds: 3678, 450, 79, 122
+	rotate: 90
 skin4/Tongue_Attack1
-	bounds: 2935, 565, 178, 61
-	rotate: 90
+	bounds: 1562, 2, 178, 61
 skin4/Zipper_Attack3
-	bounds: 2020, 2, 75, 47
-	rotate: 90
+	bounds: 2396, 3404, 75, 47
 skin4/body
-	bounds: 3359, 3253, 266, 205
+	bounds: 3711, 2903, 266, 205
+	rotate: 90
 skin4/body_Attack1
-	bounds: 1672, 1876, 188, 257
-	rotate: 90
+	bounds: 609, 170, 188, 257
 skin4/body_Attack2
-	bounds: 676, 2795, 213, 263
+	bounds: 1569, 2795, 213, 263
 skin4/body_Attack3
-	bounds: 600, 924, 300, 154
-	rotate: 90
+	bounds: 1263, 1755, 300, 154
 skin4/right arm
-	bounds: 478, 912, 120, 312
+	bounds: 593, 1446, 120, 312
 skin4/right arm2_Attack3
-	bounds: 2761, 925, 130, 181
-	rotate: 90
+	bounds: 1202, 65, 130, 181
 skin4/right arm_Attack1
-	bounds: 1987, 3263, 195, 274
-	rotate: 90
+	bounds: 2327, 1959, 195, 274
 skin4/right arm_Attack2
-	bounds: 1221, 2496, 252, 219
+	bounds: 3965, 3171, 252, 219
 skin4/right arm_Attack3
-	bounds: 2653, 716, 197, 118
-	rotate: 90
+	bounds: 3832, 976, 197, 118
 skin4/right leg
-	bounds: 1759, 858, 86, 212
+	bounds: 3856, 1096, 86, 212
 	offsets: 0, 0, 86, 215
-skin4/right leg_Attack2
-	bounds: 3795, 2561, 126, 182
-skin4/right leg_Attack3
-	bounds: 2482, 1498, 171, 194
-skin4/rightFinger1_Attack3
-	bounds: 3602, 909, 129, 109
-skin4/rightFinger2_Attack3
-	bounds: 3746, 290, 78, 57
-	offsets: 0, 1, 79, 59
 	rotate: 90
+skin4/right leg_Attack2
+	bounds: 1510, 1452, 126, 182
+skin4/right leg_Attack3
+	bounds: 3510, 1127, 171, 194
+skin4/rightFinger1_Attack3
+	bounds: 1724, 114, 129, 109
+skin4/rightFinger2_Attack3
+	bounds: 2078, 3272, 78, 57
+	offsets: 0, 1, 79, 59
 skin5/Bag1
-	bounds: 3544, 561, 115, 91
+	bounds: 3798, 252, 115, 91
 	offsets: 3, 1, 118, 92
 skin5/Bag1_Attack2
-	bounds: 2775, 1332, 181, 141
+	bounds: 2062, 454, 181, 141
+	rotate: 90
 skin5/Bag1_Attack3
-	bounds: 2379, 297, 187, 141
-	rotate: 90
+	bounds: 858, 756, 187, 141
 skin5/Bag2
-	bounds: 2120, 1449, 232, 185
+	bounds: 657, 1212, 232, 185
 	offsets: 2, 0, 234, 185
-skin5/Bag2_Attack1
-	bounds: 3366, 3460, 200, 273
 	rotate: 90
+skin5/Bag2_Attack1
+	bounds: 2502, 3535, 200, 273
 skin5/Bag2_Attack2
-	bounds: 1147, 3649, 419, 272
+	bounds: 2082, 3975, 419, 272
 skin5/Bag2_Attack3
-	bounds: 2829, 3662, 418, 259
+	bounds: 2, 690, 418, 259
 skin5/Eye
-	bounds: 3558, 387, 96, 79
+	bounds: 4158, 275, 96, 79
+	rotate: 90
 skin5/Eye_Attack2
-	bounds: 3559, 68, 91, 76
+	bounds: 3773, 2, 91, 76
+	rotate: 90
 skin5/Hair
-	bounds: 2080, 1251, 196, 204
+	bounds: 3172, 443, 196, 204
 	rotate: 90
 skin5/Hair_Attack1
-	bounds: 2934, 2286, 230, 206
+	bounds: 3155, 1276, 230, 206
 skin5/Hair_Attack2
-	bounds: 1473, 1057, 223, 196
-	rotate: 90
+	bounds: 2373, 724, 223, 196
 skin5/Hair_Attack3
-	bounds: 1499, 395, 202, 210
-skin5/Head
-	bounds: 2802, 2906, 177, 272
+	bounds: 1429, 651, 202, 210
 	rotate: 90
+skin5/Head
+	bounds: 3918, 2897, 177, 272
 skin5/Head_Attack3
-	bounds: 3081, 3075, 176, 273
+	bounds: 2778, 3810, 176, 273
 	rotate: 90
 skin5/Left arm
-	bounds: 3166, 2287, 231, 204
+	bounds: 975, 1107, 231, 204
 	offsets: 0, 1, 231, 205
 skin5/Left arm1_Attack1
-	bounds: 3515, 1266, 97, 168
+	bounds: 1955, 296, 97, 168
 	offsets: 0, 1, 97, 170
 skin5/Left arm2_Attack1
-	bounds: 2665, 297, 199, 121
+	bounds: 3773, 2312, 199, 121
 	rotate: 90
 skin5/Left arm_Attack1
-	bounds: 276, 3139, 361, 168
+	bounds: 999, 2878, 361, 168
+	rotate: 90
 skin5/Left arm_Attack2
-	bounds: 276, 1724, 276, 247
+	bounds: 422, 654, 276, 247
+	rotate: 90
 skin5/Left arm_Attack3
-	bounds: 2153, 2422, 195, 261
+	bounds: 2954, 1711, 195, 261
 skin5/Left leg
-	bounds: 3516, 1436, 105, 210
+	bounds: 3403, 1064, 105, 210
 	offsets: 1, 0, 109, 211
 skin5/Left leg2_Attack3
-	bounds: 3098, 713, 135, 52
+	bounds: 3914, 533, 135, 52
 	offsets: 0, 0, 136, 53
+	rotate: 90
 skin5/Left leg_Attack2
-	bounds: 1288, 1001, 225, 183
+	bounds: 2045, 851, 225, 183
 	rotate: 90
 skin5/Left leg_Attack3
-	bounds: 3094, 196, 116, 105
+	bounds: 3680, 343, 116, 105
 	offsets: 1, 0, 117, 106
 skin5/LeftFinger1_Attack2
-	bounds: 3558, 224, 94, 80
+	bounds: 4105, 13, 94, 80
 	offsets: 0, 0, 94, 81
 skin5/LeftFinger2_Attack2
-	bounds: 3733, 925, 92, 143
+	bounds: 1873, 16, 92, 143
 	rotate: 90
 skin5/Pants
-	bounds: 3098, 767, 157, 145
+	bounds: 2205, 438, 157, 145
 	offsets: 0, 0, 157, 151
+	rotate: 90
 skin5/String1
-	bounds: 2975, 239, 161, 117
+	bounds: 3371, 123, 161, 117
 	offsets: 1, 0, 163, 117
-	rotate: 90
 skin5/String1_Attack2
-	bounds: 1088, 2760, 273, 131
+	bounds: 2777, 3402, 273, 131
 	offsets: 0, 41, 273, 213
-	rotate: 90
 skin5/String2
-	bounds: 2979, 764, 163, 117
-	rotate: 90
+	bounds: 2508, 112, 163, 117
 skin5/String2_Attack2
-	bounds: 889, 942, 282, 131
-	rotate: 90
+	bounds: 1208, 1466, 282, 131
 skin5/String2_Attack3
-	bounds: 2252, 84, 163, 211
+	bounds: 1849, 466, 163, 211
 	offsets: 56, 0, 275, 211
+	rotate: 90
 skin5/String3_Attack3
-	bounds: 1209, 2, 199, 197
+	bounds: 3896, 2293, 199, 197
 	offsets: 0, 8, 199, 213
 skin5/String_Attack2
-	bounds: 1868, 474, 179, 197
-skin5/String_Attack3
-	bounds: 1237, 201, 163, 212
-	offsets: 8, 7, 179, 219
+	bounds: 3871, 1591, 179, 197
 	rotate: 90
+skin5/String_Attack3
+	bounds: 3395, 1521, 163, 212
+	offsets: 8, 7, 179, 219
 skin5/Tongue
-	bounds: 3384, 283, 79, 122
+	bounds: 3968, 559, 79, 122
 skin5/Tongue_Attack1
-	bounds: 1791, 5, 178, 61
+	bounds: 1598, 65, 178, 61
+	rotate: 90
 skin5/body
-	bounds: 1221, 2228, 266, 205
+	bounds: 2721, 1968, 266, 205
 	rotate: 90
 skin5/body_Attack1
-	bounds: 1506, 1561, 188, 257
+	bounds: 799, 170, 188, 257
 skin5/body_Attack2
-	bounds: 676, 2530, 213, 263
+	bounds: 2170, 3066, 213, 263
 skin5/right arm
-	bounds: 478, 598, 120, 312
+	bounds: 715, 1452, 120, 312
 skin5/right arm2_Attack3
-	bounds: 2803, 559, 130, 181
+	bounds: 1323, 248, 130, 181
 skin5/right arm_Attack1
-	bounds: 2263, 3263, 195, 274
-	rotate: 90
+	bounds: 2363, 1683, 195, 274
 skin5/right arm_Attack2
-	bounds: 1475, 2704, 252, 219
+	bounds: 3313, 2408, 252, 219
 skin5/right arm_Attack3
-	bounds: 2683, 517, 197, 118
+	bounds: 3517, 732, 197, 118
 	rotate: 90
 skin5/right leg
-	bounds: 1771, 644, 86, 212
+	bounds: 3637, 717, 86, 212
 	offsets: 0, 0, 86, 215
 skin5/right leg_Attack2
-	bounds: 3795, 2377, 126, 182
+	bounds: 4097, 2293, 126, 182
 skin5/right leg_Attack3
-	bounds: 2655, 1514, 171, 194
-	rotate: 90
+	bounds: 3667, 1323, 171, 194
 skin5/rightFinger1_Attack3
-	bounds: 3097, 602, 129, 109
+	bounds: 1742, 3, 129, 109
 skin5/rightFinger2_Attack3
-	bounds: 3553, 9, 78, 57
+	bounds: 3615, 658, 78, 57
 	offsets: 0, 1, 79, 59
 skin6/Bag1
-	bounds: 3544, 468, 115, 91
+	bounds: 4049, 569, 115, 91
 	offsets: 3, 1, 118, 92
 skin6/Bag1_Attack2
-	bounds: 2775, 1189, 181, 141
+	bounds: 3743, 2129, 181, 141
+	rotate: 90
 skin6/Bag1_Attack3
-	bounds: 2522, 297, 187, 141
+	bounds: 2230, 939, 187, 141
 	rotate: 90
 skin6/Bag2
-	bounds: 2350, 2451, 232, 185
+	bounds: 671, 978, 232, 185
 	offsets: 2, 0, 234, 185
 	rotate: 90
 skin6/Bag2_Attack1
-	bounds: 676, 1725, 200, 273
+	bounds: 2704, 3535, 200, 273
 skin6/Bag2_Attack2
-	bounds: 2, 1814, 419, 272
-	rotate: 90
+	bounds: 2, 1212, 419, 272
 skin6/Bag2_Attack3
-	bounds: 2, 134, 418, 259
-	rotate: 90
+	bounds: 3343, 3988, 418, 259
 skin6/Eye
-	bounds: 3558, 306, 96, 79
+	bounds: 3534, 144, 96, 79
+	rotate: 90
 skin6/Eye_Attack2
-	bounds: 3652, 45, 91, 76
+	bounds: 3851, 2, 91, 76
+	rotate: 90
 skin6/Eye_Attack3
-	bounds: 3816, 368, 77, 88
+	bounds: 4077, 99, 77, 88
 	rotate: 90
 skin6/Eye_X
-	bounds: 2350, 2, 96, 80
+	bounds: 2475, 2709, 96, 80
 	offsets: 16, 20, 128, 121
 skin6/Hair
-	bounds: 1859, 1071, 196, 204
+	bounds: 2778, 298, 196, 204
 	rotate: 90
 skin6/Hair_Attack1
-	bounds: 3169, 2079, 230, 206
+	bounds: 858, 899, 230, 206
 skin6/Hair_Attack2
-	bounds: 1473, 832, 223, 196
-	rotate: 90
+	bounds: 2779, 661, 223, 196
 skin6/Hair_Attack3
-	bounds: 1611, 68, 202, 210
+	bounds: 1201, 433, 202, 210
 skin6/Head
-	bounds: 855, 384, 177, 272
+	bounds: 2551, 2236, 177, 272
 skin6/Head_Attack3
-	bounds: 3076, 2897, 176, 273
+	bounds: 3053, 3810, 176, 273
 	rotate: 90
 skin6/Hit2
-	bounds: 1671, 1065, 215, 79
-	rotate: 90
+	bounds: 365, 34, 215, 79
 skin6/Hit3
-	bounds: 3661, 556, 96, 79
-	rotate: 90
+	bounds: 3807, 171, 96, 79
 skin6/Left arm
-	bounds: 3401, 1856, 231, 204
+	bounds: 1208, 1063, 231, 204
 	offsets: 0, 1, 231, 205
 skin6/Left arm1_Attack1
-	bounds: 3614, 1262, 97, 168
+	bounds: 2338, 295, 97, 168
 	offsets: 0, 1, 97, 170
 	rotate: 90
 skin6/Left arm2_Attack1
-	bounds: 2670, 96, 199, 121
+	bounds: 3752, 1817, 199, 121
 	rotate: 90
 skin6/Left arm_Attack1
-	bounds: 639, 3309, 361, 168
-skin6/Left arm_Attack2
-	bounds: 263, 1475, 276, 247
-skin6/Left arm_Attack3
-	bounds: 3056, 2700, 195, 261
+	bounds: 999, 2515, 361, 168
 	rotate: 90
+skin6/Left arm_Attack2
+	bounds: 974, 2121, 276, 247
+	rotate: 90
+skin6/Left arm_Attack3
+	bounds: 3116, 2408, 195, 261
 skin6/Left leg
-	bounds: 3806, 1424, 105, 210
+	bounds: 3409, 852, 105, 210
 	offsets: 1, 0, 109, 211
 skin6/Left leg2_Attack3
-	bounds: 3235, 706, 135, 52
+	bounds: 4177, 687, 135, 52
 	offsets: 0, 0, 136, 53
-skin6/Left leg_Attack2
-	bounds: 1288, 774, 225, 183
 	rotate: 90
+skin6/Left leg_Attack2
+	bounds: 2373, 922, 225, 183
 skin6/Left leg_Attack3
-	bounds: 3212, 300, 116, 105
+	bounds: 3680, 236, 116, 105
 	offsets: 1, 0, 117, 106
 skin6/LeftFinger1_Attack2
-	bounds: 3463, 138, 94, 80
+	bounds: 2245, 20, 94, 80
 	offsets: 0, 0, 94, 81
 skin6/LeftFinger2_Attack2
-	bounds: 3776, 780, 92, 143
+	bounds: 2018, 9, 92, 143
+	rotate: 90
 skin6/Pants
-	bounds: 3257, 760, 157, 145
+	bounds: 1637, 322, 157, 145
 	offsets: 0, 0, 157, 151
 skin6/String1
-	bounds: 3416, 744, 161, 117
+	bounds: 3376, 4, 161, 117
 	offsets: 1, 0, 163, 117
-	rotate: 90
 skin6/String1_Attack2
-	bounds: 1088, 2485, 273, 131
+	bounds: 3578, 3127, 273, 131
 	offsets: 0, 41, 273, 213
 	rotate: 90
 skin6/String2
-	bounds: 2851, 394, 163, 117
-	rotate: 90
+	bounds: 2767, 60, 163, 117
 skin6/String2_Attack2
-	bounds: 889, 658, 282, 131
+	bounds: 1997, 1929, 282, 131
 	rotate: 90
 skin6/String2_Attack3
-	bounds: 2395, 486, 163, 211
+	bounds: 2352, 394, 163, 211
 	offsets: 56, 0, 275, 211
+	rotate: 90
 skin6/String3_Attack3
-	bounds: 1410, 2, 199, 197
+	bounds: 3886, 2094, 199, 197
 	offsets: 0, 8, 199, 213
 skin6/String_Attack2
-	bounds: 2049, 474, 179, 197
+	bounds: 3378, 441, 179, 197
 skin6/String_Attack3
-	bounds: 1922, 79, 163, 212
+	bounds: 2051, 637, 163, 212
 	offsets: 8, 7, 179, 219
 skin6/Tongue
-	bounds: 3452, 620, 79, 122
+	bounds: 3915, 311, 79, 122
 skin6/Tongue_Attack1
-	bounds: 2788, 337, 178, 61
+	bounds: 1661, 65, 178, 61
 	rotate: 90
 skin6/Zipper_Attack3
-	bounds: 3330, 193, 75, 47
+	bounds: 1510, 1678, 75, 47
 	rotate: 90
 skin6/body
-	bounds: 1729, 2633, 266, 205
+	bounds: 2909, 2242, 266, 205
 	rotate: 90
 skin6/body_Attack1
-	bounds: 1696, 1617, 188, 257
+	bounds: 1767, 1455, 188, 257
+	rotate: 90
 skin6/body_Attack2
-	bounds: 676, 2265, 213, 263
+	bounds: 993, 1313, 213, 263
 skin6/body_Attack3
-	bounds: 600, 622, 300, 154
-	rotate: 90
+	bounds: 1208, 1599, 300, 154
 skin6/right arm
-	bounds: 478, 284, 120, 312
+	bounds: 487, 115, 120, 312
 skin6/right arm2_Attack3
-	bounds: 3117, 1132, 130, 181
-	rotate: 90
+	bounds: 1334, 65, 130, 181
 skin6/right arm_Attack1
-	bounds: 2539, 3263, 195, 274
-	rotate: 90
+	bounds: 2524, 1959, 195, 274
 skin6/right arm_Attack2
-	bounds: 1475, 2483, 252, 219
+	bounds: 3332, 1989, 252, 219
+	rotate: 90
 skin6/right arm_Attack3
-	bounds: 3117, 1264, 197, 118
+	bounds: 3725, 745, 197, 118
+	rotate: 90
 skin6/right leg
-	bounds: 2582, 83, 86, 212
+	bounds: 3965, 762, 86, 212
 	offsets: 0, 0, 86, 215
 skin6/right leg_Attack2
-	bounds: 2354, 1452, 126, 182
+	bounds: 3552, 257, 126, 182
 skin6/right leg_Attack3
-	bounds: 2958, 1489, 171, 194
+	bounds: 3683, 1127, 171, 194
 skin6/rightFinger1_Attack3
-	bounds: 3228, 595, 129, 109
+	bounds: 4053, 935, 129, 109
 skin6/rightFinger2_Attack3
-	bounds: 3745, 43, 78, 57
+	bounds: 3615, 177, 78, 57
 	offsets: 0, 1, 79, 59
 	rotate: 90
 skin7/Bag1
-	bounds: 3465, 298, 115, 91
+	bounds: 4054, 452, 115, 91
 	offsets: 3, 1, 118, 92
 	rotate: 90
 skin7/Bag1_Attack2
-	bounds: 2773, 742, 181, 141
+	bounds: 3689, 944, 181, 141
 	rotate: 90
 skin7/Bag1_Attack3
-	bounds: 3327, 1505, 187, 141
+	bounds: 2600, 913, 187, 141
 skin7/Bag2
-	bounds: 2518, 1900, 232, 185
+	bounds: 671, 744, 232, 185
 	offsets: 2, 0, 234, 185
-skin7/Bag2_Attack1
-	bounds: 1096, 3048, 200, 273
-skin7/Bag2_Attack2
-	bounds: 1568, 3649, 419, 272
-skin7/Bag2_Attack3
-	bounds: 3249, 3662, 418, 259
-skin7/Eye
-	bounds: 3656, 362, 96, 79
 	rotate: 90
+skin7/Bag2_Attack1
+	bounds: 2906, 3535, 200, 273
+skin7/Bag2_Attack2
+	bounds: 1661, 3427, 419, 272
+skin7/Bag2_Attack3
+	bounds: 2, 429, 418, 259
+skin7/Eye
+	bounds: 4007, 18, 96, 79
 skin7/Eye_Attack2
-	bounds: 3743, 464, 91, 76
+	bounds: 3929, 2, 91, 76
 	rotate: 90
 skin7/Eye_Attack3
-	bounds: 3805, 289, 77, 88
-	rotate: 90
+	bounds: 2437, 12, 77, 88
 skin7/Hair
-	bounds: 2065, 1053, 196, 204
+	bounds: 3165, 245, 196, 204
 	rotate: 90
 skin7/Hair_Attack1
-	bounds: 3400, 1648, 230, 206
+	bounds: 1430, 855, 230, 206
 skin7/Hair_Attack2
-	bounds: 1485, 607, 223, 196
-	rotate: 90
+	bounds: 3185, 641, 223, 196
 skin7/Hair_Attack3
-	bounds: 1868, 1269, 202, 210
+	bounds: 1641, 634, 202, 210
 	rotate: 90
 skin7/Head
-	bounds: 1691, 2066, 177, 272
-	rotate: 90
+	bounds: 2730, 2236, 177, 272
 skin7/Head_Attack3
-	bounds: 3351, 2896, 176, 273
+	bounds: 3328, 3810, 176, 273
 	rotate: 90
 skin7/Left arm
-	bounds: 2501, 1694, 231, 204
+	bounds: 1197, 857, 231, 204
 	offsets: 0, 1, 231, 205
 skin7/Left arm1_Attack1
-	bounds: 2998, 594, 97, 168
+	bounds: 2338, 196, 97, 168
 	offsets: 0, 1, 97, 170
+	rotate: 90
 skin7/Left arm2_Attack1
-	bounds: 2652, 1297, 199, 121
-	rotate: 90
+	bounds: 3875, 1772, 199, 121
 skin7/Left arm_Attack1
-	bounds: 276, 2969, 361, 168
+	bounds: 1169, 3109, 361, 168
 skin7/Left arm_Attack2
-	bounds: 263, 1226, 276, 247
-skin7/Left arm_Attack3
-	bounds: 3319, 2699, 195, 261
+	bounds: 1014, 1843, 276, 247
 	rotate: 90
+skin7/Left arm_Attack3
+	bounds: 3135, 1980, 195, 261
 skin7/Left leg
-	bounds: 2524, 1039, 105, 210
+	bounds: 3410, 640, 105, 210
 	offsets: 1, 0, 109, 211
 skin7/Left leg2_Attack3
-	bounds: 3330, 270, 135, 52
+	bounds: 4000, 422, 135, 52
 	offsets: 0, 0, 136, 53
 	rotate: 90
 skin7/Left leg_Attack2
-	bounds: 1300, 547, 225, 183
-	rotate: 90
+	bounds: 2789, 859, 225, 183
 skin7/Left leg_Attack3
-	bounds: 3212, 193, 116, 105
+	bounds: 3796, 531, 116, 105
 	offsets: 1, 0, 117, 106
 skin7/LeftFinger1_Attack2
-	bounds: 3652, 123, 94, 80
+	bounds: 2341, 20, 94, 80
 	offsets: 0, 0, 94, 81
 skin7/LeftFinger2_Attack2
-	bounds: 3535, 654, 92, 143
+	bounds: 4070, 1046, 92, 143
 	rotate: 90
 skin7/Pants
-	bounds: 3535, 748, 157, 145
+	bounds: 1796, 319, 157, 145
 	offsets: 0, 0, 157, 151
-	rotate: 90
 skin7/String1
-	bounds: 3439, 907, 161, 117
+	bounds: 3559, 487, 161, 117
 	offsets: 1, 0, 163, 117
+	rotate: 90
 skin7/String1_Attack2
-	bounds: 1088, 2210, 273, 131
+	bounds: 3578, 2852, 273, 131
 	offsets: 0, 41, 273, 213
 	rotate: 90
 skin7/String2
-	bounds: 2856, 229, 163, 117
-	rotate: 90
+	bounds: 2932, 129, 163, 117
 skin7/String2_Attack2
-	bounds: 1022, 942, 282, 131
+	bounds: 2033, 1645, 282, 131
 	rotate: 90
 skin7/String2_Attack3
-	bounds: 2417, 84, 163, 211
+	bounds: 2565, 350, 163, 211
 	offsets: 56, 0, 275, 211
+	rotate: 90
 skin7/String3_Attack3
-	bounds: 1847, 872, 199, 197
+	bounds: 3875, 1895, 199, 197
 	offsets: 0, 8, 199, 213
 skin7/String_Attack2
-	bounds: 1894, 293, 179, 197
-	rotate: 90
+	bounds: 3371, 242, 179, 197
 skin7/String_Attack3
-	bounds: 2221, 699, 163, 212
+	bounds: 2363, 559, 163, 212
 	offsets: 8, 7, 179, 219
 	rotate: 90
 skin7/Tongue
-	bounds: 3463, 496, 79, 122
+	bounds: 3996, 298, 79, 122
 skin7/Tongue_Attack1
-	bounds: 2793, 157, 178, 61
+	bounds: 1455, 251, 178, 61
 	rotate: 90
 skin7/Zipper_Attack3
-	bounds: 3741, 2517, 75, 47
-	rotate: 90
+	bounds: 821, 2, 75, 47
 skin7/body
-	bounds: 1428, 2276, 266, 205
+	bounds: 2928, 1974, 266, 205
+	rotate: 90
 skin7/body_Attack1
-	bounds: 1886, 1660, 188, 257
+	bounds: 2158, 1315, 188, 257
 	rotate: 90
 skin7/body_Attack2
-	bounds: 676, 2000, 213, 263
+	bounds: 1868, 2213, 213, 263
 skin7/right arm
-	bounds: 600, 308, 120, 312
+	bounds: 2082, 3331, 120, 312
+	rotate: 90
 skin7/right arm2_Attack3
-	bounds: 3300, 1125, 130, 181
-	rotate: 90
+	bounds: 1466, 65, 130, 181
 skin7/right arm_Attack1
-	bounds: 2815, 3263, 195, 274
-	rotate: 90
+	bounds: 2560, 1683, 195, 274
 skin7/right arm_Attack2
-	bounds: 2133, 2685, 252, 219
+	bounds: 3341, 1735, 252, 219
+	rotate: 90
 skin7/right arm_Attack3
-	bounds: 3316, 1257, 197, 118
+	bounds: 3845, 777, 197, 118
+	rotate: 90
 skin7/right leg
-	bounds: 2436, 1037, 86, 212
+	bounds: 4097, 2477, 86, 212
 	offsets: 0, 0, 86, 215
 skin7/right leg_Attack2
-	bounds: 3330, 1377, 126, 182
-	rotate: 90
+	bounds: 1195, 248, 126, 182
 skin7/right leg_Attack3
-	bounds: 3131, 1504, 171, 194
-	rotate: 90
+	bounds: 3516, 931, 171, 194
 skin7/rightFinger1_Attack3
-	bounds: 3097, 491, 129, 109
+	bounds: 4053, 824, 129, 109
 skin7/rightFinger2_Attack3
-	bounds: 3804, 230, 78, 57
+	bounds: 3674, 177, 78, 57
 	offsets: 0, 1, 79, 59
-swing
-	bounds: 2, 3498, 301, 423
-	offsets: 0, 0, 423, 423
+swing1
+	bounds: 1124, 3279, 535, 968
+	offsets: 1, 1, 548, 970
+swing2
+	bounds: 2, 3241, 1120, 1006
+	offsets: 1, 2, 1123, 1010
+swing3
+	bounds: 2, 2080, 1159, 721
+	offsets: 2, 4, 1163, 726
+	rotate: 90
+swing4
+	bounds: 2, 1760, 639, 318
+	offsets: 2, 4, 642, 323

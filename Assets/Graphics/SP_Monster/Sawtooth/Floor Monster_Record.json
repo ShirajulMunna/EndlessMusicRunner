@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "zB8h6SK1FXI", "spine": "4.1.24", "x": -272.95, "y": -4.34, "width": 535, "height": 287.86 },
+"skeleton": { "hash": "kH0z91eHhsk", "spine": "4.1.24", "x": -272.95, "y": -4.34, "width": 535, "height": 287.86 },
 "bones": [
 	{ "name": "root" },
 	{ "name": "record", "parent": "root", "x": -2.35, "y": -1.81 },
@@ -367,7 +367,7 @@
 	}
 ],
 "animations": {
-	"Idle": {
+	"idle": {
 		"slots": {
 			"Fragments1": {
 				"rgba": [
