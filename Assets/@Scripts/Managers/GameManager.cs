@@ -21,40 +21,14 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    Vector3 GameResultPosition = new Vector3(10, -2, 0);
+
+    private UI_Pause pasueObject;
+
     private void Awake()
     {
         Application.targetFrameRate = 120;
     }
-
-    //################################################################### 리펙토리중
-
-
-
-
-
-    public SkeletonAnimation skeleton;
-
-    public Transform bossWaitPosition;
-
-    public Transform lowerAttackPoint;
-    [HideInInspector] public Vector3 longNoteDestoryPosition;
-
-    public Vector3 GameResultPosition = new Vector3(10, -2, 0);
-
-
-    // After playing some times background will
-    // will change autometically .
-    // Implement it here
-
-    private UI_Pause pasueObject;
-
-    //게임 결과 가져오기
-    public void SetGameResult(GameResultType type)
-    {
-        Spine_GameResult.Create(GameResultPosition, type);
-    }
-
-
 
     public void Update()
     {
@@ -71,6 +45,13 @@ public class GameManager : Singleton<GameManager>
                 Btn_Pause();
         }
     }
+
+    //게임 결과 가져오기
+    public void SetGameResult(GameResultType type)
+    {
+        Spine_GameResult.Create(GameResultPosition, type);
+    }
+
     public async void Btn_Pause()
     {
         var name = "UI_Pause";

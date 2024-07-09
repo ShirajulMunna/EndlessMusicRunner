@@ -68,6 +68,7 @@ public class Player_Attacker : MonoBehaviour, IPlayerAttack
         nPC.SetAttack(target);
 
         SetMonsterEffect(obj, idx, result.Item2);
+        AudioManager.instance.PlaySound(result.Item2);
         ScoreManager.instance.SetScoreState(result.Item2);
         ScoreManager.instance.SetCurrentScore(1);
         ScoreManager.instance.SetCombo_Add();

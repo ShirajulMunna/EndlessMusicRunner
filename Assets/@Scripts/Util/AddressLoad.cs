@@ -14,7 +14,7 @@ public static class AddressLoad
     /// </summary>
     public static async Task<T> CreateOBJ<T>(this string key, Transform parent = null, Vector3 pos = default, Quaternion rot = default) where T : UnityEngine.Object
     {
-        GameObject result = await LoadAsync<GameObject>(key);
+        GameObject result = await key.LoadAsync<GameObject>();
         if (result == null)
         {
             Debug.LogError($"Null value loaded for key: {key}");
@@ -40,7 +40,7 @@ public static class AddressLoad
     /// <summary>
     /// 로드 함수
     /// </summary>
-    public static async Task<T> LoadAsync<T>(string key) where T : UnityEngine.Object
+    public static async Task<T> LoadAsync<T>(this string key) where T : UnityEngine.Object
     {
         if (D_Resources.TryGetValue(key, out UnityEngine.Object resource) && resource is T)
         {

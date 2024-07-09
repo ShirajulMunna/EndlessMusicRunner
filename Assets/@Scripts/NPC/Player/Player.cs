@@ -48,6 +48,9 @@ public class Player : NPC
     float MaxMiddleDelay = 0.25f;
     bool isMiddle;
 
+    public System.Action Ac_Hit;
+
+
     private void Start()
     {
         SetUp(1000000, 500, 10, IMovePoint.GetMovePoint(E_MoveData.Down));
@@ -57,7 +60,6 @@ public class Player : NPC
     {
         UpdateMiddle();
     }
-
 
     public override void SetUp(int hp, float speed, int damage, Vector3 target)
     {
@@ -163,6 +165,7 @@ public class Player : NPC
         {
             return;
         }
+        Ac_Hit?.Invoke();
         ScoreManager.instance.SetScoreState(ScoreManager.E_ScoreState.Miss);
         ScoreManager.instance.SetCombo_Reset();
         player_Ani.SetAni(player_Ani.GetAniString(E_AniKind_Player.Hit), false, player_Ani.GetAniString(E_AniKind_Player.Idle));

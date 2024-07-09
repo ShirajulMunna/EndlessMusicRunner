@@ -29,12 +29,10 @@ public class UI_GameOver : MonoBehaviour
         {
             return;
         }
-
         UI_Play.instance.GameOver = true;
-        var obj = await Name.CreateOBJ<UI_GameOver>();
-        var audio = AudioManager.instance;
-        audio.Audio_BackGround.PlayOneShot(audio.failGame);
+        await Name.CreateOBJ<UI_GameOver>();
     }
+
     [SerializeField] List<St_GameClear> L_GameState = new List<St_GameClear>();
 
     [SerializeField] TextMeshProUGUI[] T_TextList;

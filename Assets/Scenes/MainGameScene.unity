@@ -1787,7 +1787,6 @@ GameObject:
   m_Component:
   - component: {fileID: 827244270}
   - component: {fileID: 827244269}
-  - component: {fileID: 827244272}
   - component: {fileID: 827244273}
   - component: {fileID: 827244274}
   - component: {fileID: 827244275}
@@ -1810,12 +1809,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90e06ab1c90b8a64d86b9f8d56ab67dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeleton: {fileID: 0}
-  player: {fileID: 0}
-  bossWaitPosition: {fileID: 0}
-  lowerAttackPoint: {fileID: 304495756}
-  longNoteDestoryPosition: {x: 0, y: 0, z: 0}
-  GameResultPosition: {x: 0, y: 0, z: 0}
 --- !u!4 &827244270
 Transform:
   m_ObjectHideFlags: 0
@@ -1831,19 +1824,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &827244272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 827244268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7436808ca6c023d42bfbc716373e6a4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeDuration: 0.75
 --- !u!114 &827244273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2717,7 +2697,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.2
-  CheckisStop: 0
 --- !u!1 &1315516064
 GameObject:
   m_ObjectHideFlags: 0
@@ -3293,7 +3272,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  CheckisStop: 1
 --- !u!1 &1470521558
 GameObject:
   m_ObjectHideFlags: 0

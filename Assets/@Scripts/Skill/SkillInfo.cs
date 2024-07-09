@@ -20,7 +20,7 @@ public static class SkillInfo
         //스킬 정보에서 아이콘 정보 가져오기
         var iconid = skillid;
         var key = string.Format(ICONName, iconid);
-        var result = await AddressLoad.LoadAsync<Sprite>(key);
+        var result = await key.LoadAsync<Sprite>();
 
         return result;
     }
