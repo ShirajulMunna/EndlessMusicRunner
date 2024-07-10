@@ -143,7 +143,7 @@ public class Monsters : NPC, IMonster
     public override void SetHit(int hp)
     {
         base.SetHit(hp);
-        iAni?.SetAni(E_AniKind_Monster.Hit_0, true);
+        iAni?.SetAni(E_AniKind_Monster.Hit_0, false);
         monsterState?.SetState(E_MonstersState.Hit);
     }
 

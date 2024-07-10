@@ -40,7 +40,6 @@ public class Bosst : Monsters
     public override void SetHit(int hp)
     {
         base.SetHit(hp);
-        CameraSystem.instance.SetZoomIn();
         Ac_Hit?.Invoke();
     }
 

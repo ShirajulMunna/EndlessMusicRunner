@@ -12,17 +12,18 @@ public class SpawnPoint : MonoBehaviour, ISpawnPoint
     {
         var MySpwanPoint = GetPoint(spwanPosition);
         MySpwanPoint.x = Xvalue;
-        
+
         MySpwanPoint.x += offsetx;
         MySpwanPoint.y += offsety;
-        
+
         return MySpwanPoint;
     }
 
     //위치 가져오기
     public Vector3 GetPoint(E_MoveData spawnPoint)
     {
-        return D_MovePoint[spawnPoint];
+        var pos = D_MovePoint[spawnPoint];
+        pos.x = Xvalue;
+        return pos;
     }
-
 }

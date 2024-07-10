@@ -44,3 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0fb5024fbf6ee7468f235b4da1ae854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AniName: Attack3

@@ -17,19 +17,13 @@ public class MonsterCrush : Monsters
     }
 
     E_State e_State = E_State.idle;
-    float Delaytime = 0.3f;
+    float Delaytime = 0.5f;
     float Delaytime_Hit = 1f;
     System.Action Ac_Move_Complted;
 
     Bosst bosst
     {
         get => Bosst.instance;
-    }
-
-    private void Start()
-    {
-        e_State = E_State.idle;
-        bosst.Ac_Hit += SetBossHit;
     }
 
     private void Update()
@@ -52,6 +46,7 @@ public class MonsterCrush : Monsters
     public override void SetActive()
     {
         base.SetActive();
+        bosst.Ac_Hit += SetBossHit;
         SetState(E_State.CrushMove);
     }
 
@@ -92,6 +87,7 @@ public class MonsterCrush : Monsters
     void SetBossHit()
     {
         SetState(E_State.Hit);
+        CameraSystem.instance.SetZoomIn();
     }
 
     void SetState(E_State state)
@@ -99,7 +95,7 @@ public class MonsterCrush : Monsters
         switch (state)
         {
             case E_State.Hit:
-                bosst.Ac_Hit -= SetBossHit;
+                bosst.Ac_Hit = null;
                 bosst.nPC_Move.SetSpeed(0);
                 break;
             case E_State.CrushMove:
@@ -109,7 +105,7 @@ public class MonsterCrush : Monsters
                 bosst.nPC_Move.SetTarget(pos);
                 break;
             case E_State.Crush:
-                bosst.Ac_Hit -= SetBossHit;
+                bosst.Ac_Hit = null;
                 bosst.iAni.SetAni(AniName, true);
                 bosst.SetAttack(PlayerManager.instance.GetPlayer(bosst.transform.position.y));
                 break;
@@ -118,6 +114,7 @@ public class MonsterCrush : Monsters
                 Ac_Move_Complted += () => SetState(E_State.Complted);
                 bosst.nPC_Move.SetTarget(bosst.FirstPos());
                 SetState(E_State.Move);
+                state = E_State.Move;
                 break;
             case E_State.Move:
                 bosst.iAni.SetAni(E_AniKind_Monster.Move, true);

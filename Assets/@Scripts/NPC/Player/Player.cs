@@ -89,7 +89,7 @@ public class Player : NPC
         player_KeyInput.AddTwinKeyPoint_Down(code_1, code_2, () => SetTwin(twin));
         player_KeyInput.AddTwinKeyPoint_Up(code_1, code_2, () => ResetKey());
 
-        SetUp(100, 500, 10, IMovePoint.GetMovePoint(downs));
+        SetUp(1000000, 500, 10, IMovePoint.GetMovePoint(downs));
     }
 
     void KeyDown(E_MoveData e_MoveData, E_AniKind_Player e_AniKind_Player)

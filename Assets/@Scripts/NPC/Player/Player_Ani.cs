@@ -93,8 +93,8 @@ public class Player_Ani : MonoBehaviour, IAni
                 return E_AniKind_Player.Fly;
             }
 
-            var checkboss = Bosst.instance == null;
-            if (checkboss)
+            var checkboss = Bosst.instance.gameObject.activeSelf;
+            if (!checkboss)
             {
                 kind = E_AniKind_Player.Running;
             }

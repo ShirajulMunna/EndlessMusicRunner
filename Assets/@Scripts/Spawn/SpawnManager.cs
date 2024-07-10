@@ -123,6 +123,7 @@ public class SpawnManager : Singleton<SpawnManager>
         spawnDelay.SetDelay(2, () => SetisStart(true));
 
         DelayStartTime = spawnDelay.GetMonsterCreateDelay();
+        DelayStartTime += 0.2f;//0.2초정도 
         spawnDelay.SetDelay(2 + DelayStartTime, AudioManager.instance.PlayMusic);
     }
 
