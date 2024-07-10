@@ -10,6 +10,9 @@ public class Bosst : Monsters
     //보스 위치
     Vector3 StartPos = new Vector3(13.5f, 0, 0);
 
+    System.Action Ac_Die;
+    float DieDleay = 1f;
+
     private void Awake()
     {
         instance = this;
@@ -25,8 +28,25 @@ public class Bosst : Monsters
             {
                 return;
             }
-            SetDie();
+            Ac_Die = UpdateDie;
         });
+    }
+
+    private void Update()
+    {
+        Ac_Die?.Invoke();
+    }
+
+    void UpdateDie()
+    {
+        DieDleay -= Time.deltaTime;
+        if (DieDleay > 0)
+        {
+            return;
+        }
+        Ac_Die = null;
+
+        SetDie();
     }
 
     public Vector3 FirstPos()
@@ -54,5 +74,9 @@ public class Bosst : Monsters
     public override void SetDieMonster()
     {
 
+    }
+    public override void SetDie()
+    {
+        iAni?.SetAni(E_AniKind_Monster.Die, false, true);
     }
 }

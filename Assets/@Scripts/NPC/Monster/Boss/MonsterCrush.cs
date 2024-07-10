@@ -122,7 +122,7 @@ public class MonsterCrush : Monsters
                 break;
             case E_State.Complted:
                 bosst?.iAni?.SetAni(E_AniKind_Monster.idle, true);
-                Destroy(this.gameObject);
+                this.gameObject.SetActive(false);
                 break;
         }
         e_State = state;

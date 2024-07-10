@@ -92,7 +92,7 @@ public class SpawnManager : Singleton<SpawnManager>
 
         System.Action actions = () =>
         {
-            spawnDelay.SetDelay(4, UI_GameOver.Create);
+            spawnDelay.SetDelay(3, UI_GameOver.Create);
         };
         PlayManager.instance.AddAction(E_Play.End, actions);
     }
@@ -100,6 +100,11 @@ public class SpawnManager : Singleton<SpawnManager>
     private void Update()
     {
         UpdateEndSpwan();
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            PlayManager.instance.SetAction(E_Play.End);
+        }
     }
 
     private void FixedUpdate()
@@ -110,7 +115,7 @@ public class SpawnManager : Singleton<SpawnManager>
     //게임 시작
     public void PlayGame()
     {
-        var bitname = string.IsNullOrEmpty(StrMusicFileName) ? UI_Lobby.Str_BitName : StrMusicFileName;
+        var bitname = string.IsNullOrEmpty(UI_Lobby.Str_BitName) ? StrMusicFileName : UI_Lobby.Str_BitName;
         spawnTimePoint.SetUp(bitname);
         spawnCreate.SetStart();
         DelayStart();

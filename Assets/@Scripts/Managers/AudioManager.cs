@@ -1,11 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioManager : Singleton<AudioManager>
 {
     const string EffectSound = "EffectSound_{0}";
-
     private AudioSource audioSource;
     int clap_1 = 0;
     int clap_2 = 1;
@@ -27,7 +24,7 @@ public class AudioManager : Singleton<AudioManager>
 
     void SetBG()
     {
-        Audio_BackGround.clip = BackSound[0];
+        Audio_BackGround.clip = BackSound[UI_Lobby.BitIdx];
         Audio_BackGround.Pause();
     }
 

@@ -90,7 +90,7 @@ public class MonsterAni_Special : MonoBehaviour, IAni, IMonsterAni
         return types;
     }
 
-    public void SetAni(E_AniKind_Monster state, bool loop)
+    public void SetAni(E_AniKind_Monster state, bool loop, bool dir = false)
     {
         state = SetHit(state);
         var ani = GetAniString(state);

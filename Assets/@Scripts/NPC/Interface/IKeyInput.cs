@@ -7,6 +7,7 @@ interface IKeyInput
     Dictionary<KeyCode, System.Action> D_KeyInput_Up { get; set; }
     Dictionary<(KeyCode, KeyCode), System.Action> D_TwinKeyInput_Down { get; set; }
     Dictionary<(KeyCode, KeyCode), System.Action> D_TwinKeyInput_Up { get; set; }
+    void Reset();
     //추가
     void AddKeyPoint_Down(KeyCode code, System.Action action);
     //제거

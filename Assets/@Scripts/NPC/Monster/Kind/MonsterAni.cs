@@ -63,10 +63,10 @@ public class MonsterAni : MonoBehaviour, IAni, IMonsterAni
         return data;
     }
 
-    public void SetAni(E_AniKind_Monster state, bool loop)
+    public void SetAni(E_AniKind_Monster state, bool loop, bool dir = false)
     {
         var ani = GetAniString(state);
-        SetAni(ani, false, null);
+        SetAni(ani, false, null, dir);
     }
 
     public void SetAni(string aniname, bool loop)

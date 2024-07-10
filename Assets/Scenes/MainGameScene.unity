@@ -1555,7 +1555,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8885203604464587095, guid: d724c69c178ec5b4d9079df012d8a8ef, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.5
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 8885203604464587095, guid: d724c69c178ec5b4d9079df012d8a8ef, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1750,6 +1750,7 @@ MonoBehaviour:
   Audio_BackGround: {fileID: 743956113}
   BackSound:
   - {fileID: 8300000, guid: a2abdeff1338aa0419b0d09eaf30b841, type: 3}
+  - {fileID: 8300000, guid: 17e93c15fdf39fb4bb2b18e387852be9, type: 3}
 --- !u!81 &743956116
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1948,7 +1949,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7436808ca6c023d42bfbc716373e6a4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeDuration: 0.75
 --- !u!114 &827244273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3612,7 +3612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8885203604464587095, guid: baf7a140a69160c41a417899fc08f6b6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8885203604464587095, guid: baf7a140a69160c41a417899fc08f6b6, type: 3}
       propertyPath: m_LocalPosition.z

@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class NPC_Move : MonoBehaviour, IMove
 {
@@ -81,7 +82,6 @@ public class NPC_Move : MonoBehaviour, IMove
             // 목표 지점을 지나치지 않도록 보정
             newPosition.x = Mathf.Clamp(newPosition.x, Mathf.Min(rb.position.x, target.x), Mathf.Max(rb.position.x, target.x));
             newPosition.y = Mathf.Clamp(newPosition.y, Mathf.Min(rb.position.y, target.y), Mathf.Max(rb.position.y, target.y));
-
             rb.MovePosition(newPosition);
             return;
         }

@@ -1,20 +1,50 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class PlayerManager : Singleton<PlayerManager>
 {
     [SerializeField] Player[] players;
     public System.Action Ac_Hit;
-    public bool isDie;
+
+    bool isDie;
+    float ClearDleay = 1f;
+    System.Action Ac_Clear;
 
     private void Start()
     {
-        players[0].SetKeyInput(KeyCode.D, KeyCode.F, true);
-        players[1].SetKeyInput(KeyCode.J, KeyCode.K, false);
+        PlayManager.instance.AddAction(E_Play.End, () =>
+        {
+            players[0].KeyReset();
+            players[1].KeyReset();
+
+            if (PlayerManager.instance.GetPlayer(0).nPC_Status.CheckDie())
+            {
+                return;
+            }
+            var pos = IMovePoint.GetMovePoint(E_MoveData.Higt_Low);
+            pos.x = -2;
+            players[0].nPC_Move.SetSpeed(20);
+            players[0].nPC_Move.SetTarget(pos);
+
+
+            pos = IMovePoint.GetMovePoint(E_MoveData.Low_Low);
+            pos.x = 0;
+            players[1].nPC_Move.SetSpeed(20);
+            players[1].nPC_Move.SetTarget(pos);
+            Ac_Clear = UpdateClear;
+        });
+    }
+
+    private void Update()
+    {
+        Ac_Clear?.Invoke();
     }
 
     public void SetUp()
     {
         isDie = false;
+        players[0].SetKeyInput(KeyCode.D, KeyCode.F, true);
+        players[1].SetKeyInput(KeyCode.J, KeyCode.K, false);
     }
 
     public void SetHit()
@@ -66,4 +96,32 @@ public class PlayerManager : Singleton<PlayerManager>
     {
         return players[idx];
     }
+
+    void UpdateClear()
+    {
+        ClearDleay -= Time.deltaTime;
+
+        if (ClearDleay > 0)
+        {
+            return;
+        }
+        var rank = ScoreManager.instance.GetScoreRank();
+        var strrank = players[0].player_Ani.GetAniString(E_AniKind_Player.Clear_S);
+        switch (rank)
+        {
+            case ScoreManager.ScoreRank.A:
+            case ScoreManager.ScoreRank.B:
+                strrank = players[0].player_Ani.GetAniString(E_AniKind_Player.Clear_A);
+                break;
+            case ScoreManager.ScoreRank.C:
+            case ScoreManager.ScoreRank.F:
+                strrank = players[0].player_Ani.GetAniString(E_AniKind_Player.Clear_F);
+                break;
+        }
+
+        players[0].player_Ani.SetAni(strrank, true, null);
+        players[1].player_Ani.SetAni(strrank, true, null);
+        Ac_Clear = null;
+    }
+
 }

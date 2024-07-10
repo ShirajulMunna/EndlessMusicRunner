@@ -9,6 +9,10 @@ public class Monsters : NPC, IMonster
     {
         get
         {
+            if (this == null)
+            {
+                return null;
+            }
             if (_monster_Type_Data == null)
             {
                 _monster_Type_Data = GetComponent<IMonsterType>();
@@ -134,8 +138,6 @@ public class Monsters : NPC, IMonster
     {
         base.SetDie();
         SetDieMonster();
-        //사망 애니메이션
-        iAni?.SetAni(E_AniKind_Monster.Die, true);
         nPC_Move.SetSpeed(30);
         Destroy(this.gameObject, 0.1f);
     }

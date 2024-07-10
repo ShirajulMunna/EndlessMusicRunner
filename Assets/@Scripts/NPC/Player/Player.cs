@@ -19,7 +19,7 @@ public class Player : NPC
     }
 
     Player_Ani _player_Ani;
-    Player_Ani player_Ani
+    public Player_Ani player_Ani
     {
         get
         {
@@ -73,6 +73,11 @@ public class Player : NPC
         var point = Getnpc().nPC_Move.GetMoveData();
         var kind = point == E_MoveData.Higt_Low || point == E_MoveData.Low_Low ? E_AniKind_Player.Running : E_AniKind_Player.Fly;
         GetAni_npc().SetAni(GetAni_npc().GetAniString(kind), true, null);
+    }
+
+    public void KeyReset()
+    {
+        player_KeyInput.Reset();
     }
 
     public void SetKeyInput(KeyCode code_1, KeyCode code_2, bool ishigt)

@@ -3,31 +3,35 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class UI_Lobby : MonoBehaviour
+public class UI_Lobby : Singleton<UI_Lobby>
 {
-    [SerializeField] TMP_Dropdown skinDropDown;
     [SerializeField] TextMeshProUGUI T_Type;
-    [SerializeField] TMP_Dropdown BitDropDown;
     [SerializeField] SkeletonGraphic playerUiGraphic;
 
     public static bool Type;
     public static PlayerSkinType playerSkinType = PlayerSkinType.Skin0;
-    static int ScrollValue;
     public static string Str_BitName;
+    public static int BitIdx;
 
     private List<string> skin_Names = new()
     {
         "skin4","skin6","skin0","skin3","skin1","skin2","skin5","skin7" //그래픽 변경
     };
+
+    List<string> _BitName = new List<string>()
+    {
+        "Ellagator_S1E1_MIX_2",
+        "2nd"
+    };
+
     private void Start()
     {
-        SetBit();
+        SetBit(BitIdx);
         if (T_Type == null)
             return;
 
         Type = true;
         T_Type.text = !Type ? "VsMode" : "RunMode";
-        skinDropDown.value = ScrollValue;
         ChangePlayerUiGraphics();
     }
 
@@ -47,18 +51,17 @@ public class UI_Lobby : MonoBehaviour
         T_Type.text = text;
     }
 
-    public void SetBit()
+    public void SetBit(int idx)
     {
-        Str_BitName = BitDropDown.options[BitDropDown.value].text;
+        BitIdx = idx;
+        Str_BitName = _BitName[idx];
     }
 
-    public void SetSkin()
+    public int MaxBit()
     {
-        var value = skinDropDown.value;
-        // PD님 요청으로 그래픽타입 순서 변경 코드 -> UI에서는 1부터시작으로 -1해야함 
-        ScrollValue = skinDropDown.value;
-        playerSkinType = (PlayerSkinType)value;
+        return _BitName.Count - 1;
     }
+
     public void ChangePlayerUiGraphics()
     {
         playerUiGraphic.Skeleton.SetSkin(skin_Names[(int)UI_Lobby.playerSkinType]);

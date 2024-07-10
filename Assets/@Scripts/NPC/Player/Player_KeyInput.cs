@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player_KeyInput : MonoBehaviour, IKeyInput
@@ -21,6 +22,15 @@ public class Player_KeyInput : MonoBehaviour, IKeyInput
         UpdateKeyTwin_Down();
         UpdateKeyTiwn_Up();
     }
+
+    public void Reset()
+    {
+        D_KeyInput_Down.Clear();
+        D_KeyInput_Up.Clear();
+        D_TwinKeyInput_Down.Clear();
+        D_TwinKeyInput_Up.Clear();
+    }
+
 
     public void UpdateKeyDown()
     {
