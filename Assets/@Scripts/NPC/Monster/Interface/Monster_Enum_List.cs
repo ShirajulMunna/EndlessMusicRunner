@@ -6,6 +6,7 @@ public enum E_MonsterType
     Twin,
     Hold,
     Boss,
+    BossAttack,
 }
 
 

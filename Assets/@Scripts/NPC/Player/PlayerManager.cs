@@ -4,11 +4,17 @@ public class PlayerManager : Singleton<PlayerManager>
 {
     [SerializeField] Player[] players;
     public System.Action Ac_Hit;
+    public bool isDie;
 
     private void Start()
     {
         players[0].SetKeyInput(KeyCode.D, KeyCode.F, true);
         players[1].SetKeyInput(KeyCode.J, KeyCode.K, false);
+    }
+
+    public void SetUp()
+    {
+        isDie = false;
     }
 
     public void SetHit()
@@ -34,6 +40,19 @@ public class PlayerManager : Singleton<PlayerManager>
         hp = hp_2 - hp_1;
         players[1].nPC_Status.SetHp(-hp);
     }
+
+    public void SyncDie()
+    {
+        if (isDie)
+        {
+            return;
+        }
+        isDie = true;
+        players[0].SetDie();
+        players[1].SetDie();
+        PlayManager.instance.SetAction(E_Play.End);
+    }
+
 
     public Player GetPlayer(float yvalue)
     {

@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    Vector3 GameResultPosition = new Vector3(10, -2, 0);
+    Vector3 GameResultPosition = new Vector3(0, 1, 0);
 
     private UI_Pause pasueObject;
 

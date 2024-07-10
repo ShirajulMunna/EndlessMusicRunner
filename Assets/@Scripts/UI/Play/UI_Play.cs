@@ -49,6 +49,7 @@ public class UI_Play : Singleton<UI_Play>
         ScoreManager.instance.ScoreReset();
         Key_Explain.SetActive(activate);
         PlayManager.instance.SetAction(E_Play.Play);
+        PlayerManager.instance.SetUp();
         StartCoroutine(DeactivatePanel());
         SetPlaying();
     }

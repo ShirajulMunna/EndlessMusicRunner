@@ -66,10 +66,10 @@ public class Monster_LongNotes : Monsters
             ScoreManager.instance.SetCurrentScore(1);
         }
 
-        SoundTime += deltaTime;
-        if (SoundTime >= SoundTimeDuration)
+        SoundTime -= deltaTime;
+        if (SoundTime <= 0)
         {
-            SoundTime = 0f;
+            SoundTime = SoundTimeDuration;
             AudioManager.instance.LongNoteSound();
         }
 

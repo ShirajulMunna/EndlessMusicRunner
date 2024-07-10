@@ -121,7 +121,7 @@ public class UI_GameOver : MonoBehaviour
         StartCoroutine(IE_Score());
         var best = ScoreManager.instance.SetBestScore();
         T_TextList[2].text = "BEST : " + ScoreManager.instance.GetBestScore().ToString();
-        G_BestText.SetActive(best);
+        G_BestText.SetActive(!player.nPC_Status.CheckDie() && best);
     }
 
     IEnumerator IE_Score()

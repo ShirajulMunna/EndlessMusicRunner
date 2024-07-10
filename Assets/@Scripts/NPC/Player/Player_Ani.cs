@@ -54,8 +54,13 @@ public class Player_Ani : MonoBehaviour, IAni
     /// <summary>
     /// 애니메이션 변경
     /// </summary>
-    public void SetAni(string str, bool loop, string idle)
+    public void SetAni(string str, bool loop, string idle, bool dir = false)
     {
+        if (dir)
+        {
+            _sk.SetAni_Dir(str);
+            return;
+        }
         _sk.SetAni(str, loop, idle);
     }
 
@@ -113,6 +118,11 @@ public class Player_Ani : MonoBehaviour, IAni
             SetHold(movepoint);
             return;
         }
+        if (types == E_MonsterType.Twin)
+        {
+            SetTiwn();
+            return;
+        }
 
         switch (movepoint)
         {
@@ -120,19 +130,13 @@ public class Player_Ani : MonoBehaviour, IAni
             case E_MoveData.Higt_Higt:
                 SetFlyAttackAni();
                 break;
-                
+
             case E_MoveData.Higt_Middle:
             case E_MoveData.Higt_Low:
             case E_MoveData.Low_Middle:
             case E_MoveData.Low_Low:
                 SetDownAttackAni();
                 break;
-
-            case E_MoveData.Higt_Twin:
-            case E_MoveData.Low_Twin:
-                SetTiwn();
-                break;
-
         }
         GameLog.Log($"타입:{types}");
         AttackCount++;

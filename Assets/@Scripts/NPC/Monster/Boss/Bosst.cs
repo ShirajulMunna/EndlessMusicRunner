@@ -18,7 +18,15 @@ public class Bosst : Monsters
     private void Start()
     {
         bossPattern_MoveAttack = GetComponent<BossPattern_MoveAttack>();
-        PlayManager.instance.AddAction(E_Play.End, SetDie);
+
+        PlayManager.instance.AddAction(E_Play.End, () =>
+        {
+            if (PlayerManager.instance.GetPlayer(0).nPC_Status.CheckDie())
+            {
+                return;
+            }
+            SetDie();
+        });
     }
 
     public Vector3 FirstPos()

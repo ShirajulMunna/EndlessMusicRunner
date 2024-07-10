@@ -117,11 +117,12 @@ public class MonsterCrush : Monsters
                 state = E_State.Move;
                 break;
             case E_State.Move:
-                bosst.iAni.SetAni(E_AniKind_Monster.Move, true);
+                bosst?.iAni?.SetAni(E_AniKind_Monster.Move, true);
                 bosst.nPC_Move.SetSpeed(20);
                 break;
             case E_State.Complted:
-                bosst.iAni.SetAni(E_AniKind_Monster.idle, true);
+                bosst?.iAni?.SetAni(E_AniKind_Monster.idle, true);
+                Destroy(this.gameObject);
                 break;
         }
         e_State = state;

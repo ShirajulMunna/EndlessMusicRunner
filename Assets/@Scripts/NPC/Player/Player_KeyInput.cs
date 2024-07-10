@@ -29,6 +29,7 @@ public class Player_KeyInput : MonoBehaviour, IKeyInput
             if (Input.GetKeyDown(keyAction.Key))
             {
                 keyAction.Value?.Invoke();
+                return;
             }
         }
     }

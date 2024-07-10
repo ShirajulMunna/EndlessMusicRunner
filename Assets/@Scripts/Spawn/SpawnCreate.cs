@@ -79,7 +79,7 @@ public class SpawnCreate : Singleton<SpawnCreate>, ISpawnCreate
                 continue;
             }
 
-            if (item.monsterType.e_MonsterType == E_MonsterType.Boss)
+            if (item.monsterType.GetMonsterType() == E_MonsterType.Boss)
             {
                 continue;
             }

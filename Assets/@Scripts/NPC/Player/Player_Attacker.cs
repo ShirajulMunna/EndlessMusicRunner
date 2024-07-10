@@ -62,7 +62,6 @@ public class Player_Attacker : MonoBehaviour, IPlayerAttack
         return pos;
     }
 
-
     public void SetAttack(E_MoveData idx)
     {
         var result = SetAttack_Area(idx);
@@ -72,44 +71,42 @@ public class Player_Attacker : MonoBehaviour, IPlayerAttack
             return;
         }
         var obj = result.Item1[0].gameObject;
+        var check = CheckAttackState(obj, idx, result.Item2);
+        if (!check)
+        {
+            return;
+        }
         var target = obj.GetComponent<NPC>();
         nPC.SetAttack(target);
-
-        SetMonsterEffect(obj, idx, result.Item2);
-
         ScoreManager.instance.SetScoreState(result.Item2);
         ScoreManager.instance.SetCurrentScore(1);
         ScoreManager.instance.SetCombo_Add();
+        AudioManager.instance.PlaySound(result.Item2);
+        player_Effect.SetEffect(GetPoint(target.nPC_Move.GetMoveData()), result.Item2);
     }
 
     /// <summary>
     /// 이펙트 처리
     /// </summary>
-    public void SetMonsterEffect(GameObject obj, E_MoveData idx, ScoreManager.E_ScoreState scorestate)
+    public bool CheckAttackState(GameObject obj, E_MoveData idx, ScoreManager.E_ScoreState scorestate)
     {
         var mon = obj.GetComponent<IMonster>();
-        var type = mon.monsterType.GetMonsterType();
+        var checks = CheckSpecialMonster(mon.monsterType);
+        if (!checks)
+        {
+            return false;
+        }
 
+        var type = mon.monsterType.GetMonsterType();
         if (type == E_MonsterType.Twin)
         {
             var check = idx == E_MoveData.Higt_Twin || idx == E_MoveData.Low_Twin;
             if (!check)
             {
-                return;
+                return false;
             }
         }
-
-        if (type == E_MonsterType.Middle)
-        {
-            var check = idx == E_MoveData.Higt_Middle || idx == E_MoveData.Low_Middle;
-            if (!check)
-            {
-                return;
-            }
-        }
-        
-        AudioManager.instance.PlaySound(scorestate);
-        player_Effect.SetEffect(GetPoint(idx), scorestate);
+        return true;
     }
 
     public (Collider2D[], ScoreManager.E_ScoreState) SetAttack_Area(E_MoveData idx)
@@ -190,6 +187,8 @@ public class Player_Attacker : MonoBehaviour, IPlayerAttack
                 return CheckTwin();
             case E_MonsterType.Hold:
                 return CheckHold();
+            case E_MonsterType.BossAttack:
+                return false;
             default:
                 return true;
         }

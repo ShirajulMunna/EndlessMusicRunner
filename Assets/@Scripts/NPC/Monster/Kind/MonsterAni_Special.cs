@@ -38,7 +38,7 @@ public class MonsterAni_Special : MonoBehaviour, IAni, IMonsterAni
     /// <summary>
     /// 애니메이션 변경
     /// </summary>
-    public void SetAni(string str, bool loop, string idle)
+    public void SetAni(string str, bool loop, string idle, bool dir = false)
     {
         if (string.IsNullOrEmpty(str))
         {

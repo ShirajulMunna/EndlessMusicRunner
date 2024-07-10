@@ -89,7 +89,7 @@ public class Player : NPC
         player_KeyInput.AddTwinKeyPoint_Down(code_1, code_2, () => SetTwin(twin));
         player_KeyInput.AddTwinKeyPoint_Up(code_1, code_2, () => ResetKey());
 
-        SetUp(1000000, 500, 10, IMovePoint.GetMovePoint(downs));
+        SetUp(10000000, 500, 10, IMovePoint.GetMovePoint(downs));
     }
 
     void KeyDown(E_MoveData e_MoveData, E_AniKind_Player e_AniKind_Player)
@@ -154,16 +154,14 @@ public class Player : NPC
     public override void SetAttack(NPC target)
     {
         //특수 몬스터 확인 후 공격
-        var monstertype = target.GetComponent<IMonsterType>();
-        var check = player_Attacker.CheckSpecialMonster(monstertype);
-        if (!check)
-        {
-            return;
-        }
+
         base.SetAttack(target);
 
         var point = target.nPC_Move.GetMoveData();
+
+        var monstertype = target.GetComponent<IMonsterType>();
         var type = monstertype.GetMonsterType();
+
         player_Ani.SetAttackAni(type, point);
         if (type == E_MonsterType.Middle || type == E_MonsterType.Twin)
         {
@@ -194,8 +192,8 @@ public class Player : NPC
     public override void SetDie()
     {
         base.SetDie();
-        player_Ani.SetAni(player_Ani.GetAniString(E_AniKind_Player.Die), true, null);
-        PlayManager.instance.SetAction(E_Play.End);
+        player_Ani.SetAni(player_Ani.GetAniString(E_AniKind_Player.Die), false, null, true);
+        PlayerManager.instance.SyncDie();
         print("사망");
     }
 
