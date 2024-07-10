@@ -10,6 +10,7 @@ public class PlayerManager : Singleton<PlayerManager>
     float ClearDleay = 1f;
     System.Action Ac_Clear;
 
+    
     private void Start()
     {
         PlayManager.instance.AddAction(E_Play.End, () =>
