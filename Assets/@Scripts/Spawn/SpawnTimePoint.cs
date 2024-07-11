@@ -10,6 +10,8 @@ public class SpawnTimePoint : MonoBehaviour, ISpawnTimePoint
     List<double> L_Times = new List<double>();
     ToolDataManager toolDataManager;
 
+    float DelayEnd;
+
     public void SetUp(string name)
     {
         L_Times.Clear();
@@ -17,6 +19,7 @@ public class SpawnTimePoint : MonoBehaviour, ISpawnTimePoint
         toolDataManager = GetComponent<ToolDataManager>();
         toolData = toolDataManager.GetLoad(name);
         L_Times = toolData.L_TimePoint.ToList();
+        DelayEnd = 4;
     }
 
     public bool CheckTime(double times)
@@ -36,6 +39,18 @@ public class SpawnTimePoint : MonoBehaviour, ISpawnTimePoint
 
     public bool CheckEndTiems()
     {
-        return L_Times.Count <= 0;
+        var isend = L_Times.Count <= 0;
+        if (!isend)
+        {
+            return false;
+        }
+
+        DelayEnd -= Time.deltaTime;
+        if (DelayEnd > 0)
+        {
+            return false;
+        }
+
+        return true;
     }
 }

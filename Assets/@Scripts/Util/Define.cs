@@ -9,21 +9,29 @@ public static class Define
     //애니메이션 실행
     public static void SetAni(this SkeletonAnimation skeletonAnimation, string anistr, bool loop, string idle)
     {
-        skeletonAnimation.AnimationState.ClearTracks(); // 모든 애니메이션 트랙을 제거
         SkeletonDataAsset skeletonDataAsset = skeletonAnimation.SkeletonDataAsset;
-
         SkeletonData skeletonData = skeletonDataAsset.GetSkeletonData(true);
         var animations = skeletonData.Animations.Items;
         float delay = 0f;
+        bool ischeck = false;
         // animationString에 해당하는 애니메이션의 Duration을 찾아 delay로 설정
         foreach (var anim in animations)
         {
             if (anim.Name == anistr)
             {
                 delay = anim.Duration;
+                ischeck = true;
                 break;
             }
         }
+
+        if (!ischeck)
+        {
+            return;
+        }
+
+
+        skeletonAnimation.AnimationState.ClearTracks(); // 모든 애니메이션 트랙을 제거
         skeletonAnimation.skeleton.SetToSetupPose();
         skeletonAnimation.AnimationState.SetAnimation(0, anistr, loop);
 
@@ -35,21 +43,26 @@ public static class Define
 
     public static void SetAni_Dir(this SkeletonAnimation skeletonAnimation, string anistr)
     {
-        skeletonAnimation.AnimationState.ClearTracks(); // 모든 애니메이션 트랙을 제거
         SkeletonDataAsset skeletonDataAsset = skeletonAnimation.SkeletonDataAsset;
-
         SkeletonData skeletonData = skeletonDataAsset.GetSkeletonData(true);
         var animations = skeletonData.Animations.Items;
-        float delay = 0f;
+        bool ischeck = false;
         // animationString에 해당하는 애니메이션의 Duration을 찾아 delay로 설정
         foreach (var anim in animations)
         {
             if (anim.Name == anistr)
             {
-                delay = anim.Duration;
+                ischeck = true;
                 break;
             }
         }
+
+        if (!ischeck)
+        {
+            return;
+        }
+
+        skeletonAnimation.AnimationState.ClearTracks(); // 모든 애니메이션 트랙을 제거
         skeletonAnimation.skeleton.SetToSetupPose();
         skeletonAnimation.AnimationState.SetAnimation(0, anistr, false);
     }

@@ -11,10 +11,6 @@ public class MonsterAni_Special : MonoBehaviour, IAni, IMonsterAni
         get => _sk;
         set => _sk = value;
     }
-    public List<string> skin_Names { get; set; } = new()
-    {
-        "skin4","skin6","skin0","skin3","skin1","skin2","skin5","skin7" //그래픽 변경
-    };
     public int HitCount { get; set; }
 
     Dictionary<E_AniKind_Monster, string> D_Ani = new Dictionary<E_AniKind_Monster, string>()
@@ -29,11 +25,6 @@ public class MonsterAni_Special : MonoBehaviour, IAni, IMonsterAni
         { E_AniKind_Monster.Die,"retire"},
         { E_AniKind_Monster.Move,"walking"},
     };
-
-    private void Start()
-    {
-        SetPlayerSkin();
-    }
 
     /// <summary>
     /// 애니메이션 변경
@@ -51,9 +42,9 @@ public class MonsterAni_Special : MonoBehaviour, IAni, IMonsterAni
     /// <summary>
     /// 스킨 변경
     /// </summary>
-    public void SetPlayerSkin()
+    public void SetPlayerSkin(string name)
     {
-        sk.Skeleton.SetSkin(skin_Names[(int)UI_Lobby.playerSkinType]);
+        sk.Skeleton.SetSkin(name);
         sk.Skeleton.SetSlotsToSetupPose();
         sk.AnimationState.Apply(sk.Skeleton);
     }

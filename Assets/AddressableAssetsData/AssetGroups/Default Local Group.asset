@@ -16,7 +16,22 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: b53b6db23265e4c44a2bd32ae84fd38c
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: e7201b391287bc8489bc1f0dc35704b3
+    m_Address: Monster_3004
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fc7535f4c3f60944e9bfd67da3fd2f81
+    m_Address: Monster_3003
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4a8b46ca357b26440b8dec18fd988cec
+    m_Address: Monster_2001
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b214fa91656b7524e8bf0480a7228281, type: 2}
   m_SchemaSet:

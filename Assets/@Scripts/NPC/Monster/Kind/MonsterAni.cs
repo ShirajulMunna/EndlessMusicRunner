@@ -10,10 +10,6 @@ public class MonsterAni : MonoBehaviour, IAni, IMonsterAni
         get => _sk;
         set => _sk = value;
     }
-    public List<string> skin_Names { get; set; } = new()
-    {
-        "skin4","skin6","skin0","skin3","skin1","skin2","skin5","skin7" //그래픽 변경
-    };
 
     public int AttackCount { get; set; }
     public int HitCount { get; set; }
@@ -26,7 +22,6 @@ public class MonsterAni : MonoBehaviour, IAni, IMonsterAni
     private void Start()
     {
         _sk = transform.GetChild(0).GetComponent<SkeletonAnimation>();
-        SetPlayerSkin();
     }
 
     /// <summary>
@@ -45,9 +40,9 @@ public class MonsterAni : MonoBehaviour, IAni, IMonsterAni
     /// <summary>
     /// 스킨 변경
     /// </summary>
-    public void SetPlayerSkin()
+    public void SetPlayerSkin(string name)
     {
-        sk.Skeleton.SetSkin(skin_Names[(int)UI_Lobby.playerSkinType]);
+        sk.Skeleton.SetSkin(name);
         sk.Skeleton.SetSlotsToSetupPose();
         sk.AnimationState.Apply(sk.Skeleton);
     }
@@ -74,7 +69,6 @@ public class MonsterAni : MonoBehaviour, IAni, IMonsterAni
         SetAni(aniname, loop, GetAniString(E_AniKind_Monster.idle));
     }
 }
-
 
 public struct St_Monster_Ani
 {
