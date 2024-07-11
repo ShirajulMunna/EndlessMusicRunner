@@ -1,123 +1,133 @@
 Zookeeper_boss.png
-	size: 464, 464
+	size: 512, 512
 	filter: Linear, Linear
 	pma: true
 	scale: 0.5
 Hair1
-	bounds: 415, 116, 34, 35
+	bounds: 475, 345, 34, 35
+	rotate: 90
 Hair4
-	bounds: 415, 116, 34, 35
+	bounds: 475, 345, 34, 35
+	rotate: 90
 Hair2
-	bounds: 365, 88, 31, 34
+	bounds: 126, 46, 31, 34
 	rotate: 90
 Hair3
-	bounds: 339, 4, 38, 43
+	bounds: 247, 136, 38, 43
+	rotate: 90
 Hair5
-	bounds: 356, 53, 31, 33
+	bounds: 479, 183, 31, 33
 Hair6
-	bounds: 403, 348, 38, 44
+	bounds: 247, 176, 38, 44
 	rotate: 90
 Hat
-	bounds: 2, 93, 113, 68
+	bounds: 2, 141, 113, 68
 	rotate: 90
 Head
-	bounds: 299, 393, 103, 69
+	bounds: 2, 36, 103, 69
 	offsets: 0, 1, 103, 71
+	rotate: 90
 Left arm
-	bounds: 186, 350, 108, 46
+	bounds: 186, 398, 108, 46
 	offsets: 0, 0, 109, 46
 Left arm_Attack2
-	bounds: 123, 249, 103, 60
-	rotate: 90
+	bounds: 299, 450, 103, 60
 Left arm_retire
-	bounds: 185, 237, 38, 114
+	bounds: 180, 285, 38, 114
 	rotate: 90
 Left hand
-	bounds: 360, 192, 32, 41
+	bounds: 2, 2, 32, 41
 	rotate: 90
 Left leg
-	bounds: 301, 226, 100, 55
+	bounds: 123, 300, 100, 55
 	offsets: 34, 52, 134, 107
+	rotate: 90
 Left leg_Attack1
-	bounds: 93, 354, 91, 108
+	bounds: 93, 402, 91, 108
 Left leg_Attack2
-	bounds: 403, 207, 74, 45
+	bounds: 126, 79, 74, 45
 	rotate: 90
 Left leg_Attack3
-	bounds: 2, 8, 83, 80
+	bounds: 329, 324, 83, 80
 	rotate: 90
 Left leg_retire
-	bounds: 404, 388, 58, 74
+	bounds: 179, 225, 58, 74
+	rotate: 90
 String1
-	bounds: 185, 277, 93, 71
+	bounds: 180, 325, 93, 71
 String2
-	bounds: 2, 208, 129, 78
+	bounds: 2, 256, 129, 78
 	rotate: 90
 body
-	bounds: 240, 117, 52, 71
+	bounds: 275, 325, 52, 71
 	offsets: 0, 0, 53, 71
-	rotate: 90
 body_Attack1
-	bounds: 148, 4, 42, 72
+	bounds: 73, 2, 42, 72
 	offsets: 0, 0, 43, 72
 	rotate: 90
 body_Attack2
-	bounds: 275, 177, 47, 83
+	bounds: 296, 275, 47, 83
 	offsets: 0, 0, 47, 84
 	rotate: 90
 body_Attack3
-	bounds: 280, 283, 63, 99
+	bounds: 404, 447, 63, 99
 	rotate: 90
 body_retire
-	bounds: 166, 114, 54, 72
-	rotate: 90
+	bounds: 123, 226, 54, 72
 face
-	bounds: 313, 107, 68, 50
+	bounds: 362, 200, 68, 50
 	offsets: 1, 0, 70, 50
 	rotate: 90
 face_Attack1
-	bounds: 365, 121, 69, 48
+	bounds: 429, 147, 69, 48
 	offsets: 1, 1, 71, 49
 	rotate: 90
 face_Attack2
-	bounds: 285, 49, 69, 56
+	bounds: 117, 155, 69, 56
 	offsets: 1, 0, 71, 56
+	rotate: 90
 face_Attack3
-	bounds: 148, 48, 67, 64
+	bounds: 293, 209, 67, 64
 	offsets: 0, 1, 68, 65
 face_retire
-	bounds: 217, 48, 66, 64
+	bounds: 414, 218, 66, 64
+	offsets: 0, 1, 67, 65
+	rotate: 90
+face_retire_2
+	bounds: 293, 143, 66, 64
+	offsets: 0, 1, 67, 65
+face_retire_3
+	bounds: 361, 134, 66, 64
 	offsets: 0, 1, 67, 65
 right arm
-	bounds: 415, 153, 52, 28
+	bounds: 381, 270, 52, 28
 	rotate: 90
 right arm _Attack3
-	bounds: 381, 283, 60, 63
+	bounds: 411, 286, 60, 63
 right arm _retire
-	bounds: 72, 103, 103, 39
-	rotate: 90
+	bounds: 299, 409, 103, 39
 right arm2
-	bounds: 238, 171, 64, 35
+	bounds: 475, 381, 64, 35
 	rotate: 90
 right arm_Attack1
-	bounds: 166, 170, 70, 65
+	bounds: 175, 158, 70, 65
 right arm_Attack2
-	bounds: 82, 218, 39, 119
+	bounds: 82, 266, 39, 119
 right leg
-	bounds: 84, 7, 62, 94
+	bounds: 411, 351, 62, 94
 right leg2_Attack1
-	bounds: 222, 10, 67, 36
+	bounds: 255, 216, 67, 36
+	rotate: 90
 right leg_Attack1
-	bounds: 291, 4, 43, 46
+	bounds: 429, 102, 43, 46
 	rotate: 90
 right leg_Attack2
-	bounds: 113, 115, 51, 101
+	bounds: 73, 46, 51, 101
 right leg_retire
-	bounds: 296, 348, 43, 105
-	rotate: 90
+	bounds: 72, 149, 43, 105
 slingshot
-	bounds: 186, 398, 64, 111
+	bounds: 186, 446, 64, 111
 	offsets: 0, 0, 64, 112
 	rotate: 90
 slingshot_Attack2
-	bounds: 2, 339, 89, 123
+	bounds: 2, 387, 89, 123
