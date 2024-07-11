@@ -1,0 +1,104 @@
+Large_Boss_Rhino.png
+	size: 1970, 1970
+	filter: Linear, Linear
+	pma: true
+Retire/Body
+	bounds: 306, 1112, 407, 481
+Retire/Hats
+	bounds: 658, 45, 112, 170
+	rotate: 90
+Retire/Left Ear
+	bounds: 998, 2, 45, 92
+	rotate: 90
+Retire/Right ear
+	bounds: 296, 452, 101, 66
+Retire/Right leg
+	bounds: 1719, 966, 272, 245
+	rotate: 90
+Retire/Tear
+	bounds: 403, 10, 35, 64
+Retire/head
+	bounds: 1732, 468, 193, 215
+	rotate: 90
+Retire/left arm
+	bounds: 306, 916, 194, 426
+	rotate: 90
+Retire/left hand
+	bounds: 686, 512, 367, 347
+Retire/left leg
+	bounds: 1407, 541, 323, 247
+Rhino_Idle/Right leg
+	bounds: 1055, 517, 244, 350
+	rotate: 90
+Rhino_Idle/body
+	bounds: 715, 1241, 436, 433
+Rhino_Idle/head
+	bounds: 1723, 203, 227, 263
+Rhino_Idle/left arm
+	bounds: 1389, 790, 200, 319
+	rotate: 90
+Rhino_Idle/left leg
+	bounds: 1732, 663, 209, 301
+Rhino_Idle/right arm
+	bounds: 1021, 49, 184, 181
+Rhino_Idle/right arm_1
+	bounds: 1153, 1188, 238, 486
+attack1/Body
+	bounds: 296, 520, 388, 394
+attack1/Body_1
+	bounds: 1790, 1434, 244, 154
+	rotate: 90
+attack1/Hats
+	bounds: 1385, 119, 122, 88
+	rotate: 90
+attack1/Left Ear
+	bounds: 654, 1607, 59, 67
+attack1/Right ear
+	bounds: 1055, 792, 59, 67
+attack1/Right leg
+	bounds: 658, 159, 361, 351
+attack1/SSSS
+	bounds: 1129, 763, 423, 258
+	rotate: 90
+attack1/head
+	bounds: 1790, 1240, 170, 192
+attack1/left leg
+	bounds: 1505, 273, 216, 266
+attack1/right arm
+	bounds: 654, 1676, 292, 667
+	rotate: 90
+attack2/Body
+	bounds: 1393, 1241, 395, 437
+attack2/Hats
+	bounds: 1385, 38, 118, 79
+attack2/Right leg
+	bounds: 1260, 243, 272, 243
+	rotate: 90
+attack2/head
+	bounds: 1207, 47, 176, 183
+attack2/left arm
+	bounds: 734, 861, 378, 393
+	rotate: 90
+attack2/left leg
+	bounds: 1393, 992, 324, 247
+attack2/right arm
+	bounds: 2, 923, 302, 670
+attack3/Hats
+	bounds: 830, 46, 111, 166
+	rotate: 90
+attack3/Layer 2
+	bounds: 2, 5, 445, 399
+	rotate: 90
+attack3/Right leg
+	bounds: 2, 452, 292, 469
+attack3/head
+	bounds: 1021, 232, 237, 278
+attack3/left arm
+	bounds: 1793, 1680, 288, 159
+	rotate: 90
+attack3/left hand
+	bounds: 403, 76, 253, 442
+attack3/left leg
+	bounds: 1323, 1680, 468, 288
+attack3/right arm
+	bounds: 2, 1595, 650, 373

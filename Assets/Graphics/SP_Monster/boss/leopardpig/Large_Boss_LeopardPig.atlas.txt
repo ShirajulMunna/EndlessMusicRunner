@@ -1,0 +1,97 @@
+Large_Boss_LeopardPig.png
+	size: 1624, 1624
+	filter: Linear, Linear
+	pma: true
+Ear
+	bounds: 1473, 626, 58, 123
+	offsets: 2, 0, 60, 124
+Hair
+	bounds: 778, 24, 166, 90
+	offsets: 1, 0, 168, 91
+Head
+	bounds: 379, 1104, 413, 233
+Head_Attack2
+	bounds: 1026, 731, 361, 254
+	rotate: 90
+Left arm
+	bounds: 1112, 3, 120, 154
+	offsets: 0, 1, 121, 155
+Left arm2
+	bounds: 350, 38, 264, 204
+Left arm_Attack1
+	bounds: 1016, 347, 277, 134
+Left arm_Attack2
+	bounds: 2, 235, 430, 320
+	rotate: 90
+Left arm_Attack3
+	bounds: 2, 1129, 375, 493
+Left leg
+	bounds: 362, 542, 237, 323
+	rotate: 90
+Left leg_Attack1
+	bounds: 1321, 1141, 215, 220
+Left leg_Attack2
+	bounds: 324, 244, 288, 296
+Left leg_Attack3
+	bounds: 910, 1329, 293, 374
+	rotate: 90
+body
+	bounds: 687, 555, 250, 328
+	rotate: 90
+body_Attack1
+	bounds: 1286, 1363, 336, 259
+body_Attack2
+	bounds: 680, 807, 344, 285
+body_Attack3
+	bounds: 794, 1094, 233, 385
+	rotate: 90
+body_retire
+	bounds: 1017, 483, 290, 246
+face
+	bounds: 616, 2, 245, 160
+	rotate: 90
+face_Attack1
+	bounds: 751, 350, 263, 203
+face_Attack2
+	bounds: 1309, 391, 246, 182
+face_Attack3
+	bounds: 1448, 884, 255, 174
+	rotate: 90
+face_retire
+	bounds: 1010, 159, 259, 186
+leg_retire
+	bounds: 2, 667, 460, 358
+	rotate: 90
+right arm
+	bounds: 1473, 751, 122, 131
+	offsets: 1, 0, 123, 132
+right arm2
+	bounds: 1282, 832, 164, 266
+right arm2_retire
+	bounds: 1295, 221, 253, 168
+right arm_Attack1
+	bounds: 379, 1339, 529, 283
+right arm_Attack2
+	bounds: 614, 249, 291, 135
+	rotate: 90
+right arm_Attack3
+	bounds: 1271, 53, 253, 166
+right arm_retire
+	bounds: 1538, 1223, 138, 78
+	rotate: 90
+right leg
+	bounds: 2, 2, 231, 346
+	rotate: 90
+right leg2_Attack2
+	bounds: 1010, 2, 155, 100
+	rotate: 90
+right leg2_Attack3
+	bounds: 1181, 1100, 227, 138
+	rotate: 90
+right leg_Attack1
+	bounds: 362, 781, 316, 321
+right leg_Attack2
+	bounds: 778, 116, 230, 232
+right leg_Attack3
+	bounds: 1309, 575, 255, 162
+	rotate: 90

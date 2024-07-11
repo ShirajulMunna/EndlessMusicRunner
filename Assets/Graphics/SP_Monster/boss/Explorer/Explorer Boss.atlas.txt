@@ -1,0 +1,130 @@
+Explorer Boss.png
+	size: 718, 718
+	filter: Linear, Linear
+	pma: true
+	scale: 0.5
+Bag
+	bounds: 354, 492, 103, 133
+	rotate: 90
+Bag2_Attack2
+	bounds: 190, 201, 115, 111
+	offsets: 3, 0, 118, 111
+	rotate: 90
+Bag3_Attack2
+	bounds: 517, 585, 148, 48
+	offsets: 1, 0, 150, 48
+Bag4_Attack2
+	bounds: 602, 389, 58, 108
+	offsets: 1, 0, 60, 109
+Bag_Attack2
+	bounds: 225, 492, 127, 224
+Chest
+	bounds: 488, 327, 61, 64
+Chest_Attack1
+	bounds: 193, 2, 69, 63
+Chest_Attack2
+	bounds: 513, 76, 60, 57
+Chest_retire
+	bounds: 392, 220, 82, 105
+Hair1
+	bounds: 389, 327, 64, 97
+	rotate: 90
+Hair1_Attack2
+	bounds: 2, 201, 186, 256
+Hair2
+	bounds: 2, 459, 221, 257
+Hair2_Attack3
+	bounds: 2, 2, 189, 197
+Head
+	bounds: 476, 229, 90, 96
+Left arm
+	bounds: 551, 336, 51, 88
+	rotate: 90
+Left arm_Attack1
+	bounds: 575, 98, 67, 53
+	rotate: 90
+Left arm_Attack2
+	bounds: 303, 214, 111, 87
+	rotate: 90
+Left arm_Attack3
+	bounds: 517, 635, 155, 81
+Left arm_retire
+	bounds: 513, 135, 92, 59
+	rotate: 90
+Left leg
+	bounds: 662, 398, 53, 100
+Left leg_Attack1
+	bounds: 354, 597, 161, 119
+Left leg_Attack2
+	bounds: 568, 248, 86, 77
+	rotate: 90
+Left leg_retire
+	bounds: 190, 318, 139, 77
+	rotate: 90
+String1
+	bounds: 511, 52, 22, 59
+	offsets: 0, 0, 23, 59
+	rotate: 90
+String2
+	bounds: 495, 25, 25, 56
+	offsets: 0, 1, 26, 58
+	rotate: 90
+body
+	bounds: 394, 393, 97, 93
+	rotate: 90
+body2_retire
+	bounds: 318, 2, 67, 68
+body_Attack1
+	bounds: 269, 394, 123, 96
+body_Attack2
+	bounds: 489, 403, 94, 111
+	rotate: 90
+body_Attack3
+	bounds: 489, 499, 84, 141
+	rotate: 90
+body_retire
+	bounds: 647, 278, 56, 56
+face
+	bounds: 387, 4, 52, 46
+	offsets: 0, 0, 53, 46
+face_Attack1
+	bounds: 457, 52, 52, 45
+	offsets: 0, 0, 53, 45
+face_Attack2
+	bounds: 641, 336, 51, 51
+	offsets: 0, 1, 52, 52
+face_Attack3
+	bounds: 441, 9, 52, 41
+	offsets: 0, 0, 53, 41
+face_retire
+	bounds: 395, 52, 60, 52
+	offsets: 2, 1, 64, 53
+right arm
+	bounds: 574, 167, 59, 79
+right arm_Attack2
+	bounds: 269, 327, 65, 118
+	offsets: 0, 0, 65, 127
+	rotate: 90
+right arm_Attack3
+	bounds: 674, 627, 89, 38
+	rotate: 90
+right arm_retire
+	bounds: 333, 86, 126, 60
+	rotate: 90
+right leg
+	bounds: 287, 72, 44, 127
+	offsets: 0, 0, 44, 128
+right leg2_Attack1
+	bounds: 466, 99, 119, 45
+	rotate: 90
+right leg2_Attack3
+	bounds: 647, 226, 50, 50
+right leg_Attack1
+	bounds: 264, 2, 63, 52
+	rotate: 90
+right leg_Attack2
+	bounds: 193, 67, 92, 132
+right leg_Attack3
+	bounds: 632, 500, 54, 83
+right leg_retire
+	bounds: 395, 106, 69, 112
