@@ -91,7 +91,7 @@ public class Player_Attacker : MonoBehaviour, IPlayerAttack
     public bool CheckAttackState(GameObject obj, E_MoveData idx, ScoreManager.E_ScoreState scorestate)
     {
         var mon = obj.GetComponent<IMonster>();
-        var checks = CheckSpecialMonster(mon.monsterType);
+        var checks = CheckSpecialMonster(mon);
         if (!checks)
         {
             return false;
@@ -179,14 +179,18 @@ public class Player_Attacker : MonoBehaviour, IPlayerAttack
     /// <summary>
     /// 특수 몬스터 처리 확인 
     /// </summary>
-    public bool CheckSpecialMonster(IMonsterType types)
+    public bool CheckSpecialMonster(IMonster mon)
     {
-        switch (types.e_MonsterType)
+        var types = mon.monsterType.e_MonsterType;
+
+        switch (types)
         {
             case E_MonsterType.Twin:
                 return CheckTwin();
             case E_MonsterType.Hold:
-                return CheckHold();
+                var longs = mon.npc.GetComponent<Monster_LongNotes>();
+                var ischeck = longs.CheckAttack();
+                return CheckHold() && !ischeck;
             case E_MonsterType.BossAttack:
                 return false;
             default:

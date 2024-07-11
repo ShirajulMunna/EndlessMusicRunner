@@ -79,4 +79,10 @@ public class Bosst : Monsters
     {
         iAni?.SetAni(E_AniKind_Monster.Die, false, true);
     }
+
+    public override void SetAttack(NPC target)
+    {
+        base.SetAttack(target);
+        GameLog.Log("보스 공격!");
+    }
 }

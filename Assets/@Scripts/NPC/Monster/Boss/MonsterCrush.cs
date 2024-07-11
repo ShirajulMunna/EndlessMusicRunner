@@ -97,6 +97,7 @@ public class MonsterCrush : Monsters
             case E_State.Hit:
                 bosst.Ac_Hit = null;
                 bosst.nPC_Move.SetSpeed(0);
+                Ac_Move_Complted = null;
                 break;
             case E_State.CrushMove:
                 Ac_Move_Complted += () => SetState(E_State.Crush);

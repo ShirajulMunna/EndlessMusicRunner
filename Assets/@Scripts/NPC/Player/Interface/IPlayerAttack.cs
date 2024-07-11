@@ -26,7 +26,7 @@ interface IPlayerAttack
     bool CheckTwin();
 
     //특수 몬스터 확인
-    bool CheckSpecialMonster(IMonsterType types);
+    bool CheckSpecialMonster(IMonster types);
 
     //이펙트 처리
     bool CheckAttackState(GameObject obj, E_MoveData idx, ScoreManager.E_ScoreState scorestate);

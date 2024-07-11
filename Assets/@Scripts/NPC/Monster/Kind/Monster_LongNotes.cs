@@ -19,6 +19,7 @@ public class Monster_LongNotes : Monsters
     float SoundTime;
     float SoundTimeDuration = 0.15f;
     bool isHold = false;
+    bool isAttack = false;
     float initialDestoryTime;
 
     GameObject G_Effect;
@@ -27,6 +28,7 @@ public class Monster_LongNotes : Monsters
     float LongDestoryTime = 0.5f;
     float LongDestoryTime_POS = 0.1f;
     [SerializeField] int EffectIdx;
+
 
     private void Update()
     {
@@ -113,6 +115,11 @@ public class Monster_LongNotes : Monsters
 
     public override void SetHit(int hp)
     {
+        if (isAttack)
+        {
+            return;
+        }
+
         ActiveStartEffect();
         isHold = true;
     }
@@ -126,6 +133,17 @@ public class Monster_LongNotes : Monsters
     {
         base.SetActive();
         initialDestoryTime = LongDestoryTime;
+    }
+
+    public override void SetAttack(NPC target)
+    {
+        base.SetAttack(target);
+        isAttack = true;
+    }
+
+    public bool CheckAttack()
+    {
+        return isAttack;
     }
 
     private void OnDestroy()
