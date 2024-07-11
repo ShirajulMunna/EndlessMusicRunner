@@ -13,7 +13,7 @@ public class GameManager : Singleton<GameManager>
 
     private void Awake()
     {
-        Application.targetFrameRate = 120;
+        //Application.targetFrameRate = 144;
     }
 
     public void Update()

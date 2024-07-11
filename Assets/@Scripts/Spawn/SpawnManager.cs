@@ -74,7 +74,6 @@ public class SpawnManager : Singleton<SpawnManager>
 
     [SerializeField] string StrMusicFileName;
     bool isStart;
-    bool isEndGame;
     float DelayStartTime;
     float UpdateDelayStartTime;
 
@@ -183,7 +182,6 @@ public class SpawnManager : Singleton<SpawnManager>
         {
             return;
         }
-        isEndGame = true;
         PlayManager.instance.SetAction(E_Play.End);
         SetisStart(false);
     }

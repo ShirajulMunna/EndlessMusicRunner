@@ -15,7 +15,7 @@ public class UI_Lobby : Singleton<UI_Lobby>
 
     private List<string> skin_Names = new()
     {
-        "skin4","skin6","skin0","skin3","skin1","skin2","skin5","skin7" //그래픽 변경
+        "skin0","skin4","skin6","skin3","skin1","skin2","skin5","skin7" //그래픽 변경
     };
 
     List<string> _BitName = new List<string>()

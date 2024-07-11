@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 138388178847519785}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5426, y: -16.303999, z: 0}
+  m_LocalPosition: {x: -0.3462, y: -74.6704, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -79,7 +79,7 @@ Transform:
   m_GameObject: {fileID: 365412904299149187}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.82976884, w: 0.55810726}
-  m_LocalPosition: {x: 0, y: 28.1387, z: 0}
+  m_LocalPosition: {x: 0.0001, y: 75.0001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -167,7 +167,7 @@ Transform:
   m_GameObject: {fileID: 4475625493211905786}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.0020943934, w: 0.9999978}
-  m_LocalPosition: {x: 0.067899995, y: -16.4399, z: 0}
+  m_LocalPosition: {x: 0.2643, y: -74.8062, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -238,7 +238,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7885863010797826075}
-  - component: {fileID: 1947946455916425951}
   - component: {fileID: 5420852695981804478}
   m_Layer: 8
   m_Name: Ceiling_Monster_bell
@@ -263,27 +262,6 @@ Transform:
   - {fileID: 9012745674149397636}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1947946455916425951
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5388534414444513884}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2bf3eab09d7a5948b6a08c57ed1f7c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHp: 0
-  curHp: 0
-  _skeletonAnimation: {fileID: 8619561847532111495}
-  damageAmount: 0
-  damageFx: {fileID: 6630400188505773858, guid: dd80aa9b27baa334ea57eb66d90b8392, type: 3}
-  Change: 0
-  Sk: []
-  uniqMonster: 0
-  Delay_Ani: 0.5
 --- !u!50 &5420852695981804478
 Rigidbody2D:
   serializedVersion: 4
@@ -377,7 +355,6 @@ GameObject:
   - component: {fileID: 5479689952194085737}
   - component: {fileID: 8619561847532111495}
   - component: {fileID: 1241900243993511014}
-  - component: {fileID: 2777596702074788030}
   - component: {fileID: 7742144658429385630}
   m_Layer: 0
   m_Name: New SkeletonAnimation
@@ -492,18 +469,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9113764871146209410}
   m_Mesh: {fileID: 0}
---- !u!114 &2777596702074788030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9113764871146209410}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 012f8caf96117b642b39ab58708b5eae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7742144658429385630
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -202,7 +202,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f0c8d853cb0bf24a8df1e88c4c31790, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sk: {fileID: 0}
 --- !u!114 &5061280285588526595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,7 +238,6 @@ GameObject:
   - component: {fileID: 3258342464643116036}
   - component: {fileID: 1030604401207157418}
   - component: {fileID: 725530672903431132}
-  - component: {fileID: 881388372243128696}
   m_Layer: 0
   m_Name: New SkeletonAnimation
   m_TagString: Untagged
@@ -352,15 +350,3 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9035927771318888455}
   m_Mesh: {fileID: 0}
---- !u!114 &881388372243128696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9035927771318888455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 012f8caf96117b642b39ab58708b5eae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

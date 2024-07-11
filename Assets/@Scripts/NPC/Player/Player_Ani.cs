@@ -13,7 +13,7 @@ public class Player_Ani : MonoBehaviour, IAni
 
     public List<string> skin_Names { get; set; } = new()
     {
-        "skin4","skin6","skin0","skin3","skin1","skin2","skin5","skin7" //그래픽 변경
+        "skin0","skin6","skin4","skin3","skin1","skin2","skin5","skin7" //그래픽 변경
     };
 
     Dictionary<E_AniKind_Player, string> D_AniName = new Dictionary<E_AniKind_Player, string>()
