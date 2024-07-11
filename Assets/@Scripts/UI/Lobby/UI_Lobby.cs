@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class UI_Lobby : Singleton<UI_Lobby>
 {
-    [SerializeField] TextMeshProUGUI T_Type;
     [SerializeField] SkeletonGraphic playerUiGraphic;
 
     public static bool Type;
@@ -27,28 +26,7 @@ public class UI_Lobby : Singleton<UI_Lobby>
     private void Start()
     {
         SetBit(BitIdx);
-        if (T_Type == null)
-            return;
-
-        Type = true;
-        T_Type.text = !Type ? "VsMode" : "RunMode";
         ChangePlayerUiGraphics();
-    }
-
-    public void Btn_A_And_B()
-    {
-        var text = T_Type.text;
-        Type = !Type;
-
-        if (!Type)
-        {
-            text = "VsMode";
-        }
-        else
-        {
-            text = "RunMode";
-        }
-        T_Type.text = text;
     }
 
     public void SetBit(int idx)
@@ -76,7 +54,7 @@ public class UI_Lobby : Singleton<UI_Lobby>
 
     public void Btn_Play()
     {
-        var mode = !Type ? "NotMoveBackGroundScene" : "MainGameScene";
+        var mode = "MainGameScene";
         SecenManager.LoadScene(mode);
     }
 }

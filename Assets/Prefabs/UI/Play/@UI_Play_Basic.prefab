@@ -1540,6 +1540,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4882579418262911265}
   - component: {fileID: 4583806065744604782}
+  - component: {fileID: 6909640586034268917}
   m_Layer: 0
   m_Name: '@UI_Play_Basic'
   m_TagString: Untagged
@@ -1585,6 +1586,18 @@ MonoBehaviour:
   Img_Fever_CoolTime: {fileID: 6872825739914358097}
   Img_Gage: {fileID: 5486026130751023875}
   GameOver: 0
+--- !u!114 &6909640586034268917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6957311660622393265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e17039dbbe9620499537305494a4630, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7112212536706347668
 GameObject:
   m_ObjectHideFlags: 0
