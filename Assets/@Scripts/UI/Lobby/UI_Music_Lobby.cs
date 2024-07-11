@@ -1,15 +1,26 @@
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class UI_Music_Lobby : MonoBehaviour
 {
     [SerializeField] RectTransform G_LP;
+    [SerializeField] TextMeshProUGUI T_MusicTittle;
+    [SerializeField] TextMeshProUGUI T_BestScore;
+
     float RotZ = 36f;
 
     private void Start()
     {
         var rot = GetRot(UI_Lobby.BitIdx, false);
         SetLp(rot);
+
+    }
+
+    private void OnEnable()
+    {
+        SetMusicTittle();
+        SetBestScore();
     }
 
     public void Btn_RotLP(bool check)
@@ -18,6 +29,8 @@ public class UI_Music_Lobby : MonoBehaviour
         var rot = GetRot(idx, check);
         SetLp(rot);
         UI_Lobby.instance.SetBit(idx);
+        SetMusicTittle();
+        SetBestScore();
     }
 
     void SetLp(float rot)
@@ -52,5 +65,15 @@ public class UI_Music_Lobby : MonoBehaviour
         var addrot = check ? RotZ : -RotZ;
         var rot = idx * addrot;
         return rot;
+    }
+
+    void SetMusicTittle()
+    {
+        T_MusicTittle.text = UI_Lobby.Str_BitName;
+    }
+
+    void SetBestScore()
+    {
+        T_BestScore.text = "BestScore: " + ScoreManager.instance.GetBestScore();
     }
 }

@@ -19,14 +19,18 @@ public class UI_Lobby : Singleton<UI_Lobby>
 
     List<string> _BitName = new List<string>()
     {
-        "Ellagator_S1E1_MIX_2",
-        "2nd"
+        "Ellagator_S1E1",
+        "2nd",
+        "2nd1",
+        "2nd2",
+        "2nd3",
     };
 
     private void Start()
     {
         SetBit(BitIdx);
         ChangePlayerUiGraphics();
+        ActionManager.instance.SetAction((E_ActionScene.Lobby, E_ActionList.Start));
     }
 
     public void SetBit(int idx)
@@ -52,8 +56,9 @@ public class UI_Lobby : Singleton<UI_Lobby>
         Application.Quit();
     }
 
-    public void Btn_Play()
+    public async void Btn_Play()
     {
+        await AudioManager.instance.GetPlayMusic();
         var mode = "MainGameScene";
         SecenManager.LoadScene(mode);
     }

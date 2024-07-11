@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnStage : Singleton<SpawnStage>, ISpawnState
 {
-    public int StageInfo { get; set; } = UI_Lobby.BitIdx;
+    public int StageInfo { get; set; } = UI_Lobby.BitIdx > 1 ? 1 : UI_Lobby.BitIdx;
 
     public List<C_LevelDesign> GetLevelDesigns()
     {

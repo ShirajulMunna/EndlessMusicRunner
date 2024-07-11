@@ -22,7 +22,7 @@ public class Bosst : Monsters
     {
         bossPattern_MoveAttack = GetComponent<BossPattern_MoveAttack>();
 
-        PlayManager.instance.AddAction(E_Play.End, () =>
+        ActionManager.instance.AddAction((E_ActionScene.Play, E_ActionList.End), () =>
         {
             if (PlayerManager.instance.GetPlayer(0).nPC_Status.CheckDie())
             {
@@ -57,7 +57,7 @@ public class Bosst : Monsters
     public override void SetActive()
     {
         base.SetActive();
-        PlayManager.instance.SetAction(E_Play.Boss);
+        ActionManager.instance.SetAction((E_ActionScene.Play, E_ActionList.Boss));
     }
 
     public override Vector3 SetMoveTarget()

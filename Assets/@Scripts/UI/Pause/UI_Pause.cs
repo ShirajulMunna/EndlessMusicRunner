@@ -11,20 +11,20 @@ public class UI_Pause : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 0;
-        AudioListener.pause = true;
+        AudioManager.instance.PauseMusic();
     }
 
     public void Btn_ReStart()
     {
         Destroy(this.gameObject);
         Time.timeScale = 1;
-        AudioListener.pause = false;
+        AudioManager.instance.PlayMusic();
     }
 
     public void Btn_Exit()
     {
         Time.timeScale = 1;
-        AudioListener.pause = false;
+        ActionManager.instance.SetAction((E_ActionScene.Play, E_ActionList.End));
         SecenManager.LoadScene("Lobby");
         //게임도중 나가고 다시 플레이할때 누적판정개수들 및 점수들 초기화
         ScoreManager.instance.ResetCount();

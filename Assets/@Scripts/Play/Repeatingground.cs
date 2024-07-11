@@ -13,7 +13,7 @@ public class Repeatingground : MonoBehaviour
     private void Start()
     {
         pos = new Vector3(startPosition, transform.position.y);
-        PlayManager.instance.AddAction(E_Play.Boss, () => isStop = true);
+        ActionManager.instance.AddAction((E_ActionScene.Play, E_ActionList.Boss), () => isStop = true);
     }
 
     void Update()

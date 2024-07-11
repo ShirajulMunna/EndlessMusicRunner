@@ -74,6 +74,6 @@ public class SkillClass : ISkillClass
     public void SetData()
     {
         CoolTimeChecker.SetCoolTimeData();
-        PlayManager.instance.AddAction(E_Play.Play, CoolTimeChecker.Reset);
+        ActionManager.instance.AddAction((E_ActionScene.Play, E_ActionList.Play), CoolTimeChecker.Reset);
     }
 }

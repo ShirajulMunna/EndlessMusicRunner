@@ -49,8 +49,8 @@ public class FerverTimeSystem : Skill
         base.Setup(data, skillclass);
         ActiveTime = data.Activetime;
         CurremtTime = ActiveTime;
-        PlayManager.instance.AddAction(E_Play.Update, SetGage);
-        PlayManager.instance.AddAction(E_Play.Update, SetCoolGage);
+        ActionManager.instance.AddAction((E_ActionScene.Play, E_ActionList.Update), SetGage);
+        ActionManager.instance.AddAction((E_ActionScene.Play, E_ActionList.Update), SetCoolGage);
     }
 
 
@@ -74,7 +74,7 @@ public class FerverTimeSystem : Skill
         {
             return;
         }
-        PlayManager.instance.RemoveAction(E_Play.Update, SetCoolGage);
+        ActionManager.instance.RemoveAction((E_ActionScene.Play, E_ActionList.Update), SetCoolGage);
         UI_Play.instance.SetFeverCoolTime(0);
     }
 
@@ -85,7 +85,7 @@ public class FerverTimeSystem : Skill
         {
             return;
         }
-        PlayManager.instance.RemoveAction(E_Play.Update, SetGage);
+        ActionManager.instance.RemoveAction((E_ActionScene.Play, E_ActionList.Update), SetGage);
     }
 }
 

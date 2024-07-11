@@ -1,38 +1,47 @@
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class AudioManager : Singleton<AudioManager>
 {
     const string EffectSound = "EffectSound_{0}";
-    private AudioSource audioSource;
+    const string StrPlayMusic = "PlayMusic_{0}";
+    const string StrLobbyMusic = "LobbyMusic_0";
     int clap_1 = 0;
     int clap_2 = 1;
     int ouch_1 = 2;
     int longNoteClip = 3;
-    [SerializeField] public AudioSource Audio_BackGround;
-    [SerializeField] AudioClip[] BackSound;
+    AudioSource Audio_BackGround;
+    AudioSource Audio_Effect;
 
     private void Awake()
     {
-        audioSource = GetComponent<AudioSource>();
-        SetBG();
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+        var audioscore = GetComponentsInChildren<AudioSource>();
+        Audio_Effect = audioscore[0];
+        Audio_BackGround = audioscore[1];
+        DontDestroyOnLoad(this.gameObject);
     }
 
     private void Start()
     {
         PlayerManager.instance.Ac_Hit += PlayerHItSound;
+        ActionManager.instance.AddAction((E_ActionScene.Lobby, E_ActionList.Start), GetLobbyMusic, true);
     }
 
-    void SetBG()
+    public float GetbackAodioMaxLength()
     {
-        Audio_BackGround.clip = BackSound[UI_Lobby.BitIdx];
-        Audio_BackGround.Pause();
+        return Audio_BackGround.clip.length;
     }
 
     public async void CreateSound_Shot(int id)
     {
         var str_audio = string.Format(EffectSound, id);
         var audio = await str_audio.LoadAsync<AudioClip>();
-        audioSource.PlayOneShot(audio, 0.3f);
+        Audio_Effect.PlayOneShot(audio, 0.3f);
     }
 
     public void PlaySound(ScoreManager.E_ScoreState state)
@@ -56,20 +65,44 @@ public class AudioManager : Singleton<AudioManager>
         Audio_BackGround.Stop();
     }
 
+    public void PauseMusic()
+    {
+        Audio_BackGround.Pause();
+    }
+
     public void PlayMusic()
     {
-        audioSource.Play();
+        Audio_BackGround.Play();
     }
 
     public double GetAudioTime()
     {
-        return audioSource.time;
+        return Audio_BackGround.time;
     }
 
     //사운드 실행
     public async void PlayEffectSound(string key)
     {
         var result = await key.LoadAsync<AudioClip>();
-        audioSource.PlayOneShot(result, 1);
+        Audio_Effect.PlayOneShot(result, 1);
+    }
+
+    //사운드 실행
+    public async Task<bool> GetPlayMusic()
+    {
+        var idx = UI_Lobby.BitIdx > 1 ? 1 : UI_Lobby.BitIdx;
+
+        var result = await string.Format(StrPlayMusic, idx).LoadAsync<AudioClip>();
+        Audio_BackGround.clip = result;
+        Audio_BackGround.Pause();
+        return true;
+    }
+
+    //사운드 실행
+    public async void GetLobbyMusic()
+    {
+        var result = await StrLobbyMusic.LoadAsync<AudioClip>();
+        Audio_BackGround.clip = result;
+        Audio_BackGround.Play();
     }
 }

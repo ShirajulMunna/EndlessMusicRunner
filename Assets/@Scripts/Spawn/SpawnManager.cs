@@ -79,21 +79,21 @@ public class SpawnManager : Singleton<SpawnManager>
 
     private void Start()
     {
-        PlayManager.instance.AddAction(E_Play.End, () => SetisStart(false));
-        PlayManager.instance.AddAction(E_Play.End, AudioManager.instance.StopMusic);
-        PlayManager.instance.AddAction(E_Play.End, spawnCreate.AllDestoryMonster);
+        ActionManager.instance.AddAction((E_ActionScene.Play, E_ActionList.End), () => SetisStart(false));
+        ActionManager.instance.AddAction((E_ActionScene.Play, E_ActionList.End), AudioManager.instance.StopMusic);
+        ActionManager.instance.AddAction((E_ActionScene.Play, E_ActionList.End), spawnCreate.AllDestoryMonster);
 
         System.Action action = () =>
         {
             spawnDelay.SetDelay(2, gameResult.SetGameResult);
         };
-        PlayManager.instance.AddAction(E_Play.End, action);
+        ActionManager.instance.AddAction((E_ActionScene.Play, E_ActionList.End), action);
 
         System.Action actions = () =>
         {
             spawnDelay.SetDelay(3, UI_GameOver.Create);
         };
-        PlayManager.instance.AddAction(E_Play.End, actions);
+        ActionManager.instance.AddAction((E_ActionScene.Play, E_ActionList.End), actions);
     }
 
     private void Update()
@@ -102,7 +102,7 @@ public class SpawnManager : Singleton<SpawnManager>
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            PlayManager.instance.SetAction(E_Play.End);
+            ActionManager.instance.SetAction((E_ActionScene.Play, E_ActionList.End));
         }
     }
 
@@ -182,7 +182,7 @@ public class SpawnManager : Singleton<SpawnManager>
         {
             return;
         }
-        PlayManager.instance.SetAction(E_Play.End);
+        ActionManager.instance.SetAction((E_ActionScene.Play, E_ActionList.End));
         SetisStart(false);
     }
 }

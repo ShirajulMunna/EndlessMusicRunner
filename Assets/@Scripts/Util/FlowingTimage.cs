@@ -12,8 +12,8 @@ public class FlowingImage : MonoBehaviour
 
     void Start()
     {
-        PlayManager.instance.AddAction(E_Play.Boss, () => isStop = true);
-        PlayManager.instance.AddAction(E_Play.Boss, () => material.SetFloat("_Speed", 0));
+        ActionManager.instance.AddAction((E_ActionScene.Play, E_ActionList.Boss), () => isStop = true);
+        ActionManager.instance.AddAction((E_ActionScene.Play, E_ActionList.Boss), () => material.SetFloat("_Speed", 0));
 
         material = Img_FlowingImage == null ? Sp_Spite.material : Img_FlowingImage.material;
     }

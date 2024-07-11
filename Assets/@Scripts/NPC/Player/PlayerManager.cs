@@ -10,10 +10,15 @@ public class PlayerManager : Singleton<PlayerManager>
     float ClearDleay = 1f;
     System.Action Ac_Clear;
 
-    
+
     private void Start()
     {
-        PlayManager.instance.AddAction(E_Play.End, () =>
+        if (players == null || players.Length <= 0)
+        {
+            return;
+        }
+
+        ActionManager.instance.AddAction((E_ActionScene.Play, E_ActionList.End), () =>
         {
             players[0].KeyReset();
             players[1].KeyReset();
@@ -81,7 +86,7 @@ public class PlayerManager : Singleton<PlayerManager>
         isDie = true;
         players[0].SetDie();
         players[1].SetDie();
-        PlayManager.instance.SetAction(E_Play.End);
+        ActionManager.instance.SetAction((E_ActionScene.Play, E_ActionList.End));
     }
 
 

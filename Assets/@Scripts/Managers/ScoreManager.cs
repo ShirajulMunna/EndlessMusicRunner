@@ -10,7 +10,7 @@ public class ScoreManager : Singleton<ScoreManager>
     }
 
     public int CurrentScore;
-    public int BestScore;
+    public Dictionary<int, int> D_BestScore = new Dictionary<int, int>();
     public int CurrentCombo;
     public int BestCombo;
     public Dictionary<E_ScoreState, int> D_SocreState = new Dictionary<E_ScoreState, int>();
@@ -93,17 +93,24 @@ public class ScoreManager : Singleton<ScoreManager>
     //이전 최고 점수 가져오기
     public int GetBestScore()
     {
-        return BestScore;
+        D_BestScore.TryGetValue(UI_Lobby.BitIdx, out var data);
+        return data;
     }
 
     //최고 점수 바꾸기
     public bool SetBestScore()
     {
-        if (CurrentScore < BestScore)
+        var check = D_BestScore.TryGetValue(UI_Lobby.BitIdx, out var data);
+        if (!check)
+        {
+            D_BestScore.Add(UI_Lobby.BitIdx, 0);
+        }
+
+        if (CurrentScore < data)
         {
             return false;
         }
-        BestScore = CurrentScore;
+        D_BestScore[UI_Lobby.BitIdx] = CurrentScore;
         return true;
     }
 

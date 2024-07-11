@@ -65,7 +65,7 @@ public class Player : NPC
         {
             SetBoss();
         };
-        PlayManager.instance.AddAction(E_Play.Boss, action);
+        ActionManager.instance.AddAction((E_ActionScene.Play, E_ActionList.Boss), action);
     }
 
     void SetBoss()

@@ -48,7 +48,7 @@ public class UI_Play : Singleton<UI_Play>
     {
         ScoreManager.instance.ScoreReset();
         Key_Explain.SetActive(activate);
-        PlayManager.instance.SetAction(E_Play.Play);
+        ActionManager.instance.SetAction((E_ActionScene.Play, E_ActionList.Play));
         PlayerManager.instance.SetUp();
         StartCoroutine(DeactivatePanel());
         SetPlaying();
@@ -56,7 +56,7 @@ public class UI_Play : Singleton<UI_Play>
 
     void SetPlaying()
     {
-        MaxAudioValue = AudioManager.instance.Audio_BackGround.clip.length;
+        MaxAudioValue = AudioManager.instance.GetbackAodioMaxLength();
         Img_Gage.fillAmount = 0;
     }
 
