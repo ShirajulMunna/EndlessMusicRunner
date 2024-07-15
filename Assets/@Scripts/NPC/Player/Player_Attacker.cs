@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player_Attacker : MonoBehaviour, IPlayerAttack
@@ -17,6 +18,19 @@ public class Player_Attacker : MonoBehaviour, IPlayerAttack
             return _nPC_Status;
         }
         set => _nPC_Status = value;
+    }
+
+    Player _player;
+    public Player player
+    {
+        get
+        {
+            if (_player == null)
+            {
+                _player = nPC as Player;
+            }
+            return _player;
+        }
     }
 
     Player_Effect _player_Effect;
@@ -50,6 +64,9 @@ public class Player_Attacker : MonoBehaviour, IPlayerAttack
     public Dictionary<E_MoveData, Vector3> Tr_AttackVector { get; set; } = IMovePoint.GetPoint();
     const float XVlaue = -11;
 
+    /// <summary>
+    /// 위치
+    /// </summary>
     Vector3 GetPoint(E_MoveData e_MoveData)
     {
         if (!Tr_AttackVector.ContainsKey(e_MoveData))
@@ -62,6 +79,25 @@ public class Player_Attacker : MonoBehaviour, IPlayerAttack
         return pos;
     }
 
+    /// <summary>
+    /// 예외 처리 공격
+    /// </summary>
+    Vector3 GetPoint(NPC nPc)
+    {
+        if (nPc as Bosst)
+        {
+            var ishigt = this.player.CheckHigt();
+            var bosspos = ishigt ? E_MoveData.Higt_Middle : E_MoveData.Low_Middle;
+            return GetPoint(bosspos);
+        }
+
+        var pos = nPc.nPC_Move.GetMoveData();
+        return GetPoint(pos);
+    }
+
+    /// <summary>
+    /// 공격 함수
+    /// </summary>
     public void SetAttack(E_MoveData idx)
     {
         var result = SetAttack_Area(idx);
@@ -82,7 +118,7 @@ public class Player_Attacker : MonoBehaviour, IPlayerAttack
         ScoreManager.instance.SetCurrentScore(1);
         ScoreManager.instance.SetCombo_Add();
         AudioManager.instance.PlaySound(result.Item2);
-        player_Effect.SetEffect(GetPoint(target.nPC_Move.GetMoveData()), result.Item2);
+        player_Effect.SetEffect(GetPoint(target), result.Item2);
     }
 
     /// <summary>
@@ -109,6 +145,9 @@ public class Player_Attacker : MonoBehaviour, IPlayerAttack
         return true;
     }
 
+    /// <summary>
+    /// 영역 확인
+    /// </summary>
     public (Collider2D[], ScoreManager.E_ScoreState) SetAttack_Area(E_MoveData idx)
     {
         GameLog.Log($"위치값: {GetPoint(idx)} /방향: {idx}");
@@ -171,6 +210,9 @@ public class Player_Attacker : MonoBehaviour, IPlayerAttack
         isTwin = state;
     }
 
+    /// <summary>
+    /// 이중 공격
+    /// </summary>
     public bool CheckTwin()
     {
         return isTwin;

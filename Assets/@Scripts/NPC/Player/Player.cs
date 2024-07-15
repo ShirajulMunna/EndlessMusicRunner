@@ -51,6 +51,25 @@ public class Player : NPC
     bool isHigt;
 
     public System.Action Ac_Hit;
+    public Player_Ani GetAni_npc()
+    {
+        return player_Ani;
+    }
+
+    public Player_Attacker GetAttacker_npc()
+    {
+        return player_Attacker;
+    }
+
+    public NPC Getnpc()
+    {
+        return this;
+    }
+
+    public bool CheckHigt()
+    {
+        return isHigt;
+    }
 
     private void Update()
     {
@@ -121,20 +140,6 @@ public class Player : NPC
         return before == data;
     }
 
-    public Player_Ani GetAni_npc()
-    {
-        return player_Ani;
-    }
-
-    public Player_Attacker GetAttacker_npc()
-    {
-        return player_Attacker;
-    }
-
-    public NPC Getnpc()
-    {
-        return this;
-    }
 
     /// <summary>
     /// 트윈 온
@@ -173,7 +178,7 @@ public class Player : NPC
             SetMiddle();
         }
 
-        DamageEffect.Create(point);
+        DamageEffect.Create(GetAttackPoint());
         GameLog.Log($"공격력{nPC_Status.GetDamage()} / HP{target.nPC_Status.GetHp()}");
     }
 
@@ -233,5 +238,13 @@ public class Player : NPC
         var max = nPC_Status.MaxHp;
         var cur = nPC_Status.GetHp();
         UI_Play.instance.SetHp(max, cur);
+    }
+
+    /// <summary>
+    /// 공격 포인트
+    /// </summary>
+    E_MoveData GetAttackPoint()
+    {
+        return isHigt ? E_MoveData.Higt_Middle : E_MoveData.Low_Middle;
     }
 }
